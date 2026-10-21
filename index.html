@@ -8,7 +8,7 @@
     <!-- Primary SEO Meta Tags -->
     <title>BUGrock Launcher | Modern Minecraft Bedrock Edition Launcher for Windows</title>
     <meta name="title" content="BUGrock Launcher | Modern Minecraft Bedrock Edition Launcher for Windows" />
-    <meta name="description" content="Official website for BUGrock Launcher. The premier open-source Minecraft: Bedrock Edition launcher for Windows 10 & 11 with GDK (.msixvc), legacy UWP (.appx), custom install directories, and intelligent world protection." />
+    <meta name="description" content="Official website for BUGrock Launcher. The premier open-source Minecraft: Bedrock Edition launcher for Windows 10 & 11 with GDK (.msixvc), legacy UWP (.appx), offline package sideloading, and safe world preservation." />
     <meta name="keywords" content="BUGrock Launcher, Minecraft Bedrock Launcher, Bedrock version switcher, GDK msixvc, UWP appx minecraft, Bedrock multi version, Minecraft Windows 10 launcher, Minecraft Windows 11 launcher, Bedrock world preservation, Bedrock world conflict detector, open source minecraft launcher" />
     <meta name="author" content="7AmoZ" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://7amoz.github.io/BUGrock-Launcher/" />
     <meta property="og:title" content="BUGrock Launcher — The Premier Minecraft Bedrock Launcher" />
-    <meta property="og:description" content="Switch versions side-by-side, launch GDK & UWP packages, set custom install paths, and protect your world saves across version switches. 100% Free & Open Source." />
+    <meta property="og:description" content="Switch versions side-by-side, launch GDK & UWP packages, sideload offline builds, and protect your world saves across version switches. 100% Free & Open Source." />
     <meta property="og:image" content="./assets/bugrock_logo.png" />
     <meta property="og:site_name" content="BUGrock Launcher" />
 
@@ -57,7 +57,7 @@
           "name": "BUGrock Launcher",
           "operatingSystem": "Windows 10, Windows 11 (64-bit)",
           "applicationCategory": "GameApplication, UtilityApplication",
-          "description": "A modern, open-source custom launcher for Minecraft: Bedrock Edition on Windows 10 & 11 supporting side-by-side version installations, modern GDK (.msixvc), legacy UWP (.appx), custom installation directories, and intelligent world preservation during package switching.",
+          "description": "A modern, open-source custom launcher for Minecraft: Bedrock Edition on Windows 10 & 11 supporting side-by-side version installations, modern GDK (.msixvc), legacy UWP (.appx), offline package sideloading, and intelligent world preservation during package switching.",
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -227,7 +227,7 @@
 
               <!-- Hero Subtitle -->
               <p class="text-base sm:text-lg text-[#8E92A4] max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                Take full control of your Minecraft: Bedrock Edition experience. Run multiple versions side-by-side, import <strong>.msixvc</strong> &amp; <strong>.appx</strong> packages, set custom install paths, and protect your worlds from Windows deletion during version changes.
+                Take full control of your Minecraft: Bedrock Edition experience. Run multiple versions side-by-side, sideload offline <strong>.msixvc</strong> &amp; <strong>.appx</strong> packages, and protect your worlds from Windows deletion during version changes.
               </p>
 
               <!-- Action Buttons -->
@@ -561,14 +561,14 @@
               </p>
             </div>
 
-            <!-- Feature 3: Custom Installation Paths -->
+            <!-- Feature 3: Local Package Sideloading -->
             <div class="card-launcher rounded-xl p-6 space-y-4">
               <div class="w-12 h-12 rounded-lg bg-[#38A169]/15 border border-[#38A169]/30 flex items-center justify-center text-[#38A169]">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
               </div>
-              <h4 class="text-lg font-bold text-white">Custom Installation Directories</h4>
+              <h4 class="text-lg font-bold text-white">Offline Package Sideloading</h4>
               <p class="text-xs sm:text-sm text-[#8E92A4] leading-relaxed">
-                Choose separate install directories per version. Route builds across secondary SSDs or HDDs without cluttering your system partition.
+                Import local <code>.msixvc</code> and <code>.appx</code> packages directly from your drive. Play archived updates offline without re-downloading from store servers.
               </p>
             </div>
 
@@ -588,9 +588,9 @@
               <div class="w-12 h-12 rounded-lg bg-[#38A169]/15 border border-[#38A169]/30 flex items-center justify-center text-[#38A169]">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
-              <h4 class="text-lg font-bold text-white">Instant Switcher &amp; Speed Meter</h4>
+              <h4 class="text-lg font-bold text-white">Instant 1-Click Version Switcher</h4>
               <p class="text-xs sm:text-sm text-[#8E92A4] leading-relaxed">
-                1-Click switching on the main tab. Live download speed meter (MB/s / KB/s) with real-time cancelable downloads.
+                Switch between your installed Release, Preview, and Beta versions right from the main Play dashboard with immediate package registration.
               </p>
             </div>
 
@@ -714,9 +714,9 @@
                   <td class="p-4 text-[#48BB78] font-bold">&check; Native staging &amp; decryption</td>
                 </tr>
                 <tr class="hover:bg-[#181921]/60">
-                  <td class="p-4 font-semibold text-white">Custom Install Paths per Version</td>
-                  <td class="p-4 text-[#E53E3E]">&times; Restricted to default system path</td>
-                  <td class="p-4 text-[#48BB78] font-bold">&check; Full custom drive routing</td>
+                  <td class="p-4 font-semibold text-white">GDK Decryption Verification</td>
+                  <td class="p-4 text-[#E53E3E]">&times; Prone to Store token encryption locks</td>
+                  <td class="p-4 text-[#48BB78] font-bold">&check; Automatic background license &amp; PE check</td>
                 </tr>
                 <tr class="hover:bg-[#181921]/60">
                   <td class="p-4 font-semibold text-white">Local Package (.appx/.msixvc) Import</td>
