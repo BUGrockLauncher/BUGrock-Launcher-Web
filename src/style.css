@@ -6,80 +6,106 @@
     color-scheme: dark;
   }
   body {
-    background-color: #0b0f17;
-    color: #e2e8f0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0F1015;
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     overflow-x: hidden;
   }
 }
 
-/* Custom glow and backdrop effects */
-.glow-emerald {
-  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.4);
+/* Custom Launcher Color Tokens */
+:root {
+  --bg-primary: #0F1015;
+  --bg-secondary: #13141A;
+  --bg-card: #181921;
+  --bg-card-hover: #21222D;
+  --border-subtle: #232530;
+  --border-elevated: #282A36;
+  --accent-green: #38A169;
+  --accent-green-hover: #48BB78;
+  --accent-green-dark: #276749;
+  --accent-magenta: #D05CE3;
+  --text-primary: #FFFFFF;
+  --text-muted: #8E92A4;
+  --text-subtle: #606478;
+  --recessed-bg: #0B0C0F;
 }
 
-.glow-cyan {
-  box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.4);
+/* Launcher Play Button (3D Pixel Style matching WPF Launcher) */
+.btn-bugrock-play {
+  background-color: #38A169;
+  color: #FFFFFF;
+  border-bottom: 3.5px solid #276749;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(56, 161, 105, 0.35);
+  transition: all 0.15s ease-in-out;
 }
 
-.glow-purple {
-  box-shadow: 0 0 50px -10px rgba(168, 85, 247, 0.35);
+.btn-bugrock-play:hover {
+  background-color: #48BB78;
+  box-shadow: 0 6px 24px rgba(72, 187, 120, 0.45);
+  transform: translateY(-1px);
 }
 
-.card-glass {
-  background: rgba(18, 24, 38, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.btn-bugrock-play:active {
+  background-color: #276749;
+  border-bottom-width: 0px;
+  border-top-width: 3.5px;
+  border-top-color: transparent;
+  transform: translateY(2px);
 }
 
-.card-glass:hover {
-  border-color: rgba(52, 211, 153, 0.4);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+/* Secondary Button */
+.btn-bugrock-secondary {
+  background-color: #1C1E2A;
+  color: #FFFFFF;
+  border: 1px solid #323548;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
-/* Grid pattern */
-.bg-grid {
+.btn-bugrock-secondary:hover {
+  background-color: #282B3C;
+  border-color: #48BB78;
+  color: #FFFFFF;
+}
+
+/* Launcher Cards */
+.card-launcher {
+  background-color: #181921;
+  border: 1px solid #232530;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-launcher:hover {
+  background-color: #21222D;
+  border-color: rgba(72, 187, 120, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.65);
+}
+
+/* Glow effects matching Launcher */
+.glow-launcher-green {
+  box-shadow: 0 0 50px -12px rgba(56, 161, 105, 0.45);
+}
+
+.glow-launcher-magenta {
+  box-shadow: 0 0 50px -12px rgba(208, 92, 227, 0.35);
+}
+
+/* Ambient Bedrock grid */
+.bg-bedrock-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(142, 146, 164, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(142, 146, 164, 0.04) 1px, transparent 1px);
 }
 
-/* Animation utilities */
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(0.5deg);
-  }
-}
-
-@keyframes pulseSubtle {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 0.9;
-  }
-}
-
-.animate-float {
-  animation: floatSlow 5s ease-in-out infinite;
-}
-
-.animate-pulse-subtle {
-  animation: pulseSubtle 3s ease-in-out infinite;
-}
-
-/* Reveal on scroll styling */
+/* Reveal animations */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -88,25 +114,31 @@
   transform: translateY(0);
 }
 
-/* Custom scrollbar */
+/* Custom Scrollbar matching Launcher App.xaml */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0f17;
+  background: #0B0C0F;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 5px;
+  background: #282A3A;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #10b981;
+  background: #3E425B;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #38A169;
 }
 
-/* Code snippet badge */
-.terminal-block {
-  background: #080c14;
-  border: 1px solid #1e293b;
-  border-radius: 8px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+/* Lightbox Modal Animation */
+#lightbox-modal.active {
+  display: flex !important;
+}
+
+/* Video modal transitions */
+#video-modal.active {
+  display: flex !important;
 }
