@@ -9,7 +9,7 @@
     <title>BUGrock Launcher | Modern Minecraft Bedrock Edition Launcher for Windows</title>
     <meta name="title" content="BUGrock Launcher | Modern Minecraft Bedrock Edition Launcher for Windows" />
     <meta name="description" content="Official website for BUGrock Launcher. The premier open-source Minecraft: Bedrock Edition launcher for Windows 10 & 11 with GDK (.msixvc), legacy UWP (.appx), 3D skin viewer, and intelligent world protection." />
-    <meta name="keywords" content="BUGrock Launcher, Minecraft Bedrock Launcher, Bedrock version switcher, GDK msixvc, UWP appx minecraft, Bedrock multi version, Minecraft Windows 10 launcher, Minecraft Windows 11 launcher, Bedrock world backup, open source minecraft launcher" />
+    <meta name="keywords" content="BUGrock Launcher, Minecraft Bedrock Launcher, Bedrock version switcher, GDK msixvc, UWP appx minecraft, Bedrock multi version, Minecraft Windows 10 launcher, Minecraft Windows 11 launcher, Bedrock world preservation, Bedrock world conflict detector, open source minecraft launcher" />
     <meta name="author" content="7AmoZ" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="https://7amoz.github.io/BUGrock-Launcher/" />
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://7amoz.github.io/BUGrock-Launcher/" />
     <meta property="og:title" content="BUGrock Launcher — The Premier Minecraft Bedrock Launcher" />
-    <meta property="og:description" content="Switch versions side-by-side, launch GDK & UWP packages, preview 3D skins, and safeguard your worlds. 100% Free & Open Source." />
+    <meta property="og:description" content="Switch versions side-by-side, launch GDK & UWP packages, preview 3D skins, and protect your world saves across version switches. 100% Free & Open Source." />
     <meta property="og:image" content="./assets/bugrock_logo.png" />
     <meta property="og:site_name" content="BUGrock Launcher" />
 
@@ -57,7 +57,7 @@
           "name": "BUGrock Launcher",
           "operatingSystem": "Windows 10, Windows 11 (64-bit)",
           "applicationCategory": "GameApplication, UtilityApplication",
-          "description": "A modern, open-source custom launcher for Minecraft: Bedrock Edition on Windows 10 & 11 supporting side-by-side version installations, modern GDK (.msixvc), legacy UWP (.appx), interactive 3D skin preview, and intelligent world backup migration.",
+          "description": "A modern, open-source custom launcher for Minecraft: Bedrock Edition on Windows 10 & 11 supporting side-by-side version installations, modern GDK (.msixvc), legacy UWP (.appx), interactive 3D skin preview, and intelligent world preservation during package switching.",
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -227,7 +227,7 @@
 
               <!-- Hero Subtitle -->
               <p class="text-base sm:text-lg text-[#8E92A4] max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                Take full control of your Minecraft: Bedrock Edition experience. Run multiple versions side-by-side, import <strong>.msixvc</strong> &amp; <strong>.appx</strong> packages, preview skins in real-time 3D, and safeguard your worlds with automated migration.
+                Take full control of your Minecraft: Bedrock Edition experience. Run multiple versions side-by-side, import <strong>.msixvc</strong> &amp; <strong>.appx</strong> packages, preview skins in real-time 3D, and protect your worlds from Windows deletion during version changes.
               </p>
 
               <!-- Action Buttons -->
@@ -572,14 +572,14 @@
               </p>
             </div>
 
-            <!-- Feature 4: Smart World Migration -->
+            <!-- Feature 4: World Preservation & Conflict Alert -->
             <div class="card-launcher rounded-xl p-6 space-y-4">
               <div class="w-12 h-12 rounded-lg bg-[#D05CE3]/15 border border-[#D05CE3]/30 flex items-center justify-center text-[#D05CE3]">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7zm4 4h8m-8 4h5"></path></svg>
               </div>
-              <h4 class="text-lg font-bold text-white">Smart World Migration</h4>
+              <h4 class="text-lg font-bold text-white">World Preservation &amp; Conflict Alert</h4>
               <p class="text-xs sm:text-sm text-[#8E92A4] leading-relaxed">
-                Detects differences between legacy UWP LocalState and modern GDK Users directories, preventing world overwrites with automatic backups.
+                Safeguards your saves from being wiped by Windows when uninstalling UWP packages via temporary safe-holding, and alerts you if worlds exist across both UWP and GDK directories with an interactive conflict dialog.
               </p>
             </div>
 
@@ -724,9 +724,9 @@
                   <td class="p-4 text-[#48BB78] font-bold">&check; 1-Click offline import</td>
                 </tr>
                 <tr class="hover:bg-[#181921]/60">
-                  <td class="p-4 font-semibold text-white">Smart World Conflict Migration</td>
-                  <td class="p-4 text-[#E53E3E]">&times; Risk of world overwriting</td>
-                  <td class="p-4 text-[#48BB78] font-bold">&check; Automated backup &amp; sync</td>
+                  <td class="p-4 font-semibold text-white">World Save Retention on Switch</td>
+                  <td class="p-4 text-[#E53E3E]">&times; Windows wipes LocalState on uninstall</td>
+                  <td class="p-4 text-[#48BB78] font-bold">&check; Automatic safe-holding &amp; conflict dialog</td>
                 </tr>
                 <tr class="hover:bg-[#181921]/60">
                   <td class="p-4 font-semibold text-white">Open Source &amp; Telemetry Free</td>
