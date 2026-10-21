@@ -1,0 +1,28 @@
+{
+  "name": "bugrock-launcher-web",
+  "version": "1.0.0",
+  "description": "Official website for BUGrock Launcher - The ultimate custom Minecraft Bedrock Edition launcher for Windows",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "launcher",
+    "bugrock",
+    "gdk",
+    "uwp",
+    "windows-11",
+    "windows-10"
+  ],
+  "author": "7AmoZ",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}

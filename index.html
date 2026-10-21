@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>BUGrock Launcher | Modern Minecraft Bedrock Edition Launcher for Windows</title>
+    <meta name="title" content="BUGrock Launcher | Modern Minecraft Bedrock Edition Launcher for Windows" />
+    <meta name="description" content="BUGrock Launcher is the modern, open-source Minecraft: Bedrock Edition launcher for Windows 10 & 11. Run multiple versions side-by-side, manage modern GDK (.msixvc) and legacy UWP (.appx) builds, enjoy real-time 3D skin previews, and migrate worlds safely." />
+    <meta name="keywords" content="BUGrock Launcher, Minecraft Bedrock Launcher, Minecraft Bedrock version switcher, GDK msixvc launcher, UWP appx minecraft, Bedrock multi version, Minecraft Windows 10 launcher, Minecraft Windows 11 launcher, Bedrock world migration, open source minecraft launcher" />
+    <meta name="author" content="7AmoZ" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://7amoz.github.io/BUGrock-Launcher/" />
+
+    <!-- GEO & Localization Targeting (GEO Optimization) -->
+    <meta name="geo.region" content="GLOBAL" />
+    <meta name="geo.placename" content="Worldwide" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="distribution" content="Global" />
+    <meta name="target" content="all" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://7amoz.github.io/BUGrock-Launcher/" />
+    <meta property="og:title" content="BUGrock Launcher — The Ultimate Minecraft Bedrock Edition Launcher" />
+    <meta property="og:description" content="Experience complete freedom in Minecraft Bedrock. Switch versions side-by-side, launch GDK & UWP packages, and keep your worlds protected." />
+    <meta property="og:image" content="./assets/bugrock_logo.png" />
+    <meta property="og:site_name" content="BUGrock Launcher" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://7amoz.github.io/BUGrock-Launcher/" />
+    <meta property="twitter:title" content="BUGrock Launcher — Custom Bedrock Launcher for Windows" />
+    <meta property="twitter:description" content="Fast, open-source launcher for Minecraft: Bedrock Edition with GDK & UWP support and 3D skin viewer." />
+    <meta property="twitter:image" content="./assets/bugrock_logo.png" />
+
+    <!-- Theme & Favicons -->
+    <meta name="theme-color" content="#0b0f17" />
+    <link rel="icon" type="image/x-icon" href="./assets/bugrock.ico" />
+    <link rel="apple-touch-icon" href="./assets/bugrock_block.png" />
+
+    <!-- Preload Fonts & Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./src/style.css" />
+
+    <!-- Structured Data (JSON-LD) for Search Engines & Generative AI (GEO / SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://7amoz.github.io/BUGrock-Launcher/#software",
+          "name": "BUGrock Launcher",
+          "alternateName": "BUGrock Bedrock Launcher",
+          "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+          "applicationCategory": "GameApplication, UtilityApplication",
+          "applicationSubCategory": "Minecraft Bedrock Edition Custom Launcher",
+          "description": "A modern, open-source custom launcher for Minecraft: Bedrock Edition on Windows 10 & 11 supporting side-by-side version installations, modern GDK (.msixvc), legacy UWP (.appx), interactive 3D skin preview, and intelligent world backup migration.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "softwareVersion": "1.0.0",
+          "author": {
+            "@type": "Person",
+            "name": "7AmoZ",
+            "url": "https://github.com/7AmoZ"
+          },
+          "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+          "downloadUrl": "https://github.com/7AmoZ/BUGrock-Launcher/releases/latest/download/BUGrock_Launcher_v1.0.0_win-x64.zip",
+          "screenshot": "https://7amoz.github.io/BUGrock-Launcher/assets/launcher_hero.png",
+          "requirements": ".NET 8.0 Desktop Runtime (x64), Visual C++ 2015-2022 x64, DirectX 11 GPU, Windows Developer Mode enabled"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://7amoz.github.io/BUGrock-Launcher/#website",
+          "url": "https://7amoz.github.io/BUGrock-Launcher/",
+          "name": "BUGrock Launcher Official Site",
+          "description": "Download and documentation portal for BUGrock Launcher for Minecraft Bedrock Edition.",
+          "publisher": {
+            "@type": "Person",
+            "name": "7AmoZ"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://7amoz.github.io/BUGrock-Launcher/#faq-schema",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is BUGrock Launcher?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BUGrock Launcher is an open-source, feature-packed launcher specifically designed for Minecraft: Bedrock Edition on Windows 10 and 11. It allows players to install, manage, and instantly switch between multiple versions (Release, Preview, and Beta) side-by-side without world loss."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does BUGrock Launcher support modern GDK versions (1.21+)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! BUGrock Launcher features full support for modern GDK (.msixvc) versions alongside legacy UWP (.appx) versions, complete with automatic decryption key checking and manifest patching."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is BUGrock Launcher free and open source?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, BUGrock Launcher is 100% free and open-source software licensed under the GNU General Public License v3.0 (GPL-3.0). The full source code is publicly accessible on GitHub."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What system runtimes are required to use BUGrock Launcher?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You need a 64-bit Windows 10 or 11 system with .NET 8.0 Desktop Runtime (x64), Microsoft Visual C++ 2015–2022 Redistributable (x64), a DirectX 11 compatible graphics card, and Windows Developer Mode toggled ON."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does BUGrock Launcher protect my Minecraft worlds?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BUGrock Launcher includes a Smart World Backup & Migration engine that automatically detects and resolves conflicts between UWP (LocalState) and GDK directories, preventing accidental world overwrites."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#0b0f17] text-slate-200 antialiased selection:bg-emerald-500 selection:text-white">
+    <!-- Background Ambient Glows & Grid -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0 opacity-40"></div>
+    <div class="fixed -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-emerald-500/15 blur-[140px] rounded-full pointer-events-none z-0"></div>
+    <div class="fixed top-1/3 -right-40 w-[500px] h-[500px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+    <div class="fixed bottom-10 -left-40 w-[600px] h-[500px] bg-purple-600/10 blur-[160px] rounded-full pointer-events-none z-0"></div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0b0f17]/80 border-b border-slate-800/80 transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Logo & Title -->
+        <a href="#" class="flex items-center gap-3 group" aria-label="BUGrock Launcher Home">
+          <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 p-[2px] transition-transform duration-300 group-hover:scale-105 shadow-lg shadow-emerald-500/20">
+            <div class="w-full h-full bg-[#0d1422] rounded-[10px] flex items-center justify-center overflow-hidden">
+              <img src="./assets/bugrock_logo.png" alt="BUGrock Launcher Icon" class="w-9 h-9 object-contain" width="36" height="36" loading="eager" />
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">
+              BUGrock <span class="text-emerald-400 font-extrabold">Launcher</span>
+            </span>
+            <span class="text-[10px] text-slate-400 font-medium tracking-wider uppercase">Bedrock Edition</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#features" class="hover:text-emerald-400 transition-colors">Features</a>
+          <a href="#requirements" class="hover:text-emerald-400 transition-colors">Requirements</a>
+          <a href="#comparison" class="hover:text-emerald-400 transition-colors">Comparison</a>
+          <a href="#setup" class="hover:text-emerald-400 transition-colors">Setup Guide</a>
+          <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+        </nav>
+
+        <!-- CTA & GitHub Buttons -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a
+            href="https://github.com/7AmoZ/BUGrock-Launcher"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 rounded-lg transition-all"
+            aria-label="View BUGrock Launcher repository on GitHub"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a
+            href="#download"
+            class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-lg shadow-md shadow-emerald-500/20 transition-all font-sans"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            <span>Download v1.0.0</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Hamburger -->
+        <button
+          id="mobile-menu-toggle"
+          class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-[#0b0f17]/95 px-4 pt-4 pb-6 space-y-3">
+        <a href="#features" class="block text-slate-300 hover:text-emerald-400 font-medium py-2">Features</a>
+        <a href="#requirements" class="block text-slate-300 hover:text-emerald-400 font-medium py-2">Requirements</a>
+        <a href="#comparison" class="block text-slate-300 hover:text-emerald-400 font-medium py-2">Comparison</a>
+        <a href="#setup" class="block text-slate-300 hover:text-emerald-400 font-medium py-2">Setup Guide</a>
+        <a href="#faq" class="block text-slate-300 hover:text-emerald-400 font-medium py-2">FAQ</a>
+        <div class="pt-2 flex flex-col gap-2">
+          <a
+            href="https://github.com/7AmoZ/BUGrock-Launcher/releases/latest"
+            class="text-center py-2.5 px-4 rounded-lg bg-emerald-400 text-slate-950 font-bold text-sm shadow-md"
+          >
+            Download BUGrock Launcher
+          </a>
+          <a
+            href="https://github.com/7AmoZ/BUGrock-Launcher"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-center py-2 px-4 rounded-lg bg-slate-800 text-slate-200 font-medium text-sm border border-slate-700"
+          >
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10">
+
+      <!-- HERO SECTION -->
+      <section class="pt-16 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+              <!-- Version & Status Pill -->
+              <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold tracking-wide shadow-inner">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>BUGrock Launcher v1.0.0 Stable</span>
+                <span class="text-slate-500">•</span>
+                <span class="text-slate-400">Windows 10 & 11 x64</span>
+              </div>
+
+              <!-- Main Hero Headline -->
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+                Switch Any <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Bedrock</span> Version In One Click.
+              </h1>
+
+              <!-- Hero Subtitle -->
+              <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                The ultimate open-source launcher for <strong>Minecraft: Bedrock Edition</strong>. Run Release, Preview, and Beta versions side-by-side with full <strong>GDK (.msixvc)</strong> &amp; legacy <strong>UWP (.appx)</strong> support, interactive 3D skin previews, and automated world protection.
+              </p>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                <a
+                  id="download"
+                  href="https://github.com/7AmoZ/BUGrock-Launcher/releases/latest/download/BUGrock_Launcher_v1.0.0_win-x64.zip"
+                  class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold text-base shadow-xl shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  <svg class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                  <span>Download for Windows x64</span>
+                </a>
+
+                <a
+                  href="#requirements"
+                  class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm transition-all"
+                >
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>System Checklist</span>
+                </a>
+              </div>
+
+              <!-- Quick Meta Info Pills -->
+              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 font-medium pt-2">
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span>100% Free &amp; GPL-3.0</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span>No Store Redirection Lag</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span>Safe World Migration</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Hero Graphic / Mockup -->
+            <div class="lg:col-span-5 relative">
+              <div class="relative mx-auto max-w-md lg:max-w-none">
+                <!-- Glowing ambient halo -->
+                <div class="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 animate-pulse-subtle"></div>
+
+                <!-- Main Card Container -->
+                <div class="relative rounded-2xl bg-[#121927] border border-slate-700/80 shadow-2xl overflow-hidden card-glass">
+                  <!-- Mockup Window Bar -->
+                  <div class="flex items-center justify-between px-4 py-3 bg-[#0d1422] border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                      <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                      <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                      <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                      <span class="ml-2 text-xs font-mono text-slate-400">BUGrock Launcher v1.0.0</span>
+                    </div>
+                    <span class="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                      Ready
+                    </span>
+                  </div>
+
+                  <!-- Mockup Hero Image -->
+                  <div class="p-4 sm:p-6 bg-gradient-to-b from-slate-900/60 to-[#0d131f] space-y-4">
+                    <div class="relative rounded-xl overflow-hidden border border-slate-700/60 group">
+                      <img
+                        src="./assets/launcher_hero.png"
+                        alt="BUGrock Launcher Interface Preview"
+                        class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-102"
+                        loading="eager"
+                        width="600"
+                        height="340"
+                      />
+                      <!-- Overlay Badge -->
+                      <div class="absolute bottom-3 left-3 px-3 py-1.5 rounded-lg bg-[#0b0f17]/85 backdrop-blur-md border border-slate-700/80 flex items-center gap-2">
+                        <img src="./assets/bugrock_logo.png" alt="Logo" class="w-4 h-4 object-contain" />
+                        <span class="text-xs font-bold text-white">Instant Switcher Enabled</span>
+                      </div>
+                    </div>
+
+                    <!-- Floating Status Badges -->
+                    <div class="grid grid-cols-2 gap-3 pt-2">
+                      <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-md bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div>
+                          <div class="text-[11px] text-slate-400 uppercase font-semibold">Decryption Key</div>
+                          <div class="text-xs font-bold text-slate-200">Auto-Resolved</div>
+                        </div>
+                      </div>
+
+                      <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/50 flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-md bg-cyan-500/20 flex items-center justify-center text-cyan-400">
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <div>
+                          <div class="text-[11px] text-slate-400 uppercase font-semibold">World Engine</div>
+                          <div class="text-xs font-bold text-slate-200">Conflict Protected</div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS / HIGHLIGHTS BAR -->
+      <section class="border-y border-slate-800/80 bg-[#0d131f]/70 py-8 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400">0.00$</div>
+              <div class="text-xs sm:text-sm font-medium text-slate-400">100% Free &amp; Open Source</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400">GDK + UWP</div>
+              <div class="text-xs sm:text-sm font-medium text-slate-400">Dual Architecture Support</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-extrabold text-teal-400">1-Click</div>
+              <div class="text-xs sm:text-sm font-medium text-slate-400">Instant Version Switching</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-extrabold text-purple-400">0% Telemetry</div>
+              <div class="text-xs sm:text-sm font-medium text-slate-400">No Tracking or Spyware</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY FEATURES SECTION -->
+      <section id="features" class="py-24 sm:py-32 reveal-on-scroll">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 class="text-xs font-extrabold uppercase tracking-widest text-emerald-400">Engineered For Performance</h2>
+            <h3 class="text-3xl sm:text-4xl font-black text-white tracking-tight">Everything You Need To Master Bedrock</h3>
+            <p class="text-base sm:text-lg text-slate-400">
+              Unlike the standard Microsoft Store launcher, BUGrock Launcher provides low-level control, version decoupling, and custom package staging.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Feature 1 -->
+            <div class="card-glass rounded-2xl p-7 space-y-4 border border-slate-800">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-white">Side-by-Side Installations</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Install as many Release, Preview, and Beta versions as your drive can hold. Play old updates with friends or test experimental 1.21+ features without overwriting existing files.
+              </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="card-glass rounded-2xl p-7 space-y-4 border border-slate-800">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-white">GDK (.msixvc) &amp; UWP (.appx) Support</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Full staging, extraction, and manifest patching for modern GDK versions. Automatic background decryption key verification so you never get stuck on encryption errors.
+              </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="card-glass rounded-2xl p-7 space-y-4 border border-slate-800">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-white">Interactive 3D Skin Viewer</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Built-in 3D viewport right in the launcher sidebar! The character head dynamically tracks your cursor, with live upload support for custom PNG skins and Steve/Alex presets.
+              </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="card-glass rounded-2xl p-7 space-y-4 border border-slate-800">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7zm4 4h8m-8 4h5"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-white">Smart World Migration</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Never lose a Minecraft world again. Automatically scans and synchronizes world folders across legacy UWP LocalState and modern GDK Users directories with conflict resolution.
+              </p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="card-glass rounded-2xl p-7 space-y-4 border border-slate-800">
+              <div class="w-12 h-12 rounded-xl bg-teal-500/15 border border-teal-500/30 flex items-center justify-center text-teal-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-white">Instant Switcher &amp; Live Meter</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Switch packages directly from the main Play tab. Real-time download speed monitoring in MB/s with live progress percentage and instantaneous cancelation support.
+              </p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="card-glass rounded-2xl p-7 space-y-4 border border-slate-800">
+              <div class="w-12 h-12 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-white">100% Transparent &amp; Secure</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                No third-party trackers, no adware, and no hidden telemetry. Written in clean C# (.NET 8.0) and MSVC C++ shims, compiled transparently under the GNU GPL-3.0 license.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SYSTEM REQUIREMENTS & PRE-FLIGHT CHECKLIST -->
+      <section id="requirements" class="py-20 bg-[#0d1422]/60 border-t border-slate-800/80 reveal-on-scroll">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <h2 class="text-xs font-extrabold uppercase tracking-widest text-emerald-400">Pre-flight Verification</h2>
+            <h3 class="text-3xl font-black text-white">System Requirements Checklist</h3>
+            <p class="text-sm sm:text-base text-slate-400">
+              Verify your Windows setup before launching to guarantee a smooth, error-free gaming experience.
+            </p>
+            <div class="pt-2">
+              <span id="req-counter" class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40">
+                0 / 6 Ready
+              </span>
+            </div>
+          </div>
+
+          <div class="card-glass rounded-2xl p-6 sm:p-8 space-y-5 border border-slate-700/80">
+            <!-- Checklist item 1 -->
+            <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800 cursor-pointer transition-all">
+              <input type="checkbox" class="req-checkbox mt-1 w-5 h-5 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-400 focus:ring-offset-0" />
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm sm:text-base font-bold text-white">.NET 8.0 Desktop Runtime (x64)</span>
+                  <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-400 hover:underline">Download &nearr;</a>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">Required to launch the WPF user interface and background version coordinator.</p>
+              </div>
+            </label>
+
+            <!-- Checklist item 2 -->
+            <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800 cursor-pointer transition-all">
+              <input type="checkbox" class="req-checkbox mt-1 w-5 h-5 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-400 focus:ring-offset-0" />
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm sm:text-base font-bold text-white">Visual C++ 2015–2022 Redistributable (x64)</span>
+                  <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-400 hover:underline">Download &nearr;</a>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">Required for native C++ shims, GDK decryption helper, and Bedrock engine hooks.</p>
+              </div>
+            </label>
+
+            <!-- Checklist item 3 -->
+            <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800 cursor-pointer transition-all">
+              <input type="checkbox" class="req-checkbox mt-1 w-5 h-5 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-400 focus:ring-offset-0" />
+              <div class="flex-1">
+                <span class="text-sm sm:text-base font-bold text-white">DirectX 11+ Compatible GPU</span>
+                <p class="text-xs text-slate-400 mt-1">GPU supporting DirectX 11 Feature Level 11_0 (Intel HD 4000+, NVIDIA GTX 400+, or AMD HD 7000+).</p>
+              </div>
+            </label>
+
+            <!-- Checklist item 4 -->
+            <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800 cursor-pointer transition-all">
+              <input type="checkbox" class="req-checkbox mt-1 w-5 h-5 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-400 focus:ring-offset-0" />
+              <div class="flex-1">
+                <span class="text-sm sm:text-base font-bold text-white">Windows Developer Mode: ON</span>
+                <p class="text-xs text-slate-400 mt-1">Open <code>Settings &rarr; Privacy &amp; security &rarr; For developers</code> and toggle Developer Mode to ON to permit sideloaded packages.</p>
+              </div>
+            </label>
+
+            <!-- Checklist item 5 -->
+            <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800 cursor-pointer transition-all">
+              <input type="checkbox" class="req-checkbox mt-1 w-5 h-5 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-400 focus:ring-offset-0" />
+              <div class="flex-1">
+                <span class="text-sm sm:text-base font-bold text-white">Short File Path Installation</span>
+                <p class="text-xs text-slate-400 mt-1">Extract the launcher to a short path such as <code>C:\BUGrock</code> to prevent Windows MAX_PATH (260-char) launch errors.</p>
+              </div>
+            </label>
+
+            <!-- Checklist item 6 -->
+            <label class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800 cursor-pointer transition-all">
+              <input type="checkbox" class="req-checkbox mt-1 w-5 h-5 rounded border-slate-700 bg-slate-800 text-emerald-500 focus:ring-emerald-400 focus:ring-offset-0" />
+              <div class="flex-1">
+                <span class="text-sm sm:text-base font-bold text-white">Essential Windows Services Active</span>
+                <p class="text-xs text-slate-400 mt-1">Confirm that <code>AppXSvc</code>, <code>ClipSvc</code>, and <code>GamingServices</code> are NOT disabled in <code>services.msc</code>.</p>
+              </div>
+            </label>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURE COMPARISON MATRIX -->
+      <section id="comparison" class="py-24 sm:py-32 reveal-on-scroll">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 class="text-xs font-extrabold uppercase tracking-widest text-emerald-400">Head To Head</h2>
+            <h3 class="text-3xl sm:text-4xl font-black text-white">Standard vs. BUGrock Launcher</h3>
+            <p class="text-base text-slate-400">
+              See why Bedrock modders, speedrunners, and version archivists prefer BUGrock Launcher.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto card-glass rounded-2xl border border-slate-800">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 bg-slate-900/60">
+                  <th class="p-5 text-sm font-bold text-white">Capability</th>
+                  <th class="p-5 text-sm font-bold text-slate-400">Default Microsoft Store</th>
+                  <th class="p-5 text-sm font-bold text-emerald-400">BUGrock Launcher</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 text-sm">
+                <tr class="hover:bg-slate-800/20">
+                  <td class="p-5 font-semibold text-slate-200">Side-by-side multiple versions</td>
+                  <td class="p-5 text-rose-400 flex items-center gap-2">&times; Overwrites on upgrade</td>
+                  <td class="p-5 text-emerald-400 font-bold">&check; Unlimited versions</td>
+                </tr>
+                <tr class="hover:bg-slate-800/20">
+                  <td class="p-5 font-semibold text-slate-200">GDK (.msixvc) &amp; UWP (.appx) support</td>
+                  <td class="p-5 text-slate-400">Store-only lock-in</td>
+                  <td class="p-5 text-emerald-400 font-bold">&check; Full dual architecture</td>
+                </tr>
+                <tr class="hover:bg-slate-800/20">
+                  <td class="p-5 font-semibold text-slate-200">Interactive 3D Skin Viewer</td>
+                  <td class="p-5 text-rose-400 flex items-center gap-2">&times; Static 2D preview</td>
+                  <td class="p-5 text-emerald-400 font-bold">&check; Interactive mouse tracking</td>
+                </tr>
+                <tr class="hover:bg-slate-800/20">
+                  <td class="p-5 font-semibold text-slate-200">Local package (.appx / .msixvc) import</td>
+                  <td class="p-5 text-rose-400 flex items-center gap-2">&times; Not supported</td>
+                  <td class="p-5 text-emerald-400 font-bold">&check; 1-Click offline import</td>
+                </tr>
+                <tr class="hover:bg-slate-800/20">
+                  <td class="p-5 font-semibold text-slate-200">Intelligent world conflict migration</td>
+                  <td class="p-5 text-rose-400 flex items-center gap-2">&times; High risk of overwrite</td>
+                  <td class="p-5 text-emerald-400 font-bold">&check; Automatic backup &amp; sync</td>
+                </tr>
+                <tr class="hover:bg-slate-800/20">
+                  <td class="p-5 font-semibold text-slate-200">Open source &amp; telemetry-free</td>
+                  <td class="p-5 text-slate-400">Proprietary telemetry</td>
+                  <td class="p-5 text-emerald-400 font-bold">&check; 100% GPL-3.0 Open Source</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETUP GUIDE & DOWNLOAD SECTION -->
+      <section id="setup" class="py-20 bg-[#0d1422]/60 border-t border-slate-800/80 reveal-on-scroll">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <h2 class="text-xs font-extrabold uppercase tracking-widest text-emerald-400">Quick Start</h2>
+            <h3 class="text-3xl font-black text-white">Get Up And Running In 3 Steps</h3>
+            <p class="text-sm sm:text-base text-slate-400">
+              No complicated installers or registry hacks. Fully portable and ready to play.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div class="card-glass rounded-2xl p-6 space-y-4 border border-slate-800 relative">
+              <div class="text-3xl font-black text-emerald-400/50">01</div>
+              <h4 class="text-lg font-bold text-white">Download &amp; Extract</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Download the latest <code>BUGrock_Launcher_v1.0.0_win-x64.zip</code> release and extract it to a short path like:
+              </p>
+              <div class="terminal-block p-2.5 flex items-center justify-between text-xs text-emerald-300">
+                <span>C:\BUGrock</span>
+                <button class="copy-btn text-slate-400 hover:text-white" data-copy="C:\BUGrock" aria-label="Copy short path">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="card-glass rounded-2xl p-6 space-y-4 border border-slate-800 relative">
+              <div class="text-3xl font-black text-emerald-400/50">02</div>
+              <h4 class="text-lg font-bold text-white">Enable Dev Mode</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Ensure Windows Developer Mode is ON so sideloaded UWP &amp; GDK packages can be registered on your machine.
+              </p>
+              <div class="terminal-block p-2.5 text-xs text-slate-300">
+                <code>ms-settings:developers</code>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="card-glass rounded-2xl p-6 space-y-4 border border-slate-800 relative">
+              <div class="text-3xl font-black text-emerald-400/50">03</div>
+              <h4 class="text-lg font-bold text-white">Launch &amp; Play</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Run <code>BUGrock_Launcher.exe</code>, select any version in the Installations tab or import your local package, and click <strong>PLAY</strong>!
+              </p>
+              <div class="terminal-block p-2.5 text-xs text-emerald-400 font-mono">
+                <code>BUGrock_Launcher.exe</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Download Callout -->
+          <div class="mt-14 card-glass rounded-2xl p-8 border border-emerald-500/30 text-center space-y-6 glow-emerald">
+            <h4 class="text-2xl sm:text-3xl font-black text-white">Ready to experience Bedrock without limits?</h4>
+            <p class="text-slate-300 text-sm max-w-xl mx-auto">
+              Download BUGrock Launcher today. Completely free, open source, and built for the community.
+            </p>
+            <div>
+              <a
+                href="https://github.com/7AmoZ/BUGrock-Launcher/releases/latest"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black text-base shadow-lg shadow-emerald-500/30 transition-all transform hover:-translate-y-0.5"
+              >
+                <svg class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                <span>Download Latest Release (.zip)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION (GEO & SEO OPTIMIZED) -->
+      <section id="faq" class="py-24 sm:py-32 reveal-on-scroll">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <h2 class="text-xs font-extrabold uppercase tracking-widest text-emerald-400">Got Questions?</h2>
+            <h3 class="text-3xl sm:text-4xl font-black text-white">Frequently Asked Questions</h3>
+            <p class="text-sm sm:text-base text-slate-400">
+              Clear answers to common questions about BUGrock Launcher and Minecraft Bedrock compatibility.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- FAQ 1 -->
+            <div class="card-glass rounded-xl border border-slate-800 overflow-hidden">
+              <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 focus:outline-none transition-colors" aria-expanded="false">
+                <span>What is BUGrock Launcher?</span>
+                <svg class="chevron-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="faq-answer hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                BUGrock Launcher is an advanced custom launcher for Minecraft: Bedrock Edition on Windows 10 and 11. It allows you to download, manage, and play multiple Release, Preview, and Beta versions side-by-side with full support for modern GDK (.msixvc) and legacy UWP (.appx) formats.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="card-glass rounded-xl border border-slate-800 overflow-hidden">
+              <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 focus:outline-none transition-colors" aria-expanded="false">
+                <span>How do I fix the "Minecraft.Windows.exe is encrypted" error?</span>
+                <svg class="chevron-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="faq-answer hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                This occurs when modern GDK versions need Windows Store decryption tokens. Ensure your Microsoft account owns Minecraft on the Microsoft Store. Start downloading Minecraft from the Store for 3 seconds to let Windows obtain the key, cancel the download in the Store, and retry inside BUGrock Launcher.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="card-glass rounded-xl border border-slate-800 overflow-hidden">
+              <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 focus:outline-none transition-colors" aria-expanded="false">
+                <span>Can I run two Minecraft Bedrock instances at the exact same time?</span>
+                <svg class="chevron-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="faq-answer hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                No. Windows permits only one active Minecraft Bedrock process at a time due to package registration constraints. You must close the currently running version before switching to another in BUGrock Launcher.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="card-glass rounded-xl border border-slate-800 overflow-hidden">
+              <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 focus:outline-none transition-colors" aria-expanded="false">
+                <span>Why does the launcher close immediately on startup?</span>
+                <svg class="chevron-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="faq-answer hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                You are likely missing the <strong>.NET 8.0 Desktop Runtime (x64)</strong>. Download and install it from the Microsoft .NET portal, then relaunch <code>BUGrock_Launcher.exe</code>.
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="card-glass rounded-xl border border-slate-800 overflow-hidden">
+              <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 focus:outline-none transition-colors" aria-expanded="false">
+                <span>Are Windows "Lite" / "Ghost" modified editions supported?</span>
+                <svg class="chevron-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="faq-answer hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                Stripped custom Windows ISOs that remove Microsoft Store, AppXSvc, ClipSvc, or GamingServices cannot register Bedrock packages. If you use a custom ISO, you must restore the Microsoft Store and Xbox App services.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-slate-800/90 bg-[#070a10] pt-16 pb-12 text-slate-400 text-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          
+          <!-- Column 1: Brand & Creator -->
+          <div class="md:col-span-5 space-y-4">
+            <div class="flex items-center gap-3">
+              <img src="./assets/bugrock_logo.png" alt="BUGrock Launcher Logo" class="w-8 h-8 object-contain" width="32" height="32" />
+              <span class="text-base font-extrabold text-white">BUGrock Launcher</span>
+            </div>
+            <p class="text-slate-400 max-w-sm leading-relaxed">
+              Open-source, multi-version Minecraft: Bedrock Edition launcher engineered for Windows 10 &amp; 11 x64 systems.
+            </p>
+            <div class="text-slate-500">
+              Developed &amp; maintained by <a href="https://github.com/7AmoZ" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-semibold">7AmoZ</a>.
+            </div>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div class="md:col-span-3 space-y-3">
+            <div class="text-white font-bold uppercase tracking-wider text-xs">Quick Links</div>
+            <ul class="space-y-2">
+              <li><a href="#features" class="hover:text-emerald-400 transition-colors">Features</a></li>
+              <li><a href="#requirements" class="hover:text-emerald-400 transition-colors">System Requirements</a></li>
+              <li><a href="#comparison" class="hover:text-emerald-400 transition-colors">Feature Matrix</a></li>
+              <li><a href="#setup" class="hover:text-emerald-400 transition-colors">Setup Guide</a></li>
+              <li><a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ &amp; Help</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Source Code & License -->
+          <div class="md:col-span-4 space-y-3">
+            <div class="text-white font-bold uppercase tracking-wider text-xs">Open Source &amp; Legal</div>
+            <p class="text-slate-400 leading-relaxed">
+              Licensed under the <strong>GNU General Public License v3.0 (GPL-3.0)</strong>. Derivatives and contributions welcome.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <a href="https://github.com/7AmoZ/BUGrock-Launcher" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">GitHub Repository</a>
+              <span class="text-slate-600">&bull;</span>
+              <a href="https://github.com/7AmoZ/BUGrock-Launcher/blob/master/LICENSE.txt" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">GPLv3 License</a>
+              <span class="text-slate-600">&bull;</span>
+              <a href="https://github.com/7AmoZ/BUGrock-Launcher/releases" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Releases</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Trademark Disclaimer & Upstream Credits -->
+        <div class="pt-8 border-t border-slate-900 space-y-3 text-[11px] text-slate-500 leading-relaxed">
+          <p>
+            <strong class="text-slate-400">TRADEMARK DISCLAIMER:</strong> NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT. <em>Minecraft</em> is a registered trademark of Mojang Synergies AB / Microsoft Corporation. All game packages, logos, and assets remain property of their respective owners and require an authorized Microsoft Store license.
+          </p>
+          <p>
+            <strong class="text-slate-400">CREDITS &amp; ATTRIBUTION:</strong> In compliance with Section 5 of GNU GPL v3.0, this project is a modified derivative work originally based on the open-source <a href="https://github.com/MCMrARM/mc-w10-version-launcher" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:underline">mc-w10-version-launcher</a> / <a href="https://github.com/dktapps-pm-pl/mc-w10-version-launcher" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:underline">MCLauncher</a> project by MCMrARM, dktapps, and contributors.
+          </p>
+          <div class="pt-2 text-center text-slate-600">
+            &copy; 2026 BUGrock Launcher. Built with Vite &amp; Tailwind CSS.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/30 hover:bg-emerald-400 transition-all duration-300 opacity-0 pointer-events-none focus:outline-none"
+      aria-label="Back to top"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
