@@ -15,17 +15,17 @@
 
   <!-- Open Graph / Discord / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="BUGrock Launcher — The Glitch Block Bedrock Platform" />
+  <meta property="og:title" content="BUGrock Launcher — Glitch Block Edition" />
   <meta property="og:description" content="Play every historical Bedrock version (0.14 to latest GDK), direct in-world pack injection without com.mojang digging. 100% Free & Open Source." />
-  <meta property="og:image" content="./assets/voxel_logo_hd.png" />
+  <meta property="og:image" content="./assets/bugrock_block.png" />
   <meta property="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/x-icon" href="./assets/app_icon.ico" />
 
-  <!-- Google Fonts: Instrument Serif (Editorial Handcrafted) + Plus Jakarta Sans (Swiss Geometric) + JetBrains Mono -->
+  <!-- Google Fonts: Plus Jakarta Sans (Readable descriptions) + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./src/style.css" />
@@ -38,40 +38,39 @@
   <!-- ========================================================================
        TOP NAVIGATION
        ======================================================================== -->
-  <header class="fixed top-0 left-0 right-0 z-50 h-16 bg-[#090A0F]/90 backdrop-blur-md border-b border-white/10">
+  <header class="fixed top-0 left-0 right-0 z-50 h-16 bg-[#090A0F]/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       
       <!-- Brand Logo + Glitch Block Wordmark -->
-      <a href="#" class="flex items-center gap-3.5 no-underline group" id="easter-voxel-cube">
+      <a href="#" class="flex items-center gap-3 no-underline group" id="easter-voxel-cube">
         <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-white/15 bg-[#11141e] flex items-center justify-center group-hover:border-[#FF00E5] transition-colors">
-          <img src="./assets/pixel_cube.png" alt="BUGrock Cube" class="w-7 h-7 object-contain" />
+          <img src="./assets/bugrock_block.png" alt="BUGrock Glitch Block" class="w-7 h-7 object-contain pixel-render" />
         </div>
         <div class="flex items-baseline gap-2">
-          <span class="font-brand-mc text-xl text-white tracking-wide group-hover:text-[#86FF00] transition-colors">BUGrock</span>
-          <span class="text-[11px] font-mono font-bold text-[#FF00E5] px-2 py-0.5 rounded-full bg-[#FF00E5]/15 border border-[#FF00E5]/30">GLITCH BLOCK</span>
+          <span class="font-mc-title text-xl text-white tracking-wide group-hover:text-[#86FF00] transition-colors">BUGrock</span>
+          <span class="text-[10px] font-mc-pixel text-[#FF00E5] px-2 py-0.5 rounded bg-[#FF00E5]/15 border border-[#FF00E5]/30">GLITCH BLOCK</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium text-[#94a3b8]">
-        <a href="#version-vault" class="hover:text-[#86FF00] transition-colors">Versions Vault</a>
-        <a href="#world-injector" class="hover:text-[#86FF00] transition-colors">In-World Injector</a>
-        <a href="#mod-hub" class="hover:text-[#86FF00] transition-colors">Mod Hub</a>
-        <a href="#skin-wardrobe" class="hover:text-[#86FF00] transition-colors">3D Skins</a>
-        <a href="#diagnostics" class="hover:text-[#86FF00] transition-colors">Diagnostics</a>
-        <a href="#comparison" class="hover:text-[#86FF00] transition-colors">Benchmarks</a>
-        <a href="#downloads" class="hover:text-[#86FF00] transition-colors">Downloads</a>
+      <!-- Desktop Navigation Links (Minecraft Font) -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-mc-pixel text-[#94a3b8]">
+        <a href="#version-vault" class="hover:text-[#86FF00] transition-colors">VERSIONS VAULT</a>
+        <a href="#world-injector" class="hover:text-[#86FF00] transition-colors">WORLD INJECTOR</a>
+        <a href="#mod-hub" class="hover:text-[#86FF00] transition-colors">MOD HUB</a>
+        <a href="#power-tools" class="hover:text-[#86FF00] transition-colors">POWER MODULES</a>
+        <a href="#diagnostics" class="hover:text-[#86FF00] transition-colors">DIAGNOSTICS</a>
+        <a href="#comparison" class="hover:text-[#86FF00] transition-colors">BENCHMARKS</a>
+        <a href="#downloads" class="hover:text-[#86FF00] transition-colors">DOWNLOADS</a>
       </nav>
 
       <!-- Action Controls -->
       <div class="flex items-center gap-3">
-        <button id="sound-toggle-btn" type="button" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-[#0f121a] text-xs font-mono text-[#86FF00] hover:border-white/25 transition-all">
-          <span>🔊 SFX: Active</span>
+        <button id="sound-toggle-btn" type="button" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-[#0f121a] text-xs font-mc-pixel text-[#86FF00] hover:border-white/25 transition-all">
+          <span>SFX: ON</span>
         </button>
 
         <a href="#downloads" class="btn-flagship btn-glitch-lime text-xs !py-2 !px-4 hidden sm:inline-flex">
-          <span>Download</span>
-          <span class="text-xs ml-1 font-mono">↓</span>
+          <span>GET LAUNCHER</span>
         </a>
       </div>
 
@@ -81,9 +80,9 @@
   <!-- Legal Notice Pill -->
   <div class="pt-20 pb-2 bg-[#090A0F] border-b border-white/5 relative z-10">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="p-2.5 rounded-2xl border border-white/10 bg-[#0f121a] text-xs sm:text-[13px] font-mono text-[#cbd5e1] text-center flex items-center justify-center gap-2">
-        <span class="text-[#86FF00]">✦</span>
-        <span>BUGrock Launcher requires a legal copy of Minecraft Bedrock on Microsoft Store or Xbox Game Pass. Zero piracy.</span>
+      <div class="p-2.5 rounded-xl border border-white/10 bg-[#0f121a] text-xs font-mc-pixel text-[#cbd5e1] text-center flex items-center justify-center gap-2">
+        <span class="text-[#86FF00]">!</span>
+        <span>BUGrock Launcher requires a legal copy of Minecraft Bedrock on Microsoft Store or Xbox Game Pass. No piracy.</span>
       </div>
     </div>
   </div>
@@ -91,7 +90,7 @@
   <main class="relative z-10">
 
     <!-- ========================================================================
-         HERO SECTION — ASYMMETRIC COMMAND STAGE
+         HERO SECTION — GLITCH BLOCK COMMAND STAGE
          ======================================================================== -->
     <section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden border-b border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,72 +101,72 @@
           <div class="lg:col-span-7 flex flex-col justify-center">
             
             <!-- Signal Badge (Solid Glitch Identity) -->
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#86FF00]/40 bg-[#0f121a] text-xs font-mono text-[#86FF00] mb-6 w-fit">
+            <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-[#86FF00]/40 bg-[#0f121a] text-xs font-mc-pixel text-[#86FF00] mb-6 w-fit">
               <span class="w-2 h-2 rounded-full bg-[#86FF00] live-pulse"></span>
-              <span class="font-semibold tracking-wide">BUGrock Core Engine • x64</span>
+              <span>BUGrock Core Engine (x64) • Glitch Block Architecture</span>
             </div>
 
-            <!-- Headline with Handcrafted Editorial Character (Instrument Serif) -->
-            <h1 class="text-4xl sm:text-5xl lg:text-[4.25rem] font-normal tracking-tight text-white leading-[1.04] mb-6 font-editorial">
-              Play every Minecraft Bedrock version <em class="italic text-[#FF00E5]">without limits.</em>
+            <!-- Headline with Authentic Minecraft Display Font -->
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6 font-mc-title tracking-wide">
+              PLAY EVERY MINECRAFT BEDROCK VERSION <span class="text-[#FF00E5]">WITHOUT LIMITS.</span>
             </h1>
 
-            <!-- Description (Clean Swiss Sans) -->
+            <!-- Description -->
             <p class="text-base sm:text-lg text-[#94a3b8] font-normal leading-relaxed mb-8 max-w-2xl font-sans">
-              Microsoft Store forces mandatory auto-updates, destroys vintage servers, and buries your save files inside obscure UWP sandboxes. <strong class="text-white font-semibold">BUGrock Launcher</strong> restores complete freedom: run any historical version from <span class="font-mono text-[#86FF00] font-bold">0.14.0.1</span> to modern <span class="font-mono text-[#FF00E5] font-bold">1.21+ GDK</span> side-by-side, inject add-ons directly into worlds, and isolate saves safely.
+              Microsoft Store forces mandatory auto-updates, destroys vintage servers, and buries your save files inside obscure UWP sandboxes. <strong class="text-white font-semibold">BUGrock Launcher</strong> restores complete freedom: run any historical version from <span class="font-mc-pixel text-[#86FF00] font-bold">0.14.0.1</span> to modern <span class="font-mc-pixel text-[#FF00E5] font-bold">1.21+ GDK</span> side-by-side, inject add-ons directly into worlds, and isolate saves safely.
             </p>
 
-            <!-- Dual Download & Source Actions (Clean, Solid Buttons) -->
+            <!-- Dual Download & Source Actions (Minecraft Typography Buttons) -->
             <div class="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-10">
               <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-glitch-lime text-sm sm:text-base !py-3.5 !px-6 flex items-center gap-3">
-                <span>⬇ Download Full Standalone</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full bg-[#090A0F] text-[#86FF00] font-mono font-bold">v1.0.0</span>
+                <span>DOWNLOAD STANDALONE</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-[#090A0F] text-[#86FF00] font-mc-pixel">v1.0.0</span>
               </a>
 
               <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-glitch-magenta text-sm !py-3.5 !px-5 flex items-center gap-2">
-                <span>Lite Edition</span>
-                <span class="text-xs font-mono text-white/80">~11 MB</span>
+                <span>LITE EDITION</span>
+                <span class="text-xs font-mc-pixel text-white/80">~11 MB</span>
               </a>
 
-              <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="btn-flagship btn-glitch-dark text-sm !py-3.5 !px-5 text-[#cbd5e1] hover:text-white flex items-center gap-1.5">
-                <span>Source Code</span>
-                <span class="text-xs font-mono">↗</span>
+              <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="btn-flagship btn-glitch-dark text-sm !py-3.5 !px-5 text-[#cbd5e1] hover:text-white flex items-center gap-1.5 font-mc-title">
+                <span>SOURCE CODE</span>
+                <span class="text-xs">↗</span>
               </a>
             </div>
 
-            <!-- Reference Card Style Telemetry Row (Inspired by Reference Image) -->
+            <!-- Glitch Block Telemetry Row -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-6 border-t border-white/10 font-mono text-xs">
               
               <div class="glitch-card p-4 flex items-center gap-3">
-                <div class="icon-diamond-box bg-[#090A0F] border border-[#86FF00]/30 text-[#86FF00]">
-                  ✦
+                <div class="icon-glitch-box">
+                  <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-7 h-7 object-contain pixel-render" />
                 </div>
                 <div>
-                  <div class="text-[10px] text-[#64748b] uppercase tracking-wider">Indexed Builds</div>
-                  <div class="text-white font-bold text-sm">600+ Releases</div>
-                  <div class="text-[10px] text-[#86FF00]">0.14.0 ➔ 1.21 GDK</div>
+                  <div class="text-[10px] text-[#64748b] font-mc-pixel uppercase">Indexed Builds</div>
+                  <div class="text-white font-mc-title text-base">600+ RELEASES</div>
+                  <div class="text-[10px] text-[#86FF00] font-mc-pixel">0.14.0 ➔ 1.21 GDK</div>
                 </div>
               </div>
 
               <div class="glitch-card p-4 flex items-center gap-3">
-                <div class="icon-diamond-box bg-[#090A0F] border border-[#FF00E5]/30 text-[#FF00E5]">
-                  ✦
+                <div class="icon-glitch-box">
+                  <img src="./assets/pixel_cube.png" alt="Pixel Cube" class="w-7 h-7 object-contain pixel-render" />
                 </div>
                 <div>
-                  <div class="text-[10px] text-[#64748b] uppercase tracking-wider">Catalog Startup</div>
-                  <div class="text-[#FF00E5] font-bold text-sm">&lt; 1 ms (Async)</div>
-                  <div class="text-[10px] text-[#64748b]">JIT Memory Cache</div>
+                  <div class="text-[10px] text-[#64748b] font-mc-pixel uppercase">Catalog Startup</div>
+                  <div class="text-[#FF00E5] font-mc-title text-base">&lt; 1 MS (ASYNC)</div>
+                  <div class="text-[10px] text-[#64748b] font-mc-pixel">JIT Memory Cache</div>
                 </div>
               </div>
 
               <div class="glitch-card p-4 flex items-center gap-3">
-                <div class="icon-diamond-box bg-[#090A0F] border border-white/20 text-white">
-                  ✦
+                <div class="icon-glitch-box">
+                  <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-7 h-7 object-contain pixel-render" />
                 </div>
                 <div>
-                  <div class="text-[10px] text-[#64748b] uppercase tracking-wider">Data Isolation</div>
-                  <div class="text-white font-bold text-sm">100% Zero-Loss</div>
-                  <div class="text-[10px] text-[#86FF00]">Junction Trees</div>
+                  <div class="text-[10px] text-[#64748b] font-mc-pixel uppercase">Data Isolation</div>
+                  <div class="text-white font-mc-title text-base">100% ZERO-LOSS</div>
+                  <div class="text-[10px] text-[#86FF00] font-mc-pixel">Junction Trees</div>
                 </div>
               </div>
 
@@ -175,7 +174,7 @@
 
           </div>
 
-          <!-- Right 5 Columns: 3D Parallax Tilt Launcher Command Card -->
+          <!-- Right 5 Columns: 3D Parallax Tilt Launcher Window -->
           <div class="lg:col-span-5 tilt-stage" id="hero-tilt-stage">
             <div class="glitch-card glitch-card-lime-accent p-6 relative overflow-hidden tilt-element" id="hero-tilt-card">
               
@@ -185,37 +184,35 @@
                   <span class="w-3 h-3 rounded-full bg-[#FF00E5]"></span>
                   <span class="w-3 h-3 rounded-full bg-[#86FF00]"></span>
                   <span class="w-3 h-3 rounded-full bg-white/40"></span>
-                  <span class="ml-2 font-mono text-xs text-[#94a3b8]">BUGrock_Launcher.exe</span>
+                  <span class="ml-2 font-mc-pixel text-xs text-[#94a3b8]">BUGrock_Launcher.exe</span>
                 </div>
-                <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#090A0F] border border-[#86FF00]/40 text-[10px] font-mono text-[#86FF00]">
+                <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#090A0F] border border-[#86FF00]/40 text-[10px] font-mc-pixel text-[#86FF00]">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#86FF00] live-pulse"></span>
                   <span>ClipSvc Linked</span>
                 </div>
               </div>
 
-              <!-- Interactive Tabs -->
-              <div class="flex items-center gap-1.5 mb-4 p-1.5 rounded-2xl bg-[#090A0F] border border-white/10 text-xs font-mono">
-                <button class="px-3.5 py-1.5 rounded-xl bg-[#86FF00] text-[#090A0F] font-bold">PLAY</button>
-                <button class="px-3 py-1.5 rounded-xl text-[#94a3b8] hover:text-white">INSTALLS</button>
-                <button class="px-3 py-1.5 rounded-xl text-[#94a3b8] hover:text-white">MOD HUB</button>
-                <button class="px-3 py-1.5 rounded-xl text-[#94a3b8] hover:text-white">SKINS</button>
+              <!-- Interactive Tabs (Minecraft Font) -->
+              <div class="flex items-center gap-1.5 mb-4 p-1 rounded-xl bg-[#090A0F] border border-white/10 text-xs font-mc-title">
+                <button class="px-3.5 py-1.5 rounded-lg bg-[#86FF00] text-[#090A0F]">PLAY</button>
+                <button class="px-3 py-1.5 rounded-lg text-[#94a3b8] hover:text-white">INSTALLS</button>
+                <button class="px-3 py-1.5 rounded-lg text-[#94a3b8] hover:text-white">MOD HUB</button>
+                <button class="px-3 py-1.5 rounded-lg text-[#94a3b8] hover:text-white">SETTINGS</button>
               </div>
 
-              <!-- Active Instance Card (Reference Card Style) -->
+              <!-- Active Instance Card with Glitch Block Image -->
               <div class="glitch-inner p-4 mb-4 border border-white/10">
                 <div class="flex items-start justify-between mb-3">
                   <div class="flex items-center gap-3">
-                    <div class="icon-diamond-box bg-[#090A0F] border border-[#FF00E5]/40 text-[#FF00E5]">
-                      ✦
-                    </div>
+                    <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-10 h-10 object-contain pixel-render animate-voxel-float" />
                     <div>
-                      <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#FF00E5]/15 text-[#FF00E5] border border-[#FF00E5]/30">
+                      <span class="text-[10px] font-mc-pixel px-2 py-0.5 rounded bg-[#FF00E5]/15 text-[#FF00E5] border border-[#FF00E5]/30">
                         Active Instance
                       </span>
-                      <h3 class="font-bold text-base text-white mt-1 font-sans">1.21.50 — Tricky Trials</h3>
+                      <h3 class="font-mc-title text-base text-white mt-1">1.21.50 — Tricky Trials</h3>
                     </div>
                   </div>
-                  <span class="text-xs font-mono text-[#86FF00] bg-[#86FF00]/10 px-2 py-0.5 rounded-full border border-[#86FF00]/30">
+                  <span class="text-xs font-mc-pixel text-[#86FF00] bg-[#86FF00]/10 px-2 py-0.5 rounded border border-[#86FF00]/30">
                     GDK (.msixvc)
                   </span>
                 </div>
@@ -224,22 +221,22 @@
                   Crafter blocks, Trial Chambers, Mace, and automated Microsoft Store decryption handshake.
                 </p>
 
-                <div class="p-3 rounded-xl bg-[#090A0F] border border-white/5 space-y-1.5 text-[11px] font-mono text-[#64748b]">
+                <div class="p-3 rounded-lg bg-[#090A0F] border border-white/5 space-y-1.5 text-[11px] font-mono text-[#64748b]">
                   <div class="flex justify-between">
-                    <span>Engine Shim:</span>
+                    <span class="font-mc-pixel text-[#94a3b8]">Engine Shim:</span>
                     <span class="text-white">GDKLaunchShim.exe (x64)</span>
                   </div>
                   <div class="flex justify-between">
-                    <span>Isolated Save:</span>
+                    <span class="font-mc-pixel text-[#94a3b8]">Isolated Save:</span>
                     <span class="text-[#86FF00] truncate max-w-[210px]">SavedGames/Instance_01</span>
                   </div>
                 </div>
               </div>
 
               <!-- Solid Launch Button -->
-              <button id="btn-hero-launch" type="button" class="w-full btn-flagship btn-glitch-lime text-sm font-bold flex items-center justify-center gap-2">
+              <button id="btn-hero-launch" type="button" class="w-full btn-flagship btn-glitch-lime text-sm flex items-center justify-center gap-2">
                 <span>▶</span>
-                <span>Launch Selected Instance</span>
+                <span>LAUNCH SELECTED INSTANCE</span>
               </button>
 
             </div>
@@ -258,9 +255,9 @@
         
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span class="text-xs font-mono font-bold text-[#86FF00] uppercase tracking-wider">Breakthrough Feature 01</span>
-            <h2 class="text-3xl sm:text-4xl text-white mt-2 font-editorial">
-              The Historical Version Vault.
+            <span class="text-xs font-mc-pixel text-[#86FF00] uppercase tracking-wider">Breakthrough Feature 01</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 font-mc-title">
+              THE HISTORICAL VERSION VAULT.
             </h2>
             <p class="text-base text-[#94a3b8] mt-2 font-sans max-w-xl">
               Switch between vintage Pocket Edition legacy releases and modern GDK packages with a single click.
@@ -269,7 +266,7 @@
 
           <!-- Version Filter Search -->
           <div class="w-full md:w-72">
-            <input id="version-search-input" type="text" placeholder="Search versions (e.g. 0.14, Nether)..." class="w-full px-4 py-2.5 rounded-2xl border border-white/15 bg-[#090A0F] text-white text-xs font-mono focus:outline-none focus:border-[#86FF00]" />
+            <input id="version-search-input" type="text" placeholder="Search versions (e.g. 0.14, Nether)..." class="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#090A0F] text-white text-xs font-mc-pixel focus:outline-none focus:border-[#86FF00]" />
           </div>
         </div>
 
@@ -277,7 +274,7 @@
           
           <!-- Left 5 Cols: Scrollable Version Directory -->
           <div class="lg:col-span-5 glitch-card p-4 flex flex-col h-[520px]">
-            <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-xs font-mono text-[#64748b]">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-xs font-mc-pixel text-[#64748b]">
               <span>600+ INDEXED RELEASES</span>
               <span>TYPE / ERA</span>
             </div>
@@ -291,28 +288,28 @@
             <div>
               <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
                 <div>
-                  <span id="active-version-tag" class="text-[10px] font-mono px-3 py-1 rounded-full bg-[#86FF00]/15 text-[#86FF00] border border-[#86FF00]/30 font-semibold">
+                  <span id="active-version-tag" class="text-[10px] font-mc-pixel px-3 py-1 rounded bg-[#86FF00]/15 text-[#86FF00] border border-[#86FF00]/30 font-semibold">
                     Latest Stable
                   </span>
-                  <h3 id="active-version-title" class="text-2xl text-white mt-2 font-editorial">
+                  <h3 id="active-version-title" class="text-xl sm:text-2xl text-white mt-2 font-mc-title">
                     1.21.50 (Tricky Trials)
                   </h3>
                 </div>
                 <div class="text-right">
-                  <div id="active-version-type" class="text-xs font-mono font-bold text-[#86FF00]">GDK (.msixvc)</div>
+                  <div id="active-version-type" class="text-xs font-mc-pixel font-bold text-[#86FF00]">GDK (.msixvc)</div>
                   <div id="active-version-size" class="text-xs font-mono text-[#64748b] mt-1">642 MB</div>
                 </div>
               </div>
 
               <div class="mb-6">
-                <h4 class="text-xs font-mono font-bold text-[#cbd5e1] uppercase mb-2">Core Features & Additions</h4>
+                <h4 class="text-xs font-mc-pixel text-[#cbd5e1] uppercase mb-2">Core Features & Additions</h4>
                 <p id="active-version-desc" class="text-sm text-[#94a3b8] font-sans leading-relaxed">
                   Trial Chambers, The Mace, Wind Charges, Crafter automation, Vault rewards.
                 </p>
               </div>
 
               <div class="mb-6">
-                <h4 class="text-xs font-mono font-bold text-[#cbd5e1] uppercase mb-2">Compatibility Notes</h4>
+                <h4 class="text-xs font-mc-pixel text-[#cbd5e1] uppercase mb-2">Compatibility Notes</h4>
                 <p id="active-version-notes" class="text-xs text-[#64748b] font-mono leading-relaxed">
                   Requires Windows 10/11 64-bit and Microsoft Store ownership handshake.
                 </p>
@@ -324,11 +321,11 @@
               <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10 text-[11px] font-mono text-[#64748b]">
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-[#86FF00]"></span>
-                  <span>SANDBOX BOOTSTREAM CONSOLE</span>
+                  <span class="font-mc-pixel">SANDBOX BOOTSTREAM CONSOLE</span>
                 </div>
-                <span class="text-[#FF00E5]">x64 JIT</span>
+                <span class="text-[#FF00E5] font-mc-pixel">x64 JIT</span>
               </div>
-              <div id="terminal-log-output" class="p-3.5 rounded-2xl bg-[#090A0F] border border-white/5 font-mono text-xs space-y-1 overflow-x-auto text-[#cbd5e1]">
+              <div id="terminal-log-output" class="p-3.5 rounded-xl bg-[#090A0F] border border-white/5 font-mono text-xs space-y-1 overflow-x-auto text-[#cbd5e1]">
                 <!-- Streamed via JS -->
               </div>
             </div>
@@ -341,15 +338,15 @@
     </section>
 
     <!-- ========================================================================
-         SHOWCASE 2: DIRECT IN-WORLD PACK INJECTOR (RESOURCE & BEHAVIOR)
+         SHOWCASE 2: DIRECT IN-WORLD PACK INJECTOR
          ======================================================================== -->
     <section id="world-injector" class="py-20 md:py-28 border-b border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="max-w-3xl mb-12">
-          <span class="text-xs font-mono font-bold text-[#FF00E5] uppercase tracking-wider">Breakthrough Feature 02</span>
-          <h2 class="text-3xl sm:text-4xl text-white mt-2 font-editorial">
-            Direct In-World Pack Injection.
+          <span class="text-xs font-mc-pixel text-[#FF00E5] uppercase tracking-wider">Breakthrough Feature 02</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 font-mc-title">
+            DIRECT IN-WORLD PACK INJECTION.
           </h2>
           <p class="text-base text-[#94a3b8] mt-2 font-sans">
             Never dig through <code class="text-xs font-mono bg-[#090A0F] px-2 py-0.5 rounded text-[#86FF00]">AppData/Local/Packages/Microsoft.MinecraftUWP/LocalState/games/com.mojang</code> again.
@@ -361,16 +358,16 @@
           <!-- The Old Frustrating Way -->
           <div class="glitch-card p-6 border-red-500/20 bg-[#0f121a] flex flex-col justify-between">
             <div>
-              <div class="flex items-center gap-2 text-xs font-mono text-red-400 font-bold mb-4">
+              <div class="flex items-center gap-2 text-xs font-mc-pixel text-red-400 font-bold mb-4">
                 <span>✕</span>
                 <span>THE TRADITIONAL WINDOWS 10/11 STRUGGLE</span>
               </div>
-              <h3 class="text-lg font-bold text-white mb-3 font-sans">Manual com.mojang Directory Surgery</h3>
+              <h3 class="text-lg font-mc-title text-white mb-3">MANUAL COM.MOJANG SURGERY</h3>
               <p class="text-xs text-[#94a3b8] font-sans leading-relaxed mb-6">
                 Users are forced to navigate 8 levels deep into obscure UWP system folders, edit hidden JSON manifests, and pray world GUIDs don't corrupt during cloud synchronization.
               </p>
 
-              <div class="p-4 rounded-2xl bg-[#090A0F] border border-red-500/20 font-mono text-xs text-[#94a3b8] space-y-2">
+              <div class="p-4 rounded-xl bg-[#090A0F] border border-red-500/20 font-mono text-xs text-[#94a3b8] space-y-2">
                 <div class="text-red-400">1. Navigate to: %localappdata%\Packages\Microsoft.MinecraftUWP...</div>
                 <div class="text-red-400">2. Find random 32-character folder: "x9Ak2m-Q="</div>
                 <div class="text-red-400">3. Manually unzip .mcpack file</div>
@@ -379,7 +376,7 @@
               </div>
             </div>
 
-            <div class="pt-6 border-t border-white/10 text-xs font-mono text-red-400/80 mt-6">
+            <div class="pt-6 border-t border-white/10 text-xs font-mc-pixel text-red-400/80 mt-6">
               Result: High barrier of entry, broken worlds, zero rollback.
             </div>
           </div>
@@ -387,23 +384,23 @@
           <!-- The BUGrock Solution -->
           <div class="glitch-card glitch-card-lime-accent p-6 flex flex-col justify-between">
             <div>
-              <div class="flex items-center gap-2 text-xs font-mono text-[#86FF00] font-bold mb-4">
+              <div class="flex items-center gap-2 text-xs font-mc-pixel text-[#86FF00] font-bold mb-4">
                 <span>✓</span>
                 <span>THE BUGROCK AUTOMATED PIPELINE</span>
               </div>
-              <h3 class="text-lg font-bold text-white mb-3 font-sans">One-Click Direct Injector</h3>
+              <h3 class="text-lg font-mc-title text-white mb-3">ONE-CLICK DIRECT INJECTOR</h3>
               <p class="text-xs text-[#94a3b8] font-sans leading-relaxed mb-6">
                 BUGrock reads all worlds across your isolated instances. Select your target world, pick your .mcaddon or .mcpack, and BUGrock parses the JSON and injects it atomically.
               </p>
 
-              <div id="injector-step-log" class="p-4 rounded-2xl bg-[#090A0F] border border-[#86FF00]/30 font-mono text-xs space-y-2 text-[#94a3b8] mb-6 min-h-[140px]">
-                <div class="text-[#cbd5e1]">Ready to demonstrate atomic injection...</div>
+              <div id="injector-step-log" class="p-4 rounded-xl bg-[#090A0F] border border-[#86FF00]/30 font-mono text-xs space-y-2 text-[#94a3b8] mb-6 min-h-[140px]">
+                <div class="text-[#cbd5e1] font-mc-pixel">Ready to demonstrate atomic injection...</div>
               </div>
             </div>
 
-            <button id="btn-run-injector-demo" type="button" class="btn-flagship btn-glitch-lime w-full py-3.5 text-sm font-bold flex items-center justify-center gap-2">
+            <button id="btn-run-injector-demo" type="button" class="btn-flagship btn-glitch-lime w-full py-3.5 text-sm flex items-center justify-center gap-2">
               <span>⚡</span>
-              <span>Simulate In-World Injection</span>
+              <span>SIMULATE IN-WORLD INJECTION</span>
             </button>
           </div>
 
@@ -413,16 +410,16 @@
     </section>
 
     <!-- ========================================================================
-         SHOWCASE 3: NATIVE WEBVIEW2 MOD HUB (MCPEDL & CURSEFORGE)
+         SHOWCASE 3: NATIVE WEBVIEW2 MOD HUB
          ======================================================================== -->
     <section id="mod-hub" class="py-20 md:py-28 border-b border-white/10 bg-[#0d1017]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span class="text-xs font-mono font-bold text-[#86FF00] uppercase tracking-wider">Breakthrough Feature 03</span>
-            <h2 class="text-3xl sm:text-4xl text-white mt-2 font-editorial">
-              Native WebView2 Mod Hub.
+            <span class="text-xs font-mc-pixel text-[#86FF00] uppercase tracking-wider">Breakthrough Feature 03</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 font-mc-title">
+              NATIVE WEBVIEW2 MOD HUB.
             </h2>
             <p class="text-base text-[#94a3b8] mt-2 font-sans max-w-xl">
               Browse, download, and install add-ons from MCPEDL and CurseForge directly inside the launcher.
@@ -430,18 +427,18 @@
           </div>
 
           <!-- Mod Search & Category Filters -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <div class="flex items-center gap-1.5 p-1.5 rounded-2xl bg-[#090A0F] border border-white/10 text-xs font-mono">
-              <button class="mod-category-btn px-3.5 py-1.5 rounded-xl bg-[#86FF00] text-[#090A0F] font-bold" data-cat="all">All</button>
-              <button class="mod-category-btn px-3 py-1.5 rounded-xl text-[#94a3b8] hover:text-white" data-cat="shader">Shaders</button>
-              <button class="mod-category-btn px-3 py-1.5 rounded-xl text-[#94a3b8] hover:text-white" data-cat="addon">Addons</button>
-              <button class="mod-category-btn px-3 py-1.5 rounded-xl text-[#94a3b8] hover:text-white" data-cat="ui">UI Packs</button>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 font-mc-pixel text-xs">
+            <div class="flex items-center gap-1.5 p-1.5 rounded-xl bg-[#090A0F] border border-white/10">
+              <button class="mod-category-btn px-3.5 py-1.5 rounded-lg bg-[#86FF00] text-[#090A0F]" data-cat="all">ALL</button>
+              <button class="mod-category-btn px-3 py-1.5 rounded-lg text-[#94a3b8] hover:text-white" data-cat="shader">SHADERS</button>
+              <button class="mod-category-btn px-3 py-1.5 rounded-lg text-[#94a3b8] hover:text-white" data-cat="addon">ADDONS</button>
+              <button class="mod-category-btn px-3 py-1.5 rounded-lg text-[#94a3b8] hover:text-white" data-cat="ui">UI PACKS</button>
             </div>
-            <input id="mod-search-input" type="text" placeholder="Search mods..." class="px-4 py-2 rounded-2xl border border-white/15 bg-[#090A0F] text-white text-xs font-mono focus:outline-none focus:border-[#86FF00]" />
+            <input id="mod-search-input" type="text" placeholder="Search mods..." class="px-4 py-2 rounded-xl border border-white/15 bg-[#090A0F] text-white text-xs font-mc-pixel focus:outline-none focus:border-[#86FF00]" />
           </div>
         </div>
 
-        <!-- Curated Mod Cards Grid (Reference Card Style) -->
+        <!-- Curated Mod Cards Grid -->
         <div id="mod-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Rendered via JS -->
         </div>
@@ -450,98 +447,113 @@
     </section>
 
     <!-- ========================================================================
-         SHOWCASE 4: 3D SKIN WARDROBE (TRUE 3D VOLUMETRIC ENGINE)
+         SHOWCASE 4: GLITCH BLOCK POWER MODULES (REPLACED 3D SKIN VIEWER)
          ======================================================================== -->
-    <section id="skin-wardrobe" class="py-20 md:py-28 border-b border-white/10">
+    <section id="power-tools" class="py-20 md:py-28 border-b border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span class="text-xs font-mc-pixel text-[#FF00E5] uppercase tracking-wider">Breakthrough Feature 04</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 font-mc-title">
+              GLITCH BLOCK POWER MODULES.
+            </h2>
+            <p class="text-base text-[#94a3b8] mt-2 font-sans max-w-2xl">
+              Harnessing Minecraft's missing texture architecture to bypass Microsoft Store locks and isolate save states.
+            </p>
+          </div>
+
+          <!-- Featured Glitch Block Floating Badge -->
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-[#0f121a] border border-[#FF00E5]/40">
+            <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-10 h-10 object-contain pixel-render animate-voxel-float" />
+            <div>
+              <div class="font-mc-title text-sm text-[#FF00E5]">BUGROCK GLITCH ENGINE</div>
+              <div class="text-[10px] font-mc-pixel text-[#86FF00]">Missing Texture Bypass Active</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Power Tools Cards Grid with Glitch Block Theme -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
           
-          <!-- 3D Skin Turntable Canvas (Left 5 Cols) -->
-          <div class="lg:col-span-5 glitch-card glitch-card-magenta-accent p-6 text-center">
-            <span class="text-xs font-mono text-[#FF00E5] uppercase font-bold tracking-wider">3D Volumetric Engine</span>
-            <h3 class="text-2xl text-white mt-1 mb-3 font-editorial">Interactive Skin Wardrobe</h3>
-
-            <!-- Skin Selector Buttons -->
-            <div class="flex items-center justify-center gap-2 mb-4 font-mono text-xs">
-              <button type="button" class="btn-flagship btn-glitch-lime skin-model-select-btn text-xs !py-1.5 !px-3.5" data-skin="steve">Steve</button>
-              <button type="button" class="btn-flagship btn-glitch-dark skin-model-select-btn text-xs !py-1.5 !px-3.5" data-skin="alex">Alex</button>
-              <button type="button" class="btn-flagship btn-glitch-dark skin-model-select-btn text-xs !py-1.5 !px-3.5" data-skin="bugrock">BUG Guy</button>
+          <div class="glitch-card glitch-card-lime-accent p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="icon-glitch-box">
+                  <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-7 h-7 object-contain pixel-render" />
+                </div>
+                <div>
+                  <h4 class="font-mc-title text-white text-base">DISCORD RPC</h4>
+                  <div class="text-[10px] font-mc-pixel text-[#86FF00]">IPC Pipe Detection</div>
+                </div>
+              </div>
+              <p class="text-[#94a3b8] text-xs font-sans leading-relaxed mb-4">
+                Broadcasts active Bedrock version, world seed, elapsed play session, and launcher telemetry directly to your Discord profile.
+              </p>
             </div>
-
-            <!-- 3D Canvas Box -->
-            <div class="w-72 h-72 mx-auto glitch-inner rounded-3xl flex items-center justify-center p-2 border border-white/10 relative cursor-grab active:cursor-grabbing">
-              <canvas id="skin-preview-canvas" width="280" height="280"></canvas>
-            </div>
-
-            <div class="mt-4 flex items-center justify-center gap-2 text-xs font-mono text-[#86FF00]">
-              <span>🖐 Click & Drag to Rotate 360° • 60 FPS</span>
+            <div class="pt-3 border-t border-white/5 text-[11px] font-mc-pixel text-[#86FF00]">
+              ✓ Automatic Handshake
             </div>
           </div>
 
-          <!-- Power Tools Reference Cards (Right 7 Cols) -->
-          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-            
-            <div class="glitch-card p-5">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="icon-diamond-box bg-[#090A0F] border border-[#86FF00]/40 text-[#86FF00]">
-                  ✦
+          <div class="glitch-card glitch-card-magenta-accent p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="icon-glitch-box">
+                  <img src="./assets/pixel_cube.png" alt="Pixel Cube" class="w-7 h-7 object-contain pixel-render" />
                 </div>
                 <div>
-                  <h4 class="font-bold text-white text-sm font-sans">Discord RPC</h4>
-                  <div class="text-[10px] text-[#86FF00]">IPC Pipe Linked</div>
+                  <h4 class="font-mc-title text-white text-base">SERVER BROWSER</h4>
+                  <div class="text-[10px] font-mc-pixel text-[#FF00E5]">Real-time Latency</div>
                 </div>
               </div>
-              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
-                Display your active Bedrock version, world seed, elapsed playtime, and launcher state directly on your Discord profile.
+              <p class="text-[#94a3b8] text-xs font-sans leading-relaxed mb-4">
+                Curated list of public and private Bedrock servers with real-time ping monitors and instant protocol join handlers.
               </p>
             </div>
+            <div class="pt-3 border-t border-white/5 text-[11px] font-mc-pixel text-[#FF00E5]">
+              ✓ 1-Click Server Join
+            </div>
+          </div>
 
-            <div class="glitch-card p-5">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="icon-diamond-box bg-[#090A0F] border border-[#FF00E5]/40 text-[#FF00E5]">
-                  ✦
+          <div class="glitch-card p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="icon-glitch-box">
+                  <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-7 h-7 object-contain pixel-render" />
                 </div>
                 <div>
-                  <h4 class="font-bold text-white text-sm font-sans">Server Browser</h4>
-                  <div class="text-[10px] text-[#FF00E5]">Real-time Latency</div>
+                  <h4 class="font-mc-title text-white text-base">ZERO DEPENDENCIES</h4>
+                  <div class="text-[10px] font-mc-pixel text-[#86FF00]">Self-Contained x64</div>
                 </div>
               </div>
-              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
-                Curated directory of popular Bedrock servers with live ping indicators and one-click direct connection protocol.
+              <p class="text-[#94a3b8] text-xs font-sans leading-relaxed mb-4">
+                Full Standalone Edition embeds .NET 8.0 Desktop and Visual C++ 2015-2022 runtimes. Extract and run on any clean Windows machine.
               </p>
             </div>
+            <div class="pt-3 border-t border-white/5 text-[11px] font-mc-pixel text-[#86FF00]">
+              ✓ No Installer Required
+            </div>
+          </div>
 
-            <div class="glitch-card p-5">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="icon-diamond-box bg-[#090A0F] border border-white/20 text-white">
-                  ✦
+          <div class="glitch-card glitch-card-lime-accent p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="icon-glitch-box">
+                  <img src="./assets/pixel_cube.png" alt="Pixel Cube" class="w-7 h-7 object-contain pixel-render" />
                 </div>
                 <div>
-                  <h4 class="font-bold text-white text-sm font-sans">Zero Dependencies</h4>
-                  <div class="text-[10px] text-[#86FF00]">Self-Contained</div>
+                  <h4 class="font-mc-title text-white text-base">NATIVE C++ SHIMS</h4>
+                  <div class="text-[10px] font-mc-pixel text-[#86FF00]">GDKLaunchShim.exe</div>
                 </div>
               </div>
-              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
-                Full Standalone Edition bundles .NET 8.0 Desktop and VC++ 2015-2022 runtimes. Extract and run on any clean Windows install.
+              <p class="text-[#94a3b8] text-xs font-sans leading-relaxed mb-4">
+                Custom compiled C++ helper shims communicate with ClipSvc and WUTokenHelper to decrypt and register AppX and GDK packages.
               </p>
             </div>
-
-            <div class="glitch-card p-5">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="icon-diamond-box bg-[#090A0F] border border-[#86FF00]/40 text-[#86FF00]">
-                  ✦
-                </div>
-                <div>
-                  <h4 class="font-bold text-white text-sm font-sans">Native C++ Shims</h4>
-                  <div class="text-[10px] text-[#86FF00]">WUTokenHelper.dll</div>
-                </div>
-              </div>
-              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
-                Custom compiled GDKLaunchShim.exe bridges Microsoft Store licensing handshakes for modern GDK package verification.
-              </p>
+            <div class="pt-3 border-t border-white/5 text-[11px] font-mc-pixel text-[#86FF00]">
+              ✓ Official Windows APIs
             </div>
-
           </div>
 
         </div>
@@ -556,9 +568,9 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="max-w-3xl mb-12">
-          <span class="text-xs font-mono font-bold text-[#86FF00] uppercase tracking-wider">Breakthrough Feature 05</span>
-          <h2 class="text-3xl sm:text-4xl text-white mt-2 font-editorial">
-            Windows Subsystem Diagnostic Scanner.
+          <span class="text-xs font-mc-pixel text-[#86FF00] uppercase tracking-wider">Breakthrough Feature 05</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 font-mc-title">
+            WINDOWS SUBSYSTEM DIAGNOSTIC SCANNER.
           </h2>
           <p class="text-base text-[#94a3b8] mt-2 font-sans">
             Verify Gaming Services, AppX sideloading permissions, and UWP isolated junctions before launching.
@@ -569,13 +581,13 @@
           
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-white/10">
             <div>
-              <div class="text-xs font-mono text-[#64748b]">TELEMETRY SUBSYSTEM STATUS</div>
-              <div id="diag-overall-status" class="text-sm font-mono font-bold text-white mt-1">
+              <div class="text-xs font-mc-pixel text-[#64748b]">TELEMETRY SUBSYSTEM STATUS</div>
+              <div id="diag-overall-status" class="text-sm font-mc-title text-white mt-1">
                 SYSTEM STANDBY — READY TO DIAGNOSE
               </div>
             </div>
-            <button id="btn-run-diagnostics" type="button" class="btn-flagship btn-glitch-lime text-xs font-bold !py-2.5 !px-5">
-              Run Full 5-Point Diagnostic
+            <button id="btn-run-diagnostics" type="button" class="btn-flagship btn-glitch-lime text-xs !py-2.5 !px-5">
+              RUN FULL DIAGNOSTIC
             </button>
           </div>
 
@@ -586,8 +598,8 @@
 
           <!-- Diagnostic Check Rows -->
           <div id="diagnostic-log-list" class="space-y-2.5">
-            <div class="p-4 rounded-2xl border border-white/5 bg-[#090A0F] text-xs font-mono text-[#64748b] text-center">
-              Click "Run Full 5-Point Diagnostic" to probe active Windows services and IPC pipes.
+            <div class="p-4 rounded-xl border border-white/5 bg-[#090A0F] text-xs font-mc-pixel text-[#64748b] text-center">
+              Click "RUN FULL DIAGNOSTIC" to probe active Windows services and IPC pipes.
             </div>
           </div>
 
@@ -603,9 +615,9 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-xs font-mono font-bold text-[#86FF00] uppercase tracking-wider">Benchmark Matrix</span>
-          <h2 class="text-3xl sm:text-4xl text-white mt-2 mb-4 font-editorial">
-            Engine Architecture Comparison.
+          <span class="text-xs font-mc-pixel text-[#86FF00] uppercase tracking-wider">Benchmark Matrix</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 mb-4 font-mc-title">
+            ENGINE ARCHITECTURE COMPARISON.
           </h2>
           <p class="text-sm text-[#94a3b8] font-sans">
             How BUGrock Launcher compares against the official Store launcher and third-party tools.
@@ -618,10 +630,10 @@
               
               <thead class="bg-[#090A0F] border-b border-white/10 text-[#64748b]">
                 <tr>
-                  <th class="py-4 px-6 font-bold uppercase">Feature / Capability</th>
-                  <th class="py-4 px-6 font-bold text-[#86FF00] bg-[#86FF00]/10">BUGrock Launcher</th>
-                  <th class="py-4 px-6 font-bold uppercase">Official Store Launcher</th>
-                  <th class="py-4 px-6 font-bold uppercase">Generic Switchers</th>
+                  <th class="py-4 px-6 font-mc-title text-sm">Feature / Capability</th>
+                  <th class="py-4 px-6 font-mc-title text-sm text-[#86FF00] bg-[#86FF00]/10">BUGrock Launcher</th>
+                  <th class="py-4 px-6 font-mc-title text-sm">Official Store Launcher</th>
+                  <th class="py-4 px-6 font-mc-title text-sm">Generic Switchers</th>
                 </tr>
               </thead>
 
@@ -629,37 +641,37 @@
                 
                 <tr>
                   <td class="py-4 px-6 font-semibold text-white font-sans">Historical Version Vault (0.14 to 1.21)</td>
-                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5">✓ 600+ Releases Preserved</td>
-                  <td class="py-4 px-6 text-red-400">✗ Latest Version Only</td>
-                  <td class="py-4 px-6 text-yellow-400">⚠️ Fragmented Builds</td>
+                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5 font-mc-pixel">✓ 600+ Releases Preserved</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ Latest Version Only</td>
+                  <td class="py-4 px-6 text-yellow-400 font-mc-pixel">⚠️ Fragmented Builds</td>
                 </tr>
 
                 <tr>
                   <td class="py-4 px-6 font-semibold text-white font-sans">Simultaneous Multi-Version Instances</td>
-                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5">✓ 100% Isolated Junctions</td>
-                  <td class="py-4 px-6 text-red-400">✗ Single Instance Only</td>
-                  <td class="py-4 px-6 text-red-400">✗ Manual Folder Renaming</td>
+                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5 font-mc-pixel">✓ 100% Isolated Junctions</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ Single Instance Only</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ Manual Folder Renaming</td>
                 </tr>
 
                 <tr>
                   <td class="py-4 px-6 font-semibold text-white font-sans">Direct In-World Add-on Injector</td>
-                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5">✓ 1-Click Atomic Injection</td>
-                  <td class="py-4 px-6 text-red-400">✗ None (Manual com.mojang)</td>
-                  <td class="py-4 px-6 text-red-400">✗ None</td>
+                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5 font-mc-pixel">✓ 1-Click Atomic Injection</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ None (Manual com.mojang)</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ None</td>
                 </tr>
 
                 <tr>
                   <td class="py-4 px-6 font-semibold text-white font-sans">Pre-Isolation World Protection Backup</td>
-                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5">✓ Automated Snapshots</td>
-                  <td class="py-4 px-6 text-red-400">✗ No Auto-Backups</td>
-                  <td class="py-4 px-6 text-red-400">✗ None</td>
+                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5 font-mc-pixel">✓ Automated Snapshots</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ No Auto-Backups</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ None</td>
                 </tr>
 
                 <tr>
                   <td class="py-4 px-6 font-semibold text-white font-sans">In-App Mod Hub (WebView2)</td>
-                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5">✓ Built-in MCPEDL & CurseForge</td>
-                  <td class="py-4 px-6 text-yellow-400">⚠️ Paid Marketplace Only</td>
-                  <td class="py-4 px-6 text-red-400">✗ Manual Web Downloads</td>
+                  <td class="py-4 px-6 text-[#86FF00] font-bold bg-[#86FF00]/5 font-mc-pixel">✓ Built-in MCPEDL & CurseForge</td>
+                  <td class="py-4 px-6 text-yellow-400 font-mc-pixel">⚠️ Paid Marketplace Only</td>
+                  <td class="py-4 px-6 text-red-400 font-mc-pixel">✗ Manual Web Downloads</td>
                 </tr>
 
               </tbody>
@@ -678,9 +690,9 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center mb-14">
-          <span class="text-xs font-mono font-bold text-[#FF00E5] uppercase tracking-wider">Frequently Asked Questions</span>
-          <h2 class="text-3xl sm:text-4xl text-white mt-2 mb-3 font-editorial">
-            Everything you need to know.
+          <span class="text-xs font-mc-pixel text-[#FF00E5] uppercase tracking-wider">Frequently Asked Questions</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 mb-3 font-mc-title">
+            EVERYTHING YOU NEED TO KNOW.
           </h2>
           <p class="text-sm text-[#94a3b8] font-sans">
             Technical answers regarding compatibility, safety, and package sideloading.
@@ -691,8 +703,8 @@
           
           <div class="flagship-faq-item glitch-card overflow-hidden">
             <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
-              <span class="text-sm font-sans">1. Does BUGrock Launcher pirate Minecraft?</span>
-              <span class="text-[#86FF00] text-base transition-transform">▼</span>
+              <span class="text-sm font-mc-title">1. DOES BUGROCK LAUNCHER PIRATE MINECRAFT?</span>
+              <span class="text-[#86FF00] text-base transition-transform font-mc-pixel">▼</span>
             </button>
             <div class="p-4 bg-[#090A0F] border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
               No. BUGrock Launcher does not bypass official licensing. You must own Minecraft Bedrock on your Microsoft Store account or have an active Xbox Game Pass subscription. The launcher verifies and acquires decryption keys through official Windows licensing APIs.
@@ -701,8 +713,8 @@
 
           <div class="flagship-faq-item glitch-card overflow-hidden">
             <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
-              <span class="text-sm font-sans">2. Can I install Bedrock 1.16 for PvP and 1.21 for Realms simultaneously?</span>
-              <span class="text-[#86FF00] text-base transition-transform">▼</span>
+              <span class="text-sm font-mc-title">2. CAN I RUN BEDROCK 1.16 AND 1.21 SIMULTANEOUSLY?</span>
+              <span class="text-[#86FF00] text-base transition-transform font-mc-pixel">▼</span>
             </button>
             <div class="p-4 bg-[#090A0F] border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
               Yes! Every version you download has its own independent filesystem junction tree. Worlds, skins, and options configured in 1.16 will never collide with your 1.21 realm worlds.
@@ -711,8 +723,8 @@
 
           <div class="flagship-faq-item glitch-card overflow-hidden">
             <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
-              <span class="text-sm font-sans">3. Why do I need to turn on Windows Developer Mode?</span>
-              <span class="text-[#86FF00] text-base transition-transform">▼</span>
+              <span class="text-sm font-mc-title">3. WHY DO I NEED WINDOWS DEVELOPER MODE?</span>
+              <span class="text-[#86FF00] text-base transition-transform font-mc-pixel">▼</span>
             </button>
             <div class="p-4 bg-[#090A0F] border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
               Windows Developer Mode is required by Windows to register and sideload unpacked legacy UWP (.appx) packages without requiring Microsoft Store code-signing certificates. It takes 5 seconds to enable in Windows Settings.
@@ -721,8 +733,8 @@
 
           <div class="flagship-faq-item glitch-card overflow-hidden">
             <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
-              <span class="text-sm font-sans">4. How does the automated pre-isolation backup protect my worlds?</span>
-              <span class="text-[#86FF00] text-base transition-transform">▼</span>
+              <span class="text-sm font-mc-title">4. HOW DOES THE PRE-ISOLATION BACKUP PROTECT WORLDS?</span>
+              <span class="text-[#86FF00] text-base transition-transform font-mc-pixel">▼</span>
             </button>
             <div class="p-4 bg-[#090A0F] border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
               Before creating junction links or switching profiles, BUGrock scans your active com.mojang folder and creates a timestamped zip archive in "Backups instances/". If anything ever fails, your original worlds remain 100% recoverable.
@@ -741,9 +753,9 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         <div class="max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-mono font-bold text-[#86FF00] uppercase tracking-wider">Official Distribution</span>
-          <h2 class="text-3xl sm:text-4xl text-white mt-2 mb-4 font-editorial">
-            Download BUGrock Launcher.
+          <span class="text-xs font-mc-pixel text-[#86FF00] uppercase tracking-wider">Official Distribution</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mt-2 mb-4 font-mc-title">
+            DOWNLOAD BUGROCK LAUNCHER.
           </h2>
           <p class="text-sm text-[#94a3b8] font-sans">
             Choose the edition that best matches your setup. Both editions include full version archives and zero-loss world protection.
@@ -752,19 +764,22 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left mb-16">
           
-          <!-- Full Standalone Edition (Reference Card Style) -->
+          <!-- Full Standalone Edition -->
           <div class="glitch-card glitch-card-lime-accent p-8 relative flex flex-col justify-between">
-            <div class="absolute -top-3.5 left-6 px-3.5 py-1 rounded-full bg-[#86FF00] text-[#090A0F] font-bold font-mono text-[11px] tracking-wide shadow-md">
+            <div class="absolute -top-3.5 left-6 px-3.5 py-1 rounded bg-[#86FF00] text-[#090A0F] font-mc-title text-xs shadow-md">
               RECOMMENDED FOR EVERYONE
             </div>
 
             <div>
               <div class="flex items-start justify-between mb-4">
-                <div>
-                  <h3 class="text-2xl text-white font-editorial">Full Standalone Edition</h3>
-                  <div class="text-xs font-mono text-[#64748b] mt-1">BUGrock-Launcher-v1.0.0-Full-Standalone-win-x64.zip</div>
+                <div class="flex items-center gap-3">
+                  <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-8 h-8 object-contain pixel-render" />
+                  <div>
+                    <h3 class="text-xl sm:text-2xl text-white font-mc-title">FULL STANDALONE</h3>
+                    <div class="text-xs font-mono text-[#64748b] mt-1">BUGrock-Launcher-v1.0.0-Full-Standalone-win-x64.zip</div>
+                  </div>
                 </div>
-                <span class="text-xs font-mono text-[#86FF00] bg-[#86FF00]/15 px-2.5 py-0.5 rounded-full border border-[#86FF00]/30 font-semibold">
+                <span class="text-xs font-mc-pixel text-[#86FF00] bg-[#86FF00]/15 px-2.5 py-0.5 rounded border border-[#86FF00]/30 font-semibold">
                   Bundled
                 </span>
               </div>
@@ -775,38 +790,41 @@
 
               <div class="space-y-2.5 text-xs font-mono text-[#cbd5e1] mb-8">
                 <div class="flex items-center gap-2">
-                  <span class="text-[#86FF00]">✦</span>
+                  <span class="text-[#86FF00] font-mc-pixel">✦</span>
                   <span>Bundled .NET 8.0 Desktop Runtime (x64)</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-[#86FF00]">✦</span>
+                  <span class="text-[#86FF00] font-mc-pixel">✦</span>
                   <span>Bundled Visual C++ 2015-2022 Runtimes</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-[#86FF00]">✦</span>
+                  <span class="text-[#86FF00] font-mc-pixel">✦</span>
                   <span>Native GDKLaunchShim & WUTokenHelper</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-[#86FF00]">✦</span>
+                  <span class="text-[#86FF00] font-mc-pixel">✦</span>
                   <span>File size: ~72 MB ZIP</span>
                 </div>
               </div>
             </div>
 
-            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-glitch-lime w-full py-4 text-center font-bold text-sm">
-              ⬇ Download Full Standalone
+            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-glitch-lime w-full py-4 text-center text-sm">
+              DOWNLOAD FULL STANDALONE
             </a>
           </div>
 
-          <!-- Lite Edition (Reference Card Style) -->
+          <!-- Lite Edition -->
           <div class="glitch-card glitch-card-magenta-accent p-8 relative flex flex-col justify-between">
             <div>
               <div class="flex items-start justify-between mb-4">
-                <div>
-                  <h3 class="text-2xl text-white font-editorial">Lite Edition</h3>
-                  <div class="text-xs font-mono text-[#64748b] mt-1">BUGrock-Launcher-v1.0.0-Lite-win-x64.zip</div>
+                <div class="flex items-center gap-3">
+                  <img src="./assets/pixel_cube.png" alt="Pixel Cube" class="w-8 h-8 object-contain pixel-render" />
+                  <div>
+                    <h3 class="text-xl sm:text-2xl text-white font-mc-title">LITE EDITION</h3>
+                    <div class="text-xs font-mono text-[#64748b] mt-1">BUGrock-Launcher-v1.0.0-Lite-win-x64.zip</div>
+                  </div>
                 </div>
-                <span class="text-xs font-mono text-[#FF00E5] bg-[#FF00E5]/15 px-2.5 py-0.5 rounded-full border border-[#FF00E5]/30 font-semibold">
+                <span class="text-xs font-mc-pixel text-[#FF00E5] bg-[#FF00E5]/15 px-2.5 py-0.5 rounded border border-[#FF00E5]/30 font-semibold">
                   Minimal
                 </span>
               </div>
@@ -817,22 +835,22 @@
 
               <div class="space-y-2.5 text-xs font-mono text-[#94a3b8] mb-8">
                 <div class="flex items-center gap-2">
-                  <span class="text-[#FF00E5]">✦</span>
+                  <span class="text-[#FF00E5] font-mc-pixel">✦</span>
                   <span>Requires system .NET 8.0 x64 runtime</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-[#FF00E5]">✦</span>
+                  <span class="text-[#FF00E5] font-mc-pixel">✦</span>
                   <span>Requires Visual C++ 2015-2022 Redistributable</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <span class="text-[#86FF00]">✦</span>
+                  <span class="text-[#86FF00] font-mc-pixel">✦</span>
                   <span>Compact file size: ~11 MB ZIP</span>
                 </div>
               </div>
             </div>
 
-            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-glitch-magenta w-full py-4 text-center font-bold text-sm text-white">
-              ⬇ Download Lite Edition (~11 MB)
+            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-glitch-magenta w-full py-4 text-center text-sm text-white">
+              DOWNLOAD LITE EDITION (~11 MB)
             </a>
           </div>
 
@@ -851,8 +869,8 @@
       
       <button id="mod-modal-close" type="button" class="absolute top-4 right-4 text-[#94a3b8] hover:text-white text-lg font-mono">✕</button>
 
-      <div class="flex items-center gap-2 text-xs font-mono text-[#FF00E5] font-bold uppercase mb-1" id="modal-mod-author">Author Details</div>
-      <h3 class="text-2xl text-white mb-2 font-editorial" id="modal-mod-title">Mod Title</h3>
+      <div class="flex items-center gap-2 text-xs font-mc-pixel text-[#FF00E5] uppercase mb-1" id="modal-mod-author">Author Details</div>
+      <h3 class="text-xl sm:text-2xl text-white mb-2 font-mc-title" id="modal-mod-title">Mod Title</h3>
       
       <p class="text-xs text-[#94a3b8] mb-4 font-sans leading-relaxed" id="modal-mod-desc">Short description</p>
 
@@ -866,8 +884,8 @@
         <div id="modal-mod-rating" class="text-[#86FF00] font-bold">★ 5.0</div>
       </div>
 
-      <button id="btn-modal-mock-inject" type="button" class="btn-flagship btn-glitch-lime w-full py-3.5 text-sm font-bold">
-        + Inject Pack into Active World
+      <button id="btn-modal-mock-inject" type="button" class="btn-flagship btn-glitch-lime w-full py-3.5 text-sm">
+        INJECT PACK INTO ACTIVE WORLD
       </button>
 
     </div>
@@ -880,21 +898,21 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-3">
-        <img src="./assets/pixel_cube.png" alt="BUGrock" class="w-6 h-6 object-contain" />
-        <span class="font-brand-mc text-sm text-white">BUGrock Launcher</span>
+        <img src="./assets/bugrock_block.png" alt="BUGrock" class="w-6 h-6 object-contain pixel-render" />
+        <span class="font-mc-title text-sm text-white">BUGrock Launcher</span>
         <span>•</span>
-        <span>Licensed under GNU GPL v3</span>
+        <span class="font-mc-pixel text-[11px]">Licensed under GNU GPL v3</span>
       </div>
 
-      <div class="flex items-center gap-6">
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="hover:text-[#86FF00] transition-colors">GitHub</a>
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases" target="_blank" rel="noreferrer" class="hover:text-[#86FF00] transition-colors">Releases</a>
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/blob/master/LICENSE.txt" target="_blank" rel="noreferrer" class="hover:text-[#86FF00] transition-colors">License</a>
+      <div class="flex items-center gap-6 font-mc-pixel text-xs">
+        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="hover:text-[#86FF00] transition-colors">GITHUB</a>
+        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases" target="_blank" rel="noreferrer" class="hover:text-[#86FF00] transition-colors">RELEASES</a>
+        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/blob/master/LICENSE.txt" target="_blank" rel="noreferrer" class="hover:text-[#86FF00] transition-colors">LICENSE</a>
       </div>
 
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-6 border-t border-white/5 text-[11px] text-[#475569] text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-6 border-t border-white/5 text-[11px] text-[#475569] text-center font-sans">
       BUGrock Launcher is an open-source, community-driven project and is NOT an official Minecraft product. Not approved by or associated with Mojang or Microsoft.
     </div>
   </footer>

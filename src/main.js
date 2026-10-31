@@ -1,5 +1,5 @@
 // ==========================================================================
-// BUGrock Launcher — Glitch Block Signature Handcrafted Engine
+// BUGrock Launcher — Glitch Block & Minecraft Typography Engine
 // Colors: #86FF00 (Acid Lime), #FF00E5 (Glitch Magenta), #090A0F (Obsidian Void)
 // STRICT ANTI-GRADIENT: Zero color gradients.
 // ==========================================================================
@@ -336,420 +336,6 @@ class SoundFX {
 const sfx = new SoundFX();
 
 // ==========================================================================
-// TRUE 3D MINECRAFT VOLUMETRIC MODEL RENDERER
-// Real 3D cuboids, perspective projection, depth sorting & face interpolation
-// Colors: Steve, Alex, and BUG Guy (Glitch Block Black & Magenta with Lime Accents)
-// ==========================================================================
-class MinecraftModel3D {
-  constructor(canvas) {
-    this.canvas = canvas;
-    this.ctx = canvas.getContext('2d');
-    this.modelType = 'steve';
-    
-    this.angleY = -0.45;
-    this.angleX = -0.16;
-    this.autoRotate = true;
-    this.isDragging = false;
-    this.lastX = 0;
-    this.lastY = 0;
-    this.inactivityTimer = null;
-    this.time = 0;
-
-    this.initEvents();
-    this.render();
-  }
-
-  setModel(type) {
-    this.modelType = type;
-  }
-
-  initEvents() {
-    const handleStart = (x, y) => {
-      this.isDragging = true;
-      this.autoRotate = false;
-      this.lastX = x;
-      this.lastY = y;
-      if (this.inactivityTimer) clearTimeout(this.inactivityTimer);
-    };
-
-    const handleMove = (x, y) => {
-      if (!this.isDragging) return;
-      const dx = x - this.lastX;
-      const dy = y - this.lastY;
-      this.angleY += dx * 0.012;
-      this.angleX += dy * 0.008;
-      this.angleX = Math.max(-0.45, Math.min(0.25, this.angleX));
-      this.lastX = x;
-      this.lastY = y;
-    };
-
-    const handleEnd = () => {
-      if (!this.isDragging) return;
-      this.isDragging = false;
-      this.inactivityTimer = setTimeout(() => {
-        this.autoRotate = true;
-      }, 2500);
-    };
-
-    this.canvas.addEventListener('mousedown', (e) => handleStart(e.clientX, e.clientY));
-    window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
-    window.addEventListener('mouseup', handleEnd);
-
-    this.canvas.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) {
-        handleStart(e.touches[0].clientX, e.touches[0].clientY);
-      }
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 0) {
-        handleMove(e.touches[0].clientX, e.touches[0].clientY);
-      }
-    }, { passive: true });
-
-    window.addEventListener('touchend', handleEnd);
-  }
-
-  project(v, camDist = 480) {
-    const cosY = Math.cos(this.angleY), sinY = Math.sin(this.angleY);
-    const x1 = v[0] * cosY + v[2] * sinY;
-    const z1 = -v[0] * sinY + v[2] * cosY;
-    const y1 = v[1];
-
-    const cosX = Math.cos(this.angleX), sinX = Math.sin(this.angleX);
-    const y2 = y1 * cosX - z1 * sinX;
-    const z2 = y1 * sinX + z1 * cosX;
-    const x2 = x1;
-
-    const scale = camDist / (camDist + z2);
-    const cx = this.canvas.width / 2;
-    const cy = this.canvas.height / 2 + 8;
-
-    return {
-      x: cx + x2 * scale,
-      y: cy + y2 * scale,
-      z: z2,
-      scale: scale
-    };
-  }
-
-  rotateLimb(v, pivot, pitch) {
-    const dy = v[1] - pivot[1];
-    const dz = v[2] - pivot[2];
-    const cosP = Math.cos(pitch), sinP = Math.sin(pitch);
-    return [
-      v[0],
-      pivot[1] + dy * cosP - dz * sinP,
-      pivot[2] + dy * sinP + dz * cosP
-    ];
-  }
-
-  createCuboid(cx, cy, cz, w, h, d, colors, partName, pivot = null, limbPitch = 0) {
-    const hw = w / 2, hh = h / 2, hd = d / 2;
-    let rawVerts = [
-      [-hw, -hh,  hd],
-      [ hw, -hh,  hd],
-      [ hw,  hh,  hd],
-      [-hw,  hh,  hd],
-      [-hw, -hh, -hd],
-      [ hw, -hh, -hd],
-      [ hw,  hh, -hd],
-      [-hw,  hh, -hd]
-    ];
-
-    rawVerts = rawVerts.map(v => [v[0] + cx, v[1] + cy, v[2] + cz]);
-
-    if (pivot && limbPitch !== 0) {
-      rawVerts = rawVerts.map(v => this.rotateLimb(v, pivot, limbPitch));
-    }
-
-    const quads = [
-      { name: 'front', indices: [0, 1, 2, 3], normal: [0, 0, 1] },
-      { name: 'back',  indices: [5, 4, 7, 6], normal: [0, 0, -1] },
-      { name: 'top',   indices: [4, 5, 1, 0], normal: [0, -1, 0] },
-      { name: 'bottom',indices: [3, 2, 6, 7], normal: [0, 1, 0] },
-      { name: 'left',  indices: [4, 0, 3, 7], normal: [-1, 0, 0] },
-      { name: 'right', indices: [1, 5, 6, 2], normal: [1, 0, 0] }
-    ];
-
-    const projectedVerts = rawVerts.map(v => this.project(v));
-
-    const faces = [];
-    quads.forEach(q => {
-      const p0 = projectedVerts[q.indices[0]];
-      const p1 = projectedVerts[q.indices[1]];
-      const p2 = projectedVerts[q.indices[2]];
-      const p3 = projectedVerts[q.indices[3]];
-
-      // Backface Culling
-      const cp = (p1.x - p0.x) * (p2.y - p1.y) - (p1.y - p0.y) * (p2.x - p1.x);
-      if (cp <= 0) return;
-
-      const avgZ = (p0.z + p1.z + p2.z + p3.z) / 4;
-
-      // Normal rotation for solid directional lighting
-      const cosY = Math.cos(this.angleY), sinY = Math.sin(this.angleY);
-      const nx1 = q.normal[0] * cosY + q.normal[2] * sinY;
-      const nz1 = -q.normal[0] * sinY + q.normal[2] * cosY;
-      const ny1 = q.normal[1];
-
-      const cosX = Math.cos(this.angleX), sinX = Math.sin(this.angleX);
-      const ny2 = ny1 * cosX - nz1 * sinX;
-      const nz2 = ny1 * sinX + nz1 * cosX;
-      const nx2 = nx1;
-
-      const lx = 0.38, ly = -0.75, lz = -0.55;
-      const dot = Math.max(0, -(nx2 * lx + ny2 * ly + nz2 * lz));
-      const lightFactor = 0.55 + 0.45 * dot;
-
-      const baseColor = colors[q.name] || colors.all || '#888888';
-
-      faces.push({
-        partName,
-        faceName: q.name,
-        avgZ,
-        pts: [p0, p1, p2, p3],
-        baseColor,
-        lightFactor
-      });
-    });
-
-    return faces;
-  }
-
-  shadeColor(hex, factor) {
-    hex = hex.replace('#', '');
-    if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
-    const num = parseInt(hex, 16);
-    let r = Math.min(255, Math.floor(((num >> 16) & 255) * factor));
-    let g = Math.min(255, Math.floor(((num >> 8) & 255) * factor));
-    let b = Math.min(255, Math.floor((num & 255) * factor));
-    return `rgb(${r}, ${g}, ${b})`;
-  }
-
-  interpolateQuad(p0, p1, p2, p3, u, v) {
-    const xTop = p0.x + (p1.x - p0.x) * u;
-    const yTop = p0.y + (p1.y - p0.y) * u;
-    const xBot = p3.x + (p2.x - p3.x) * u;
-    const yBot = p3.y + (p2.y - p3.y) * u;
-    return {
-      x: xTop + (xBot - xTop) * v,
-      y: yTop + (yBot - yTop) * v
-    };
-  }
-
-  drawSubQuad(pts, u0, v0, u1, v1, color) {
-    const sp0 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u0, v0);
-    const sp1 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u1, v0);
-    const sp2 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u1, v1);
-    const sp3 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u0, v1);
-
-    this.ctx.beginPath();
-    this.ctx.moveTo(sp0.x, sp0.y);
-    this.ctx.lineTo(sp1.x, sp1.y);
-    this.ctx.lineTo(sp2.x, sp2.y);
-    this.ctx.lineTo(sp3.x, sp3.y);
-    this.ctx.closePath();
-    this.ctx.fillStyle = color;
-    this.ctx.fill();
-  }
-
-  render() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-    if (this.autoRotate) {
-      this.angleY += 0.016;
-    }
-    this.time += 0.035;
-
-    const armPitch = Math.sin(this.time) * 0.22;
-    const legPitch = -Math.sin(this.time) * 0.22;
-    const headBob = Math.sin(this.time * 2) * 1.0;
-
-    // Skin Color Themes (Using Authentic Minecraft & Glitch Block Colors)
-    let palette;
-    if (this.modelType === 'alex') {
-      palette = {
-        skin: '#d8a180',
-        hair: '#c85623',
-        eyeSclera: '#ffffff',
-        eyePupil: '#2e8b57',
-        shirt: '#5b8731',
-        pants: '#6b5839',
-        shoes: '#34302c',
-        armWidth: 10
-      };
-    } else if (this.modelType === 'bugrock') {
-      // BUG Guy: Iconic Glitch Block Missing Texture (#FF00E5 Magenta & #090A0F Black) + Acid Lime (#86FF00)
-      palette = {
-        skin: '#1a1f2e',
-        hair: '#FF00E5',
-        eyeSclera: '#ffffff',
-        eyePupil: '#86FF00',
-        shirt: '#090A0F',
-        pants: '#FF00E5',
-        shoes: '#86FF00',
-        armWidth: 13
-      };
-    } else {
-      // Default Steve
-      palette = {
-        skin: '#b87e5b',
-        hair: '#4a3018',
-        eyeSclera: '#ffffff',
-        eyePupil: '#2b58bf',
-        shirt: '#008b8b',
-        pants: '#22388e',
-        shoes: '#262626',
-        armWidth: 13
-      };
-    }
-
-    const allFaces = [];
-
-    // 1. Pedestal Base (Solid Obsidian slab at feet with #86FF00 border)
-    const baseColors = {
-      top: '#151924',
-      front: '#090A0F',
-      back: '#090A0F',
-      left: '#0f121a',
-      right: '#0f121a',
-      bottom: '#000000'
-    };
-    allFaces.push(...this.createCuboid(0, 68, 0, 96, 7, 96, baseColors, 'pedestal'));
-
-    // 2. Head (32x32x32)
-    const headColors = {
-      front: palette.skin,
-      back: palette.hair,
-      top: palette.hair,
-      bottom: palette.skin,
-      left: palette.hair,
-      right: palette.hair
-    };
-    allFaces.push(...this.createCuboid(0, -56 + headBob, 0, 32, 32, 32, headColors, 'head'));
-
-    // 3. Torso (Body 32x44x16)
-    const torsoColors = {
-      front: palette.shirt,
-      back: palette.shirt,
-      top: palette.shirt,
-      bottom: palette.pants,
-      left: palette.shirt,
-      right: palette.shirt
-    };
-    allFaces.push(...this.createCuboid(0, -18, 0, 32, 44, 16, torsoColors, 'torso'));
-
-    // 4. Arms
-    const armW = palette.armWidth;
-    const armColors = {
-      top: palette.shirt,
-      bottom: palette.skin,
-      front: palette.shirt,
-      back: palette.shirt,
-      left: palette.shirt,
-      right: palette.shirt
-    };
-    const rArmX = -(16 + armW / 2);
-    allFaces.push(...this.createCuboid(rArmX, -18, 0, armW, 44, 14, armColors, 'rightArm', [rArmX, -38, 0], armPitch));
-    const lArmX = 16 + armW / 2;
-    allFaces.push(...this.createCuboid(lArmX, -18, 0, armW, 44, 14, armColors, 'leftArm', [lArmX, -38, 0], -armPitch));
-
-    // 5. Legs
-    const legColors = {
-      top: palette.pants,
-      bottom: palette.shoes,
-      front: palette.pants,
-      back: palette.pants,
-      left: palette.pants,
-      right: palette.pants
-    };
-    allFaces.push(...this.createCuboid(-8, 26, 0, 15, 44, 15, legColors, 'rightLeg', [-8, 4, 0], -legPitch));
-    allFaces.push(...this.createCuboid(8, 26, 0, 15, 44, 15, legColors, 'leftLeg', [8, 4, 0], legPitch));
-
-    // Painter's Algorithm Depth Sort
-    allFaces.sort((a, b) => b.avgZ - a.avgZ);
-
-    allFaces.forEach(face => {
-      const finalColor = this.shadeColor(face.baseColor, face.lightFactor);
-
-      this.ctx.beginPath();
-      this.ctx.moveTo(face.pts[0].x, face.pts[0].y);
-      this.ctx.lineTo(face.pts[1].x, face.pts[1].y);
-      this.ctx.lineTo(face.pts[2].x, face.pts[2].y);
-      this.ctx.lineTo(face.pts[3].x, face.pts[3].y);
-      this.ctx.closePath();
-
-      this.ctx.fillStyle = finalColor;
-      this.ctx.fill();
-
-      this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.25)';
-      this.ctx.lineWidth = 0.5;
-      this.ctx.stroke();
-
-      // Perspective Face Details
-      if (face.partName === 'head' && face.faceName === 'front') {
-        const hairShaded = this.shadeColor(palette.hair, face.lightFactor);
-        const whiteShaded = this.shadeColor(palette.eyeSclera, face.lightFactor);
-        const pupilShaded = this.shadeColor(palette.eyePupil, face.lightFactor);
-
-        // Hair / Glitch checker on top
-        this.drawSubQuad(face.pts, 0, 0, 1, 0.28, hairShaded);
-        this.drawSubQuad(face.pts, 0, 0.28, 0.18, 0.42, hairShaded);
-        this.drawSubQuad(face.pts, 0.82, 0.28, 1, 0.42, hairShaded);
-
-        // Eyes
-        this.drawSubQuad(face.pts, 0.14, 0.52, 0.42, 0.68, whiteShaded);
-        this.drawSubQuad(face.pts, 0.28, 0.52, 0.42, 0.68, pupilShaded);
-
-        this.drawSubQuad(face.pts, 0.58, 0.52, 0.86, 0.68, whiteShaded);
-        this.drawSubQuad(face.pts, 0.58, 0.52, 0.72, 0.68, pupilShaded);
-
-        if (this.modelType === 'bugrock') {
-          // Glitch Missing Texture checker on cheek
-          const glitchMagenta = this.shadeColor('#FF00E5', face.lightFactor);
-          this.drawSubQuad(face.pts, 0.38, 0.76, 0.62, 0.88, glitchMagenta);
-        } else {
-          const shadowShaded = this.shadeColor('#875236', face.lightFactor);
-          this.drawSubQuad(face.pts, 0.38, 0.78, 0.62, 0.88, shadowShaded);
-        }
-      }
-
-      // Torso Missing Texture Glitch on BUG Guy
-      if (this.modelType === 'bugrock' && face.partName === 'torso' && face.faceName === 'front') {
-        const limeChest = this.shadeColor('#86FF00', face.lightFactor);
-        const magChest = this.shadeColor('#FF00E5', face.lightFactor);
-        this.drawSubQuad(face.pts, 0.3, 0.2, 0.5, 0.45, magChest);
-        this.drawSubQuad(face.pts, 0.5, 0.2, 0.7, 0.45, limeChest);
-        this.drawSubQuad(face.pts, 0.3, 0.45, 0.5, 0.7, limeChest);
-        this.drawSubQuad(face.pts, 0.5, 0.45, 0.7, 0.7, magChest);
-      }
-
-      // Hands
-      if ((face.partName === 'leftArm' || face.partName === 'rightArm') && face.faceName === 'front') {
-        const skinHand = this.shadeColor(palette.skin, face.lightFactor);
-        this.drawSubQuad(face.pts, 0, 0.74, 1, 1, skinHand);
-      }
-
-      // Shoes
-      if ((face.partName === 'leftLeg' || face.partName === 'rightLeg') && face.faceName === 'front') {
-        const shoeColor = this.shadeColor(palette.shoes, face.lightFactor);
-        this.drawSubQuad(face.pts, 0, 0.82, 1, 1, shoeColor);
-      }
-
-      // Pedestal Accent Stroke
-      if (face.partName === 'pedestal' && face.faceName === 'top') {
-        this.ctx.strokeStyle = '#86FF00';
-        this.ctx.lineWidth = 1.2;
-        this.ctx.stroke();
-      }
-    });
-
-    requestAnimationFrame(() => this.render());
-  }
-}
-
-// ==========================================================================
 // DOM Initialization & Interactive Orchestrations
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -882,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
     filtered.forEach(v => {
       const isSelected = v.id === currentSelectedVer.id;
       const item = document.createElement('div');
-      item.className = `p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between font-mono text-xs ${
+      item.className = `p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between font-mono text-xs ${
         isSelected 
           ? 'bg-[#151924] border-[#86FF00] text-white shadow-md' 
           : 'bg-[#0f121a] border-white/5 text-[#94a3b8] hover:border-white/20 hover:text-white'
@@ -890,19 +476,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       item.innerHTML = `
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-xl ${isSelected ? 'bg-[#86FF00] text-[#090A0F]' : 'bg-[#1c2130] text-[#86FF00]'} flex items-center justify-center font-bold text-sm">✦</div>
+          <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-7 h-7 object-contain pixel-render flex-shrink-0" />
           <div>
-            <div class="font-bold text-sm ${isSelected ? 'text-white' : 'text-[#e2e8f0]'}">${v.name}</div>
-            <div class="text-[11px] text-[#64748b]">${v.era} • ${v.year}</div>
+            <div class="font-mc-title text-sm ${isSelected ? 'text-[#86FF00]' : 'text-[#e2e8f0]'}">${v.name}</div>
+            <div class="text-[11px] text-[#64748b] font-mc-pixel">${v.era} • ${v.year}</div>
           </div>
         </div>
         <div class="text-right">
-          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold ${
+          <span class="px-2.5 py-0.5 rounded text-[10px] font-mc-pixel ${
             v.type.includes('GDK') 
               ? 'bg-[#86FF00]/15 text-[#86FF00] border border-[#86FF00]/30' 
               : 'bg-[#FF00E5]/15 text-[#FF00E5] border border-[#FF00E5]/30'
           }">${v.type}</span>
-          <div class="text-[10px] text-[#64748b] mt-1">${v.size}</div>
+          <div class="text-[10px] text-[#64748b] mt-1 font-mono">${v.size}</div>
         </div>
       `;
 
@@ -970,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           sfx.playClick(600 + idx * 70);
           const p = document.createElement('div');
-          p.className = idx === steps.length - 1 ? 'text-[#86FF00] font-bold' : 'text-[#cbd5e1]';
+          p.className = idx === steps.length - 1 ? 'text-[#86FF00] font-bold font-mc-pixel' : 'text-[#cbd5e1] font-mc-pixel';
           p.textContent = `➔ ${st}`;
           injectStepDisplay.appendChild(p);
 
@@ -1017,11 +603,11 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <div>
           <div class="flex items-start justify-between gap-3 mb-4">
-            <div class="icon-diamond-box bg-[#090A0F] border border-[#FF00E5]/40 text-[#FF00E5]">
-              ✦
+            <div class="icon-glitch-box">
+              <img src="./assets/bugrock_block.png" alt="Glitch Block" class="w-7 h-7 object-contain pixel-render" />
             </div>
             <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/10 text-white font-semibold">
+              <span class="text-[10px] font-mc-pixel px-2.5 py-0.5 rounded bg-white/10 text-white">
                 ${m.badge}
               </span>
               <div class="flex items-center gap-1 text-xs font-mono text-[#86FF00]">
@@ -1031,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
 
-          <h3 class="font-bold text-white text-base group-hover:text-[#86FF00] transition-colors leading-snug mb-1 font-sans">
+          <h3 class="font-mc-title text-white text-base group-hover:text-[#86FF00] transition-colors leading-snug mb-1">
             ${m.title}
           </h3>
           <div class="text-[11px] font-mono text-[#64748b] mb-3">
@@ -1046,8 +632,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div>
             <span>${m.size}</span> • <span class="text-[#86FF00]">${m.downloads}</span>
           </div>
-          <button type="button" class="btn-inspect-mod px-3.5 py-1.5 rounded-xl border border-white/15 bg-[#0f121a] text-white hover:bg-[#86FF00] hover:text-[#090A0F] hover:border-[#86FF00] font-semibold transition-colors">
-            Inspect
+          <button type="button" class="btn-inspect-mod px-3.5 py-1.5 rounded-lg border border-white/15 bg-[#0f121a] text-white hover:bg-[#86FF00] hover:text-[#090A0F] hover:border-[#86FF00] font-mc-title transition-colors">
+            INSPECT
           </button>
         </div>
       `;
@@ -1133,7 +719,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnMockInject.addEventListener('click', () => {
       sfx.playLevelUp();
       const originalText = btnMockInject.innerHTML;
-      btnMockInject.innerHTML = '<span>✓ Injected into Active World!</span>';
+      btnMockInject.innerHTML = '<span>✓ INJECTED INTO WORLD!</span>';
       btnMockInject.classList.remove('btn-glitch-lime');
       btnMockInject.classList.add('bg-white', 'text-black');
       setTimeout(() => {
@@ -1174,15 +760,15 @@ document.addEventListener('DOMContentLoaded', () => {
           if (diagProgressBar) diagProgressBar.style.width = `${percent}%`;
 
           const row = document.createElement('div');
-          row.className = 'p-3.5 rounded-2xl border border-white/5 bg-[#0f121a] flex items-center justify-between text-xs font-mono';
+          row.className = 'p-3.5 rounded-xl border border-white/5 bg-[#0f121a] flex items-center justify-between text-xs font-mono';
           row.innerHTML = `
             <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-lg bg-[#86FF00] text-[#090A0F] font-bold flex items-center justify-center text-xs">✓</span>
+              <span class="w-6 h-6 rounded bg-[#86FF00] text-[#090A0F] font-bold flex items-center justify-center text-xs font-mc-title">✓</span>
               <span class="text-white">${chk.name}</span>
             </div>
             <div class="flex items-center gap-2 text-[11px] text-[#64748b]">
               <span>${chk.latency}</span>
-              <span class="px-2.5 py-0.5 rounded-full bg-[#86FF00]/15 text-[#86FF00] border border-[#86FF00]/30">ACTIVE</span>
+              <span class="px-2.5 py-0.5 rounded bg-[#86FF00]/15 text-[#86FF00] border border-[#86FF00]/30 font-mc-pixel">ACTIVE</span>
             </div>
           `;
           diagLogList.appendChild(row);
@@ -1192,7 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnRunDiag.disabled = false;
             btnRunDiag.classList.remove('opacity-50');
             if (diagOverallStatus) {
-              diagOverallStatus.innerHTML = '<span class="text-[#86FF00]">ALL SUBSYSTEMS 100% OPERATIONAL</span>';
+              diagOverallStatus.innerHTML = '<span class="text-[#86FF00] font-mc-title">ALL SUBSYSTEMS 100% OPERATIONAL</span>';
             }
           }
         }, (idx + 1) * 380);
@@ -1200,25 +786,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8. Real 3D Steve / Alex / BUG Guy Wardrobe Canvas Turntable
-  const skinCanvas = document.getElementById('skin-preview-canvas');
-  const skinSelectBtns = document.querySelectorAll('.skin-model-select-btn');
-
-  if (skinCanvas) {
-    const skinEngine = new MinecraftModel3D(skinCanvas);
-
-    skinSelectBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        sfx.playClick(850);
-        skinSelectBtns.forEach(b => {
-          b.classList.remove('btn-glitch-lime', 'text-[#090A0F]');
-          b.classList.add('btn-glitch-dark', 'text-[#94a3b8]');
-        });
-        btn.classList.add('btn-glitch-lime', 'text-[#090A0F]');
-        btn.classList.remove('btn-glitch-dark', 'text-[#94a3b8]');
-        const model = btn.getAttribute('data-skin');
-        skinEngine.setModel(model);
-      });
+  // 8. Easter Egg: 5 Clicks on Voxel Cube Logo
+  const easterCube = document.getElementById('easter-voxel-cube');
+  let clickCount = 0;
+  if (easterCube) {
+    easterCube.addEventListener('click', (e) => {
+      e.preventDefault();
+      clickCount++;
+      sfx.playClick(500 + clickCount * 120);
+      if (clickCount >= 5) {
+        sfx.playLevelUp();
+        alert("👾 BUGrock Glitch Block 0x86FF00 Unlocked! Playing Minecraft Bedrock without Microsoft Store locks.");
+        clickCount = 0;
+      }
     });
   }
 
@@ -1236,23 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 10. Easter Egg: 5 Clicks on Voxel Cube Logo
-  const easterCube = document.getElementById('easter-voxel-cube');
-  let clickCount = 0;
-  if (easterCube) {
-    easterCube.addEventListener('click', (e) => {
-      e.preventDefault();
-      clickCount++;
-      sfx.playClick(500 + clickCount * 120);
-      if (clickCount >= 5) {
-        sfx.playLevelUp();
-        alert("👾 BUGrock Glitch Code 0x86FF00 Unlocked! Playing Minecraft Bedrock on your own terms.");
-        clickCount = 0;
-      }
-    });
-  }
-
-  // 11. Hero Launch Button Feedback
+  // 10. Hero Launch Button Feedback
   const heroLaunchBtn = document.getElementById('btn-hero-launch');
   if (heroLaunchBtn) {
     heroLaunchBtn.addEventListener('click', () => {
