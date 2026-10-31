@@ -1,6 +1,7 @@
 // ==========================================================================
-// BUGrock Launcher — Handcrafted Engine
-// Real 3D Minecraft Volumetric Renderer, Tactile SFX & Interactive Mod Hub
+// BUGrock Launcher — Glitch Block Signature Handcrafted Engine
+// Colors: #86FF00 (Acid Lime), #FF00E5 (Glitch Magenta), #090A0F (Obsidian Void)
+// STRICT ANTI-GRADIENT: Zero color gradients.
 // ==========================================================================
 
 export const HISTORIC_VERSIONS = [
@@ -250,7 +251,7 @@ export const CURATED_MODS = [
 ];
 
 // ==========================================================================
-// Web Audio API Synthesizer (Zero-Latency Tactile Sound Clicks)
+// Web Audio API Synthesizer (Zero-Latency Tactile Feedback)
 // ==========================================================================
 class SoundFX {
   constructor() {
@@ -336,17 +337,17 @@ const sfx = new SoundFX();
 
 // ==========================================================================
 // TRUE 3D MINECRAFT VOLUMETRIC MODEL RENDERER
-// Real perspective projection, 3D cuboids, depth sorting & face interpolation
+// Real 3D cuboids, perspective projection, depth sorting & face interpolation
+// Colors: Steve, Alex, and BUG Guy (Glitch Block Black & Magenta with Lime Accents)
 // ==========================================================================
 class MinecraftModel3D {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
-    this.modelType = 'steve'; // 'steve' | 'alex' | 'bugrock'
+    this.modelType = 'steve';
     
-    // Rotation angles
     this.angleY = -0.45;
-    this.angleX = -0.16; // slight downward pitch to view top of head/pedestal
+    this.angleX = -0.16;
     this.autoRotate = true;
     this.isDragging = false;
     this.lastX = 0;
@@ -377,7 +378,6 @@ class MinecraftModel3D {
       const dy = y - this.lastY;
       this.angleY += dx * 0.012;
       this.angleX += dy * 0.008;
-      // Clamp pitch to realistic range
       this.angleX = Math.max(-0.45, Math.min(0.25, this.angleX));
       this.lastX = x;
       this.lastY = y;
@@ -410,24 +410,20 @@ class MinecraftModel3D {
     window.addEventListener('touchend', handleEnd);
   }
 
-  // Project a 3D vertex to 2D screen coordinates
   project(v, camDist = 480) {
-    // 1. Rotate around Y (Azimuth)
     const cosY = Math.cos(this.angleY), sinY = Math.sin(this.angleY);
     const x1 = v[0] * cosY + v[2] * sinY;
     const z1 = -v[0] * sinY + v[2] * cosY;
     const y1 = v[1];
 
-    // 2. Rotate around X (Pitch)
     const cosX = Math.cos(this.angleX), sinX = Math.sin(this.angleX);
     const y2 = y1 * cosX - z1 * sinX;
     const z2 = y1 * sinX + z1 * cosX;
     const x2 = x1;
 
-    // 3. Perspective Projection
     const scale = camDist / (camDist + z2);
     const cx = this.canvas.width / 2;
-    const cy = this.canvas.height / 2 + 8; // slight offset for pedestal balance
+    const cy = this.canvas.height / 2 + 8;
 
     return {
       x: cx + x2 * scale,
@@ -437,7 +433,6 @@ class MinecraftModel3D {
     };
   }
 
-  // Rotate a point around a local pivot on X axis (for swinging limbs)
   rotateLimb(v, pivot, pitch) {
     const dy = v[1] - pivot[1];
     const dz = v[2] - pivot[2];
@@ -449,24 +444,21 @@ class MinecraftModel3D {
     ];
   }
 
-  // Generate 6 faces of a 3D cuboid
   createCuboid(cx, cy, cz, w, h, d, colors, partName, pivot = null, limbPitch = 0) {
     const hw = w / 2, hh = h / 2, hd = d / 2;
     let rawVerts = [
-      [-hw, -hh,  hd], // 0: top-front-left
-      [ hw, -hh,  hd], // 1: top-front-right
-      [ hw,  hh,  hd], // 2: bottom-front-right
-      [-hw,  hh,  hd], // 3: bottom-front-left
-      [-hw, -hh, -hd], // 4: top-back-left
-      [ hw, -hh, -hd], // 5: top-back-right
-      [ hw,  hh, -hd], // 6: bottom-back-right
-      [-hw,  hh, -hd]  // 7: bottom-back-left
+      [-hw, -hh,  hd],
+      [ hw, -hh,  hd],
+      [ hw,  hh,  hd],
+      [-hw,  hh,  hd],
+      [-hw, -hh, -hd],
+      [ hw, -hh, -hd],
+      [ hw,  hh, -hd],
+      [-hw,  hh, -hd]
     ];
 
-    // Shift to center
     rawVerts = rawVerts.map(v => [v[0] + cx, v[1] + cy, v[2] + cz]);
 
-    // Apply limb swing if specified
     if (pivot && limbPitch !== 0) {
       rawVerts = rawVerts.map(v => this.rotateLimb(v, pivot, limbPitch));
     }
@@ -489,15 +481,13 @@ class MinecraftModel3D {
       const p2 = projectedVerts[q.indices[2]];
       const p3 = projectedVerts[q.indices[3]];
 
-      // Backface Culling via 2D screen cross product
+      // Backface Culling
       const cp = (p1.x - p0.x) * (p2.y - p1.y) - (p1.y - p0.y) * (p2.x - p1.x);
-      if (cp <= 0) return; // Cull back-facing polygons
+      if (cp <= 0) return;
 
-      // Depth for painter's algorithm
       const avgZ = (p0.z + p1.z + p2.z + p3.z) / 4;
 
-      // Volumetric directional lighting
-      // Transform normal by angleY & angleX
+      // Normal rotation for solid directional lighting
       const cosY = Math.cos(this.angleY), sinY = Math.sin(this.angleY);
       const nx1 = q.normal[0] * cosY + q.normal[2] * sinY;
       const nz1 = -q.normal[0] * sinY + q.normal[2] * cosY;
@@ -508,10 +498,9 @@ class MinecraftModel3D {
       const nz2 = ny1 * sinX + nz1 * cosX;
       const nx2 = nx1;
 
-      // Light direction from top-front-right
       const lx = 0.38, ly = -0.75, lz = -0.55;
       const dot = Math.max(0, -(nx2 * lx + ny2 * ly + nz2 * lz));
-      const lightFactor = 0.52 + 0.48 * dot;
+      const lightFactor = 0.55 + 0.45 * dot;
 
       const baseColor = colors[q.name] || colors.all || '#888888';
 
@@ -528,7 +517,6 @@ class MinecraftModel3D {
     return faces;
   }
 
-  // Adjust brightness of a hex color
   shadeColor(hex, factor) {
     hex = hex.replace('#', '');
     if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
@@ -539,7 +527,6 @@ class MinecraftModel3D {
     return `rgb(${r}, ${g}, ${b})`;
   }
 
-  // Bilinear interpolation on a quad for face features (eyes, hair fringe)
   interpolateQuad(p0, p1, p2, p3, u, v) {
     const xTop = p0.x + (p1.x - p0.x) * u;
     const yTop = p0.y + (p1.y - p0.y) * u;
@@ -575,12 +562,11 @@ class MinecraftModel3D {
     }
     this.time += 0.035;
 
-    // Limb animations
     const armPitch = Math.sin(this.time) * 0.22;
     const legPitch = -Math.sin(this.time) * 0.22;
     const headBob = Math.sin(this.time * 2) * 1.0;
 
-    // Skin Color Themes
+    // Skin Color Themes (Using Authentic Minecraft & Glitch Block Colors)
     let palette;
     if (this.modelType === 'alex') {
       palette = {
@@ -594,14 +580,15 @@ class MinecraftModel3D {
         armWidth: 10
       };
     } else if (this.modelType === 'bugrock') {
+      // BUG Guy: Iconic Glitch Block Missing Texture (#FF00E5 Magenta & #090A0F Black) + Acid Lime (#86FF00)
       palette = {
-        skin: '#c4a287',
-        hair: '#10b981',
+        skin: '#1a1f2e',
+        hair: '#FF00E5',
         eyeSclera: '#ffffff',
-        eyePupil: '#10b981',
-        shirt: '#161922',
-        pants: '#1e2433',
-        shoes: '#0b0d13',
+        eyePupil: '#86FF00',
+        shirt: '#090A0F',
+        pants: '#FF00E5',
+        shoes: '#86FF00',
         armWidth: 13
       };
     } else {
@@ -620,14 +607,14 @@ class MinecraftModel3D {
 
     const allFaces = [];
 
-    // 1. Pedestal Base (Stone slab at feet with emerald trim)
+    // 1. Pedestal Base (Solid Obsidian slab at feet with #86FF00 border)
     const baseColors = {
-      top: '#161924',
-      front: '#0e111a',
-      back: '#0e111a',
-      left: '#0a0d14',
-      right: '#121520',
-      bottom: '#06070a'
+      top: '#151924',
+      front: '#090A0F',
+      back: '#090A0F',
+      left: '#0f121a',
+      right: '#0f121a',
+      bottom: '#000000'
     };
     allFaces.push(...this.createCuboid(0, 68, 0, 96, 7, 96, baseColors, 'pedestal'));
 
@@ -663,10 +650,8 @@ class MinecraftModel3D {
       left: palette.shirt,
       right: palette.shirt
     };
-    // Right Arm
     const rArmX = -(16 + armW / 2);
     allFaces.push(...this.createCuboid(rArmX, -18, 0, armW, 44, 14, armColors, 'rightArm', [rArmX, -38, 0], armPitch));
-    // Left Arm
     const lArmX = 16 + armW / 2;
     allFaces.push(...this.createCuboid(lArmX, -18, 0, armW, 44, 14, armColors, 'leftArm', [lArmX, -38, 0], -armPitch));
 
@@ -679,15 +664,12 @@ class MinecraftModel3D {
       left: palette.pants,
       right: palette.pants
     };
-    // Right Leg
     allFaces.push(...this.createCuboid(-8, 26, 0, 15, 44, 15, legColors, 'rightLeg', [-8, 4, 0], -legPitch));
-    // Left Leg
     allFaces.push(...this.createCuboid(8, 26, 0, 15, 44, 15, legColors, 'leftLeg', [8, 4, 0], legPitch));
 
-    // Sort faces by depth: Highest Z drawn first (Painter's Algorithm)
+    // Painter's Algorithm Depth Sort
     allFaces.sort((a, b) => b.avgZ - a.avgZ);
 
-    // Render every visible quad
     allFaces.forEach(face => {
       const finalColor = this.shadeColor(face.baseColor, face.lightFactor);
 
@@ -701,50 +683,63 @@ class MinecraftModel3D {
       this.ctx.fillStyle = finalColor;
       this.ctx.fill();
 
-      this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
+      this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.25)';
       this.ctx.lineWidth = 0.5;
       this.ctx.stroke();
 
-      // Draw Perspective Face Texture on Front of Head
+      // Perspective Face Details
       if (face.partName === 'head' && face.faceName === 'front') {
         const hairShaded = this.shadeColor(palette.hair, face.lightFactor);
         const whiteShaded = this.shadeColor(palette.eyeSclera, face.lightFactor);
         const pupilShaded = this.shadeColor(palette.eyePupil, face.lightFactor);
 
-        // Hair fringe across top 25%
+        // Hair / Glitch checker on top
         this.drawSubQuad(face.pts, 0, 0, 1, 0.28, hairShaded);
         this.drawSubQuad(face.pts, 0, 0.28, 0.18, 0.42, hairShaded);
         this.drawSubQuad(face.pts, 0.82, 0.28, 1, 0.42, hairShaded);
 
-        // Eyes (Left & Right with white sclera and pupil)
-        // Right eye (on character's right, viewer's left)
+        // Eyes
         this.drawSubQuad(face.pts, 0.14, 0.52, 0.42, 0.68, whiteShaded);
         this.drawSubQuad(face.pts, 0.28, 0.52, 0.42, 0.68, pupilShaded);
 
-        // Left eye (on character's left, viewer's right)
         this.drawSubQuad(face.pts, 0.58, 0.52, 0.86, 0.68, whiteShaded);
         this.drawSubQuad(face.pts, 0.58, 0.52, 0.72, 0.68, pupilShaded);
 
-        // Nose/Mouth shadow
-        const shadowShaded = this.shadeColor('#875236', face.lightFactor);
-        this.drawSubQuad(face.pts, 0.38, 0.78, 0.62, 0.88, shadowShaded);
+        if (this.modelType === 'bugrock') {
+          // Glitch Missing Texture checker on cheek
+          const glitchMagenta = this.shadeColor('#FF00E5', face.lightFactor);
+          this.drawSubQuad(face.pts, 0.38, 0.76, 0.62, 0.88, glitchMagenta);
+        } else {
+          const shadowShaded = this.shadeColor('#875236', face.lightFactor);
+          this.drawSubQuad(face.pts, 0.38, 0.78, 0.62, 0.88, shadowShaded);
+        }
       }
 
-      // Draw Hands on Arm Bottoms
+      // Torso Missing Texture Glitch on BUG Guy
+      if (this.modelType === 'bugrock' && face.partName === 'torso' && face.faceName === 'front') {
+        const limeChest = this.shadeColor('#86FF00', face.lightFactor);
+        const magChest = this.shadeColor('#FF00E5', face.lightFactor);
+        this.drawSubQuad(face.pts, 0.3, 0.2, 0.5, 0.45, magChest);
+        this.drawSubQuad(face.pts, 0.5, 0.2, 0.7, 0.45, limeChest);
+        this.drawSubQuad(face.pts, 0.3, 0.45, 0.5, 0.7, limeChest);
+        this.drawSubQuad(face.pts, 0.5, 0.45, 0.7, 0.7, magChest);
+      }
+
+      // Hands
       if ((face.partName === 'leftArm' || face.partName === 'rightArm') && face.faceName === 'front') {
         const skinHand = this.shadeColor(palette.skin, face.lightFactor);
         this.drawSubQuad(face.pts, 0, 0.74, 1, 1, skinHand);
       }
 
-      // Draw Shoes on Leg Bottoms
+      // Shoes
       if ((face.partName === 'leftLeg' || face.partName === 'rightLeg') && face.faceName === 'front') {
         const shoeColor = this.shadeColor(palette.shoes, face.lightFactor);
         this.drawSubQuad(face.pts, 0, 0.82, 1, 1, shoeColor);
       }
 
-      // Pedestal Emerald Bevel Line
+      // Pedestal Accent Stroke
       if (face.partName === 'pedestal' && face.faceName === 'top') {
-        this.ctx.strokeStyle = 'rgba(16, 185, 129, 0.45)';
+        this.ctx.strokeStyle = '#86FF00';
         this.ctx.lineWidth = 1.2;
         this.ctx.stroke();
       }
@@ -758,7 +753,7 @@ class MinecraftModel3D {
 // DOM Initialization & Interactive Orchestrations
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Organic Voxel Dust Canvas (Anti-Neon Palette)
+  // 1. Solid Voxel Dust Particles (Zero Gradients: #86FF00, #FF00E5, #FFFFFF)
   const pCanvas = document.getElementById('particles-canvas');
   if (pCanvas) {
     const ctx = pCanvas.getContext('2d');
@@ -772,21 +767,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const particles = [];
     const colors = [
-      'rgba(16, 185, 129, ',   // Refined Emerald
-      'rgba(255, 255, 255, ',   // Starlight Off-White
-      'rgba(148, 163, 184, ',   // Muted Slate
-      'rgba(217, 119, 6, '      // Warm Amber Accent
+      '#86FF00', // Acid Lime
+      '#FF00E5', // Glitch Magenta
+      '#FFFFFF', // Pure White
+      '#1c2130'  // Dark Voxel
     ];
 
     for (let i = 0; i < 35; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 3.5 + 1.5,
+        size: Math.random() * 3 + 2,
         speedX: (Math.random() - 0.5) * 0.35,
         speedY: (Math.random() - 0.5) * 0.35 - 0.15,
-        alpha: Math.random() * 0.45 + 0.1,
-        colorBase: colors[Math.floor(Math.random() * colors.length)],
+        color: colors[Math.floor(Math.random() * colors.length)],
         rotation: Math.random() * Math.PI,
         rotSpeed: (Math.random() - 0.5) * 0.02
       });
@@ -808,7 +802,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rotation);
-        ctx.fillStyle = p.colorBase + p.alpha + ')';
+        ctx.fillStyle = p.color;
         ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
         ctx.restore();
       });
@@ -828,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ? '<span>🔇 Audio Muted</span>' 
         : '<span>🔊 SFX: Active</span>';
       soundToggleBtn.classList.toggle('text-[#64748b]', sfx.muted);
-      soundToggleBtn.classList.toggle('text-[#10b981]', !sfx.muted);
+      soundToggleBtn.classList.toggle('text-[#86FF00]', !sfx.muted);
       if (!sfx.muted) sfx.playPop();
     });
   }
@@ -841,13 +835,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const rect = heroStage.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      const rotY = (x / (rect.width / 2)) * 8;
-      const rotX = -(y / (rect.height / 2)) * 8;
-      heroCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.015, 1.015, 1.015)`;
+      const rotY = (x / (rect.width / 2)) * 7;
+      const rotX = -(y / (rect.height / 2)) * 7;
+      heroCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
     });
 
     heroStage.addEventListener('mouseleave', () => {
-      heroCard.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      heroCard.style.transform = `rotateX(0deg) rotateY(0deg)`;
     });
   }
 
@@ -888,25 +882,25 @@ document.addEventListener('DOMContentLoaded', () => {
     filtered.forEach(v => {
       const isSelected = v.id === currentSelectedVer.id;
       const item = document.createElement('div');
-      item.className = `p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between font-mono text-xs ${
+      item.className = `p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between font-mono text-xs ${
         isSelected 
-          ? 'bg-[#10b981]/15 border-[#10b981]/50 text-white shadow-md' 
-          : 'bg-[#090b10] border-white/5 text-[#94a3b8] hover:border-white/20 hover:text-white'
+          ? 'bg-[#151924] border-[#86FF00] text-white shadow-md' 
+          : 'bg-[#0f121a] border-white/5 text-[#94a3b8] hover:border-white/20 hover:text-white'
       }`;
 
       item.innerHTML = `
         <div class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full ${isSelected ? 'bg-[#10b981] live-pulse' : 'bg-white/20'}"></span>
+          <div class="w-8 h-8 rounded-xl ${isSelected ? 'bg-[#86FF00] text-[#090A0F]' : 'bg-[#1c2130] text-[#86FF00]'} flex items-center justify-center font-bold text-sm">✦</div>
           <div>
             <div class="font-bold text-sm ${isSelected ? 'text-white' : 'text-[#e2e8f0]'}">${v.name}</div>
             <div class="text-[11px] text-[#64748b]">${v.era} • ${v.year}</div>
           </div>
         </div>
         <div class="text-right">
-          <span class="px-2 py-0.5 rounded text-[10px] font-semibold ${
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold ${
             v.type.includes('GDK') 
-              ? 'bg-[#10b981]/20 text-[#34d399] border border-[#10b981]/30' 
-              : 'bg-white/10 text-slate-300 border border-white/15'
+              ? 'bg-[#86FF00]/15 text-[#86FF00] border border-[#86FF00]/30' 
+              : 'bg-[#FF00E5]/15 text-[#FF00E5] border border-[#FF00E5]/30'
           }">${v.type}</span>
           <div class="text-[10px] text-[#64748b] mt-1">${v.size}</div>
         </div>
@@ -937,11 +931,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!terminalConsole) return;
     terminalConsole.innerHTML = `
       <div class="text-[#64748b]">[12:00:01] <span class="text-white">BUGrock Core Engine v1.0.0 (x64)</span></div>
-      <div class="text-[#64748b]">[12:00:02] Querying local index for: <span class="text-[#10b981]">${v.version}</span></div>
-      <div class="text-[#64748b]">[12:00:02] Package format: <span class="text-[#34d399]">${v.type}</span> (${v.size})</div>
+      <div class="text-[#64748b]">[12:00:02] Querying local index for: <span class="text-[#86FF00]">${v.version}</span></div>
+      <div class="text-[#64748b]">[12:00:02] Package format: <span class="text-[#FF00E5]">${v.type}</span> (${v.size})</div>
       <div class="text-[#64748b]">[12:00:03] Staging isolated sandbox at: <span class="text-white">Instances/${v.id}/</span></div>
-      <div class="text-[#64748b]">[12:00:03] com.mojang safety checkpoint: <span class="text-[#10b981]">OK (100% Isolated)</span></div>
-      <div class="text-[#10b981] font-bold">[12:00:04] Ready for instant launch without Store conflicts.</div>
+      <div class="text-[#64748b]">[12:00:03] com.mojang safety checkpoint: <span class="text-[#86FF00]">OK (100% Isolated)</span></div>
+      <div class="text-[#86FF00] font-bold">[12:00:04] Ready for instant launch without Store conflicts.</div>
     `;
   }
 
@@ -976,7 +970,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           sfx.playClick(600 + idx * 70);
           const p = document.createElement('div');
-          p.className = idx === steps.length - 1 ? 'text-[#10b981] font-bold' : 'text-[#cbd5e1]';
+          p.className = idx === steps.length - 1 ? 'text-[#86FF00] font-bold' : 'text-[#cbd5e1]';
           p.textContent = `➔ ${st}`;
           injectStepDisplay.appendChild(p);
 
@@ -1010,7 +1004,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (filtered.length === 0) {
       modCardsContainer.innerHTML = `
-        <div class="col-span-full p-8 text-center text-xs font-mono text-[#64748b] glass-panel">
+        <div class="col-span-full p-8 text-center text-xs font-mono text-[#64748b] glitch-card">
           No add-ons match your criteria. Try switching categories or clearing search.
         </div>
       `;
@@ -1019,19 +1013,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filtered.forEach(m => {
       const card = document.createElement('div');
-      card.className = 'glass-panel p-5 flex flex-col justify-between hover:-translate-y-1 transition-transform cursor-pointer group';
+      card.className = 'glitch-card p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform cursor-pointer group';
       card.innerHTML = `
         <div>
-          <div class="flex items-start justify-between gap-2 mb-3">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-slate-300 border border-white/10">
-              ${m.badge}
-            </span>
-            <div class="flex items-center gap-1 text-xs font-mono text-[#d97706]">
-              <span>★</span>
-              <span>${m.rating}</span>
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <div class="icon-diamond-box bg-[#090A0F] border border-[#FF00E5]/40 text-[#FF00E5]">
+              ✦
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/10 text-white font-semibold">
+                ${m.badge}
+              </span>
+              <div class="flex items-center gap-1 text-xs font-mono text-[#86FF00]">
+                <span>★</span>
+                <span>${m.rating}</span>
+              </div>
             </div>
           </div>
-          <h3 class="font-bold text-white text-base group-hover:text-[#10b981] transition-colors leading-snug mb-1">
+
+          <h3 class="font-bold text-white text-base group-hover:text-[#86FF00] transition-colors leading-snug mb-1 font-sans">
             ${m.title}
           </h3>
           <div class="text-[11px] font-mono text-[#64748b] mb-3">
@@ -1042,11 +1042,11 @@ document.addEventListener('DOMContentLoaded', () => {
           </p>
         </div>
 
-        <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#64748b]">
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#64748b]">
           <div>
-            <span>${m.size}</span> • <span class="text-[#34d399]">${m.downloads}</span>
+            <span>${m.size}</span> • <span class="text-[#86FF00]">${m.downloads}</span>
           </div>
-          <button type="button" class="btn-inspect-mod px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 text-white hover:bg-[#10b981] hover:text-black font-semibold transition-colors">
+          <button type="button" class="btn-inspect-mod px-3.5 py-1.5 rounded-xl border border-white/15 bg-[#0f121a] text-white hover:bg-[#86FF00] hover:text-[#090A0F] hover:border-[#86FF00] font-semibold transition-colors">
             Inspect
           </button>
         </div>
@@ -1071,11 +1071,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       sfx.playClick(800);
       modFilterBtns.forEach(b => {
-        b.classList.remove('bg-[#10b981]', 'text-black', 'border-[#10b981]');
-        b.classList.add('bg-white/5', 'text-[#94a3b8]', 'border-white/10');
+        b.classList.remove('bg-[#86FF00]', 'text-[#090A0F]', 'border-[#86FF00]');
+        b.classList.add('bg-[#0f121a]', 'text-[#94a3b8]', 'border-white/10');
       });
-      btn.classList.add('bg-[#10b981]', 'text-black', 'border-[#10b981]');
-      btn.classList.remove('bg-white/5', 'text-[#94a3b8]', 'border-white/10');
+      btn.classList.add('bg-[#86FF00]', 'text-[#090A0F]', 'border-[#86FF00]');
+      btn.classList.remove('bg-[#0f121a]', 'text-[#94a3b8]', 'border-white/10');
       currentCategory = btn.getAttribute('data-cat');
       renderModCards(currentCategory, modSearchInput ? modSearchInput.value : '');
     });
@@ -1134,11 +1134,11 @@ document.addEventListener('DOMContentLoaded', () => {
       sfx.playLevelUp();
       const originalText = btnMockInject.innerHTML;
       btnMockInject.innerHTML = '<span>✓ Injected into Active World!</span>';
-      btnMockInject.classList.remove('btn-flagship-green');
+      btnMockInject.classList.remove('btn-glitch-lime');
       btnMockInject.classList.add('bg-white', 'text-black');
       setTimeout(() => {
         btnMockInject.innerHTML = originalText;
-        btnMockInject.classList.add('btn-flagship-green');
+        btnMockInject.classList.add('btn-glitch-lime');
         btnMockInject.classList.remove('bg-white', 'text-black');
       }, 2500);
     });
@@ -1174,15 +1174,15 @@ document.addEventListener('DOMContentLoaded', () => {
           if (diagProgressBar) diagProgressBar.style.width = `${percent}%`;
 
           const row = document.createElement('div');
-          row.className = 'p-3 rounded-lg border border-white/5 bg-[#090b10] flex items-center justify-between text-xs font-mono';
+          row.className = 'p-3.5 rounded-2xl border border-white/5 bg-[#0f121a] flex items-center justify-between text-xs font-mono';
           row.innerHTML = `
-            <div class="flex items-center gap-2">
-              <span class="text-[#10b981]">✓</span>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-lg bg-[#86FF00] text-[#090A0F] font-bold flex items-center justify-center text-xs">✓</span>
               <span class="text-white">${chk.name}</span>
             </div>
             <div class="flex items-center gap-2 text-[11px] text-[#64748b]">
               <span>${chk.latency}</span>
-              <span class="px-2 py-0.5 rounded bg-[#10b981]/20 text-[#34d399] border border-[#10b981]/30">ACTIVE</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#86FF00]/15 text-[#86FF00] border border-[#86FF00]/30">ACTIVE</span>
             </div>
           `;
           diagLogList.appendChild(row);
@@ -1192,7 +1192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnRunDiag.disabled = false;
             btnRunDiag.classList.remove('opacity-50');
             if (diagOverallStatus) {
-              diagOverallStatus.innerHTML = '<span class="text-[#10b981]">ALL SUBSYSTEMS 100% OPERATIONAL</span>';
+              diagOverallStatus.innerHTML = '<span class="text-[#86FF00]">ALL SUBSYSTEMS 100% OPERATIONAL</span>';
             }
           }
         }, (idx + 1) * 380);
@@ -1211,11 +1211,11 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', () => {
         sfx.playClick(850);
         skinSelectBtns.forEach(b => {
-          b.classList.remove('btn-flagship-green', 'text-white');
-          b.classList.add('btn-flagship-ghost', 'text-[#94a3b8]');
+          b.classList.remove('btn-glitch-lime', 'text-[#090A0F]');
+          b.classList.add('btn-glitch-dark', 'text-[#94a3b8]');
         });
-        btn.classList.add('btn-flagship-green', 'text-white');
-        btn.classList.remove('btn-flagship-ghost', 'text-[#94a3b8]');
+        btn.classList.add('btn-glitch-lime', 'text-[#090A0F]');
+        btn.classList.remove('btn-glitch-dark', 'text-[#94a3b8]');
         const model = btn.getAttribute('data-skin');
         skinEngine.setModel(model);
       });
@@ -1246,7 +1246,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sfx.playClick(500 + clickCount * 120);
       if (clickCount >= 5) {
         sfx.playLevelUp();
-        alert("🎉 BUGrock Launcher Secret Unlocked! You're running the premier high-performance Bedrock platform for Windows.");
+        alert("👾 BUGrock Glitch Code 0x86FF00 Unlocked! Playing Minecraft Bedrock on your own terms.");
         clickCount = 0;
       }
     });
