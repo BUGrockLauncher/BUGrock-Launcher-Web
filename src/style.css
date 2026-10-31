@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   BUGrock Launcher — $500 Flagship Luxury Production Theme
-   Hyper-Polished Obsidian Dark Aesthetic with Authentic Minecraft Accents
+   BUGrock Launcher — Flagship 100x Edition
+   The Ultimate Minecraft Bedrock Experience on the Web
    ========================================================================== */
 
 /* Authentic Minecraft Fonts */
@@ -31,85 +31,78 @@
 }
 
 :root {
-  /* Ultra-Deep Obsidian Canvas */
-  --bg-void: #090a0f;
-  --bg-obsidian: #0e1017;
-  --bg-card: rgba(20, 23, 34, 0.75);
-  --bg-card-hover: rgba(28, 32, 48, 0.85);
-  --bg-card-inner: #12141c;
+  --bg-void: #07080c;
+  --bg-obsidian: #0c0e15;
+  --bg-panel: rgba(18, 21, 32, 0.78);
+  --bg-panel-hover: rgba(26, 31, 48, 0.9);
+  --bg-inner: #0f121a;
 
-  /* Specular Borders & Rims */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-rim: rgba(255, 255, 255, 0.14);
-  --border-lit: rgba(255, 255, 255, 0.22);
-  --border-magenta: rgba(217, 70, 239, 0.4);
-  --border-green: rgba(43, 189, 40, 0.4);
+  --border-glow: rgba(217, 70, 239, 0.45);
+  --border-green: rgba(43, 189, 40, 0.45);
 
-  /* Accents */
   --accent-green: #2bbd28;
-  --accent-green-glow: rgba(43, 189, 40, 0.35);
   --accent-magenta: #d946ef;
-  --accent-magenta-glow: rgba(217, 70, 239, 0.35);
   --accent-cyan: #38bdf8;
-  --accent-amber: #f59e0b;
+  --accent-gold: #f59e0b;
 
-  /* Text */
-  --text-pure: #ffffff;
-  --text-lead: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-
-  /* Fonts */
   --font-display: "Wix Madefor Display", "MinecraftTen", sans-serif;
   --font-mc-ten: "MinecraftTen", sans-serif;
   --font-mc-pixel: "Minecraft", monospace;
-  --font-body: "Figtree", -apple-system, sans-serif;
+  --font-body: "Figtree", "Noto Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
-/* Base Document */
 html, body {
   background-color: var(--bg-void);
-  color: var(--text-pure);
+  color: #f1f5f9;
   font-family: var(--font-body);
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: #090a0f;
+  background: #07080c;
 }
 ::-webkit-scrollbar-thumb {
-  background: #262c40;
+  background: #252a3d;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b4463;
+  background: #3c4463;
+}
+
+/* Floating Particles Canvas */
+#particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Ambient Radial Flares */
 .bg-ambient-flares {
   background-color: var(--bg-void);
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(217, 70, 239, 0.14), transparent),
-    radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.06), transparent 40%),
-    radial-gradient(circle at 90% 70%, rgba(43, 189, 40, 0.06), transparent 45%);
+    radial-gradient(ellipse 85% 60% at 50% -15%, rgba(217, 70, 239, 0.16), transparent),
+    radial-gradient(circle at 15% 25%, rgba(56, 189, 248, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(43, 189, 40, 0.08), transparent 45%);
 }
 
-/* Subtle High-Tech Blueprint Grid */
 .bg-blueprint-grid {
-  background-size: 48px 48px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
-/* Typography Helpers */
 .font-mc-ten {
   font-family: var(--font-mc-ten);
   letter-spacing: 0.04em;
@@ -119,47 +112,36 @@ html, body {
   font-family: var(--font-mc-pixel);
 }
 
-.text-glow-magenta {
-  text-shadow: 0 0 24px rgba(217, 70, 239, 0.5), 0 0 8px rgba(217, 70, 239, 0.3);
-}
-
-.text-glow-green {
-  text-shadow: 0 0 24px rgba(43, 189, 40, 0.5), 0 0 8px rgba(43, 189, 40, 0.3);
-}
-
-/* ==========================================================================
-   Flagship Obsidian Glass Cards
-   ========================================================================== */
-
+/* Flagship Obsidian Glass Panels */
 .glass-panel {
-  background: var(--bg-card);
-  backdrop-filter: blur(28px) saturate(1.2);
-  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  background: var(--bg-panel);
+  backdrop-filter: blur(28px) saturate(1.25);
+  -webkit-backdrop-filter: blur(28px) saturate(1.25);
   border: 1px solid var(--border-subtle);
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-    0 24px 48px -12px rgba(0, 0, 0, 0.7);
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 24px 48px -12px rgba(0, 0, 0, 0.75);
   border-radius: 18px;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glass-panel:hover {
-  border-color: var(--border-rim);
+  border-color: rgba(255, 255, 255, 0.18);
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
     0 32px 64px -16px rgba(0, 0, 0, 0.85);
 }
 
 .glass-inner {
-  background: var(--bg-card-inner);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-inner);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
 }
 
 /* ==========================================================================
-   Flagship Minecraft 3D Bevel Buttons
+   Flagship 3D Bevel Buttons
    ========================================================================== */
 
 .btn-flagship {
@@ -170,7 +152,7 @@ html, body {
   font-family: var(--font-mc-ten);
   color: #ffffff;
   border: 2px solid #000000;
-  box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 0px rgba(0, 0, 0, 0.5), 0 8px 18px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 0px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4);
   padding: 12px 28px;
   cursor: pointer;
   user-select: none;
@@ -196,13 +178,13 @@ html, body {
 .btn-flagship-green {
   background: linear-gradient(180deg, #388e3c 0%, #2e7d32 100%);
   border-color: #0d280e;
-  box-shadow: inset 2px 2px 0px #81c784, inset -2px -2px 0px #1b5e20, 0 8px 24px var(--accent-green-glow);
+  box-shadow: inset 2px 2px 0px #81c784, inset -2px -2px 0px #1b5e20, 0 8px 24px rgba(43, 189, 40, 0.35);
 }
 
 .btn-flagship-magenta {
   background: linear-gradient(180deg, #c026d3 0%, #9333ea 100%);
   border-color: #3b0764;
-  box-shadow: inset 2px 2px 0px #f0abfc, inset -2px -2px 0px #581c87, 0 8px 24px var(--accent-magenta-glow);
+  box-shadow: inset 2px 2px 0px #f0abfc, inset -2px -2px 0px #581c87, 0 8px 24px rgba(217, 70, 239, 0.35);
 }
 
 .btn-flagship-ghost {
@@ -211,10 +193,7 @@ html, body {
   box-shadow: inset 2px 2px 0px #3d4663, inset -2px -2px 0px #0e111a;
 }
 
-/* ==========================================================================
-   3D Parallax Tilt Stage
-   ========================================================================== */
-
+/* 3D Parallax Tilt */
 .tilt-stage {
   perspective: 1200px;
   transform-style: preserve-3d;
@@ -223,6 +202,21 @@ html, body {
 .tilt-element {
   transform-style: preserve-3d;
   transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.4, 1);
+}
+
+/* Modal Dialog */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Live Pulse Ring */
@@ -245,7 +239,7 @@ html, body {
   100% { transform: scale(0.9); opacity: 0; }
 }
 
-/* Shimmer Highlight on Borders */
+/* Glowing Rim */
 .shimmer-border {
   position: relative;
 }
@@ -255,7 +249,7 @@ html, body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(90deg, transparent, rgba(217, 70, 239, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(217, 70, 239, 0.7), transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
