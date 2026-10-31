@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   BUGrock Launcher — Glitch Block Signature Edition
+   BUGrock Launcher — Glitch Block & Minecraft Typography Edition
+   Fonts: MinecraftTen (Headers/Buttons), Minecraft (Pixel Subheads/Labels)
    Colors: #86FF00 (Acid Lime), #FF00E5 (Glitch Magenta), #090A0F (Obsidian Void)
    STRICT ANTI-GRADIENT PROTOCOL: Zero color gradients everywhere.
-   Bespoke Editorial & Reference Card Design System
    ========================================================================== */
 
-/* Authentic Minecraft Display Font (Reserved strictly for brand mark) */
+/* Authentic Minecraft Fonts */
 @font-face {
   font-family: "MinecraftTen";
   src: url("/fonts/MinecraftTen.ttf") format("truetype");
@@ -16,8 +16,24 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Minecraft";
+  src: url("/fonts/Minecraft.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MinecraftFiveBold";
+  src: url("/fonts/MinecraftFiveBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Exact User-Defined Palette (Solid - Zero Color Gradients) */
+  /* Exact User-Defined Palette (Solid - Zero Gradients) */
   --c-lime: #86FF00;
   --c-magenta: #FF00E5;
   --c-void: #090A0F;
@@ -35,10 +51,10 @@
   --border-magenta: #FF00E5;
 
   /* Typography */
-  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mc-title: "MinecraftTen", sans-serif;
+  --font-mc-pixel: "Minecraft", monospace;
   --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --font-brand-mc: "MinecraftTen", sans-serif;
 }
 
 html, body {
@@ -50,27 +66,33 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Minecraft Font Utilities */
+.font-mc-title {
+  font-family: var(--font-mc-title);
+  letter-spacing: 0.04em;
+}
+
+.font-mc-pixel {
+  font-family: var(--font-mc-pixel);
+  letter-spacing: 0.02em;
+}
+
+/* Crisp Pixel Rendering for Minecraft Textures */
+.pixel-render {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
 /* Monolithic Solid Background (Zero Gradients) */
 .bg-monolith-solid {
   background-color: var(--c-void);
 }
 
-/* Editorial Serif Utility */
-.font-editorial {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-}
-
-.font-brand-mc {
-  font-family: var(--font-brand-mc);
-  letter-spacing: 0.05em;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   background: var(--c-void);
 }
 ::-webkit-scrollbar-thumb {
@@ -93,13 +115,13 @@ html, body {
 }
 
 /* ==========================================================================
-   Reference Card Architecture (Solid Glitch Block Panels)
+   Glitch Card Architecture (Solid Glitch Block Panels)
    ========================================================================== */
 .glitch-card {
   background-color: var(--c-card-bg);
   border: 1px solid var(--border-subtle);
-  border-radius: 20px;
-  transition: transform 0.22s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 18px;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.18s ease;
 }
 
 .glitch-card:hover {
@@ -108,19 +130,19 @@ html, body {
 }
 
 .glitch-card-lime-accent {
-  border-color: rgba(134, 255, 0, 0.4);
+  border-color: rgba(134, 255, 0, 0.45);
 }
 .glitch-card-lime-accent:hover {
   border-color: var(--c-lime);
-  box-shadow: 0 12px 32px -8px rgba(134, 255, 0, 0.15);
+  box-shadow: 0 10px 28px -6px rgba(134, 255, 0, 0.15);
 }
 
 .glitch-card-magenta-accent {
-  border-color: rgba(255, 0, 229, 0.4);
+  border-color: rgba(255, 0, 229, 0.45);
 }
 .glitch-card-magenta-accent:hover {
   border-color: var(--c-magenta);
-  box-shadow: 0 12px 32px -8px rgba(255, 0, 229, 0.15);
+  box-shadow: 0 10px 28px -6px rgba(255, 0, 229, 0.15);
 }
 
 .glitch-inner {
@@ -129,37 +151,37 @@ html, body {
   border-radius: 14px;
 }
 
-/* Icon Diamond Badge (From Reference Image) */
-.icon-diamond-box {
-  width: 44px;
-  height: 44px;
+/* Glitch Icon Box */
+.icon-glitch-box {
+  width: 48px;
+  height: 48px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
   flex-shrink: 0;
+  background-color: var(--c-surface-1);
+  border: 1px solid var(--border-subtle);
 }
 
 /* ==========================================================================
-   Solid Buttons (Strict Anti-Gradient, Clean Plus Jakarta Typography)
+   Minecraft Styled Buttons (Solid Glitch Colors, Zero Gradients)
    ========================================================================== */
 .btn-flagship {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  font-size: 14.5px;
-  line-height: 1.25;
-  padding: 12px 24px;
-  border-radius: 12px;
+  font-family: var(--font-mc-title);
+  letter-spacing: 0.04em;
+  font-size: 15px;
+  line-height: 1;
+  padding: 13px 26px;
+  border-radius: 10px;
   cursor: pointer;
   user-select: none;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.15s ease;
   box-sizing: border-box;
 }
 
@@ -167,14 +189,14 @@ html, body {
 .btn-glitch-lime {
   background-color: var(--c-lime);
   color: var(--c-void);
-  border: 1px solid var(--c-lime);
-  font-weight: 700;
+  border: 2px solid var(--c-void);
+  box-shadow: 0 0 0 1px var(--c-lime);
 }
 
 .btn-glitch-lime:hover {
   background-color: #9aff2b;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px -2px rgba(134, 255, 0, 0.35);
+  box-shadow: 0 0 0 1px var(--c-lime), 0 6px 18px rgba(134, 255, 0, 0.3);
 }
 
 .btn-glitch-lime:active {
@@ -185,45 +207,31 @@ html, body {
 .btn-glitch-magenta {
   background-color: var(--c-magenta);
   color: #FFFFFF;
-  border: 1px solid var(--c-magenta);
-  font-weight: 700;
+  border: 2px solid var(--c-void);
+  box-shadow: 0 0 0 1px var(--c-magenta);
 }
 
 .btn-glitch-magenta:hover {
   background-color: #ff38eb;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px -2px rgba(255, 0, 229, 0.35);
+  box-shadow: 0 0 0 1px var(--c-magenta), 0 6px 18px rgba(255, 0, 229, 0.3);
 }
 
 .btn-glitch-magenta:active {
   transform: translateY(0);
 }
 
-/* Dark Obsidian Ghost Button */
+/* Dark Obsidian Button */
 .btn-glitch-dark {
   background-color: var(--c-surface-1);
-  color: #cbd5e1;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .btn-glitch-dark:hover {
   background-color: var(--c-surface-2);
   border-color: var(--c-lime);
   color: var(--c-lime);
-  transform: translateY(-1.5px);
-}
-
-/* Outline Button */
-.btn-glitch-outline {
-  background-color: transparent;
-  color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.btn-glitch-outline:hover {
-  background-color: var(--c-surface-1);
-  border-color: var(--c-magenta);
-  color: var(--c-magenta);
   transform: translateY(-1.5px);
 }
 
@@ -240,12 +248,12 @@ html, body {
 
 /* Modal Dialog */
 .modal-overlay {
-  background-color: rgba(9, 10, 15, 0.92);
+  background-color: rgba(9, 10, 15, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.2s ease;
 }
 
 .modal-overlay.open {
@@ -263,8 +271,8 @@ html, body {
   inset: -3px;
   border-radius: 50%;
   background-color: inherit;
-  opacity: 0.45;
-  animation: live-pulse-anim 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  opacity: 0.5;
+  animation: live-pulse-anim 2.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
 @keyframes live-pulse-anim {
@@ -273,15 +281,25 @@ html, body {
   100% { transform: scale(0.9); opacity: 0; }
 }
 
-/* Glitch Accent Tags */
+/* Glitch Badge Tags */
 .tag-glitch-magenta {
-  background-color: rgba(255, 0, 229, 0.12);
+  background-color: rgba(255, 0, 229, 0.15);
   color: var(--c-magenta);
-  border: 1px solid rgba(255, 0, 229, 0.35);
+  border: 1px solid rgba(255, 0, 229, 0.4);
 }
 
 .tag-glitch-lime {
-  background-color: rgba(134, 255, 0, 0.12);
+  background-color: rgba(134, 255, 0, 0.15);
   color: var(--c-lime);
-  border: 1px solid rgba(134, 255, 0, 0.35);
+  border: 1px solid rgba(134, 255, 0, 0.4);
+}
+
+/* Subtle Voxel Hover Animation */
+@keyframes voxel-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-voxel-float {
+  animation: voxel-float 4s ease-in-out infinite;
 }
