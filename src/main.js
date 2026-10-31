@@ -1,254 +1,318 @@
 // ==========================================================================
-// BUGrock Launcher Website Configuration & Interactive Logic
+// BUGrock Launcher Website — Hallmark Dusk + Ribbon Interactive Engine
 // ==========================================================================
 
-// Easily customize your social links here:
-export const SOCIAL_LINKS = {
-  discord: "https://discord.gg/minecraft", // Replace with your Discord server invite
-  youtube: "https://youtube.com/@7AmoZ",  // Replace with your YouTube channel
-  twitter: "https://x.com/7AmoZ",         // Replace with your X / Twitter handle
-  github: "https://github.com/7AmoZ/BUGrock-Launcher",
-  telegram: "https://t.me/BUGrockLauncher", // Replace with your Telegram channel/group
-  tiktok: "https://tiktok.com/@bugrocklauncher" // Replace with your TikTok
-};
+export const LAUNCHER_VERSIONS = [
+  {
+    id: "v1-21-50",
+    version: "1.21.50.07",
+    label: "1.21.50 (Tricky Trials)",
+    type: "GDK (.msixvc)",
+    date: "November 2024",
+    tag: "Latest Release",
+    active: true,
+    engine: "GDKLaunchShim x64 + ClipSvc",
+    savePath: "Minecraft Bedrock/Users/Isolated_Instance_01/SavedGames",
+    desc: "Modern GDK architecture with automated Microsoft Store licensing and Crafter blocks."
+  },
+  {
+    id: "v1-20-80",
+    version: "1.20.80.05",
+    label: "1.20.80 (Armadillo Update)",
+    type: "GDK (.msixvc)",
+    date: "April 2024",
+    tag: "Stable Release",
+    active: false,
+    engine: "GDKLaunchShim x64",
+    savePath: "Minecraft Bedrock/Users/Isolated_Instance_02/SavedGames",
+    desc: "Wolf armor, armadillos, and RenderDragon modern pipeline."
+  },
+  {
+    id: "v1-19-50",
+    version: "1.19.50.02",
+    label: "1.19.50 (The Wild)",
+    type: "UWP (.appx)",
+    date: "November 2022",
+    tag: "Legacy UWP",
+    active: false,
+    engine: "AppX Manifest Registered",
+    savePath: "LocalState/games/com.mojang/minecraftWorlds/Instance_Wild",
+    desc: "Ancient City, Warden, Mangrove swamps in native UWP sandbox."
+  },
+  {
+    id: "v1-16-201",
+    version: "1.16.201.01",
+    label: "1.16.201 (Nether Update)",
+    type: "UWP (.appx)",
+    date: "December 2020",
+    tag: "Legacy Golden Age",
+    active: false,
+    engine: "AppX Manifest Registered",
+    savePath: "LocalState/games/com.mojang/minecraftWorlds/Instance_Nether",
+    desc: "The definitive Bedrock Nether Update. Netherite, Piglins, Basalt Deltas."
+  },
+  {
+    id: "v1-14-60",
+    version: "1.14.60.05",
+    label: "1.14.60 (Buzzy Bees)",
+    type: "UWP (.appx)",
+    date: "April 2020",
+    tag: "Pre-RenderDragon",
+    active: false,
+    engine: "AppX Manifest Registered",
+    savePath: "LocalState/games/com.mojang/minecraftWorlds/Instance_114",
+    desc: "Classic pre-RenderDragon rendering engine with vintage shader support."
+  },
+  {
+    id: "v1-2-0",
+    version: "1.2.0.81",
+    label: "1.2.0 (Better Together)",
+    type: "UWP (.appx)",
+    date: "September 2017",
+    tag: "Historic Milestone",
+    active: false,
+    engine: "AppX Manifest Registered",
+    savePath: "LocalState/games/com.mojang/minecraftWorlds/Instance_BetterTogether",
+    desc: "The legendary update that unified Pocket Edition and Windows 10 into Bedrock."
+  },
+  {
+    id: "v0-14-0",
+    version: "0.14.0.1",
+    label: "0.14.0.1 (Alpha Launch)",
+    type: "UWP (.appx)",
+    date: "February 2016",
+    tag: "Vintage Archive",
+    active: false,
+    engine: "AppX Manifest Registered",
+    savePath: "LocalState/games/com.mojang/minecraftWorlds/Instance_Alpha14",
+    desc: "The dawn of Windows 10 Edition. Redstone repeater introduction."
+  }
+];
 
-// Video Configuration (Supports YouTube Video ID or direct MP4 URL)
-export const VIDEO_CONFIG = {
-  type: "youtube", // "youtube" or "local"
-  youtubeId: "dQw4w9WgXcQ", // Change this to your YouTube video ID (e.g. 7cQG3_4x8)
-  localVideoUrl: "./assets/trailer.mp4"
-};
+export const MOD_ITEMS = [
+  {
+    id: "action-stuff",
+    title: "Actions & Stuff 3D Combat",
+    author: "Toxico",
+    source: "MCPEDL",
+    category: "Resource & Animation",
+    size: "42.8 MB",
+    installs: "320K+",
+    rating: "4.9",
+    desc: "Complete overhaul of player animations, fluid weapon swings, and dynamic third-person cameras."
+  },
+  {
+    id: "faithful-bedrock",
+    title: "Faithful 64x Bedrock Edition",
+    author: "Faithful Team",
+    source: "CurseForge",
+    category: "High-Res HD",
+    size: "68.2 MB",
+    installs: "1.2M+",
+    rating: "5.0",
+    desc: "The iconic vanilla-faithful texture pack scaled to crisp 64x detail for modern 1440p & 4K displays."
+  },
+  {
+    id: "realism-craft",
+    title: "Natural Realism Shaders & Skybox",
+    author: "CubeCraftsman",
+    source: "MCPEDL",
+    category: "PBR Shader Pack",
+    size: "18.5 MB",
+    installs: "180K+",
+    rating: "4.8",
+    desc: "Vibrant volumetric lighting, realistic water reflections, and waving leaves for RenderDragon."
+  },
+  {
+    id: "backpacks-plus",
+    title: "Traveler's Backpacks Plus (Addon)",
+    author: "TrueRealism",
+    source: "CurseForge",
+    category: "Behavior & Add-on",
+    size: "8.4 MB",
+    installs: "410K+",
+    rating: "4.9",
+    desc: "Wearable, upgradeable backpacks with crafting table integration and sleeping bags."
+  }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Populate Social Links dynamically
-  document.querySelectorAll('[data-social]').forEach((el) => {
-    const network = el.getAttribute('data-social');
-    if (SOCIAL_LINKS[network]) {
-      el.setAttribute('href', SOCIAL_LINKS[network]);
-    }
-  });
+  // 1. Version Switcher Interactive Demo
+  const versionListEl = document.getElementById('version-items-container');
+  const selectedVersionLabel = document.getElementById('preview-version-label');
+  const selectedVersionTag = document.getElementById('preview-version-tag');
+  const selectedVersionType = document.getElementById('preview-version-type');
+  const selectedVersionEngine = document.getElementById('preview-version-engine');
+  const selectedVersionPath = document.getElementById('preview-version-path');
+  const selectedVersionDesc = document.getElementById('preview-version-desc');
+  const launchInstanceBtn = document.getElementById('btn-launch-preview');
 
-  // 2. Intersection Observer for Scroll Reveals
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1,
-  };
+  function renderVersionSelector() {
+    if (!versionListEl) return;
+    versionListEl.innerHTML = '';
 
-  const revealElements = document.querySelectorAll('.reveal-on-scroll');
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+    LAUNCHER_VERSIONS.forEach((ver) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `w-full text-left px-3.5 py-2.5 rounded-lg border transition-all flex items-center justify-between group ${
+        ver.active 
+          ? 'bg-[oklch(22%_0.025_268)] border-[oklch(76%_0.11_274)] text-[oklch(97%_0.005_75)]' 
+          : 'bg-[oklch(16%_0.016_268)] border-[oklch(22%_0.015_266)] text-[oklch(75%_0.012_262)] hover:border-[oklch(32%_0.02_266)] hover:text-white'
+      }`;
+      btn.innerHTML = `
+        <div class="flex items-center gap-2.5">
+          <span class="w-2 h-2 rounded-full ${ver.active ? 'bg-[oklch(76%_0.11_274)] shadow-[0_0_8px_oklch(76%_0.11_274)]' : 'bg-[oklch(35%_0.015_266)]'}"></span>
+          <div>
+            <div class="text-[13px] font-medium leading-tight font-display">${ver.label}</div>
+            <div class="text-[11px] text-[oklch(60%_0.015_262)] font-mono">${ver.date}</div>
+          </div>
+        </div>
+        <span class="text-[11px] font-mono px-2 py-0.5 rounded ${ver.type.includes('GDK') ? 'bg-[oklch(66%_0.23_330/0.18)] text-[oklch(75%_0.18_330)] border border-[oklch(66%_0.23_330/0.3)]' : 'bg-[oklch(76%_0.11_274/0.15)] text-[oklch(82%_0.09_274)] border border-[oklch(76%_0.11_274/0.25)]'}">
+          ${ver.type.split(' ')[0]}
+        </span>
+      `;
 
-  revealElements.forEach((el) => revealObserver.observe(el));
-
-  // 3. Video Modal Logic
-  const videoModal = document.getElementById('video-modal');
-  const videoFrame = document.getElementById('video-iframe');
-  const videoCloseBtn = document.getElementById('video-modal-close');
-  const playVideoButtons = document.querySelectorAll('.play-video-trigger');
-
-  function openVideoModal() {
-    if (!videoModal) return;
-    if (VIDEO_CONFIG.type === 'youtube' && videoFrame) {
-      videoFrame.src = `https://www.youtube-nocookie.com/embed/${VIDEO_CONFIG.youtubeId}?autoplay=1&rel=0`;
-    }
-    videoModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeVideoModal() {
-    if (!videoModal) return;
-    if (videoFrame) {
-      videoFrame.src = '';
-    }
-    videoModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  playVideoButtons.forEach((btn) => btn.addEventListener('click', openVideoModal));
-  if (videoCloseBtn) videoCloseBtn.addEventListener('click', closeVideoModal);
-  if (videoModal) {
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) closeVideoModal();
-    });
-  }
-
-  // 4. Screenshots Gallery & Lightbox
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const lightboxClose = document.getElementById('lightbox-close');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const filterTabs = document.querySelectorAll('.gallery-filter-btn');
-
-  // Filter functionality
-  filterTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      filterTabs.forEach((t) => {
-        t.classList.remove('bg-[#38A169]', 'text-white', 'border-[#276749]');
-        t.classList.add('bg-[#181921]', 'text-[#8E92A4]', 'border-[#232530]');
-      });
-      tab.classList.remove('bg-[#181921]', 'text-[#8E92A4]', 'border-[#232530]');
-      tab.classList.add('bg-[#38A169]', 'text-white', 'border-[#276749]');
-
-      const filter = tab.getAttribute('data-filter');
-      galleryItems.forEach((item) => {
-        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // Open Lightbox
-  galleryItems.forEach((item) => {
-    item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      const caption = item.getAttribute('data-title') || img.getAttribute('alt');
-      if (lightboxModal && lightboxImg) {
-        lightboxImg.src = img.src;
-        if (lightboxCaption) lightboxCaption.textContent = caption;
-        lightboxModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    });
-  });
-
-  function closeLightbox() {
-    if (!lightboxModal) return;
-    lightboxModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-  if (lightboxModal) {
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
-  }
-
-  // Keyboard escape handler for both modals
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeVideoModal();
-      closeLightbox();
-    }
-  });
-
-  // 5. Interactive FAQ Accordion
-  const faqButtons = document.querySelectorAll('.faq-toggle');
-  faqButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-      const answer = btn.nextElementSibling;
-      const chevron = btn.querySelector('.chevron-icon');
-
-      faqButtons.forEach((otherBtn) => {
-        if (otherBtn !== btn) {
-          otherBtn.setAttribute('aria-expanded', 'false');
-          if (otherBtn.nextElementSibling) otherBtn.nextElementSibling.classList.add('hidden');
-          const otherChevron = otherBtn.querySelector('.chevron-icon');
-          if (otherChevron) otherChevron.style.transform = 'rotate(0deg)';
-        }
+      btn.addEventListener('click', () => {
+        LAUNCHER_VERSIONS.forEach(v => v.active = false);
+        ver.active = true;
+        renderVersionSelector();
+        updateVersionDisplay(ver);
       });
 
-      btn.setAttribute('aria-expanded', !isExpanded);
-      if (isExpanded) {
-        answer.classList.add('hidden');
-        if (chevron) chevron.style.transform = 'rotate(0deg)';
-      } else {
-        answer.classList.remove('hidden');
-        if (chevron) chevron.style.transform = 'rotate(180deg)';
-      }
+      versionListEl.appendChild(btn);
     });
-  });
+  }
 
-  // 6. Copy Code Buttons
-  const copyButtons = document.querySelectorAll('.copy-btn');
-  copyButtons.forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      const textToCopy = btn.getAttribute('data-copy');
-      if (!textToCopy) return;
+  function updateVersionDisplay(ver) {
+    if (selectedVersionLabel) selectedVersionLabel.textContent = ver.label;
+    if (selectedVersionTag) selectedVersionTag.textContent = ver.tag;
+    if (selectedVersionType) selectedVersionType.textContent = ver.type;
+    if (selectedVersionEngine) selectedVersionEngine.textContent = ver.engine;
+    if (selectedVersionPath) selectedVersionPath.textContent = ver.savePath;
+    if (selectedVersionDesc) selectedVersionDesc.textContent = ver.desc;
+  }
 
-      try {
-        await navigator.clipboard.writeText(textToCopy);
-        const originalContent = btn.innerHTML;
-        btn.innerHTML = `
-          <svg class="w-4 h-4 text-[#48BB78] inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-          <span class="text-xs text-[#48BB78] font-bold">Copied!</span>
+  renderVersionSelector();
+
+  if (launchInstanceBtn) {
+    launchInstanceBtn.addEventListener('click', () => {
+      const activeVer = LAUNCHER_VERSIONS.find(v => v.active) || LAUNCHER_VERSIONS[0];
+      const origText = launchInstanceBtn.innerHTML;
+      launchInstanceBtn.innerHTML = `
+        <span class="inline-block animate-spin mr-2">⚙️</span>
+        <span>Staging ${activeVer.label.split(' ')[0]}...</span>
+      `;
+      launchInstanceBtn.classList.add('opacity-80', 'pointer-events-none');
+
+      setTimeout(() => {
+        launchInstanceBtn.innerHTML = `
+          <span class="text-[oklch(74%_0.17_150)] mr-1">✓</span>
+          <span>Instance Running (PID: 8492)</span>
         `;
         setTimeout(() => {
-          btn.innerHTML = originalContent;
-        }, 2000);
-      } catch (err) {
-        console.error('Failed to copy:', err);
-      }
+          launchInstanceBtn.innerHTML = origText;
+          launchInstanceBtn.classList.remove('opacity-80', 'pointer-events-none');
+        }, 2500);
+      }, 1200);
+    });
+  }
+
+  // 2. Mod Hub Simulated 1-Click Install Demo
+  const modContainer = document.getElementById('mod-hub-container');
+  if (modContainer) {
+    modContainer.innerHTML = '';
+    MOD_ITEMS.forEach((mod) => {
+      const card = document.createElement('div');
+      card.className = 'card-part p-4 flex flex-col justify-between gap-3';
+      card.innerHTML = `
+        <div>
+          <div class="flex items-start justify-between gap-2 mb-1.5">
+            <span class="text-[11px] font-mono px-1.5 py-0.5 rounded bg-[oklch(12%_0.015_268)] text-[oklch(76%_0.11_274)] border border-[oklch(25%_0.018_266)]">
+              ${mod.source}
+            </span>
+            <span class="text-[12px] text-[oklch(65%_0.015_262)] font-mono">${mod.size}</span>
+          </div>
+          <h4 class="text-[15px] font-semibold text-[oklch(96%_0.006_75)] font-display leading-snug">${mod.title}</h4>
+          <p class="text-[12px] text-[oklch(65%_0.015_262)] mt-1 line-clamp-2 leading-relaxed">${mod.desc}</p>
+        </div>
+        <div class="pt-2 border-t border-[oklch(22%_0.015_266)] flex items-center justify-between">
+          <span class="text-[11px] text-[oklch(55%_0.015_262)] font-mono">By ${mod.author}</span>
+          <button type="button" class="btn-install-mod px-3 py-1 rounded text-[12px] font-mono font-medium transition-all bg-[oklch(22%_0.022_268)] border border-[oklch(30%_0.02_266)] text-[oklch(90%_0.01_75)] hover:border-[oklch(76%_0.11_274)] hover:text-white" data-mod="${mod.id}">
+            + Inject Pack
+          </button>
+        </div>
+      `;
+      modContainer.appendChild(card);
+    });
+
+    modContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.btn-install-mod');
+      if (!btn) return;
+      const modId = btn.getAttribute('data-mod');
+      const item = MOD_ITEMS.find(m => m.id === modId);
+      if (!item) return;
+
+      btn.textContent = "Injecting...";
+      btn.classList.add('pointer-events-none', 'opacity-70');
+
+      setTimeout(() => {
+        btn.innerHTML = `<span class="text-[oklch(74%_0.17_150)]">✓ Injected</span>`;
+        btn.classList.remove('opacity-70');
+        showToast(`Injected "${item.title}" into active instance with zero world friction.`);
+        setTimeout(() => {
+          btn.textContent = "+ Inject Pack";
+          btn.classList.remove('pointer-events-none');
+        }, 3000);
+      }, 900);
+    });
+  }
+
+  // Toast Notification
+  function showToast(message) {
+    let toast = document.getElementById('global-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'global-toast';
+      toast.className = 'fixed bottom-6 right-6 z-50 px-4 py-3 rounded-lg border border-[oklch(30%_0.02_266)] bg-[oklch(18%_0.025_268/0.95)] backdrop-blur text-[13px] text-white font-mono shadow-2xl transition-all opacity-0 translate-y-3 pointer-events-none';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+    }, 3500);
+  }
+
+  // 3. Tab switching in World Injector comparison
+  const injectorTabs = document.querySelectorAll('[data-injector-tab]');
+  const injectorPanels = document.querySelectorAll('[data-injector-panel]');
+  injectorTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-injector-tab');
+      injectorTabs.forEach(t => {
+        t.classList.remove('active', 'border-[oklch(76%_0.11_274)]', 'text-white', 'bg-[oklch(22%_0.025_268)]');
+        t.classList.add('border-transparent', 'text-[oklch(65%_0.015_262)]');
+      });
+      tab.classList.add('active', 'border-[oklch(76%_0.11_274)]', 'text-white', 'bg-[oklch(22%_0.025_268)]');
+      tab.classList.remove('border-transparent', 'text-[oklch(65%_0.015_262)]');
+
+      injectorPanels.forEach(panel => {
+        if (panel.getAttribute('data-injector-panel') === target) {
+          panel.classList.remove('hidden');
+        } else {
+          panel.classList.add('hidden');
+        }
+      });
     });
   });
 
-  // 7. System Checklist Counter
-  const checkItems = document.querySelectorAll('.req-checkbox');
-  const checkCounter = document.getElementById('req-counter');
-  function updateChecklist() {
-    if (!checkCounter || checkItems.length === 0) return;
-    const checkedCount = document.querySelectorAll('.req-checkbox:checked').length;
-    checkCounter.textContent = `${checkedCount} / ${checkItems.length} Ready`;
-    if (checkedCount === checkItems.length) {
-      checkCounter.className = 'px-3 py-1 text-xs font-bold rounded-full bg-[#38A169]/20 text-[#48BB78] border border-[#38A169]/40';
-    } else {
-      checkCounter.className = 'px-3 py-1 text-xs font-bold rounded-full bg-[#D05CE3]/15 text-[#D05CE3] border border-[#D05CE3]/30';
-    }
-  }
-  checkItems.forEach((item) => item.addEventListener('change', updateChecklist));
-  updateChecklist();
-
-  // 8. Mobile Menu Toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.contains('hidden');
-      if (isHidden) {
-        mobileMenu.classList.remove('hidden');
-        mobileMenuBtn.setAttribute('aria-expanded', 'true');
-      } else {
-        mobileMenu.classList.add('hidden');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    mobileMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+  // 4. Quick copy buttons for commands / paths
+  document.querySelectorAll('[data-copy]').forEach(el => {
+    el.addEventListener('click', () => {
+      const textToCopy = el.getAttribute('data-copy');
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast(`Copied to clipboard: ${textToCopy}`);
       });
     });
-  }
-
-  // 9. Back to Top Button
-  const backToTopBtn = document.getElementById('back-to-top');
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-        backToTopBtn.classList.add('opacity-100');
-      } else {
-        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-        backToTopBtn.classList.remove('opacity-100');
-      }
-    });
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+  });
 });
