@@ -1,216 +1,196 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   BUGrock Launcher Design Tokens — Hallmark Dusk + Ribbon Theme
-   Precision Engineered for Minecraft Bedrock on Windows 10 & 11
+   BUGrock Launcher — Authentic Minecraft Bedrock Launcher Aesthetic
+   Inspired by bedrocklauncher.github.io
    ========================================================================== */
 
+/* Authentic Minecraft Fonts */
+@font-face {
+  font-family: "MinecraftTen";
+  src: url("/fonts/MinecraftTen.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MinecraftFiveBold";
+  src: url("/fonts/MinecraftFiveBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("/fonts/Minecraft.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Dusk / Obsidian Paper Canvas */
-  --color-paper: oklch(14% 0.015 268);
-  --color-paper-2: oklch(17.5% 0.018 268);
-  --color-paper-3: oklch(21% 0.022 268);
-  --color-paper-elevated: oklch(24% 0.025 268);
+  /* Bedrock Launcher Classic Palette */
+  --mc-dark-bg: #1c1c1c;
+  --mc-nav-bg: #262626;
+  --mc-card-bg: #2c2c2c;
+  --mc-card-border: #3c3c3c;
+  --mc-border-dark: #141414;
+  --mc-text-primary: #FFFFFF;
+  --mc-text-muted: #A0A0A0;
+  --mc-text-subtle: #757575;
+  --mc-green: #2bbd28;
+  --mc-green-hover: #38d635;
+  --mc-green-dark: #1b8018;
+  --mc-magenta: #d946ef;
+  --mc-gold: #ffaa00;
 
-  /* Ink Hierarchy */
-  --color-ink: oklch(97% 0.005 75);
-  --color-ink-2: oklch(84% 0.010 262);
-  --color-muted: oklch(66% 0.016 262);
-  --color-subtle: oklch(48% 0.018 262);
+  --font-mc-ten: "MinecraftTen", -apple-system, sans-serif;
+  --font-mc-five: "MinecraftFiveBold", -apple-system, sans-serif;
+  --font-mc-pixel: "Minecraft", monospace;
+  --font-mc-body: "Figtree", "Noto Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
 
-  /* Machined Rules & Borders */
-  --color-rule: oklch(26% 0.018 266);
-  --color-rule-subtle: oklch(20% 0.014 266);
-  --color-rule-strong: oklch(34% 0.022 266);
+/* Base Body */
+html, body {
+  background-color: var(--mc-dark-bg);
+  color: var(--mc-text-primary);
+  font-family: var(--font-mc-body);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-  /* Restrained Signals & Accents */
-  --color-accent: oklch(76% 0.11 274);          /* Cool Periwinkle / Instrument */
-  --color-accent-ink: oklch(18% 0.035 274);
-  --color-accent-soft: oklch(26% 0.04 274 / 0.35);
-  --color-signal-magenta: oklch(66% 0.23 330);  /* BUGrock Voxel Block / Missing Texture */
-  --color-signal-magenta-soft: oklch(66% 0.23 330 / 0.15);
-  --color-signal-emerald: oklch(74% 0.17 150);  /* Live verified / Active */
-  --color-signal-amber: oklch(78% 0.14 75);     /* Warning / Dev Mode */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #1e1e1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #474747;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
 
-  /* Machined Glass & Surfaces */
-  --glass: oklch(18% 0.018 268 / 0.65);
-  --glass-blur: 24px;
-  --glass-hi: inset 0 1px 0 oklch(100% 0 0 / 0.09), inset 0 0 0 1px oklch(100% 0 0 / 0.04);
-  --shadow-panel: 0 1px 0 oklch(100% 0 0 / 0.04) inset, 0 28px 60px -20px oklch(4% 0.02 268 / 0.85);
-  --shadow-part: 0 1px 0 oklch(100% 0 0 / 0.06) inset, 0 8px 18px -4px oklch(4% 0.02 268 / 0.4);
+/* Minecraft Headers */
+.mc-heading-ten {
+  font-family: var(--font-mc-ten);
+  color: #FFFFFF;
+  text-shadow: 0 4px 0 #121212;
+  letter-spacing: 0.04em;
+}
 
-  /* Typography */
-  --font-display: "Wix Madefor Display", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Figtree", "Wix Madefor Text", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+.mc-heading-five {
+  font-family: var(--font-mc-five);
+  color: #FFFFFF;
+  text-shadow: 0 3px 0 #181818;
+}
 
-  /* Metric Geometry */
-  --radius-panel: 16px;
-  --radius-card: 12px;
-  --radius-part: 6px;
-  --radius-pill: 999px;
-  --rule-hair: 1px;
+.mc-pixel-font {
+  font-family: var(--font-mc-pixel);
 }
 
 /* ==========================================================================
-   Base Rules (Strict Hallmark Floor)
+   Minecraft 3D Bevel Buttons (Identical to Bedrock Launcher)
    ========================================================================== */
 
-html, body {
-  overflow-x: clip;
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  letter-spacing: -0.025em;
-  text-wrap: balance;
-  overflow-wrap: break-word;
-  min-width: 0;
-}
-
-code, pre, .mono {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
-
-.num {
-  font-variant-numeric: tabular-nums;
-}
-
-/* Instant Visible Focus */
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-/* Machined Glass Cards */
-.panel-glass {
-  background: var(--glass);
-  backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
-  border: var(--rule-hair) solid var(--color-rule);
-  box-shadow: var(--glass-hi), var(--shadow-panel);
-  border-radius: var(--radius-panel);
-}
-
-.card-part {
-  background: var(--color-paper-2);
-  border: var(--rule-hair) solid var(--color-rule-subtle);
-  border-radius: var(--radius-card);
-  transition: border-color 0.18s ease, background-color 0.18s ease;
-}
-
-.card-part:hover {
-  border-color: var(--color-rule-strong);
-  background: var(--color-paper-3);
-}
-
-/* Machined Button Controls */
-.btn-machined-primary {
-  background: linear-gradient(180deg, oklch(78% 0.11 274) 0%, oklch(72% 0.11 274) 100%);
-  color: var(--color-accent-ink);
-  border: var(--rule-hair) solid oklch(84% 0.09 274);
-  box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.4), var(--shadow-part);
-  font-family: var(--font-display);
-  font-weight: 600;
-  border-radius: var(--radius-pill);
-  transition: opacity 0.15s ease, transform 0.1s ease;
-}
-
-.btn-machined-primary:hover {
-  opacity: 0.95;
-  transform: translateY(-1px);
-}
-
-.btn-machined-primary:active {
-  transform: translateY(1px);
-}
-
-.btn-machined-magenta {
-  background: linear-gradient(180deg, oklch(68% 0.23 330) 0%, oklch(62% 0.23 330) 100%);
-  color: #FFFFFF;
-  border: var(--rule-hair) solid oklch(74% 0.20 330);
-  box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.35), 0 8px 24px -4px oklch(66% 0.23 330 / 0.45);
-  font-family: var(--font-display);
-  font-weight: 600;
-  border-radius: var(--radius-pill);
-  transition: opacity 0.15s ease, transform 0.1s ease;
-}
-
-.btn-machined-magenta:hover {
-  opacity: 0.95;
-  transform: translateY(-1px);
-}
-
-.btn-machined-magenta:active {
-  transform: translateY(1px);
-}
-
-.btn-machined-ghost {
-  background: var(--color-paper-2);
-  color: var(--color-ink);
-  border: var(--rule-hair) solid var(--color-rule);
-  box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.05);
-  font-family: var(--font-display);
-  font-weight: 500;
-  border-radius: var(--radius-pill);
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.btn-machined-ghost:hover {
-  background: var(--color-paper-3);
-  border-color: var(--color-rule-strong);
-}
-
-/* Subtle Bedrock Noise & Structural Grid */
-.bg-grid-machined {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, oklch(100% 0 0 / 0.022) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(100% 0 0 / 0.022) 1px, transparent 1px);
-}
-
-/* Animated Pulse Dot for System States */
-.status-indicator {
+.mc-btn {
   position: relative;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mc-ten);
+  color: #FFFFFF;
+  text-shadow: 0 2px 0 #181818;
+  border: 2px solid #000000;
+  background-color: #484848;
+  box-shadow: inset 2px 2px 0px #707070, inset -2px -2px 0px #242424;
+  padding: 10px 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.1s ease;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.03em;
 }
 
-.status-indicator::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: inherit;
-  opacity: 0.35;
-  animation: pulse-ring 2.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+.mc-btn:hover {
+  filter: brightness(115%);
 }
 
-@keyframes pulse-ring {
-  0% { transform: scale(0.9); opacity: 0.5; }
-  50% { transform: scale(1.6); opacity: 0; }
-  100% { transform: scale(0.9); opacity: 0; }
+.mc-btn:active {
+  box-shadow: inset -2px -2px 0px #707070, inset 2px 2px 0px #242424;
+  transform: translateY(1px);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .status-indicator::after {
-    animation: none;
-  }
+/* Green Minecraft Play / Download Button */
+.mc-btn-green {
+  background-color: #388e3c;
+  box-shadow: inset 2px 2px 0px #66bb6a, inset -2px -2px 0px #1b5e20;
 }
 
-/* Code Snippet Wells */
-.code-well {
-  background: oklch(10% 0.012 268);
-  border: var(--rule-hair) solid var(--color-rule-subtle);
-  border-radius: var(--radius-part);
-  font-family: var(--font-mono);
-  font-size: 13px;
+.mc-btn-green:active {
+  box-shadow: inset -2px -2px 0px #66bb6a, inset 2px 2px 0px #1b5e20;
+}
+
+/* BUGrock Magenta Voxel Button */
+.mc-btn-magenta {
+  background-color: #a21caf;
+  box-shadow: inset 2px 2px 0px #e879f9, inset -2px -2px 0px #701a75;
+}
+
+.mc-btn-magenta:active {
+  box-shadow: inset -2px -2px 0px #e879f9, inset 2px 2px 0px #701a75;
+}
+
+/* Minecraft Card Frame */
+.mc-card {
+  background-color: #242424;
+  border: 2px solid #000000;
+  box-shadow: inset 2px 2px 0px #3c3c3c, inset -2px -2px 0px #141414, 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.mc-card-inner {
+  background-color: #1a1a1a;
+  border: 2px solid #000000;
+  box-shadow: inset 1px 1px 0px #2d2d2d, inset -1px -1px 0px #0a0a0a;
+}
+
+/* Bedrock Texture Background Tile */
+.bg-bedrock-pattern {
+  background-color: #1a1a1a;
+  background-image: 
+    linear-gradient(45deg, #222222 25%, transparent 25%), 
+    linear-gradient(-45deg, #222222 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #222222 75%), 
+    linear-gradient(-45deg, transparent 75%, #222222 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Disclaimer Bar */
+.mc-disclaimer-banner {
+  background-color: #2a2215;
+  border-top: 1px solid #78521a;
+  border-bottom: 1px solid #78521a;
+  color: #ffbe45;
+  font-family: var(--font-mc-pixel);
+}
+
+/* Accordion transition */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+}
+
+.faq-item.active .faq-content {
+  max-height: 400px;
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(180deg);
 }
