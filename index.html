@@ -6,195 +6,214 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- Primary Meta Tags -->
-  <title>BUGrock Launcher — Official Website</title>
-  <meta name="title" content="BUGrock Launcher — Official Website" />
-  <meta name="description" content="An advanced, open-source launcher for Minecraft: Bedrock Edition on Windows 10 & 11. Play any version from 0.14.0.1 to 1.21+ GDK side-by-side, inject packs directly into worlds, and isolate saves safely." />
+  <title>BUGrock Launcher — The Definitive Minecraft Bedrock Launcher for Windows</title>
+  <meta name="title" content="BUGrock Launcher — The Definitive Minecraft Bedrock Launcher for Windows" />
+  <meta name="description" content="Play every Minecraft Bedrock version from 0.14.0.1 to modern 1.21+ GDK side-by-side. Direct in-world pack injector, native WebView2 mod hub, and multi-instance save isolation." />
   <meta name="keywords" content="BUGrock Launcher, Minecraft Bedrock Launcher, Bedrock version switcher, GDK msixvc, UWP appx minecraft, Bedrock multi version, Minecraft Windows 10 launcher, Minecraft Windows 11 launcher, Bedrock world preservation" />
   <meta name="author" content="BUGrock" />
-  <meta name="theme-color" content="#1c1c1c" />
+  <meta name="theme-color" content="#090a0f" />
 
-  <!-- Open Graph / Discord -->
+  <!-- Open Graph / Discord / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="BUGrock Launcher — The Premier Minecraft Bedrock Launcher" />
-  <meta property="og:description" content="Play every Bedrock version (0.14 to latest GDK), direct in-world pack injection without com.mojang digging. 100% Free & Open Source." />
+  <meta property="og:title" content="BUGrock Launcher — The Flagship Minecraft Bedrock Launcher" />
+  <meta property="og:description" content="Play every historical Bedrock version (0.14 to latest GDK), direct in-world pack injection without com.mojang digging. 100% Free & Open Source." />
   <meta property="og:image" content="./assets/voxel_logo_hd.png" />
+  <meta property="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/x-icon" href="./assets/app_icon.ico" />
+
+  <!-- Premium Typography: Wix Madefor Display + Figtree + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;500;600;700&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./src/style.css" />
 </head>
-<body class="bg-[#1c1c1c] text-white">
+<body class="bg-ambient-flares bg-blueprint-grid text-[#e2e8f0]">
 
   <!-- ========================================================================
-       TOP NAVBAR (IDENTICAL TO BEDROCK LAUNCHER)
+       TOP FLAGSHIP HEADER / NAVIGATION
        ======================================================================== -->
-  <header class="fixed top-0 left-0 right-0 z-50 h-14 bg-[#262626] border-b border-[#141414] shadow-md flex items-center">
-    <div class="w-[90%] max-w-[1100px] mx-auto flex items-center justify-between">
+  <header class="fixed top-0 left-0 right-0 z-50 h-16 bg-[#090a0f]/85 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       
-      <!-- Logo + Name -->
-      <a href="#" class="flex items-center gap-3 no-underline group">
-        <img src="./assets/pixel_cube.png" alt="BUGrock Logo" class="w-8 h-8 object-contain" />
-        <span class="mc-pixel-font text-lg text-white group-hover:text-[#bebebe] transition-colors tracking-wide">
-          BUGrock Launcher
-        </span>
+      <!-- Logo + Brand Wordmark -->
+      <a href="#" class="flex items-center gap-3.5 no-underline group">
+        <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-white/20 bg-[#141722] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+          <img src="./assets/pixel_cube.png" alt="BUGrock Voxel Cube" class="w-7 h-7 object-contain" />
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="font-mc-ten text-xl text-white tracking-wide group-hover:text-[#f0abfc] transition-colors">BUGrock</span>
+          <span class="text-xs font-mono font-bold text-[#d946ef] px-1.5 py-0.5 rounded bg-[#d946ef]/15 border border-[#d946ef]/30">LAUNCHER</span>
+        </div>
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="#features" class="text-white hover:text-[#2bbd28] transition-colors">Features</a>
-        <a href="#versions" class="text-white hover:text-[#2bbd28] transition-colors">Versions</a>
-        <a href="#faq" class="text-white hover:text-[#2bbd28] transition-colors">FAQ</a>
-        <a href="#downloads" class="text-white hover:text-[#2bbd28] transition-colors">Downloads</a>
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="text-white hover:text-[#2bbd28] transition-colors flex items-center gap-1">
-          <span>Source</span>
-          <span class="text-xs">↗</span>
-        </a>
+      <nav class="hidden lg:flex items-center gap-8 text-[13px] font-medium text-[#94a3b8]">
+        <a href="#version-vault" class="hover:text-white transition-colors">Versions Vault</a>
+        <a href="#world-injector" class="hover:text-white transition-colors">In-World Injector</a>
+        <a href="#mod-hub" class="hover:text-white transition-colors">Mod Hub</a>
+        <a href="#comparison" class="hover:text-white transition-colors">Comparison</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#downloads" class="hover:text-white transition-colors">Downloads</a>
       </nav>
 
-      <!-- Right Download CTA -->
+      <!-- Audio Toggle & Action Button -->
       <div class="flex items-center gap-3">
-        <a href="#downloads" class="mc-btn mc-btn-green text-xs !py-1.5 !px-3.5 hidden sm:inline-flex">
-          Download
-        </a>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mc-mobile-menu-btn" type="button" class="md:hidden mc-btn !p-2 text-xs" aria-label="Toggle menu">
-          ☰
+        
+        <!-- Live Audio Click Toggle -->
+        <button id="sound-toggle-btn" type="button" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-[#12141c] text-xs font-mono text-[#2bbd28] hover:border-white/25 transition-all shadow-inner">
+          <span>🔊 SFX: Active</span>
         </button>
+
+        <a href="#downloads" class="btn-flagship btn-flagship-magenta text-xs !py-2 !px-4 hidden sm:inline-flex">
+          <span>Get Launcher</span>
+          <span class="text-xs ml-1">↓</span>
+        </a>
       </div>
 
     </div>
   </header>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mc-mobile-menu" class="hidden fixed top-14 left-0 right-0 z-40 bg-[#262626] border-b border-[#141414] shadow-xl p-4 md:hidden font-mono text-sm space-y-3">
-    <a href="#features" class="block text-white hover:text-[#2bbd28]">Features</a>
-    <a href="#versions" class="block text-white hover:text-[#2bbd28]">Versions</a>
-    <a href="#faq" class="block text-white hover:text-[#2bbd28]">FAQ</a>
-    <a href="#downloads" class="block text-white hover:text-[#2bbd28]">Downloads</a>
-    <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="block text-white hover:text-[#2bbd28]">Source on GitHub ↗</a>
+  <!-- Legal Notice Disclaimer Pill (Always Visible on Top) -->
+  <div class="pt-20 pb-2 bg-[#090a0f] border-b border-white/5">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="p-2.5 rounded-xl border border-[#f59e0b]/30 bg-[#f59e0b]/10 text-xs sm:text-[13px] font-mono text-[#fbbf24] text-center flex items-center justify-center gap-2 shadow-sm">
+        <span class="text-base">⚠️</span>
+        <span>BUGrock Launcher does not pirate Minecraft; you must own a legal copy on Microsoft Store or Xbox Game Pass.</span>
+      </div>
+    </div>
   </div>
 
-  <!-- Main Wrapper -->
-  <main class="pt-14">
+  <main>
 
     <!-- ========================================================================
-         HERO SECTION (BEDROCK LAUNCHER THEME)
+         HERO SECTION — 3D PARALLAX TILT COMMAND STAGE
          ======================================================================== -->
-    <section class="relative bg-bedrock-pattern border-b-2 border-black py-16 md:py-24 text-center">
-      
-      <!-- Legal Notice / Disclaimer Bar -->
-      <div class="max-w-4xl mx-auto px-4 mb-8">
-        <div class="mc-disclaimer-banner p-2.5 rounded border border-[#78521a] text-xs sm:text-sm text-center shadow-sm">
-          ⚠️ BUGrock Launcher does not pirate Minecraft; you need to own a legal copy on Microsoft Store or Xbox Game Pass ⚠️
-        </div>
-      </div>
-
-      <div class="w-[90%] max-w-[1000px] mx-auto px-4 flex flex-col items-center">
+    <section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Big Voxel Logo Emblem -->
-        <div class="mb-6 relative">
-          <img src="./assets/voxel_logo_hd.png" alt="BUGrock Voxel Logo" class="w-28 h-28 md:w-36 md:h-36 object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)]" />
-        </div>
-
-        <!-- Minecraft Ten Heading -->
-        <h1 class="mc-heading-ten text-4xl sm:text-5xl md:text-6xl text-white mb-4">
-          BUGrock Launcher
-        </h1>
-
-        <!-- Slogan in Minecraft Pixel Font -->
-        <p class="mc-heading-five text-base sm:text-xl text-[#d0d0d0] max-w-2xl mx-auto mb-8 leading-relaxed">
-          The ultimate custom Minecraft: Bedrock Edition launcher for Windows 10 & 11.
-        </p>
-
-        <!-- Bedrock 3D Button Group -->
-        <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
-          <a href="#downloads" class="mc-btn mc-btn-green text-lg !py-3 !px-8">
-            ⬇ DOWNLOAD LAUNCHER
-          </a>
-
-          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="mc-btn text-base !py-3 !px-6">
-            SOURCE CODE ↗
-          </a>
-
-          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases" target="_blank" rel="noreferrer" class="mc-btn text-base !py-3 !px-6">
-            RELEASES ARCHIVE
-          </a>
-        </div>
-
-        <!-- Release Info Tag -->
-        <div class="font-mono text-xs text-[#8c8c8c] flex items-center gap-3">
-          <span>Version: <strong class="text-white">v1.0.0 (Beta 2)</strong></span>
-          <span>•</span>
-          <span>Windows 10 / 11 (x64)</span>
-          <span>•</span>
-          <span>GPL v3 Open Source</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         SHOWCASE SECTION 1: VERSIONS (BEDROCK LAUNCHER ALTERNATING RHYTHM)
-         ======================================================================== -->
-    <section id="versions" class="py-16 md:py-24 border-b-2 border-black bg-[#242424]">
-      <div class="w-[90%] max-w-[1100px] mx-auto">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          <!-- Text Column -->
-          <div class="lg:col-span-5 order-2 lg:order-1">
-            <span class="mc-pixel-font text-xs text-[#2bbd28] uppercase tracking-wider">Feature 01</span>
-            <h2 class="mc-heading-ten text-2xl sm:text-3xl text-white mt-1 mb-4">
-              Historical Versions Archive
-            </h2>
-            <p class="text-sm text-[#b0b0b0] leading-relaxed mb-6 font-normal">
-              Get access to almost all versions from <span class="font-mono text-white">0.14.0.1 Alpha</span> to modern <span class="font-mono text-white">1.21+ GDK</span> and switch between them in an instant.
-            </p>
-            <p class="text-xs text-[#8c8c8c] leading-relaxed mb-6">
-              The Microsoft Store forces auto-updates and deletes access to older versions. BUGrock indexes over 600 official packages with asynchronous background parsing for zero-lag catalog startup.
+          <!-- Left 7 Columns: Product Definition & High-Conversion CTAs -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            
+            <!-- Signal Badge -->
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/15 bg-[#141722]/80 backdrop-blur-md text-xs font-mono text-[#d946ef] mb-6 w-fit shadow-md">
+              <span class="w-2 h-2 rounded-full bg-[#d946ef] live-pulse"></span>
+              <span class="font-semibold tracking-wide">Next-Generation Bedrock Engine (x64)</span>
+            </div>
+
+            <!-- Authoritative Flagship Headline -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] mb-6 font-display">
+              Play every Minecraft Bedrock version without limits.
+            </h1>
+
+            <!-- High-Impact Description -->
+            <p class="text-base sm:text-lg text-[#94a3b8] font-normal leading-relaxed mb-8 max-w-2xl font-sans">
+              Microsoft Store forces mandatory auto-updates, destroys vintage servers, and buries your save files inside obscure UWP sandboxes. <strong class="text-white font-medium">BUGrock Launcher</strong> gives you complete control: download any historical version from <span class="font-mono text-[#d946ef] font-bold">0.14.0.1</span> to modern <span class="font-mono text-[#2bbd28] font-bold">1.21+ GDK</span>, inject add-ons directly into worlds, and isolate saves safely.
             </p>
 
-            <div class="space-y-2 text-xs font-mono text-[#a5d6a7]">
-              <div>✓ Supports Legacy UWP (.appx)</div>
-              <div>✓ Supports Modern GDK (.msixvc)</div>
-              <div>✓ Multi-version side-by-side coexistence</div>
+            <!-- Dual Download & Source Actions -->
+            <div class="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-10">
+              <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-flagship-green text-sm sm:text-base !py-3.5 !px-7 flex items-center gap-3">
+                <span>⬇ DOWNLOAD FULL STANDALONE</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-black/40 font-mono">v1.0.0</span>
+              </a>
+
+              <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-flagship-ghost text-sm !py-3.5 !px-5 flex items-center gap-2">
+                <span>Lite Edition</span>
+                <span class="text-xs font-mono text-[#64748b]">~11 MB</span>
+              </a>
+
+              <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="btn-flagship btn-flagship-ghost text-sm !py-3.5 !px-5 text-[#94a3b8] hover:text-white flex items-center gap-1.5">
+                <span>Source</span>
+                <span class="text-xs">↗</span>
+              </a>
             </div>
+
+            <!-- System Telemetry Metrics -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-xs font-mono">
+              <div class="glass-inner p-3 rounded-lg border border-white/5">
+                <div class="text-[#64748b] text-[10px] mb-1">INDEXED BUILDS</div>
+                <div class="text-white font-bold text-sm text-glow-magenta">600+ Releases</div>
+              </div>
+
+              <div class="glass-inner p-3 rounded-lg border border-white/5">
+                <div class="text-[#64748b] text-[10px] mb-1">CATALOG STARTUP</div>
+                <div class="text-[#2bbd28] font-bold text-sm text-glow-green">&lt; 1 ms (Async)</div>
+              </div>
+
+              <div class="glass-inner p-3 rounded-lg border border-white/5">
+                <div class="text-[#64748b] text-[10px] mb-1">DATA ISOLATION</div>
+                <div class="text-[#38bdf8] font-bold text-sm">100% Zero-Loss</div>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Interactive Mockup Column -->
-          <div class="lg:col-span-7 order-1 lg:order-2">
-            <div class="mc-card p-5">
+          <!-- Right 5 Columns: 3D Parallax Tilt Launcher Window -->
+          <div class="lg:col-span-5 tilt-stage" id="hero-tilt-stage">
+            <div class="glass-panel p-6 relative overflow-hidden tilt-element shimmer-border" id="hero-tilt-card">
               
-              <!-- Mockup Header -->
-              <div class="flex items-center justify-between pb-3 mb-4 border-b border-black">
-                <span class="font-mc-ten text-sm text-white">Version Chooser</span>
-                
-                <!-- Category Filter Buttons -->
-                <div class="flex gap-1.5 text-xs">
-                  <button type="button" class="mc-btn mc-btn-green mc-version-filter-btn text-[11px] !py-1 !px-2.5" data-category="All">All</button>
-                  <button type="button" class="mc-btn bg-[#484848] mc-version-filter-btn text-[11px] !py-1 !px-2.5" data-category="Release">Release</button>
-                  <button type="button" class="mc-btn bg-[#484848] mc-version-filter-btn text-[11px] !py-1 !px-2.5" data-category="Beta">Beta / Preview</button>
+              <!-- Window Topbar -->
+              <div class="flex items-center justify-between pb-3.5 mb-4 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-[#ef4444]/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#f59e0b]/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#22c55e]/80"></span>
+                  <span class="ml-2 font-mono text-xs text-[#94a3b8]">BUGrock_Launcher.exe</span>
+                </div>
+                <div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-black/40 border border-white/10 text-[10px] font-mono text-[#2bbd28]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#2bbd28] live-pulse"></span>
+                  <span>ClipSvc Linked</span>
                 </div>
               </div>
 
-              <!-- Versions List -->
-              <div id="mc-version-list" class="max-h-[220px] overflow-y-auto pr-1">
-                <!-- Injected via JavaScript -->
+              <!-- Interactive Tabs -->
+              <div class="flex items-center gap-1.5 mb-4 p-1 rounded-xl bg-[#090a0f] border border-white/10 text-xs font-mono">
+                <button class="px-3.5 py-1.5 rounded-lg bg-[#2bbd28] text-black font-bold shadow-sm font-mc-ten">PLAY</button>
+                <button class="px-3 py-1 rounded-lg text-[#94a3b8] hover:text-white font-mc-ten">INSTALLATIONS</button>
+                <button class="px-3 py-1 rounded-lg text-[#94a3b8] hover:text-white font-mc-ten">MOD HUB</button>
+                <button class="px-3 py-1 rounded-lg text-[#94a3b8] hover:text-white font-mc-ten">SKINS</button>
               </div>
 
-              <!-- Selected Version Banner & Launch Button -->
-              <div class="mt-4 pt-3 border-t border-black flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div>
-                  <div id="mc-active-title" class="font-mc-ten text-sm text-white">1.21.50 — Tricky Trials</div>
-                  <div id="mc-active-desc" class="text-xs text-[#8c8c8c] font-mono truncate max-w-xs">Crafter blocks and Trial Chambers</div>
+              <!-- Active Instance Card -->
+              <div class="glass-inner p-4 mb-4 border border-white/10">
+                <div class="flex items-start justify-between mb-2">
+                  <div>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#d946ef]/20 text-[#f0abfc] border border-[#d946ef]/30">
+                      Active Instance
+                    </span>
+                    <h3 class="font-mc-ten text-lg text-white mt-1.5">1.21.50 — Tricky Trials</h3>
+                  </div>
+                  <span class="text-xs font-mono text-[#2bbd28] bg-[#2bbd28]/15 px-2 py-0.5 rounded border border-[#2bbd28]/30">
+                    GDK (.msixvc)
+                  </span>
                 </div>
 
-                <button id="mc-play-btn" type="button" class="mc-btn mc-btn-green text-sm !py-2 !px-6 w-full sm:w-auto">
-                  ▶ PLAY
-                </button>
+                <p class="text-xs text-[#94a3b8] leading-relaxed mb-3 font-sans">
+                  Crafter blocks, Trial Chambers, Mace, and automated Microsoft Store decryption handshake.
+                </p>
+
+                <div class="p-2.5 rounded bg-black/50 border border-white/5 space-y-1 text-[11px] font-mono text-[#64748b]">
+                  <div class="flex justify-between">
+                    <span>Engine:</span>
+                    <span class="text-white">GDKLaunchShim x64</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Isolated Save:</span>
+                    <span class="text-[#38bdf8] truncate max-w-[210px]">SavedGames/Instance_01</span>
+                  </div>
+                </div>
               </div>
+
+              <!-- Big Minecraft Play Button in Window -->
+              <button id="btn-hero-launch" type="button" class="w-full btn-flagship btn-flagship-green text-sm sm:text-base font-bold flex items-center justify-center gap-2 shadow-xl">
+                <span>▶</span>
+                <span>LAUNCH SELECTED INSTANCE</span>
+              </button>
 
             </div>
           </div>
@@ -205,329 +224,584 @@
     </section>
 
     <!-- ========================================================================
-         SHOWCASE SECTION 2: IN-WORLD INJECTOR (ALTERNATING ORDER)
+         SHOWCASE 1: THE HISTORICAL VERSIONS VAULT (0.14.0.1 ➔ LATEST GDK)
+         INTERACTIVE SCRUBBER & LIVE TERMINAL CONSOLE
          ======================================================================== -->
-    <section id="features" class="py-16 md:py-24 border-b-2 border-black bg-[#1c1c1c]">
-      <div class="w-[90%] max-w-[1100px] mx-auto">
+    <section id="version-vault" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0d14]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          <!-- Mockup Column (Left) -->
-          <div class="lg:col-span-7">
-            <div class="mc-card p-5">
-              
-              <div class="flex items-center justify-between pb-3 mb-4 border-b border-black">
-                <span class="font-mc-ten text-sm text-white">World Addon & Pack Manager</span>
-                <span class="text-xs font-mono text-[#2bbd28]">World: Survival 2026</span>
-              </div>
-
-              <div class="space-y-2.5 font-mono text-xs">
-                
-                <div class="mc-card-inner p-3 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <span class="w-7 h-7 bg-[#388e3c] border border-black flex items-center justify-center text-white text-[10px]">RP</span>
-                    <div>
-                      <div class="font-bold text-white">Faithful 64x Bedrock Edition</div>
-                      <div class="text-[10px] text-[#8c8c8c]">Resource Pack • Active in World</div>
-                    </div>
-                  </div>
-                  <span class="text-[#2bbd28]">Enabled</span>
-                </div>
-
-                <div class="mc-card-inner p-3 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <span class="w-7 h-7 bg-[#a21caf] border border-black flex items-center justify-center text-white text-[10px]">BP</span>
-                    <div>
-                      <div class="font-bold text-white">Actions & Stuff 3D Combat Addon</div>
-                      <div class="text-[10px] text-[#8c8c8c]">Behavior Pack • Active in World</div>
-                    </div>
-                  </div>
-                  <span class="text-[#2bbd28]">Enabled</span>
-                </div>
-
-                <div class="p-3 border border-dashed border-[#555555] bg-[#161616] text-center text-[#8c8c8c] text-xs">
-                  Drop .mcpack, .mcaddon, or .zip here to inject directly into this world save
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Text Column (Right) -->
-          <div class="lg:col-span-5">
-            <span class="mc-pixel-font text-xs text-[#d946ef] uppercase tracking-wider">Feature 02</span>
-            <h2 class="mc-heading-ten text-2xl sm:text-3xl text-white mt-1 mb-4">
-              In-World Resource & Add-on Injector
-            </h2>
-            <p class="text-sm text-[#b0b0b0] leading-relaxed mb-6 font-normal">
-              No more <code class="text-xs font-mono text-[#d946ef] bg-[#292929] px-1 py-0.5 border border-black">com.mojang</code> folder digging. Manage and toggle resource and behavior packs directly per world without opening confusing AppData folders.
-            </p>
-            <p class="text-xs text-[#8c8c8c] leading-relaxed mb-6">
-              Bedrock on Windows hides your save data deep inside sandbox packages. BUGrock reads your worlds and manages active packs directly from the UI with zero world corruption risk.
-            </p>
-
-            <div class="space-y-2 text-xs font-mono text-[#e879f9]">
-              <div>✓ One-click .mcpack & .mcaddon installation</div>
-              <div>✓ Individual world pack toggling</div>
-              <div>✓ Zero file manager navigation needed</div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         SHOWCASE SECTION 3: IN-APP MOD HUB (ALTERNATING ORDER)
-         ======================================================================== -->
-    <section class="py-16 md:py-24 border-b-2 border-black bg-[#242424]">
-      <div class="w-[90%] max-w-[1100px] mx-auto">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          <!-- Text Column -->
-          <div class="lg:col-span-5 order-2 lg:order-1">
-            <span class="mc-pixel-font text-xs text-[#2bbd28] uppercase tracking-wider">Feature 03</span>
-            <h2 class="mc-heading-ten text-2xl sm:text-3xl text-white mt-1 mb-4">
-              In-App Mod Hub (WebView2)
-            </h2>
-            <p class="text-sm text-[#b0b0b0] leading-relaxed mb-6 font-normal">
-              Browse MCPEDL and CurseForge natively inside the launcher with 1-click automatic download and injection.
-            </p>
-            <p class="text-xs text-[#8c8c8c] leading-relaxed mb-6">
-              Powered by Microsoft Edge WebView2, browse thousands of skins, texture packs, shaders, and world templates. Downloads are automatically caught and installed straight into your active Minecraft instance.
-            </p>
-
-            <div class="space-y-2 text-xs font-mono text-[#a5d6a7]">
-              <div>✓ Built-in MCPEDL & CurseForge browser</div>
-              <div>✓ Automatic download interception & extraction</div>
-              <div>✓ Zip-Slip path traversal protection</div>
-            </div>
-          </div>
-
-          <!-- Mockup Column -->
-          <div class="lg:col-span-7 order-1 lg:order-2">
-            <div class="mc-card p-5">
-              
-              <div class="flex items-center justify-between pb-3 mb-4 border-b border-black">
-                <span class="font-mc-ten text-sm text-white">WebView2 Mod Hub Browser</span>
-                <span class="text-xs font-mono text-[#8c8c8c]">MCPEDL & CurseForge</span>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
-                
-                <div class="mc-card-inner p-3 flex flex-col justify-between gap-3">
-                  <div>
-                    <span class="text-[10px] text-[#2bbd28] bg-[#161616] px-1.5 py-0.5 border border-black">MCPEDL</span>
-                    <div class="font-bold text-white mt-1.5 text-sm">Action & Stuff 3D</div>
-                    <div class="text-[11px] text-[#8c8c8c] mt-1 font-sans">Full player animation overhaul and fluid weapon attacks.</div>
-                  </div>
-                  <button type="button" class="mc-btn mc-btn-green text-xs !py-1">
-                    + Install to World
-                  </button>
-                </div>
-
-                <div class="mc-card-inner p-3 flex flex-col justify-between gap-3">
-                  <div>
-                    <span class="text-[10px] text-[#d946ef] bg-[#161616] px-1.5 py-0.5 border border-black">CurseForge</span>
-                    <div class="font-bold text-white mt-1.5 text-sm">Faithful 64x Bedrock</div>
-                    <div class="text-[11px] text-[#8c8c8c] mt-1 font-sans">Crisp high-definition vanilla textures for modern displays.</div>
-                  </div>
-                  <button type="button" class="mc-btn mc-btn-magenta text-xs !py-1">
-                    + Install to World
-                  </button>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         SHOWCASE SECTION 4: SAVE ISOLATION & SIDELOADING
-         ======================================================================== -->
-    <section class="py-16 md:py-24 border-b-2 border-black bg-[#1c1c1c]">
-      <div class="w-[90%] max-w-[1100px] mx-auto">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          <!-- Mockup Column -->
-          <div class="lg:col-span-7">
-            <div class="mc-card p-5">
-              
-              <div class="flex items-center justify-between pb-3 mb-4 border-b border-black">
-                <span class="font-mc-ten text-sm text-white">Save Tree Isolation & Shims</span>
-                <span class="text-xs font-mono text-[#2bbd28]">Security Verified</span>
-              </div>
-
-              <div class="space-y-3 font-mono text-xs">
-                
-                <div class="mc-card-inner p-3 flex items-center justify-between">
-                  <div>
-                    <span class="text-white font-bold">Multi-Instance Save Trees</span>
-                    <div class="text-[#8c8c8c] text-[11px]">Independent com.mojang junction per version</div>
-                  </div>
-                  <span class="text-[#2bbd28]">Isolated</span>
-                </div>
-
-                <div class="mc-card-inner p-3 flex items-center justify-between">
-                  <div>
-                    <span class="text-white font-bold">GDKLaunchShim & Key Acquisition</span>
-                    <div class="text-[#8c8c8c] text-[11px]">Automatic official Microsoft Store license bridge</div>
-                  </div>
-                  <span class="text-[#2bbd28]">Active</span>
-                </div>
-
-                <div class="mc-card-inner p-3 flex items-center justify-between">
-                  <div>
-                    <span class="text-white font-bold">Offline Package Import (.appx / .msixvc)</span>
-                    <div class="text-[#8c8c8c] text-[11px]">Sideload local builds with manifest patching</div>
-                  </div>
-                  <span class="text-[#2bbd28]">Supported</span>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Text Column -->
-          <div class="lg:col-span-5">
-            <span class="mc-pixel-font text-xs text-[#2bbd28] uppercase tracking-wider">Feature 04</span>
-            <h2 class="mc-heading-ten text-2xl sm:text-3xl text-white mt-1 mb-4">
-              Multi-Instance Isolation & Sideloading
-            </h2>
-            <p class="text-sm text-[#b0b0b0] leading-relaxed mb-6 font-normal">
-              Complete data separation for each version and profile. Plus, sideload any external <code class="text-xs font-mono text-white bg-[#282828] px-1 py-0.5 border border-black">.appx</code> or <code class="text-xs font-mono text-white bg-[#282828] px-1 py-0.5 border border-black">.msixvc</code> archive without Microsoft Store constraints.
-            </p>
-            <p class="text-xs text-[#8c8c8c] leading-relaxed mb-6">
-              Includes pre-isolation automatic world backups to guarantee your builds remain pristine and untouched.
-            </p>
-
-            <div class="space-y-2 text-xs font-mono text-[#a5d6a7]">
-              <div>✓ Zero data loss guarantee</div>
-              <div>✓ Pre-isolation world snapshots</div>
-              <div>✓ Sideload offline backups</div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         FAQ SECTION (ACCORDION & TAG FILTERING - BEDROCK LAUNCHER STYLE)
-         ======================================================================== -->
-    <section id="faq" class="py-16 md:py-24 border-b-2 border-black bg-[#242424]">
-      <div class="w-[90%] max-w-[900px] mx-auto">
-        
-        <div class="text-center mb-12">
-          <span class="mc-pixel-font text-xs text-[#2bbd28] uppercase tracking-wider">Support & Help</span>
-          <h2 class="mc-heading-ten text-3xl sm:text-4xl text-white mt-1 mb-3">
-            Frequently Asked Questions
+        <div class="max-w-3xl mb-14">
+          <span class="text-xs font-mono font-bold text-[#d946ef] uppercase tracking-wider">Breakthrough Feature 01</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 mb-4 font-display">
+            The Historical Version Vault. 0.14.0.1 to 1.21+.
           </h2>
-          <p class="text-sm text-[#8c8c8c]">
-            Answers to common questions about BUGrock Launcher and Minecraft Bedrock on Windows.
+          <p class="text-base text-[#94a3b8] leading-relaxed font-sans">
+            Never lose access to your favorite eras again. Switch between vintage Pocket Edition legacy releases and modern GDK packages with one click.
           </p>
         </div>
 
-        <!-- FAQ Filter Tags -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
-          <button type="button" class="mc-btn mc-btn-green faq-tag-btn text-xs !py-1 !px-3" data-tag="all">All</button>
-          <button type="button" class="mc-btn bg-[#484848] faq-tag-btn text-xs !py-1 !px-3" data-tag="general">General</button>
-          <button type="button" class="mc-btn bg-[#484848] faq-tag-btn text-xs !py-1 !px-3" data-tag="versions">Versions</button>
-          <button type="button" class="mc-btn bg-[#484848] faq-tag-btn text-xs !py-1 !px-3" data-tag="addons">Add-ons</button>
-          <button type="button" class="mc-btn bg-[#484848] faq-tag-btn text-xs !py-1 !px-3" data-tag="saves">Saves & Data</button>
-          <button type="button" class="mc-btn bg-[#484848] faq-tag-btn text-xs !py-1 !px-3" data-tag="installation">Installation</button>
-        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Scrubber List (Left 5 Cols) -->
+          <div class="lg:col-span-5 glass-panel p-5">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 font-mono text-xs text-[#64748b]">
+              <span>SELECT BEDROCK ERA</span>
+              <span>8 HIGHLIGHTED MILESTONES</span>
+            </div>
 
-        <!-- FAQ Accordion List -->
-        <div id="faq-accordion-container" class="space-y-3">
-          <!-- Injected via JavaScript -->
+            <div id="version-scrubber-list" class="space-y-2 max-h-[360px] overflow-y-auto pr-1">
+              <!-- Injected dynamically via main.js -->
+            </div>
+          </div>
+
+          <!-- Active Version Specification & Simulated Terminal (Right 7 Cols) -->
+          <div class="lg:col-span-7 glass-panel p-6 flex flex-col justify-between h-full">
+            
+            <div>
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <span id="current-version-tag" class="text-xs font-mono px-2.5 py-1 rounded bg-[#d946ef]/20 text-[#f0abfc] border border-[#d946ef]/30">
+                    Latest Release
+                  </span>
+                  <h3 id="current-version-title" class="font-mc-ten text-2xl text-white mt-2">1.21.50 (Tricky Trials)</h3>
+                </div>
+
+                <div class="text-right font-mono">
+                  <div id="current-version-type" class="text-sm font-bold text-[#2bbd28]">GDK (.msixvc)</div>
+                  <div id="current-version-size" class="text-xs text-[#64748b]">820 MB</div>
+                </div>
+              </div>
+
+              <p id="current-version-desc" class="text-sm text-[#94a3b8] leading-relaxed mb-6 font-sans">
+                Crafter blocks, Trial Chambers, Mace, and automated Microsoft Store decryption key acquisition.
+              </p>
+
+              <!-- Specification Table -->
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 font-mono text-xs">
+                <div class="glass-inner p-3 rounded-lg">
+                  <div class="text-[#64748b] text-[10px]">SHADER PIPELINE</div>
+                  <div id="current-version-shaders" class="text-white font-medium mt-0.5">RenderDragon Modern</div>
+                </div>
+
+                <div class="glass-inner p-3 rounded-lg">
+                  <div class="text-[#64748b] text-[10px]">SAVEPATH ISOLATION</div>
+                  <div class="text-[#38bdf8] font-medium mt-0.5">Safe Multi-Instance</div>
+                </div>
+
+                <div class="glass-inner p-3 rounded-lg col-span-2 sm:col-span-1">
+                  <div class="text-[#64748b] text-[10px]">SECURITY CHECK</div>
+                  <div class="text-[#2bbd28] font-medium mt-0.5">Manifest Verified</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simulated Terminal Console -->
+            <div>
+              <div class="text-xs font-mono text-[#64748b] mb-2 flex items-center justify-between">
+                <span>LAUNCH PROCESS LOG</span>
+                <span class="text-[#2bbd28] text-[10px]">● Telemetry Active</span>
+              </div>
+
+              <div id="terminal-log-output" class="p-3.5 rounded-xl bg-black border border-white/10 font-mono text-xs leading-relaxed text-[#94a3b8] mb-4 max-h-[110px] overflow-y-auto">
+                <span class="text-[#64748b]">[19:40:12]</span> <span class="text-[#38bdf8]">MANIFEST:</span> Initialized catalog with 600+ builds.<br/>
+                <span class="text-[#64748b]">[19:40:12]</span> <span class="text-[#2bbd28]">READY:</span> Click "Simulate Launch" to test execution.
+              </div>
+
+              <button id="btn-simulate-launch" type="button" class="w-full btn-flagship btn-flagship-green text-sm font-bold flex items-center justify-center gap-2">
+                <span>▶</span>
+                <span>SIMULATE INSTANCE LAUNCH</span>
+              </button>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
     </section>
 
     <!-- ========================================================================
-         DOWNLOADS SECTION (BEDROCK LAUNCHER THEME)
+         SHOWCASE 2: ZERO-FRICTION IN-WORLD PACK INJECTOR
+         NO COM.MOJANG FOLDER DIGGING
          ======================================================================== -->
-    <section id="downloads" class="py-16 md:py-24 border-b-2 border-black bg-[#1c1c1c]">
-      <div class="w-[90%] max-w-[1000px] mx-auto text-center">
+    <section id="world-injector" class="py-20 md:py-28 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <span class="mc-pixel-font text-xs text-[#2bbd28] uppercase tracking-wider">Get Started</span>
-        <h2 class="mc-heading-ten text-3xl sm:text-4xl text-white mt-1 mb-4">
-          Download BUGrock Launcher
-        </h2>
-        <p class="text-sm text-[#b0b0b0] max-w-xl mx-auto mb-12">
-          Choose the edition that best fits your Windows system. Both editions support full multi-version switching and pack injection.
-        </p>
-
-        <!-- Download Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto mb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <!-- Standalone Edition (Recommended) -->
-          <div class="mc-card p-6 flex flex-col justify-between border-2 border-[#2bbd28]">
+          <!-- Left 6 Columns: The Problem vs Solution -->
+          <div class="lg:col-span-6">
+            <span class="text-xs font-mono font-bold text-[#2bbd28] uppercase tracking-wider">Breakthrough Feature 02</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 mb-5 font-display">
+              Direct In-World Pack Injection.<br />Zero folder navigation.
+            </h2>
+            <p class="text-base text-[#94a3b8] leading-relaxed mb-6 font-sans">
+              Normally, installing resource packs or behavior add-ons in Minecraft Bedrock requires navigating deeply nested, hidden AppData directories. One wrong move can corrupt your worlds or cause sandbox permission errors.
+            </p>
+
+            <div class="space-y-4 mb-6">
+              
+              <!-- The Old Nightmare -->
+              <div class="glass-inner p-4 rounded-xl border border-red-500/20 bg-red-950/10">
+                <div class="text-xs font-mono text-red-400 font-bold mb-1">❌ THE PAINFUL OLD WAY</div>
+                <div class="text-xs font-mono text-[#cbd5e1] break-all bg-black/60 p-2.5 rounded border border-red-500/30">
+                  %localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_resource_packs...
+                </div>
+              </div>
+
+              <!-- The BUGrock Method -->
+              <div class="glass-inner p-4 rounded-xl border border-[#2bbd28]/30 bg-[#2bbd28]/10">
+                <div class="text-xs font-mono text-[#86efac] font-bold mb-1 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#2bbd28] live-pulse"></span>
+                  <span>THE BUGROCK INJECTOR</span>
+                </div>
+                <div class="text-xs font-mono text-white bg-black/60 p-2.5 rounded border border-[#2bbd28]/30 flex items-center justify-between">
+                  <span>Select World ➔ Click "Inject Pack" ➔ Done.</span>
+                  <span class="text-[#2bbd28] font-bold">100% Safe</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="flex items-center gap-6 text-xs font-mono text-[#94a3b8]">
+              <div>✓ Supports .mcpack</div>
+              <div>✓ Supports .mcaddon</div>
+              <div>✓ Supports .mcworld</div>
+            </div>
+          </div>
+
+          <!-- Right 6 Columns: Interactive Manager Card -->
+          <div class="lg:col-span-6 glass-panel p-6">
+            
+            <div class="flex items-center justify-between pb-3.5 mb-5 border-b border-white/10">
+              <span class="font-mc-ten text-base text-white">World Addon & Pack Injector</span>
+              <span class="text-xs font-mono text-[#2bbd28]">World: Survival Kingdom 2026</span>
+            </div>
+
+            <div class="space-y-3 font-mono text-xs">
+              
+              <div class="glass-inner p-3.5 flex items-center justify-between border border-white/10">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-[#388e3c] border border-black flex items-center justify-center text-white text-xs font-bold shadow-md">RP</span>
+                  <div>
+                    <div class="font-bold text-white text-sm">Faithful 64x HD Bedrock Edition</div>
+                    <div class="text-[#64748b] text-[11px]">Priority #1 • Resource Pack • 68.2 MB</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded bg-[#2bbd28]/20 text-[#86efac] border border-[#2bbd28]/40 font-bold">Active</span>
+              </div>
+
+              <div class="glass-inner p-3.5 flex items-center justify-between border border-white/10">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-[#c026d3] border border-black flex items-center justify-center text-white text-xs font-bold shadow-md">BP</span>
+                  <div>
+                    <div class="font-bold text-white text-sm">Actions & Stuff 3D Combat Addon</div>
+                    <div class="text-[#64748b] text-[11px]">Priority #2 • Behavior Pack • 42.8 MB</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded bg-[#2bbd28]/20 text-[#86efac] border border-[#2bbd28]/40 font-bold">Active</span>
+              </div>
+
+              <!-- Interactive Dropzone -->
+              <div class="p-6 border border-dashed border-white/20 rounded-xl bg-black/40 text-center hover:border-[#d946ef] transition-colors cursor-pointer">
+                <div class="text-2xl mb-2">📦</div>
+                <div class="text-sm font-bold text-white mb-1">Drag & Drop any .mcpack or .mcaddon</div>
+                <div class="text-xs text-[#64748b]">or click to browse local storage</div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SHOWCASE 3: NATIVE IN-APP MOD HUB (WEBVIEW2)
+         SEARCHABLE CATALOG & CATEGORY FILTERING
+         ======================================================================== -->
+    <section id="mod-hub" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0d14]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span class="text-xs font-mono font-bold text-[#d946ef] uppercase tracking-wider">Breakthrough Feature 03</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 font-display">
+              Native In-App Mod Hub.
+            </h2>
+            <p class="text-base text-[#94a3b8] mt-2 font-sans">
+              Browse MCPEDL and CurseForge seamlessly inside the launcher with 1-click automatic installation.
+            </p>
+          </div>
+
+          <!-- Search Input -->
+          <div class="w-full md:w-72">
+            <input id="mod-search-input" type="text" placeholder="Search add-ons, shaders..." class="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#12141c] text-white text-xs font-mono focus:outline-none focus:border-[#d946ef] shadow-inner" />
+          </div>
+        </div>
+
+        <!-- Category Chips -->
+        <div class="flex flex-wrap items-center gap-2 mb-8 font-mono text-xs">
+          <button type="button" class="btn-flagship btn-flagship-magenta mod-filter-chip text-xs !py-1.5 !px-3.5" data-category="all">All Add-ons</button>
+          <button type="button" class="btn-flagship btn-flagship-ghost mod-filter-chip text-xs !py-1.5 !px-3.5" data-category="behavior">Behavior Packs</button>
+          <button type="button" class="btn-flagship btn-flagship-ghost mod-filter-chip text-xs !py-1.5 !px-3.5" data-category="resource">Resource Packs</button>
+          <button type="button" class="btn-flagship btn-flagship-ghost mod-filter-chip text-xs !py-1.5 !px-3.5" data-category="shader">Shaders & PBR</button>
+          <button type="button" class="btn-flagship btn-flagship-ghost mod-filter-chip text-xs !py-1.5 !px-3.5" data-category="world">Custom Worlds</button>
+        </div>
+
+        <!-- Mod Hub Grid -->
+        <div id="mod-catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Injected via main.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SHOWCASE 4: PERFORMANCE & ARCHITECTURE COMPARISON MATRIX
+         THE $500 ENTERPRISE SPECIFICATION
+         ======================================================================== -->
+    <section id="comparison" class="py-20 md:py-28 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-mono font-bold text-[#2bbd28] uppercase tracking-wider">Competitive Benchmarks</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 mb-4 font-display">
+            Engineered to outclass every alternative.
+          </h2>
+          <p class="text-sm sm:text-base text-[#94a3b8] font-sans">
+            How BUGrock Launcher compares against the official launcher and manual file hacking.
+          </p>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="glass-panel overflow-hidden border border-white/10">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs">
+              
+              <thead class="bg-[#12141c] border-b border-white/10 text-[#94a3b8]">
+                <tr>
+                  <th class="py-4 px-6 text-sm font-bold text-white">Capability & Feature</th>
+                  <th class="py-4 px-6 text-sm font-bold text-[#d946ef] bg-[#d946ef]/5">BUGrock Launcher</th>
+                  <th class="py-4 px-6 text-xs text-[#64748b]">Official Store Launcher</th>
+                  <th class="py-4 px-6 text-xs text-[#64748b]">Manual File Sideloading</th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y divide-white/5">
+                
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-white">Historical Version Rollback (0.14+)</td>
+                  <td class="py-4 px-6 text-[#2bbd28] font-bold bg-[#d946ef]/5">✓ 600+ Releases Indexed</td>
+                  <td class="py-4 px-6 text-red-400">✗ Forces Auto-Updates</td>
+                  <td class="py-4 px-6 text-yellow-400">⚠️ Complex PowerShell Hacking</td>
+                </tr>
+
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-white">Multi-Instance Save Tree Isolation</td>
+                  <td class="py-4 px-6 text-[#2bbd28] font-bold bg-[#d946ef]/5">✓ 100% Isolated Junctions</td>
+                  <td class="py-4 px-6 text-red-400">✗ Single com.mojang save</td>
+                  <td class="py-4 px-6 text-red-400">✗ Manual Folder Renaming</td>
+                </tr>
+
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-white">Direct In-World Pack Injection</td>
+                  <td class="py-4 px-6 text-[#2bbd28] font-bold bg-[#d946ef]/5">✓ 1-Click UI Injector</td>
+                  <td class="py-4 px-6 text-red-400">✗ Must Open Hidden AppData</td>
+                  <td class="py-4 px-6 text-red-400">✗ Risk of World Corruption</td>
+                </tr>
+
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-white">Modern GDK (.msixvc) Decryption</td>
+                  <td class="py-4 px-6 text-[#2bbd28] font-bold bg-[#d946ef]/5">✓ Auto ClipSvc Handshake</td>
+                  <td class="py-4 px-6 text-yellow-400">⚠️ Only for Active Version</td>
+                  <td class="py-4 px-6 text-red-400">✗ Encrypted Files Fail</td>
+                </tr>
+
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-white">Pre-Isolation World Protection Backup</td>
+                  <td class="py-4 px-6 text-[#2bbd28] font-bold bg-[#d946ef]/5">✓ Automated Snapshots</td>
+                  <td class="py-4 px-6 text-red-400">✗ No Auto-Backups</td>
+                  <td class="py-4 px-6 text-red-400">✗ None</td>
+                </tr>
+
+                <tr>
+                  <td class="py-4 px-6 font-semibold text-white">In-App Mod Hub (WebView2)</td>
+                  <td class="py-4 px-6 text-[#2bbd28] font-bold bg-[#d946ef]/5">✓ Built-in MCPEDL & CurseForge</td>
+                  <td class="py-4 px-6 text-yellow-400">⚠️ Paid Marketplace Only</td>
+                  <td class="py-4 px-6 text-red-400">✗ Manual Web Downloads</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SHOWCASE 5: 3D SKIN WARDROBE & POWER TOOLS
+         ======================================================================== -->
+    <section class="py-20 md:py-28 border-b border-white/10 bg-[#0c0d14]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- 3D Skin Turntable Canvas (Left 5 Cols) -->
+          <div class="lg:col-span-5 glass-panel p-6 text-center">
+            <span class="text-xs font-mono text-[#d946ef] uppercase font-bold tracking-wider">3D Model Turntable</span>
+            <h3 class="font-mc-ten text-xl text-white mt-1 mb-4">Interactive Steve Skin Preview</h3>
+
+            <div class="w-64 h-64 mx-auto glass-inner rounded-2xl flex items-center justify-center p-2 border border-white/10 shadow-inner">
+              <canvas id="skin-preview-canvas" width="240" height="240" class="image-rendering-pixelated"></canvas>
+            </div>
+
+            <div class="mt-4 text-xs font-mono text-[#64748b]">
+              <span>Realtime 3D Canvas Projection • 60 FPS</span>
+            </div>
+          </div>
+
+          <!-- Power Tools Cards (Right 7 Cols) -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
+            
+            <div class="glass-panel p-5 border border-white/5">
+              <div class="text-2xl mb-2">💬</div>
+              <h4 class="font-bold text-white text-sm mb-1">Discord Rich Presence</h4>
+              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
+                Display your active version, world state, elapsed play session, and launcher status directly on your Discord profile.
+              </p>
+            </div>
+
+            <div class="glass-panel p-5 border border-white/5">
+              <div class="text-2xl mb-2">🌐</div>
+              <h4 class="font-bold text-white text-sm mb-1">Live Server Browser</h4>
+              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
+                Curated list of popular Bedrock servers with real-time latency ping indicators and one-click join protocol.
+              </p>
+            </div>
+
+            <div class="glass-panel p-5 border border-white/5">
+              <div class="text-2xl mb-2">🛡️</div>
+              <h4 class="font-bold text-white text-sm mb-1">Zero Dependency Bundle</h4>
+              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
+                Full Standalone Edition bundles .NET 8.0 and VC++ 2015-2022 runtimes. Works immediately on fresh Windows installs.
+              </p>
+            </div>
+
+            <div class="glass-panel p-5 border border-white/5">
+              <div class="text-2xl mb-2">⚡</div>
+              <h4 class="font-bold text-white text-sm mb-1">Native C++ Shims</h4>
+              <p class="text-[#94a3b8] text-[11px] font-sans leading-relaxed">
+                Custom compiled GDKLaunchShim.exe and WUTokenHelper.dll provide official gaming services license bridges.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FAQ SECTION (FLAGSHIP ACCORDION)
+         ======================================================================== -->
+    <section id="faq" class="py-20 md:py-28 border-b border-white/10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-14">
+          <span class="text-xs font-mono font-bold text-[#d946ef] uppercase tracking-wider">Frequently Asked Questions</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 mb-3 font-display">
+            Everything you need to know.
+          </h2>
+          <p class="text-sm text-[#94a3b8] font-sans">
+            Technical answers regarding compatibility, safety, and package sideloading.
+          </p>
+        </div>
+
+        <div class="space-y-3 font-mono text-xs">
+          
+          <div class="flagship-faq-item glass-panel overflow-hidden">
+            <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
+              <span class="text-sm">1. Does BUGrock Launcher pirate Minecraft?</span>
+              <span class="text-[#d946ef] text-base transition-transform">▼</span>
+            </button>
+            <div class="p-4 bg-black/40 border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
+              No. BUGrock Launcher does not bypass official licensing. You must own Minecraft Bedrock on your Microsoft Store account or have an active Xbox Game Pass subscription. The launcher verifies and acquires decryption keys through official Windows licensing APIs.
+            </div>
+          </div>
+
+          <div class="flagship-faq-item glass-panel overflow-hidden">
+            <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
+              <span class="text-sm">2. Can I install Bedrock 1.16 for PvP and 1.21 for Realms simultaneously?</span>
+              <span class="text-[#d946ef] text-base transition-transform">▼</span>
+            </button>
+            <div class="p-4 bg-black/40 border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
+              Yes! Every version you download has its own independent filesystem junction tree. Worlds, skins, and options configured in 1.16 will never collide with your 1.21 realm worlds.
+            </div>
+          </div>
+
+          <div class="flagship-faq-item glass-panel overflow-hidden">
+            <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
+              <span class="text-sm">3. Why do I need to turn on Windows Developer Mode?</span>
+              <span class="text-[#d946ef] text-base transition-transform">▼</span>
+            </button>
+            <div class="p-4 bg-black/40 border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
+              Windows Developer Mode is required by Windows to register and sideload unpacked legacy UWP (.appx) packages without requiring Microsoft Store code-signing certificates. It takes 5 seconds to enable in Windows Settings.
+            </div>
+          </div>
+
+          <div class="flagship-faq-item glass-panel overflow-hidden">
+            <button type="button" class="faq-btn w-full p-4 text-left flex items-center justify-between text-white font-bold cursor-pointer hover:bg-white/5 transition-colors">
+              <span class="text-sm">4. How does the automated pre-isolation backup protect my worlds?</span>
+              <span class="text-[#d946ef] text-base transition-transform">▼</span>
+            </button>
+            <div class="p-4 bg-black/40 border-t border-white/5 text-[#94a3b8] font-sans text-xs leading-relaxed">
+              Before creating junction links or switching profiles, BUGrock scans your active com.mojang folder and creates a timestamped zip archive in "Backups instances/". If anything ever fails, your original worlds remain 100% recoverable.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         DOWNLOADS COMMAND CENTER
+         STANDALONE VS LITE + SYSTEM REQUIREMENTS
+         ======================================================================== -->
+    <section id="downloads" class="py-20 md:py-28 bg-[#0c0d14]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <div class="max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-mono font-bold text-[#2bbd28] uppercase tracking-wider">Official Distribution</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 mb-4 font-display">
+            Download BUGrock Launcher.
+          </h2>
+          <p class="text-sm text-[#94a3b8] font-sans">
+            Choose the edition that best matches your setup. Both editions include full version archives and zero-loss world protection.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left mb-16">
+          
+          <!-- Full Standalone Edition (Recommended) -->
+          <div class="glass-panel p-8 rounded-2xl relative border-[#2bbd28]/40 flex flex-col justify-between">
+            <div class="absolute -top-3.5 left-6 px-3 py-1 rounded-full bg-[#2bbd28] text-black font-bold font-mono text-[11px] tracking-wide shadow-md">
+              RECOMMENDED FOR EVERYONE
+            </div>
+
             <div>
-              <div class="text-xs font-mono text-[#2bbd28] font-bold uppercase mb-1">Recommended Edition</div>
-              <h3 class="font-mc-ten text-xl text-white mb-2">Full Standalone Edition</h3>
-              <p class="text-xs text-[#8c8c8c] leading-relaxed mb-6 font-sans">
-                Works out of the box with zero setup. Bundles the complete .NET 8.0 Desktop Runtime and Visual C++ 2015-2022 runtimes.
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="font-mc-ten text-2xl text-white">Full Standalone Edition</h3>
+                  <div class="text-xs font-mono text-[#64748b] mt-1">BUGrock-Launcher-v1.0.0-Full-Standalone-win-x64.zip</div>
+                </div>
+                <span class="text-xs font-mono text-[#2bbd28] bg-[#2bbd28]/20 px-2 py-0.5 rounded border border-[#2bbd28]/40">
+                  Bundled
+                </span>
+              </div>
+
+              <p class="text-xs text-[#94a3b8] leading-relaxed mb-6 font-sans">
+                Zero configuration required. Bundles the complete .NET 8.0 Desktop Runtime and Visual C++ 2015-2022 runtimes. Extract and launch immediately.
               </p>
 
-              <div class="space-y-1.5 text-xs font-mono text-[#a5d6a7] mb-6">
-                <div>✓ Bundled .NET 8.0 Runtime</div>
-                <div>✓ Bundled VC++ 2015-2022 Redistributable</div>
-                <div>✓ Native GDK & UWP Launch Shims</div>
-                <div>✓ Size: ~72 MB ZIP</div>
+              <div class="space-y-2 text-xs font-mono text-[#cbd5e1] mb-8">
+                <div class="flex items-center gap-2">
+                  <span class="text-[#2bbd28]">✓</span>
+                  <span>Bundled .NET 8.0 Desktop Runtime (x64)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[#2bbd28]">✓</span>
+                  <span>Bundled Visual C++ 2015-2022 Runtimes</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[#2bbd28]">✓</span>
+                  <span>Native GDKLaunchShim & WUTokenHelper</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[#2bbd28]">✓</span>
+                  <span>File size: ~72 MB ZIP</span>
+                </div>
               </div>
             </div>
 
-            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="mc-btn mc-btn-green w-full text-center text-sm !py-3">
-              ⬇ DOWNLOAD STANDALONE
+            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-flagship-green w-full py-4 text-center font-bold text-sm">
+              ⬇ DOWNLOAD FULL STANDALONE
             </a>
           </div>
 
           <!-- Lite Edition -->
-          <div class="mc-card p-6 flex flex-col justify-between">
+          <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between">
             <div>
-              <div class="text-xs font-mono text-[#8c8c8c] font-bold uppercase mb-1">Minimal Download</div>
-              <h3 class="font-mc-ten text-xl text-white mb-2">Lite Edition</h3>
-              <p class="text-xs text-[#8c8c8c] leading-relaxed mb-6 font-sans">
-                Ultra-compact download for users who already have .NET 8.0 Desktop Runtime and VC++ installed on Windows.
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="font-mc-ten text-2xl text-white">Lite Edition</h3>
+                  <div class="text-xs font-mono text-[#64748b] mt-1">BUGrock-Launcher-v1.0.0-Lite-win-x64.zip</div>
+                </div>
+                <span class="text-xs font-mono text-[#d946ef] bg-[#d946ef]/20 px-2 py-0.5 rounded border border-[#d946ef]/40">
+                  Minimal
+                </span>
+              </div>
+
+              <p class="text-xs text-[#94a3b8] leading-relaxed mb-6 font-sans">
+                Ultra-compact download for users who already have .NET 8.0 and Visual C++ installed globally on Windows.
               </p>
 
-              <div class="space-y-1.5 text-xs font-mono text-[#8c8c8c] mb-6">
-                <div>ℹ Requires system .NET 8.0 x64</div>
-                <div>ℹ Requires VC++ 2015-2022 Redist</div>
-                <div>✓ Lightweight download</div>
-                <div>✓ Size: ~11 MB ZIP</div>
+              <div class="space-y-2 text-xs font-mono text-[#94a3b8] mb-8">
+                <div class="flex items-center gap-2">
+                  <span class="text-[#f59e0b]">ℹ</span>
+                  <span>Requires system .NET 8.0 x64 runtime</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[#f59e0b]">ℹ</span>
+                  <span>Requires Visual C++ 2015-2022 Redistributable</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[#2bbd28]">✓</span>
+                  <span>Compact file size: ~11 MB ZIP</span>
+                </div>
               </div>
             </div>
 
-            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="mc-btn w-full text-center text-sm !py-3">
-              ⬇ DOWNLOAD LITE (~11 MB)
+            <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-flagship btn-flagship-ghost w-full py-4 text-center font-bold text-sm text-white">
+              ⬇ DOWNLOAD LITE EDITION (~11 MB)
             </a>
           </div>
 
         </div>
 
-        <!-- Critical Windows Services Box -->
-        <div class="mc-card p-6 text-left max-w-3xl mx-auto">
-          <div class="font-mc-ten text-sm text-white mb-2">Critical Windows Requirements:</div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-[#8c8c8c]">
-            <div>• <strong class="text-white">Developer Mode</strong>: Enabled in Windows Settings</div>
-            <div>• <strong class="text-white">AppXSvc</strong>: AppX Deployment Service running</div>
-            <div>• <strong class="text-white">ClipSvc</strong>: Client License Service running</div>
-            <div>• <strong class="text-white">GamingServices</strong>: Microsoft Gaming Services</div>
+        <!-- System Requirements Diagnostic Checklist -->
+        <div class="glass-panel p-6 max-w-4xl mx-auto text-left font-mono text-xs">
+          <div class="text-xs font-bold text-white uppercase mb-3 flex items-center justify-between">
+            <span>Critical Windows Services Diagnostic (`services.msc`)</span>
+            <span class="text-[#2bbd28]">Auto-Verified</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="glass-inner p-3 rounded-lg border border-white/5">
+              <div class="text-[#2bbd28] font-bold">AppXSvc</div>
+              <div class="text-[#64748b] text-[10px]">AppX Deployment Service</div>
+            </div>
+
+            <div class="glass-inner p-3 rounded-lg border border-white/5">
+              <div class="text-[#d946ef] font-bold">ClipSvc</div>
+              <div class="text-[#64748b] text-[10px]">Client License Service</div>
+            </div>
+
+            <div class="glass-inner p-3 rounded-lg border border-white/5">
+              <div class="text-[#38bdf8] font-bold">GamingServices</div>
+              <div class="text-[#64748b] text-[10px]">Microsoft Gaming Subsystem</div>
+            </div>
+
+            <div class="glass-inner p-3 rounded-lg border border-white/5">
+              <div class="text-[#f59e0b] font-bold">wuauserv</div>
+              <div class="text-[#64748b] text-[10px]">Windows Update CDN Access</div>
+            </div>
           </div>
         </div>
 
@@ -537,31 +811,28 @@
   </main>
 
   <!-- ========================================================================
-       FOOTER (BEDROCK LAUNCHER STYLE)
+       FLAGSHIP FOOTER
        ======================================================================== -->
-  <footer class="bg-[#141414] border-t-2 border-black py-10 text-center text-xs font-mono text-[#8c8c8c]">
-    <div class="w-[90%] max-w-[1000px] mx-auto flex flex-col items-center gap-4">
+  <footer class="bg-[#06070a] border-t border-white/10 py-12 text-xs font-mono text-[#64748b]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
       
-      <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="text-white hover:text-[#2bbd28] transition-colors">
-          GitHub Organization
-        </a>
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases" target="_blank" rel="noreferrer" class="text-white hover:text-[#2bbd28] transition-colors">
-          Releases
-        </a>
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/blob/master/LICENSE.txt" target="_blank" rel="noreferrer" class="text-white hover:text-[#2bbd28] transition-colors">
-          License (GPL-3.0)
-        </a>
+      <div class="flex items-center gap-3">
+        <img src="./assets/pixel_cube.png" alt="BUGrock" class="w-6 h-6 object-contain" />
+        <span class="font-mc-ten text-sm text-white">BUGrock Launcher</span>
+        <span>•</span>
+        <span>Licensed under GNU GPL v3</span>
       </div>
 
-      <div class="text-[11px] text-[#666666] max-w-xl leading-relaxed">
-        BUGrock Launcher is an open-source, community-driven project and is NOT an official Minecraft product. Not approved by or associated with Mojang or Microsoft. Minecraft is a trademark of Mojang AB.
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">GitHub</a>
+        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">Releases</a>
+        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/blob/master/LICENSE.txt" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">License</a>
       </div>
 
-      <div class="text-[11px] text-[#555555]">
-        © 2026 BUGrock Launcher Contributors.
-      </div>
+    </div>
 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-6 border-t border-white/5 text-[11px] text-[#475569] text-center">
+      BUGrock Launcher is an open-source, community-driven project and is NOT an official Minecraft product. Not approved by or associated with Mojang or Microsoft.
     </div>
   </footer>
 
