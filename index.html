@@ -11,7 +11,7 @@
   <meta name="description" content="Play every Minecraft Bedrock version from 0.14.0.1 to modern 1.21+ GDK side-by-side. Direct in-world pack injector, native WebView2 mod hub, and multi-instance save isolation." />
   <meta name="keywords" content="BUGrock Launcher, Minecraft Bedrock Launcher, Bedrock version switcher, GDK msixvc, UWP appx minecraft, Bedrock multi version, Minecraft Windows 10 launcher, Minecraft Windows 11 launcher, Bedrock world preservation" />
   <meta name="author" content="BUGrock" />
-  <meta name="theme-color" content="#090a0f" />
+  <meta name="theme-color" content="#07080c" />
 
   <!-- Open Graph / Discord / Twitter -->
   <meta property="og:type" content="website" />
@@ -22,7 +22,7 @@
 
   <link rel="icon" type="image/x-icon" href="./assets/app_icon.ico" />
 
-  <!-- Premium Typography: Wix Madefor Display + Figtree + JetBrains Mono -->
+  <!-- Google Fonts: Wix Madefor Display + Figtree + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;500;600;700&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -30,17 +30,20 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./src/style.css" />
 </head>
-<body class="bg-ambient-flares bg-blueprint-grid text-[#e2e8f0]">
+<body class="bg-ambient-flares bg-blueprint-grid text-[#e2e8f0] relative">
+
+  <!-- Floating Particles Canvas in Background -->
+  <canvas id="particles-canvas"></canvas>
 
   <!-- ========================================================================
        TOP FLAGSHIP HEADER / NAVIGATION
        ======================================================================== -->
-  <header class="fixed top-0 left-0 right-0 z-50 h-16 bg-[#090a0f]/85 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
+  <header class="fixed top-0 left-0 right-0 z-50 h-16 bg-[#07080c]/85 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       
-      <!-- Logo + Brand Wordmark -->
-      <a href="#" class="flex items-center gap-3.5 no-underline group">
-        <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-white/20 bg-[#141722] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+      <!-- Logo + Brand Wordmark (Easter Egg on 5 clicks) -->
+      <a href="#" class="flex items-center gap-3.5 no-underline group" id="easter-voxel-cube">
+        <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-white/20 bg-[#12141c] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
           <img src="./assets/pixel_cube.png" alt="BUGrock Voxel Cube" class="w-7 h-7 object-contain" />
         </div>
         <div class="flex items-baseline gap-2">
@@ -50,12 +53,12 @@
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden lg:flex items-center gap-8 text-[13px] font-medium text-[#94a3b8]">
+      <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium text-[#94a3b8]">
         <a href="#version-vault" class="hover:text-white transition-colors">Versions Vault</a>
         <a href="#world-injector" class="hover:text-white transition-colors">In-World Injector</a>
         <a href="#mod-hub" class="hover:text-white transition-colors">Mod Hub</a>
-        <a href="#comparison" class="hover:text-white transition-colors">Comparison</a>
-        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#diagnostics" class="hover:text-white transition-colors">Diagnostics</a>
+        <a href="#comparison" class="hover:text-white transition-colors">Benchmarks</a>
         <a href="#downloads" class="hover:text-white transition-colors">Downloads</a>
       </nav>
 
@@ -63,7 +66,7 @@
       <div class="flex items-center gap-3">
         
         <!-- Live Audio Click Toggle -->
-        <button id="sound-toggle-btn" type="button" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-[#12141c] text-xs font-mono text-[#2bbd28] hover:border-white/25 transition-all shadow-inner">
+        <button id="sound-toggle-btn" type="button" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-[#0f121a] text-xs font-mono text-[#2bbd28] hover:border-white/25 transition-all shadow-inner">
           <span>🔊 SFX: Active</span>
         </button>
 
@@ -77,7 +80,7 @@
   </header>
 
   <!-- Legal Notice Disclaimer Pill (Always Visible on Top) -->
-  <div class="pt-20 pb-2 bg-[#090a0f] border-b border-white/5">
+  <div class="pt-20 pb-2 bg-[#07080c] border-b border-white/5 relative z-10">
     <div class="max-w-4xl mx-auto px-4">
       <div class="p-2.5 rounded-xl border border-[#f59e0b]/30 bg-[#f59e0b]/10 text-xs sm:text-[13px] font-mono text-[#fbbf24] text-center flex items-center justify-center gap-2 shadow-sm">
         <span class="text-base">⚠️</span>
@@ -86,7 +89,7 @@
     </div>
   </div>
 
-  <main>
+  <main class="relative z-10">
 
     <!-- ========================================================================
          HERO SECTION — 3D PARALLAX TILT COMMAND STAGE
@@ -100,7 +103,7 @@
           <div class="lg:col-span-7 flex flex-col justify-center">
             
             <!-- Signal Badge -->
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/15 bg-[#141722]/80 backdrop-blur-md text-xs font-mono text-[#d946ef] mb-6 w-fit shadow-md">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/15 bg-[#12141c]/80 backdrop-blur-md text-xs font-mono text-[#d946ef] mb-6 w-fit shadow-md">
               <span class="w-2 h-2 rounded-full bg-[#d946ef] live-pulse"></span>
               <span class="font-semibold tracking-wide">Next-Generation Bedrock Engine (x64)</span>
             </div>
@@ -137,12 +140,12 @@
             <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-xs font-mono">
               <div class="glass-inner p-3 rounded-lg border border-white/5">
                 <div class="text-[#64748b] text-[10px] mb-1">INDEXED BUILDS</div>
-                <div class="text-white font-bold text-sm text-glow-magenta">600+ Releases</div>
+                <div class="text-white font-bold text-sm">600+ Releases</div>
               </div>
 
               <div class="glass-inner p-3 rounded-lg border border-white/5">
                 <div class="text-[#64748b] text-[10px] mb-1">CATALOG STARTUP</div>
-                <div class="text-[#2bbd28] font-bold text-sm text-glow-green">&lt; 1 ms (Async)</div>
+                <div class="text-[#2bbd28] font-bold text-sm">&lt; 1 ms (Async)</div>
               </div>
 
               <div class="glass-inner p-3 rounded-lg border border-white/5">
@@ -172,7 +175,7 @@
               </div>
 
               <!-- Interactive Tabs -->
-              <div class="flex items-center gap-1.5 mb-4 p-1 rounded-xl bg-[#090a0f] border border-white/10 text-xs font-mono">
+              <div class="flex items-center gap-1.5 mb-4 p-1 rounded-xl bg-[#07080c] border border-white/10 text-xs font-mono">
                 <button class="px-3.5 py-1.5 rounded-lg bg-[#2bbd28] text-black font-bold shadow-sm font-mc-ten">PLAY</button>
                 <button class="px-3 py-1 rounded-lg text-[#94a3b8] hover:text-white font-mc-ten">INSTALLATIONS</button>
                 <button class="px-3 py-1 rounded-lg text-[#94a3b8] hover:text-white font-mc-ten">MOD HUB</button>
@@ -225,19 +228,26 @@
 
     <!-- ========================================================================
          SHOWCASE 1: THE HISTORICAL VERSIONS VAULT (0.14.0.1 ➔ LATEST GDK)
-         INTERACTIVE SCRUBBER & LIVE TERMINAL CONSOLE
+         INTERACTIVE SEARCHABLE SCRUBBER & LIVE TERMINAL CONSOLE
          ======================================================================== -->
-    <section id="version-vault" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0d14]">
+    <section id="version-vault" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0e15]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="max-w-3xl mb-14">
-          <span class="text-xs font-mono font-bold text-[#d946ef] uppercase tracking-wider">Breakthrough Feature 01</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 mb-4 font-display">
-            The Historical Version Vault. 0.14.0.1 to 1.21+.
-          </h2>
-          <p class="text-base text-[#94a3b8] leading-relaxed font-sans">
-            Never lose access to your favorite eras again. Switch between vintage Pocket Edition legacy releases and modern GDK packages with one click.
-          </p>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span class="text-xs font-mono font-bold text-[#d946ef] uppercase tracking-wider">Breakthrough Feature 01</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 font-display">
+              The Historical Version Vault.
+            </h2>
+            <p class="text-base text-[#94a3b8] mt-2 font-sans">
+              Switch between vintage Pocket Edition legacy releases and modern GDK packages with one click.
+            </p>
+          </div>
+
+          <!-- Version Filter Search -->
+          <div class="w-full md:w-64">
+            <input id="version-search-input" type="text" placeholder="Search versions (e.g. 0.14, Nether)..." class="w-full px-4 py-2 rounded-xl border border-white/15 bg-[#0f121a] text-white text-xs font-mono focus:outline-none focus:border-[#d946ef] shadow-inner" />
+          </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -422,7 +432,7 @@
          SHOWCASE 3: NATIVE IN-APP MOD HUB (WEBVIEW2)
          SEARCHABLE CATALOG & CATEGORY FILTERING
          ======================================================================== -->
-    <section id="mod-hub" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0d14]">
+    <section id="mod-hub" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0e15]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -438,7 +448,7 @@
 
           <!-- Search Input -->
           <div class="w-full md:w-72">
-            <input id="mod-search-input" type="text" placeholder="Search add-ons, shaders..." class="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#12141c] text-white text-xs font-mono focus:outline-none focus:border-[#d946ef] shadow-inner" />
+            <input id="mod-search-input" type="text" placeholder="Search add-ons, shaders..." class="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#0f121a] text-white text-xs font-mono focus:outline-none focus:border-[#d946ef] shadow-inner" />
           </div>
         </div>
 
@@ -460,10 +470,79 @@
     </section>
 
     <!-- ========================================================================
-         SHOWCASE 4: PERFORMANCE & ARCHITECTURE COMPARISON MATRIX
-         THE $500 ENTERPRISE SPECIFICATION
+         SHOWCASE 4: LIVE SYSTEM DIAGNOSTICS SCANNER
+         INTERACTIVE 5-POINT SUBSYSTEM VERIFICATION
          ======================================================================== -->
-    <section id="comparison" class="py-20 md:py-28 border-b border-white/10">
+    <section id="diagnostics" class="py-20 md:py-28 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-mono font-bold text-[#2bbd28] uppercase tracking-wider">Subsystem Diagnostics</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-2 mb-3 font-display">
+            Interactive System Compatibility Scanner.
+          </h2>
+          <p class="text-base text-[#94a3b8] font-sans">
+            Verify whether your Windows 10 or 11 installation has all required gaming subsystems and services running.
+          </p>
+        </div>
+
+        <div class="glass-panel p-8">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-white/10 gap-4">
+            <div>
+              <div class="font-mc-ten text-lg text-white">Windows Service Diagnostic Suite</div>
+              <div id="diag-overall-status" class="text-xs font-mono text-[#94a3b8] mt-0.5">Click the scanner button below to test your PC subsystems.</div>
+            </div>
+
+            <button id="btn-run-diagnostic" type="button" class="btn-flagship btn-flagship-green text-xs !py-2.5 !px-5 self-start sm:self-auto">
+              🔍 RUN SYSTEM DIAGNOSTIC
+            </button>
+          </div>
+
+          <!-- Diagnostic Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            
+            <div class="glass-inner p-4 rounded-xl border border-white/5 diag-card">
+              <div class="text-[#2bbd28] font-bold font-mono text-sm mb-1">Developer Mode</div>
+              <div class="text-[11px] text-[#94a3b8] font-sans mb-3">Allows registering unpacked UWP builds</div>
+              <div class="diag-status-badge text-[10px] font-mono text-[#64748b]">Ready to scan</div>
+            </div>
+
+            <div class="glass-inner p-4 rounded-xl border border-white/5 diag-card">
+              <div class="text-[#d946ef] font-bold font-mono text-sm mb-1">AppXSvc</div>
+              <div class="text-[11px] text-[#94a3b8] font-sans mb-3">AppX Deployment Package Service</div>
+              <div class="diag-status-badge text-[10px] font-mono text-[#64748b]">Ready to scan</div>
+            </div>
+
+            <div class="glass-inner p-4 rounded-xl border border-white/5 diag-card">
+              <div class="text-[#38bdf8] font-bold font-mono text-sm mb-1">ClipSvc</div>
+              <div class="text-[11px] text-[#94a3b8] font-sans mb-3">Client License Service Decryption</div>
+              <div class="diag-status-badge text-[10px] font-mono text-[#64748b]">Ready to scan</div>
+            </div>
+
+            <div class="glass-inner p-4 rounded-xl border border-white/5 diag-card">
+              <div class="text-[#f59e0b] font-bold font-mono text-sm mb-1">GamingServices</div>
+              <div class="text-[11px] text-[#94a3b8] font-sans mb-3">Microsoft Gaming Protocol Shims</div>
+              <div class="diag-status-badge text-[10px] font-mono text-[#64748b]">Ready to scan</div>
+            </div>
+
+            <div class="glass-inner p-4 rounded-xl border border-white/5 diag-card">
+              <div class="text-white font-bold font-mono text-sm mb-1">x64 Architecture</div>
+              <div class="text-[11px] text-[#94a3b8] font-sans mb-3">64-bit Native Binary Support</div>
+              <div class="diag-status-badge text-[10px] font-mono text-[#64748b]">Ready to scan</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SHOWCASE 5: PERFORMANCE & ARCHITECTURE COMPARISON MATRIX
+         ======================================================================== -->
+    <section id="comparison" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0e15]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -481,7 +560,7 @@
           <div class="overflow-x-auto">
             <table class="w-full text-left font-mono text-xs">
               
-              <thead class="bg-[#12141c] border-b border-white/10 text-[#94a3b8]">
+              <thead class="bg-[#0f121a] border-b border-white/10 text-[#94a3b8]">
                 <tr>
                   <th class="py-4 px-6 text-sm font-bold text-white">Capability & Feature</th>
                   <th class="py-4 px-6 text-sm font-bold text-[#d946ef] bg-[#d946ef]/5">BUGrock Launcher</th>
@@ -544,9 +623,9 @@
     </section>
 
     <!-- ========================================================================
-         SHOWCASE 5: 3D SKIN WARDROBE & POWER TOOLS
+         SHOWCASE 6: 3D SKIN WARDROBE & POWER TOOLS
          ======================================================================== -->
-    <section class="py-20 md:py-28 border-b border-white/10 bg-[#0c0d14]">
+    <section class="py-20 md:py-28 border-b border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -554,7 +633,14 @@
           <!-- 3D Skin Turntable Canvas (Left 5 Cols) -->
           <div class="lg:col-span-5 glass-panel p-6 text-center">
             <span class="text-xs font-mono text-[#d946ef] uppercase font-bold tracking-wider">3D Model Turntable</span>
-            <h3 class="font-mc-ten text-xl text-white mt-1 mb-4">Interactive Steve Skin Preview</h3>
+            <h3 class="font-mc-ten text-xl text-white mt-1 mb-3">Interactive Skin Wardrobe</h3>
+
+            <!-- Skin Selector Buttons -->
+            <div class="flex items-center justify-center gap-2 mb-4 font-mono text-xs">
+              <button type="button" class="btn-flagship btn-flagship-magenta skin-model-select-btn text-xs !py-1 !px-3" data-skin="steve">Steve</button>
+              <button type="button" class="btn-flagship btn-flagship-ghost skin-model-select-btn text-xs !py-1 !px-3" data-skin="alex">Alex</button>
+              <button type="button" class="btn-flagship btn-flagship-ghost skin-model-select-btn text-xs !py-1 !px-3" data-skin="bugrock">BUG Guy</button>
+            </div>
 
             <div class="w-64 h-64 mx-auto glass-inner rounded-2xl flex items-center justify-center p-2 border border-white/10 shadow-inner">
               <canvas id="skin-preview-canvas" width="240" height="240" class="image-rendering-pixelated"></canvas>
@@ -610,7 +696,7 @@
     <!-- ========================================================================
          FAQ SECTION (FLAGSHIP ACCORDION)
          ======================================================================== -->
-    <section id="faq" class="py-20 md:py-28 border-b border-white/10">
+    <section id="faq" class="py-20 md:py-28 border-b border-white/10 bg-[#0c0e15]">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center mb-14">
@@ -674,7 +760,7 @@
          DOWNLOADS COMMAND CENTER
          STANDALONE VS LITE + SYSTEM REQUIREMENTS
          ======================================================================== -->
-    <section id="downloads" class="py-20 md:py-28 bg-[#0c0d14]">
+    <section id="downloads" class="py-20 md:py-28">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         <div class="max-w-2xl mx-auto mb-16">
@@ -775,45 +861,44 @@
 
         </div>
 
-        <!-- System Requirements Diagnostic Checklist -->
-        <div class="glass-panel p-6 max-w-4xl mx-auto text-left font-mono text-xs">
-          <div class="text-xs font-bold text-white uppercase mb-3 flex items-center justify-between">
-            <span>Critical Windows Services Diagnostic (`services.msc`)</span>
-            <span class="text-[#2bbd28]">Auto-Verified</span>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <div class="glass-inner p-3 rounded-lg border border-white/5">
-              <div class="text-[#2bbd28] font-bold">AppXSvc</div>
-              <div class="text-[#64748b] text-[10px]">AppX Deployment Service</div>
-            </div>
-
-            <div class="glass-inner p-3 rounded-lg border border-white/5">
-              <div class="text-[#d946ef] font-bold">ClipSvc</div>
-              <div class="text-[#64748b] text-[10px]">Client License Service</div>
-            </div>
-
-            <div class="glass-inner p-3 rounded-lg border border-white/5">
-              <div class="text-[#38bdf8] font-bold">GamingServices</div>
-              <div class="text-[#64748b] text-[10px]">Microsoft Gaming Subsystem</div>
-            </div>
-
-            <div class="glass-inner p-3 rounded-lg border border-white/5">
-              <div class="text-[#f59e0b] font-bold">wuauserv</div>
-              <div class="text-[#64748b] text-[10px]">Windows Update CDN Access</div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
   </main>
 
   <!-- ========================================================================
+       MOD DETAIL INSPECTOR MODAL
+       ======================================================================== -->
+  <div id="mod-modal-overlay" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="glass-panel max-w-lg w-full p-6 border border-white/20 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <button id="modal-close-btn" type="button" class="absolute top-4 right-4 text-[#94a3b8] hover:text-white text-lg font-mono">✕</button>
+
+      <div class="text-xs font-mono text-[#d946ef] font-bold uppercase mb-1" id="modal-mod-category">CurseForge • BEHAVIOR</div>
+      <h3 class="font-mc-ten text-2xl text-white mb-2" id="modal-mod-title">Mod Title</h3>
+      
+      <p class="text-xs text-[#94a3b8] mb-4 font-sans leading-relaxed" id="modal-mod-desc">Short description</p>
+
+      <div class="glass-inner p-4 rounded-xl border border-white/10 mb-5 text-xs font-sans text-[#cbd5e1] leading-relaxed" id="modal-mod-details">
+        Extended details
+      </div>
+
+      <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10 text-xs font-mono text-[#64748b]">
+        <div>Author: <strong class="text-white" id="modal-mod-author">Unknown</strong></div>
+        <div>Size: <strong class="text-[#2bbd28]" id="modal-mod-size">0 MB</strong></div>
+      </div>
+
+      <button id="modal-action-inject" type="button" class="btn-flagship btn-flagship-green w-full py-3 text-sm font-bold">
+        + Inject Pack into World
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
        FLAGSHIP FOOTER
        ======================================================================== -->
-  <footer class="bg-[#06070a] border-t border-white/10 py-12 text-xs font-mono text-[#64748b]">
+  <footer class="bg-[#040508] border-t border-white/10 py-12 text-xs font-mono text-[#64748b] relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-3">
