@@ -1,6 +1,6 @@
 // ==========================================================================
-// BUGrock Launcher — 100x Flagship Interactive Engine
-// Voxel Particles, Web Audio Synthesizer, 3D Skin Wardrobe, Live Diagnostics & Mod Inspector
+// BUGrock Launcher — Handcrafted Engine
+// Real 3D Minecraft Volumetric Renderer, Tactile SFX & Interactive Mod Hub
 // ==========================================================================
 
 export const HISTORIC_VERSIONS = [
@@ -11,161 +11,213 @@ export const HISTORIC_VERSIONS = [
     era: "Modern GDK",
     year: "2024",
     type: "GDK (.msixvc)",
-    size: "820 MB",
-    shaders: "RenderDragon Modern",
-    tag: "Latest Release",
-    active: true,
-    desc: "Crafter blocks, Trial Chambers, Mace weapon, and automated Microsoft Store decryption key acquisition."
+    tag: "Latest Stable",
+    status: "Verified",
+    size: "642 MB",
+    features: "Trial Chambers, The Mace, Wind Charges, Crafter automation, Vault rewards.",
+    notes: "Requires Windows 10/11 64-bit and Microsoft Store ownership handshake."
   },
   {
     id: "v1-20-80",
     version: "1.20.80.05",
-    name: "1.20.80 (Armadillo Update)",
-    era: "Tails & Trails",
+    name: "1.20.80 (Armored Paws)",
+    era: "Modern GDK",
     year: "2024",
     type: "GDK (.msixvc)",
-    size: "790 MB",
-    shaders: "RenderDragon PBR",
-    tag: "Stable Release",
-    active: false,
-    desc: "Wolf armor variants, armadillos, savanna updates, and native GDKLaunchShim."
+    tag: "Stable",
+    status: "Verified",
+    size: "618 MB",
+    features: "Wolf variants, Armadillo mob, Wolf Armor, upgraded UI touch controls.",
+    notes: "Includes isolated local worlds database to prevent cloud corruption."
+  },
+  {
+    id: "v1-20-0",
+    version: "1.20.0.01",
+    name: "1.20.0 (Trails & Tales)",
+    era: "Modern GDK",
+    year: "2023",
+    type: "GDK (.msixvc)",
+    tag: "Major Milestone",
+    status: "Verified",
+    size: "580 MB",
+    features: "Sniffer, Cherry Blossom Groves, Bamboo Wood, Archaeology & Armor Trims.",
+    notes: "Full side-by-side isolated installation with legacy server support."
   },
   {
     id: "v1-19-50",
     version: "1.19.50.02",
-    name: "1.19.50 (The Wild)",
-    era: "Deep Dark",
+    name: "1.19.50 (The Wild Update)",
+    era: "Modern GDK",
     year: "2022",
-    type: "UWP (.appx)",
-    size: "640 MB",
-    shaders: "RenderDragon Early",
-    tag: "Legacy UWP",
-    active: false,
-    desc: "Ancient Cities, Warden, Mangrove swamps, and native Windows UWP package registration."
+    type: "GDK (.msixvc)",
+    tag: "Deep Dark",
+    status: "Verified",
+    size: "512 MB",
+    features: "The Warden, Ancient Cities, Deep Dark biome, Allay mob, Boat with Chest.",
+    notes: "Supports RenderDragon shader pipelines and RTX raytracing toggle."
   },
   {
     id: "v1-18-30",
     version: "1.18.30.04",
     name: "1.18.30 (Caves & Cliffs II)",
-    era: "New Generation",
+    era: "RenderDragon Transition",
     year: "2022",
     type: "UWP (.appx)",
-    size: "580 MB",
-    shaders: "RenderDragon Core",
-    tag: "Milestone",
-    active: false,
-    desc: "Massive 384-block world height, lush caves, jagged peaks, and new terrain blending."
+    tag: "World Gen Overhaul",
+    status: "Verified",
+    size: "468 MB",
+    features: "World height expansion (Y -64 to 320), Lush Caves, Dripstone, Mountain peaks.",
+    notes: "The last generation before full GDK conversion. Sideloads instantly."
   },
   {
     id: "v1-16-201",
     version: "1.16.201.01",
-    name: "1.16.201 (The Nether)",
-    era: "PvP Golden Era",
+    name: "1.16.201 (Nether Update)",
+    era: "Golden Era Bedrock",
     year: "2020",
     type: "UWP (.appx)",
-    size: "420 MB",
-    shaders: "Pre-RenderDragon HLSL",
-    tag: "Classic Competitive",
-    active: false,
-    desc: "The definitive competitive Bedrock release. Netherite armor, Piglins, and vintage combat."
+    tag: "PvP Favorite",
+    status: "Verified",
+    size: "298 MB",
+    features: "Netherite armor, Piglins, Crimson & Warped Forests, Soul Sand Valley.",
+    notes: "Most stable version for competitive multiplayer servers and low latency."
   },
   {
     id: "v1-14-60",
     version: "1.14.60.05",
     name: "1.14.60 (Buzzy Bees)",
-    era: "Vintage Shaders",
-    year: "2020",
+    era: "Classic Bedrock",
+    year: "2019",
     type: "UWP (.appx)",
-    size: "310 MB",
-    shaders: "Legacy Shaders (ESBE / SSPE)",
-    tag: "Shader Friendly",
-    active: false,
-    desc: "Pre-RenderDragon classic rendering engine supporting vintage community shaders."
+    tag: "Lightweight",
+    status: "Verified",
+    size: "210 MB",
+    features: "Bees, Beehives, Honey blocks, Honey bottles, Redstone sticky mechanics.",
+    notes: "Zero lag on low-end hardware. Runs at hundreds of FPS on integrated graphics."
+  },
+  {
+    id: "v1-12-0",
+    version: "1.12.0.28",
+    name: "1.12.0 (Village & Pillage)",
+    era: "Classic Bedrock",
+    year: "2019",
+    type: "UWP (.appx)",
+    tag: "UWP Classic",
+    status: "Verified",
+    size: "185 MB",
+    features: "Revamped Villagers, Raids, Crossbows, Pillager Outposts, Bell mechanics.",
+    notes: "Direct AppX registration without Microsoft Store package re-verification."
   },
   {
     id: "v1-2-0",
     version: "1.2.0.81",
     name: "1.2.0 (Better Together)",
-    era: "Unification Era",
+    era: "Birth of Bedrock",
     year: "2017",
     type: "UWP (.appx)",
-    size: "180 MB",
-    shaders: "Vintage Alpha",
-    tag: "Historic",
-    active: false,
-    desc: "The milestone update that unified Pocket Edition and Windows 10 into Bedrock crossplay."
+    tag: "Historic Release",
+    status: "Archived",
+    size: "128 MB",
+    features: "Unification of Pocket Edition and Windows 10 Edition under Bedrock Engine.",
+    notes: "First release to introduce cross-platform server browser and armor stands."
   },
   {
-    id: "v0-14-0",
-    version: "0.14.0.1",
-    name: "0.14.0.1 (Alpha Launch)",
-    era: "Alpha Heritage",
+    id: "v1-0-0",
+    version: "1.0.0.16",
+    name: "1.0.0 (The Ender Update)",
+    era: "Windows 10 Beta Era",
     year: "2016",
     type: "UWP (.appx)",
-    size: "45 MB",
-    shaders: "Legacy Fixed Pipeline",
-    tag: "First PC Bedrock",
-    active: false,
-    desc: "The dawn of Windows 10 Edition. Redstone repeaters, dispensers, and classic pocket HUD."
+    tag: "Legacy Peak",
+    status: "Archived",
+    size: "82 MB",
+    features: "The End dimension, Ender Dragon boss, Elytra wings, Shulkers, End Cities.",
+    notes: "Fully intact vintage Win10 UWP manifest preserved in BUGrock repositories."
+  },
+  {
+    id: "v0-16-0",
+    version: "0.16.0.5",
+    name: "0.16.0 (The Boss Update)",
+    era: "Alpha / Beta",
+    year: "2016",
+    type: "UWP (.appx)",
+    tag: "Early Alpha",
+    status: "Archived",
+    size: "46 MB",
+    features: "The Wither, Ocean Monuments, Guardians, Elder Guardians, Slash Commands.",
+    notes: "Super lightweight, instant boot in under 0.2 seconds."
+  },
+  {
+    id: "v0-14-0-1",
+    version: "0.14.0.1",
+    name: "0.14.0.1 (Overworld Update)",
+    era: "Origins (PE Windows 10)",
+    year: "2016",
+    type: "UWP (.appx)",
+    tag: "Oldest Indexed Build",
+    status: "Genesis",
+    size: "34 MB",
+    features: "Redstone Repeaters, Comparators, Dispensers, Droppers, Hoppers, Cauldrons.",
+    notes: "The earliest surviving public release for Windows 10 Edition."
   }
 ];
 
-export const MOD_HUB_CATALOG = [
+export const CURATED_MODS = [
   {
-    id: "action-stuff-3d",
-    title: "Actions & Stuff 3D Combat Overhaul",
-    author: "Toxico",
-    category: "behavior",
-    source: "MCPEDL",
-    version: "v1.4.2",
-    rating: "4.9",
-    downloads: "420K+",
-    size: "42.8 MB",
-    badge: "Trending #1",
-    desc: "Complete fluid third-person and first-person player animation overhaul with dynamic attacks and sword trails.",
-    details: "Features completely rebuilt player skeleton rigs, realistic sprinting momentum, dual-wield block animations, and high-framerate weapon impact particles."
-  },
-  {
-    id: "faithful-64x",
-    title: "Faithful 64x HD Bedrock Edition",
-    author: "Faithful Team",
-    category: "resource",
-    source: "CurseForge",
-    version: "v1.21.50",
-    rating: "5.0",
-    downloads: "1.8M+",
-    size: "68.2 MB",
-    badge: "Essential",
-    desc: "The iconic vanilla-faithful texture pack scaled to crisp 64x detail for 1440p and 4K high refresh rate gaming.",
-    details: "Faithful respects the original Minecraft aesthetic while quadrupling texture resolution. Fully optimized for RenderDragon on Windows 10/11."
-  },
-  {
-    id: "realism-pbr",
-    title: "CubeCraft Realism Shaders & Sky",
-    author: "CubeCraftsman",
+    id: "shader-lumina",
+    title: "Lumina Deferred PBR Shaders",
+    author: "HyperReal Studio",
     category: "shader",
     source: "MCPEDL",
-    version: "v2.1",
-    rating: "4.8",
-    downloads: "280K+",
-    size: "24.5 MB",
-    badge: "RenderDragon Ready",
-    desc: "Volumetric atmospheric fog, realistic sun glares, crisp water reflections, and waving leaves.",
-    details: "Includes custom deferred technical PBR materials, custom normal maps for cobblestone and metals, and realistic day-night celestial cycles."
+    version: "v3.2",
+    rating: "4.9",
+    downloads: "820K+",
+    size: "8.4 MB",
+    badge: "Staff Pick",
+    desc: "Next-gen deferred lighting with screen-space reflections, volumetric fog, and authentic block roughness textures.",
+    details: "Supports RenderDragon 1.21+ deferred technical preview. Completely transforms nighttime illumination, water caustics, and glowstone bounce."
   },
   {
-    id: "travelers-backpacks",
-    title: "Traveler's Backpacks Plus Addon",
-    author: "TrueRealism",
-    category: "behavior",
+    id: "origins-addon",
+    title: "Origins Bedrock Edition Add-on",
+    author: "ApshaDev",
+    category: "addon",
     source: "CurseForge",
-    version: "v3.0.1",
-    rating: "4.9",
-    downloads: "510K+",
-    size: "8.4 MB",
-    badge: "Survival",
-    desc: "Wearable, upgradeable backpacks with crafting table integration, tank fluids, and sleeping roll.",
-    details: "Provides 16 unique color tiers, fluid storage for lava/water buckets, integrated quick crafting, and automated item sorting."
+    version: "v2.6",
+    rating: "4.8",
+    downloads: "1.4M+",
+    size: "18.6 MB",
+    badge: "Trending",
+    desc: "Choose from 12 mythological origins with custom abilities, flight, underwater breathing, or phasing through walls.",
+    details: "Faithful recreation of the famous Java mod using modern Molang entity scripts. Works on singleplayer and dedicated Bedrock servers."
+  },
+  {
+    id: "worldedit-be",
+    title: "WorldEdit Bedrock Scripting",
+    author: "Scommander",
+    category: "addon",
+    source: "CurseForge",
+    version: "v1.18",
+    rating: "5.0",
+    downloads: "2.1M+",
+    size: "4.2 MB",
+    badge: "Essential",
+    desc: "The ultimate in-game terraforming and building tool. //set, //sphere, //brush, and schematic loading in Bedrock.",
+    details: "Utilizes GameTest and Script API to execute lightning-fast block operations directly within your active world instance."
+  },
+  {
+    id: "tyrannus-ui",
+    title: "Tyrannus Minimalist Dark UI",
+    author: "BedrockCraft",
+    category: "ui",
+    source: "MCPEDL",
+    version: "v4.0",
+    rating: "4.8",
+    downloads: "610K+",
+    size: "3.1 MB",
+    badge: "PvP UI",
+    desc: "Clean dark mode interface with low-profile HUD, transparent inventory menus, armor durability counter, and quick-craft.",
+    details: "Removes distracting screen clutter and increases visibility in battle. Optimized for 1080p and 4K displays."
   },
   {
     id: "bare-bones",
@@ -193,12 +245,12 @@ export const MOD_HUB_CATALOG = [
     size: "112.0 MB",
     badge: "Custom World",
     desc: "Handcrafted medieval RPG map with custom quest NPCs, 5 dungeons, and unique boss fights.",
-    details: "Over 2,000x2,000 blocks of custom terrain, complete voice-acted dialogue sequences, custom loot tables, and safe multi-instance staging."
+    details: "Over 2,000x2,000 blocks of custom terrain, complete voice-acted dialogue sequences, and safe multi-instance staging."
   }
 ];
 
 // ==========================================================================
-// Web Audio API Synthesizer (Zero-Latency Luxury Sound Clicks)
+// Web Audio API Synthesizer (Zero-Latency Tactile Sound Clicks)
 // ==========================================================================
 class SoundFX {
   constructor() {
@@ -227,7 +279,7 @@ class SoundFX {
     osc.frequency.setValueAtTime(pitch, now);
     osc.frequency.exponentialRampToValueAtTime(pitch * 0.4, now + dur);
 
-    gain.gain.setValueAtTime(0.08, now);
+    gain.gain.setValueAtTime(0.06, now);
     gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
 
     osc.connect(gain);
@@ -247,15 +299,15 @@ class SoundFX {
     [440, 554, 659, 880].forEach((freq, idx) => {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
-      const t = now + idx * 0.08;
+      const t = now + idx * 0.07;
       osc.type = 'triangle';
       osc.frequency.setValueAtTime(freq, t);
-      gain.gain.setValueAtTime(0.08, t);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.16);
+      gain.gain.setValueAtTime(0.06, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
       osc.connect(gain);
       gain.connect(this.ctx.destination);
       osc.start(t);
-      osc.stop(t + 0.16);
+      osc.stop(t + 0.15);
     });
   }
 
@@ -270,20 +322,443 @@ class SoundFX {
     const gain = this.ctx.createGain();
     osc.type = 'sine';
     osc.frequency.setValueAtTime(320, now);
-    osc.frequency.exponentialRampToValueAtTime(840, now + 0.08);
-    gain.gain.setValueAtTime(0.09, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+    osc.frequency.exponentialRampToValueAtTime(780, now + 0.07);
+    gain.gain.setValueAtTime(0.07, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
     osc.connect(gain);
     gain.connect(this.ctx.destination);
     osc.start(now);
-    osc.stop(now + 0.08);
+    osc.stop(now + 0.07);
   }
 }
 
 const sfx = new SoundFX();
 
+// ==========================================================================
+// TRUE 3D MINECRAFT VOLUMETRIC MODEL RENDERER
+// Real perspective projection, 3D cuboids, depth sorting & face interpolation
+// ==========================================================================
+class MinecraftModel3D {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.modelType = 'steve'; // 'steve' | 'alex' | 'bugrock'
+    
+    // Rotation angles
+    this.angleY = -0.45;
+    this.angleX = -0.16; // slight downward pitch to view top of head/pedestal
+    this.autoRotate = true;
+    this.isDragging = false;
+    this.lastX = 0;
+    this.lastY = 0;
+    this.inactivityTimer = null;
+    this.time = 0;
+
+    this.initEvents();
+    this.render();
+  }
+
+  setModel(type) {
+    this.modelType = type;
+  }
+
+  initEvents() {
+    const handleStart = (x, y) => {
+      this.isDragging = true;
+      this.autoRotate = false;
+      this.lastX = x;
+      this.lastY = y;
+      if (this.inactivityTimer) clearTimeout(this.inactivityTimer);
+    };
+
+    const handleMove = (x, y) => {
+      if (!this.isDragging) return;
+      const dx = x - this.lastX;
+      const dy = y - this.lastY;
+      this.angleY += dx * 0.012;
+      this.angleX += dy * 0.008;
+      // Clamp pitch to realistic range
+      this.angleX = Math.max(-0.45, Math.min(0.25, this.angleX));
+      this.lastX = x;
+      this.lastY = y;
+    };
+
+    const handleEnd = () => {
+      if (!this.isDragging) return;
+      this.isDragging = false;
+      this.inactivityTimer = setTimeout(() => {
+        this.autoRotate = true;
+      }, 2500);
+    };
+
+    this.canvas.addEventListener('mousedown', (e) => handleStart(e.clientX, e.clientY));
+    window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+    window.addEventListener('mouseup', handleEnd);
+
+    this.canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        handleStart(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        handleMove(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', handleEnd);
+  }
+
+  // Project a 3D vertex to 2D screen coordinates
+  project(v, camDist = 480) {
+    // 1. Rotate around Y (Azimuth)
+    const cosY = Math.cos(this.angleY), sinY = Math.sin(this.angleY);
+    const x1 = v[0] * cosY + v[2] * sinY;
+    const z1 = -v[0] * sinY + v[2] * cosY;
+    const y1 = v[1];
+
+    // 2. Rotate around X (Pitch)
+    const cosX = Math.cos(this.angleX), sinX = Math.sin(this.angleX);
+    const y2 = y1 * cosX - z1 * sinX;
+    const z2 = y1 * sinX + z1 * cosX;
+    const x2 = x1;
+
+    // 3. Perspective Projection
+    const scale = camDist / (camDist + z2);
+    const cx = this.canvas.width / 2;
+    const cy = this.canvas.height / 2 + 8; // slight offset for pedestal balance
+
+    return {
+      x: cx + x2 * scale,
+      y: cy + y2 * scale,
+      z: z2,
+      scale: scale
+    };
+  }
+
+  // Rotate a point around a local pivot on X axis (for swinging limbs)
+  rotateLimb(v, pivot, pitch) {
+    const dy = v[1] - pivot[1];
+    const dz = v[2] - pivot[2];
+    const cosP = Math.cos(pitch), sinP = Math.sin(pitch);
+    return [
+      v[0],
+      pivot[1] + dy * cosP - dz * sinP,
+      pivot[2] + dy * sinP + dz * cosP
+    ];
+  }
+
+  // Generate 6 faces of a 3D cuboid
+  createCuboid(cx, cy, cz, w, h, d, colors, partName, pivot = null, limbPitch = 0) {
+    const hw = w / 2, hh = h / 2, hd = d / 2;
+    let rawVerts = [
+      [-hw, -hh,  hd], // 0: top-front-left
+      [ hw, -hh,  hd], // 1: top-front-right
+      [ hw,  hh,  hd], // 2: bottom-front-right
+      [-hw,  hh,  hd], // 3: bottom-front-left
+      [-hw, -hh, -hd], // 4: top-back-left
+      [ hw, -hh, -hd], // 5: top-back-right
+      [ hw,  hh, -hd], // 6: bottom-back-right
+      [-hw,  hh, -hd]  // 7: bottom-back-left
+    ];
+
+    // Shift to center
+    rawVerts = rawVerts.map(v => [v[0] + cx, v[1] + cy, v[2] + cz]);
+
+    // Apply limb swing if specified
+    if (pivot && limbPitch !== 0) {
+      rawVerts = rawVerts.map(v => this.rotateLimb(v, pivot, limbPitch));
+    }
+
+    const quads = [
+      { name: 'front', indices: [0, 1, 2, 3], normal: [0, 0, 1] },
+      { name: 'back',  indices: [5, 4, 7, 6], normal: [0, 0, -1] },
+      { name: 'top',   indices: [4, 5, 1, 0], normal: [0, -1, 0] },
+      { name: 'bottom',indices: [3, 2, 6, 7], normal: [0, 1, 0] },
+      { name: 'left',  indices: [4, 0, 3, 7], normal: [-1, 0, 0] },
+      { name: 'right', indices: [1, 5, 6, 2], normal: [1, 0, 0] }
+    ];
+
+    const projectedVerts = rawVerts.map(v => this.project(v));
+
+    const faces = [];
+    quads.forEach(q => {
+      const p0 = projectedVerts[q.indices[0]];
+      const p1 = projectedVerts[q.indices[1]];
+      const p2 = projectedVerts[q.indices[2]];
+      const p3 = projectedVerts[q.indices[3]];
+
+      // Backface Culling via 2D screen cross product
+      const cp = (p1.x - p0.x) * (p2.y - p1.y) - (p1.y - p0.y) * (p2.x - p1.x);
+      if (cp <= 0) return; // Cull back-facing polygons
+
+      // Depth for painter's algorithm
+      const avgZ = (p0.z + p1.z + p2.z + p3.z) / 4;
+
+      // Volumetric directional lighting
+      // Transform normal by angleY & angleX
+      const cosY = Math.cos(this.angleY), sinY = Math.sin(this.angleY);
+      const nx1 = q.normal[0] * cosY + q.normal[2] * sinY;
+      const nz1 = -q.normal[0] * sinY + q.normal[2] * cosY;
+      const ny1 = q.normal[1];
+
+      const cosX = Math.cos(this.angleX), sinX = Math.sin(this.angleX);
+      const ny2 = ny1 * cosX - nz1 * sinX;
+      const nz2 = ny1 * sinX + nz1 * cosX;
+      const nx2 = nx1;
+
+      // Light direction from top-front-right
+      const lx = 0.38, ly = -0.75, lz = -0.55;
+      const dot = Math.max(0, -(nx2 * lx + ny2 * ly + nz2 * lz));
+      const lightFactor = 0.52 + 0.48 * dot;
+
+      const baseColor = colors[q.name] || colors.all || '#888888';
+
+      faces.push({
+        partName,
+        faceName: q.name,
+        avgZ,
+        pts: [p0, p1, p2, p3],
+        baseColor,
+        lightFactor
+      });
+    });
+
+    return faces;
+  }
+
+  // Adjust brightness of a hex color
+  shadeColor(hex, factor) {
+    hex = hex.replace('#', '');
+    if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+    const num = parseInt(hex, 16);
+    let r = Math.min(255, Math.floor(((num >> 16) & 255) * factor));
+    let g = Math.min(255, Math.floor(((num >> 8) & 255) * factor));
+    let b = Math.min(255, Math.floor((num & 255) * factor));
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  // Bilinear interpolation on a quad for face features (eyes, hair fringe)
+  interpolateQuad(p0, p1, p2, p3, u, v) {
+    const xTop = p0.x + (p1.x - p0.x) * u;
+    const yTop = p0.y + (p1.y - p0.y) * u;
+    const xBot = p3.x + (p2.x - p3.x) * u;
+    const yBot = p3.y + (p2.y - p3.y) * u;
+    return {
+      x: xTop + (xBot - xTop) * v,
+      y: yTop + (yBot - yTop) * v
+    };
+  }
+
+  drawSubQuad(pts, u0, v0, u1, v1, color) {
+    const sp0 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u0, v0);
+    const sp1 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u1, v0);
+    const sp2 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u1, v1);
+    const sp3 = this.interpolateQuad(pts[0], pts[1], pts[2], pts[3], u0, v1);
+
+    this.ctx.beginPath();
+    this.ctx.moveTo(sp0.x, sp0.y);
+    this.ctx.lineTo(sp1.x, sp1.y);
+    this.ctx.lineTo(sp2.x, sp2.y);
+    this.ctx.lineTo(sp3.x, sp3.y);
+    this.ctx.closePath();
+    this.ctx.fillStyle = color;
+    this.ctx.fill();
+  }
+
+  render() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    if (this.autoRotate) {
+      this.angleY += 0.016;
+    }
+    this.time += 0.035;
+
+    // Limb animations
+    const armPitch = Math.sin(this.time) * 0.22;
+    const legPitch = -Math.sin(this.time) * 0.22;
+    const headBob = Math.sin(this.time * 2) * 1.0;
+
+    // Skin Color Themes
+    let palette;
+    if (this.modelType === 'alex') {
+      palette = {
+        skin: '#d8a180',
+        hair: '#c85623',
+        eyeSclera: '#ffffff',
+        eyePupil: '#2e8b57',
+        shirt: '#5b8731',
+        pants: '#6b5839',
+        shoes: '#34302c',
+        armWidth: 10
+      };
+    } else if (this.modelType === 'bugrock') {
+      palette = {
+        skin: '#c4a287',
+        hair: '#10b981',
+        eyeSclera: '#ffffff',
+        eyePupil: '#10b981',
+        shirt: '#161922',
+        pants: '#1e2433',
+        shoes: '#0b0d13',
+        armWidth: 13
+      };
+    } else {
+      // Default Steve
+      palette = {
+        skin: '#b87e5b',
+        hair: '#4a3018',
+        eyeSclera: '#ffffff',
+        eyePupil: '#2b58bf',
+        shirt: '#008b8b',
+        pants: '#22388e',
+        shoes: '#262626',
+        armWidth: 13
+      };
+    }
+
+    const allFaces = [];
+
+    // 1. Pedestal Base (Stone slab at feet with emerald trim)
+    const baseColors = {
+      top: '#161924',
+      front: '#0e111a',
+      back: '#0e111a',
+      left: '#0a0d14',
+      right: '#121520',
+      bottom: '#06070a'
+    };
+    allFaces.push(...this.createCuboid(0, 68, 0, 96, 7, 96, baseColors, 'pedestal'));
+
+    // 2. Head (32x32x32)
+    const headColors = {
+      front: palette.skin,
+      back: palette.hair,
+      top: palette.hair,
+      bottom: palette.skin,
+      left: palette.hair,
+      right: palette.hair
+    };
+    allFaces.push(...this.createCuboid(0, -56 + headBob, 0, 32, 32, 32, headColors, 'head'));
+
+    // 3. Torso (Body 32x44x16)
+    const torsoColors = {
+      front: palette.shirt,
+      back: palette.shirt,
+      top: palette.shirt,
+      bottom: palette.pants,
+      left: palette.shirt,
+      right: palette.shirt
+    };
+    allFaces.push(...this.createCuboid(0, -18, 0, 32, 44, 16, torsoColors, 'torso'));
+
+    // 4. Arms
+    const armW = palette.armWidth;
+    const armColors = {
+      top: palette.shirt,
+      bottom: palette.skin,
+      front: palette.shirt,
+      back: palette.shirt,
+      left: palette.shirt,
+      right: palette.shirt
+    };
+    // Right Arm
+    const rArmX = -(16 + armW / 2);
+    allFaces.push(...this.createCuboid(rArmX, -18, 0, armW, 44, 14, armColors, 'rightArm', [rArmX, -38, 0], armPitch));
+    // Left Arm
+    const lArmX = 16 + armW / 2;
+    allFaces.push(...this.createCuboid(lArmX, -18, 0, armW, 44, 14, armColors, 'leftArm', [lArmX, -38, 0], -armPitch));
+
+    // 5. Legs
+    const legColors = {
+      top: palette.pants,
+      bottom: palette.shoes,
+      front: palette.pants,
+      back: palette.pants,
+      left: palette.pants,
+      right: palette.pants
+    };
+    // Right Leg
+    allFaces.push(...this.createCuboid(-8, 26, 0, 15, 44, 15, legColors, 'rightLeg', [-8, 4, 0], -legPitch));
+    // Left Leg
+    allFaces.push(...this.createCuboid(8, 26, 0, 15, 44, 15, legColors, 'leftLeg', [8, 4, 0], legPitch));
+
+    // Sort faces by depth: Highest Z drawn first (Painter's Algorithm)
+    allFaces.sort((a, b) => b.avgZ - a.avgZ);
+
+    // Render every visible quad
+    allFaces.forEach(face => {
+      const finalColor = this.shadeColor(face.baseColor, face.lightFactor);
+
+      this.ctx.beginPath();
+      this.ctx.moveTo(face.pts[0].x, face.pts[0].y);
+      this.ctx.lineTo(face.pts[1].x, face.pts[1].y);
+      this.ctx.lineTo(face.pts[2].x, face.pts[2].y);
+      this.ctx.lineTo(face.pts[3].x, face.pts[3].y);
+      this.ctx.closePath();
+
+      this.ctx.fillStyle = finalColor;
+      this.ctx.fill();
+
+      this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
+      this.ctx.lineWidth = 0.5;
+      this.ctx.stroke();
+
+      // Draw Perspective Face Texture on Front of Head
+      if (face.partName === 'head' && face.faceName === 'front') {
+        const hairShaded = this.shadeColor(palette.hair, face.lightFactor);
+        const whiteShaded = this.shadeColor(palette.eyeSclera, face.lightFactor);
+        const pupilShaded = this.shadeColor(palette.eyePupil, face.lightFactor);
+
+        // Hair fringe across top 25%
+        this.drawSubQuad(face.pts, 0, 0, 1, 0.28, hairShaded);
+        this.drawSubQuad(face.pts, 0, 0.28, 0.18, 0.42, hairShaded);
+        this.drawSubQuad(face.pts, 0.82, 0.28, 1, 0.42, hairShaded);
+
+        // Eyes (Left & Right with white sclera and pupil)
+        // Right eye (on character's right, viewer's left)
+        this.drawSubQuad(face.pts, 0.14, 0.52, 0.42, 0.68, whiteShaded);
+        this.drawSubQuad(face.pts, 0.28, 0.52, 0.42, 0.68, pupilShaded);
+
+        // Left eye (on character's left, viewer's right)
+        this.drawSubQuad(face.pts, 0.58, 0.52, 0.86, 0.68, whiteShaded);
+        this.drawSubQuad(face.pts, 0.58, 0.52, 0.72, 0.68, pupilShaded);
+
+        // Nose/Mouth shadow
+        const shadowShaded = this.shadeColor('#875236', face.lightFactor);
+        this.drawSubQuad(face.pts, 0.38, 0.78, 0.62, 0.88, shadowShaded);
+      }
+
+      // Draw Hands on Arm Bottoms
+      if ((face.partName === 'leftArm' || face.partName === 'rightArm') && face.faceName === 'front') {
+        const skinHand = this.shadeColor(palette.skin, face.lightFactor);
+        this.drawSubQuad(face.pts, 0, 0.74, 1, 1, skinHand);
+      }
+
+      // Draw Shoes on Leg Bottoms
+      if ((face.partName === 'leftLeg' || face.partName === 'rightLeg') && face.faceName === 'front') {
+        const shoeColor = this.shadeColor(palette.shoes, face.lightFactor);
+        this.drawSubQuad(face.pts, 0, 0.82, 1, 1, shoeColor);
+      }
+
+      // Pedestal Emerald Bevel Line
+      if (face.partName === 'pedestal' && face.faceName === 'top') {
+        this.ctx.strokeStyle = 'rgba(16, 185, 129, 0.45)';
+        this.ctx.lineWidth = 1.2;
+        this.ctx.stroke();
+      }
+    });
+
+    requestAnimationFrame(() => this.render());
+  }
+}
+
+// ==========================================================================
+// DOM Initialization & Interactive Orchestrations
+// ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Interactive Voxel Dust & Particle Background Canvas
+  // 1. Organic Voxel Dust Canvas (Anti-Neon Palette)
   const pCanvas = document.getElementById('particles-canvas');
   if (pCanvas) {
     const ctx = pCanvas.getContext('2d');
@@ -296,16 +771,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const particles = [];
-    const colors = ['rgba(217, 70, 239, ', 'rgba(43, 189, 40, ', 'rgba(56, 189, 248, '];
+    const colors = [
+      'rgba(16, 185, 129, ',   // Refined Emerald
+      'rgba(255, 255, 255, ',   // Starlight Off-White
+      'rgba(148, 163, 184, ',   // Muted Slate
+      'rgba(217, 119, 6, '      // Warm Amber Accent
+    ];
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 35; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 4 + 2,
-        speedX: (Math.random() - 0.5) * 0.4,
-        speedY: (Math.random() - 0.5) * 0.4 - 0.2,
-        alpha: Math.random() * 0.5 + 0.15,
+        size: Math.random() * 3.5 + 1.5,
+        speedX: (Math.random() - 0.5) * 0.35,
+        speedY: (Math.random() - 0.5) * 0.35 - 0.15,
+        alpha: Math.random() * 0.45 + 0.1,
         colorBase: colors[Math.floor(Math.random() * colors.length)],
         rotation: Math.random() * Math.PI,
         rotSpeed: (Math.random() - 0.5) * 0.02
@@ -348,444 +828,398 @@ document.addEventListener('DOMContentLoaded', () => {
         ? '<span>🔇 Audio Muted</span>' 
         : '<span>🔊 SFX: Active</span>';
       soundToggleBtn.classList.toggle('text-[#64748b]', sfx.muted);
-      soundToggleBtn.classList.toggle('text-[#2bbd28]', !sfx.muted);
-      if (!sfx.muted) sfx.playClick(900);
+      soundToggleBtn.classList.toggle('text-[#10b981]', !sfx.muted);
+      if (!sfx.muted) sfx.playPop();
     });
   }
 
-  // 3. 3D Parallax Tilt on the Hero Window
-  const tiltStage = document.getElementById('hero-tilt-stage');
-  const tiltCard = document.getElementById('hero-tilt-card');
-
-  if (tiltStage && tiltCard) {
-    tiltStage.addEventListener('mousemove', (e) => {
-      const rect = tiltStage.getBoundingClientRect();
+  // 3. 3D Tilt Parallax on Hero Card
+  const heroStage = document.getElementById('hero-tilt-stage');
+  const heroCard = document.getElementById('hero-tilt-card');
+  if (heroStage && heroCard) {
+    heroStage.addEventListener('mousemove', (e) => {
+      const rect = heroStage.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      const rotateX = (y / (rect.height / 2)) * -9;
-      const rotateY = (x / (rect.width / 2)) * 9;
-
-      tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      const rotY = (x / (rect.width / 2)) * 8;
+      const rotX = -(y / (rect.height / 2)) * 8;
+      heroCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.015, 1.015, 1.015)`;
     });
 
-    tiltStage.addEventListener('mouseleave', () => {
-      tiltCard.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    heroStage.addEventListener('mouseleave', () => {
+      heroCard.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
     });
   }
 
-  // 4. Searchable Historical Version Scrubber & Live Console
-  const versionScrubber = document.getElementById('version-scrubber-list');
+  // 4. Historical Version Scrubber & Live Boot Log Console
+  const versionsListContainer = document.getElementById('versions-list');
   const versionSearchInput = document.getElementById('version-search-input');
-  const currentVersionTitle = document.getElementById('current-version-title');
-  const currentVersionTag = document.getElementById('current-version-tag');
-  const currentVersionType = document.getElementById('current-version-type');
-  const currentVersionSize = document.getElementById('current-version-size');
-  const currentVersionShaders = document.getElementById('current-version-shaders');
-  const currentVersionDesc = document.getElementById('current-version-desc');
+  const activeVerTitle = document.getElementById('active-version-title');
+  const activeVerTag = document.getElementById('active-version-tag');
+  const activeVerDesc = document.getElementById('active-version-desc');
+  const activeVerSize = document.getElementById('active-version-size');
+  const activeVerType = document.getElementById('active-version-type');
+  const activeVerNotes = document.getElementById('active-version-notes');
   const terminalConsole = document.getElementById('terminal-log-output');
-  const simulateLaunchBtn = document.getElementById('btn-simulate-launch');
 
-  let versionSearchTerm = '';
+  let currentSelectedVer = HISTORIC_VERSIONS[0];
 
-  function renderVersionScrubber() {
-    if (!versionScrubber) return;
-    versionScrubber.innerHTML = '';
+  function renderVersionsList(filter = '') {
+    if (!versionsListContainer) return;
+    versionsListContainer.innerHTML = '';
 
+    const term = filter.toLowerCase().trim();
     const filtered = HISTORIC_VERSIONS.filter(v => 
-      v.name.toLowerCase().includes(versionSearchTerm.toLowerCase()) ||
-      v.era.toLowerCase().includes(versionSearchTerm.toLowerCase()) ||
-      v.type.toLowerCase().includes(versionSearchTerm.toLowerCase()) ||
-      v.year.includes(versionSearchTerm)
+      v.name.toLowerCase().includes(term) ||
+      v.version.toLowerCase().includes(term) ||
+      v.era.toLowerCase().includes(term) ||
+      v.type.toLowerCase().includes(term)
     );
 
     if (filtered.length === 0) {
-      versionScrubber.innerHTML = `
-        <div class="py-8 text-center text-[#64748b] font-mono text-xs">
-          No Bedrock release found matching "${versionSearchTerm}".
+      versionsListContainer.innerHTML = `
+        <div class="p-6 text-center text-xs font-mono text-[#64748b]">
+          No matching builds found. Try searching "1.20", "0.14", "Nether", or "AppX".
         </div>
       `;
       return;
     }
 
-    filtered.forEach((ver) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = `w-full text-left px-4 py-3 rounded-xl border transition-all flex items-center justify-between group ${
-        ver.active 
-          ? 'bg-[rgba(217,70,239,0.14)] border-[rgba(217,70,239,0.5)] text-white shadow-[0_0_16px_rgba(217,70,239,0.2)]' 
-          : 'bg-[#0f121a] border-white/5 text-[#94a3b8] hover:border-white/20 hover:text-white'
+    filtered.forEach(v => {
+      const isSelected = v.id === currentSelectedVer.id;
+      const item = document.createElement('div');
+      item.className = `p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between font-mono text-xs ${
+        isSelected 
+          ? 'bg-[#10b981]/15 border-[#10b981]/50 text-white shadow-md' 
+          : 'bg-[#090b10] border-white/5 text-[#94a3b8] hover:border-white/20 hover:text-white'
       }`;
 
-      btn.innerHTML = `
+      item.innerHTML = `
         <div class="flex items-center gap-3">
-          <span class="w-2.5 h-2.5 rounded-full ${ver.active ? 'bg-[#d946ef] shadow-[0_0_8px_#d946ef]' : 'bg-[#334155]'}"></span>
+          <span class="w-2 h-2 rounded-full ${isSelected ? 'bg-[#10b981] live-pulse' : 'bg-white/20'}"></span>
           <div>
-            <div class="text-[13px] font-bold font-mono tracking-tight text-white">${ver.name}</div>
-            <div class="text-[11px] text-[#64748b] font-mono">${ver.era} • Released ${ver.year}</div>
+            <div class="font-bold text-sm ${isSelected ? 'text-white' : 'text-[#e2e8f0]'}">${v.name}</div>
+            <div class="text-[11px] text-[#64748b]">${v.era} • ${v.year}</div>
           </div>
         </div>
-        <span class="text-[11px] font-mono px-2 py-0.5 rounded ${ver.type.includes('GDK') ? 'bg-[#c026d3]/20 text-[#f0abfc] border border-[#c026d3]/40' : 'bg-[#2bbd28]/20 text-[#86efac] border border-[#2bbd28]/40'}">
-          ${ver.type.split(' ')[0]}
-        </span>
+        <div class="text-right">
+          <span class="px-2 py-0.5 rounded text-[10px] font-semibold ${
+            v.type.includes('GDK') 
+              ? 'bg-[#10b981]/20 text-[#34d399] border border-[#10b981]/30' 
+              : 'bg-white/10 text-slate-300 border border-white/15'
+          }">${v.type}</span>
+          <div class="text-[10px] text-[#64748b] mt-1">${v.size}</div>
+        </div>
       `;
 
-      btn.addEventListener('click', () => {
-        sfx.playClick(780);
-        HISTORIC_VERSIONS.forEach(v => v.active = false);
-        ver.active = true;
-        renderVersionScrubber();
-        updateVersionDisplay(ver);
+      item.addEventListener('click', () => {
+        sfx.playClick(680);
+        currentSelectedVer = v;
+        renderVersionsList(filter);
+        updateActiveVersionDisplay(v);
+        simulateBootLog(v);
       });
 
-      versionScrubber.appendChild(btn);
+      versionsListContainer.appendChild(item);
     });
   }
 
-  function updateVersionDisplay(ver) {
-    if (currentVersionTitle) currentVersionTitle.textContent = ver.name;
-    if (currentVersionTag) currentVersionTag.textContent = ver.tag;
-    if (currentVersionType) currentVersionType.textContent = ver.type;
-    if (currentVersionSize) currentVersionSize.textContent = ver.size;
-    if (currentVersionShaders) currentVersionShaders.textContent = ver.shaders;
-    if (currentVersionDesc) currentVersionDesc.textContent = ver.desc;
+  function updateActiveVersionDisplay(v) {
+    if (activeVerTitle) activeVerTitle.textContent = v.name;
+    if (activeVerTag) activeVerTag.textContent = v.tag;
+    if (activeVerDesc) activeVerDesc.textContent = v.features;
+    if (activeVerSize) activeVerSize.textContent = v.size;
+    if (activeVerType) activeVerType.textContent = v.type;
+    if (activeVerNotes) activeVerNotes.textContent = v.notes;
+  }
 
-    if (terminalConsole) {
-      terminalConsole.innerHTML = `
-        <span class="text-[#64748b]">[${new Date().toLocaleTimeString()}]</span> <span class="text-[#38bdf8]">MANIFEST:</span> Resolved ${ver.version} (${ver.type})
-        <br/><span class="text-[#64748b]">[${new Date().toLocaleTimeString()}]</span> <span class="text-[#a855f7]">JUNCTION:</span> Linked to /SavedGames/Instance_${ver.id}
-        <br/><span class="text-[#64748b]">[${new Date().toLocaleTimeString()}]</span> <span class="text-[#2bbd28]">READY:</span> Package verified for instant launch
-      `;
-    }
+  function simulateBootLog(v) {
+    if (!terminalConsole) return;
+    terminalConsole.innerHTML = `
+      <div class="text-[#64748b]">[12:00:01] <span class="text-white">BUGrock Core Engine v1.0.0 (x64)</span></div>
+      <div class="text-[#64748b]">[12:00:02] Querying local index for: <span class="text-[#10b981]">${v.version}</span></div>
+      <div class="text-[#64748b]">[12:00:02] Package format: <span class="text-[#34d399]">${v.type}</span> (${v.size})</div>
+      <div class="text-[#64748b]">[12:00:03] Staging isolated sandbox at: <span class="text-white">Instances/${v.id}/</span></div>
+      <div class="text-[#64748b]">[12:00:03] com.mojang safety checkpoint: <span class="text-[#10b981]">OK (100% Isolated)</span></div>
+      <div class="text-[#10b981] font-bold">[12:00:04] Ready for instant launch without Store conflicts.</div>
+    `;
   }
 
   if (versionSearchInput) {
     versionSearchInput.addEventListener('input', (e) => {
-      versionSearchTerm = e.target.value;
-      renderVersionScrubber();
+      renderVersionsList(e.target.value);
     });
   }
 
-  renderVersionScrubber();
+  renderVersionsList();
+  if (currentSelectedVer) simulateBootLog(currentSelectedVer);
 
-  if (simulateLaunchBtn) {
-    simulateLaunchBtn.addEventListener('click', () => {
-      sfx.playPop();
-      const activeVer = HISTORIC_VERSIONS.find(v => v.active) || HISTORIC_VERSIONS[0];
-      const origText = simulateLaunchBtn.innerHTML;
+  // 5. In-World Add-on Injector Step-by-Step Interactive Demo
+  const btnInjectDemo = document.getElementById('btn-run-injector-demo');
+  const injectStepDisplay = document.getElementById('injector-step-log');
+  if (btnInjectDemo && injectStepDisplay) {
+    btnInjectDemo.addEventListener('click', () => {
+      sfx.playLevelUp();
+      const steps = [
+        "Scanning target world: 'Survival Kingdom' (level.dat verified)",
+        "Extracting .mcaddon manifests (BP & RP UUID validation)",
+        "Injecting behavioral definitions directly to world_behavior_packs.json",
+        "Binding custom textures to world_resource_packs.json",
+        "Injection Complete! World is ready to play immediately."
+      ];
 
-      simulateLaunchBtn.innerHTML = `
-        <span class="animate-spin mr-2">⚙</span>
-        <span>Staging ${activeVer.name.split(' ')[0]}...</span>
-      `;
-      simulateLaunchBtn.classList.add('opacity-75', 'pointer-events-none');
+      injectStepDisplay.innerHTML = '';
+      btnInjectDemo.disabled = true;
+      btnInjectDemo.classList.add('opacity-50');
 
-      if (terminalConsole) {
-        terminalConsole.innerHTML += `
-          <br/><span class="text-[#64748b]">[${new Date().toLocaleTimeString()}]</span> <span class="text-[#f59e0b]">EXEC:</span> Spawning GDKLaunchShim.exe (PID: 8192)
-          <br/><span class="text-[#64748b]">[${new Date().toLocaleTimeString()}]</span> <span class="text-[#2bbd28]">SUCCESS:</span> Minecraft Bedrock active!
-        `;
-        terminalConsole.scrollTop = terminalConsole.scrollHeight;
-      }
-
-      setTimeout(() => {
-        sfx.playLevelUp();
-        simulateLaunchBtn.innerHTML = `✓ Game Running (PID: 8192)`;
+      steps.forEach((st, idx) => {
         setTimeout(() => {
-          simulateLaunchBtn.innerHTML = origText;
-          simulateLaunchBtn.classList.remove('opacity-75', 'pointer-events-none');
-        }, 3000);
-      }, 1100);
-    });
-  }
+          sfx.playClick(600 + idx * 70);
+          const p = document.createElement('div');
+          p.className = idx === steps.length - 1 ? 'text-[#10b981] font-bold' : 'text-[#cbd5e1]';
+          p.textContent = `➔ ${st}`;
+          injectStepDisplay.appendChild(p);
 
-  // 5. Interactive System Diagnostic Scanner
-  const runDiagnosticBtn = document.getElementById('btn-run-diagnostic');
-  const diagCards = document.querySelectorAll('.diag-card');
-  const diagOverallStatus = document.getElementById('diag-overall-status');
-
-  if (runDiagnosticBtn) {
-    runDiagnosticBtn.addEventListener('click', () => {
-      sfx.playClick(600);
-      runDiagnosticBtn.innerHTML = `<span class="animate-spin mr-2">⚙</span> Scanning Subsystem Services...`;
-      runDiagnosticBtn.classList.add('opacity-75', 'pointer-events-none');
-
-      diagCards.forEach((card, idx) => {
-        const badge = card.querySelector('.diag-status-badge');
-        if (badge) {
-          badge.textContent = 'Checking...';
-          badge.className = 'diag-status-badge text-[10px] font-mono text-[#f59e0b]';
-        }
-
-        setTimeout(() => {
-          sfx.playPop();
-          if (badge) {
-            badge.textContent = '✓ Verified Active';
-            badge.className = 'diag-status-badge text-[10px] font-mono text-[#2bbd28] font-bold';
+          if (idx === steps.length - 1) {
+            btnInjectDemo.disabled = false;
+            btnInjectDemo.classList.remove('opacity-50');
           }
-        }, 350 * (idx + 1));
+        }, idx * 450);
       });
-
-      setTimeout(() => {
-        sfx.playLevelUp();
-        runDiagnosticBtn.innerHTML = `✓ All 5 Subsystems Operational`;
-        runDiagnosticBtn.classList.remove('opacity-75', 'pointer-events-none');
-        if (diagOverallStatus) {
-          diagOverallStatus.innerHTML = `<span class="text-[#2bbd28]">● System 100% Ready for BUGrock</span>`;
-        }
-        showToast('All Windows services verified successfully! Full compatibility guaranteed.');
-      }, 2100);
     });
   }
 
-  // 6. Mod Hub Engine & Detail Modal
-  const modCatalogGrid = document.getElementById('mod-catalog-grid');
-  const modFilterChips = document.querySelectorAll('.mod-filter-chip');
+  // 6. Interactive Mod Hub with Category Filters & Search
+  const modCardsContainer = document.getElementById('mod-cards-container');
+  const modFilterBtns = document.querySelectorAll('.mod-category-btn');
   const modSearchInput = document.getElementById('mod-search-input');
-  const modalOverlay = document.getElementById('mod-modal-overlay');
-  const modalTitle = document.getElementById('modal-mod-title');
-  const modalCategory = document.getElementById('modal-mod-category');
-  const modalDesc = document.getElementById('modal-mod-desc');
-  const modalDetails = document.getElementById('modal-mod-details');
-  const modalSize = document.getElementById('modal-mod-size');
-  const modalAuthor = document.getElementById('modal-mod-author');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
-  const modalActionBtn = document.getElementById('modal-action-inject');
+  let currentCategory = 'all';
 
-  let activeCategory = 'all';
-  let searchQuery = '';
+  function renderModCards(cat = 'all', query = '') {
+    if (!modCardsContainer) return;
+    modCardsContainer.innerHTML = '';
 
-  function renderModCatalog() {
-    if (!modCatalogGrid) return;
-    modCatalogGrid.innerHTML = '';
-
-    const filtered = MOD_HUB_CATALOG.filter(mod => {
-      const matchCat = activeCategory === 'all' || mod.category === activeCategory;
-      const matchQuery = mod.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                         mod.author.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCat && matchQuery;
+    const q = query.toLowerCase().trim();
+    const filtered = CURATED_MODS.filter(m => {
+      const matchCat = cat === 'all' || m.category === cat;
+      const matchQ = m.title.toLowerCase().includes(q) || 
+                     m.author.toLowerCase().includes(q) || 
+                     m.desc.toLowerCase().includes(q);
+      return matchCat && matchQ;
     });
 
     if (filtered.length === 0) {
-      modCatalogGrid.innerHTML = `
-        <div class="col-span-full py-12 text-center text-[#64748b] font-mono text-sm">
-          No add-ons found matching "${searchQuery}".
+      modCardsContainer.innerHTML = `
+        <div class="col-span-full p-8 text-center text-xs font-mono text-[#64748b] glass-panel">
+          No add-ons match your criteria. Try switching categories or clearing search.
         </div>
       `;
       return;
     }
 
-    filtered.forEach(mod => {
+    filtered.forEach(m => {
       const card = document.createElement('div');
-      card.className = 'glass-panel p-5 flex flex-col justify-between gap-4 border border-white/5 hover:border-white/20 transition-all cursor-pointer group';
+      card.className = 'glass-panel p-5 flex flex-col justify-between hover:-translate-y-1 transition-transform cursor-pointer group';
       card.innerHTML = `
         <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded ${mod.source === 'MCPEDL' ? 'bg-[#2bbd28]/20 text-[#86efac] border border-[#2bbd28]/40' : 'bg-[#d946ef]/20 text-[#f0abfc] border border-[#d946ef]/40'}">
-              ${mod.source}
+          <div class="flex items-start justify-between gap-2 mb-3">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-slate-300 border border-white/10">
+              ${m.badge}
             </span>
-            <span class="text-[11px] font-mono text-[#f59e0b] flex items-center gap-1">
-              ★ ${mod.rating} <span class="text-[#64748b]">(${mod.downloads})</span>
-            </span>
+            <div class="flex items-center gap-1 text-xs font-mono text-[#d97706]">
+              <span>★</span>
+              <span>${m.rating}</span>
+            </div>
           </div>
-
-          <h4 class="text-base font-bold text-white font-display leading-snug group-hover:text-[#f0abfc] transition-colors mb-1">${mod.title}</h4>
-          <div class="text-[11px] font-mono text-[#64748b] mb-2">By ${mod.author} • ${mod.size}</div>
-          <p class="text-xs text-[#94a3b8] leading-relaxed line-clamp-2">${mod.desc}</p>
+          <h3 class="font-bold text-white text-base group-hover:text-[#10b981] transition-colors leading-snug mb-1">
+            ${m.title}
+          </h3>
+          <div class="text-[11px] font-mono text-[#64748b] mb-3">
+            By <span class="text-[#cbd5e1]">${m.author}</span> • Source: ${m.source}
+          </div>
+          <p class="text-xs text-[#94a3b8] font-sans leading-relaxed mb-4">
+            ${m.desc}
+          </p>
         </div>
 
-        <div class="pt-3 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[10px] font-mono text-[#38bdf8] px-2 py-0.5 rounded bg-[#38bdf8]/10 border border-[#38bdf8]/20">
-            ${mod.badge}
-          </span>
-          <button type="button" class="btn-flagship btn-flagship-green text-xs !py-1.5 !px-3 btn-inspect-pack" data-id="${mod.id}">
-            Inspect & Inject ➔
+        <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#64748b]">
+          <div>
+            <span>${m.size}</span> • <span class="text-[#34d399]">${m.downloads}</span>
+          </div>
+          <button type="button" class="btn-inspect-mod px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 text-white hover:bg-[#10b981] hover:text-black font-semibold transition-colors">
+            Inspect
           </button>
         </div>
       `;
 
-      card.addEventListener('click', (e) => {
-        sfx.playClick(800);
-        openModModal(mod);
+      card.querySelector('.btn-inspect-mod').addEventListener('click', (e) => {
+        e.stopPropagation();
+        sfx.playClick(900);
+        openModInspector(m);
       });
 
-      modCatalogGrid.appendChild(card);
+      card.addEventListener('click', () => {
+        sfx.playClick(750);
+        openModInspector(m);
+      });
+
+      modCardsContainer.appendChild(card);
     });
   }
 
-  function openModModal(mod) {
-    if (!modalOverlay) return;
-    if (modalTitle) modalTitle.textContent = mod.title;
-    if (modalCategory) modalCategory.textContent = `${mod.source} • ${mod.category.toUpperCase()}`;
-    if (modalDesc) modalDesc.textContent = mod.desc;
-    if (modalDetails) modalDetails.textContent = mod.details;
-    if (modalSize) modalSize.textContent = mod.size;
-    if (modalAuthor) modalAuthor.textContent = mod.author;
-
-    modalOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-
-    if (modalActionBtn) {
-      modalActionBtn.onclick = () => {
-        sfx.playPop();
-        modalActionBtn.innerHTML = `<span class="animate-spin mr-2">⚙</span> Injecting into World...`;
-        modalActionBtn.classList.add('opacity-75', 'pointer-events-none');
-
-        setTimeout(() => {
-          sfx.playLevelUp();
-          modalActionBtn.innerHTML = `✓ Injected into Active World!`;
-          showToast(`"${mod.title}" has been safely injected into your world!`);
-          setTimeout(() => {
-            closeModModal();
-            modalActionBtn.innerHTML = `+ Inject Pack into World`;
-            modalActionBtn.classList.remove('opacity-75', 'pointer-events-none');
-          }, 1500);
-        }, 900);
-      };
-    }
-  }
-
-  function closeModModal() {
-    if (!modalOverlay) return;
-    modalOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModModal);
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModModal();
-    });
-  }
-
-  modFilterChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      sfx.playClick(700);
-      modFilterChips.forEach(c => {
-        c.classList.remove('btn-flagship-magenta', 'text-white');
-        c.classList.add('bg-[#12141c]', 'text-[#94a3b8]');
+  modFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sfx.playClick(800);
+      modFilterBtns.forEach(b => {
+        b.classList.remove('bg-[#10b981]', 'text-black', 'border-[#10b981]');
+        b.classList.add('bg-white/5', 'text-[#94a3b8]', 'border-white/10');
       });
-      chip.classList.add('btn-flagship-magenta', 'text-white');
-      chip.classList.remove('bg-[#12141c]', 'text-[#94a3b8]');
-      activeCategory = chip.getAttribute('data-category') || 'all';
-      renderModCatalog();
+      btn.classList.add('bg-[#10b981]', 'text-black', 'border-[#10b981]');
+      btn.classList.remove('bg-white/5', 'text-[#94a3b8]', 'border-white/10');
+      currentCategory = btn.getAttribute('data-cat');
+      renderModCards(currentCategory, modSearchInput ? modSearchInput.value : '');
     });
   });
 
   if (modSearchInput) {
     modSearchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      renderModCatalog();
+      renderModCards(currentCategory, e.target.value);
     });
   }
 
-  renderModCatalog();
+  renderModCards();
 
-  // 7. Toast Notification System
-  function showToast(message) {
-    let toast = document.getElementById('luxury-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'luxury-toast';
-      toast.className = 'fixed bottom-6 right-6 z-50 px-5 py-3.5 rounded-xl border border-white/20 bg-[#0f121a]/95 backdrop-blur-xl text-sm text-white font-mono shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 opacity-0 translate-y-4 pointer-events-none flex items-center gap-2.5';
-      document.body.appendChild(toast);
-    }
-    toast.innerHTML = `<span class="text-[#2bbd28] font-bold">✓</span> <span>${message}</span>`;
-    toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+  // Mod Inspector Modal Dialog
+  const modModal = document.getElementById('mod-inspector-modal');
+  const modModalClose = document.getElementById('mod-modal-close');
+  const modalTitle = document.getElementById('modal-mod-title');
+  const modalAuthor = document.getElementById('modal-mod-author');
+  const modalDesc = document.getElementById('modal-mod-desc');
+  const modalDetails = document.getElementById('modal-mod-details');
+  const modalSize = document.getElementById('modal-mod-size');
+  const modalDownloads = document.getElementById('modal-mod-downloads');
+  const modalRating = document.getElementById('modal-mod-rating');
+  const btnMockInject = document.getElementById('btn-modal-mock-inject');
 
-    setTimeout(() => {
-      toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-    }, 3800);
+  function openModInspector(mod) {
+    if (!modModal) return;
+    if (modalTitle) modalTitle.textContent = mod.title;
+    if (modalAuthor) modalAuthor.textContent = `Author: ${mod.author} • Source: ${mod.source}`;
+    if (modalDesc) modalDesc.textContent = mod.desc;
+    if (modalDetails) modalDetails.textContent = mod.details;
+    if (modalSize) modalSize.textContent = mod.size;
+    if (modalDownloads) modalDownloads.textContent = mod.downloads;
+    if (modalRating) modalRating.textContent = `★ ${mod.rating}`;
+
+    modModal.classList.add('open');
   }
 
-  // 8. 3D Steve / Alex / BUG Guy Wardrobe Canvas Turntable
+  if (modModalClose) {
+    modModalClose.addEventListener('click', () => {
+      sfx.playClick(600);
+      modModal.classList.remove('open');
+    });
+  }
+
+  if (modModal) {
+    modModal.addEventListener('click', (e) => {
+      if (e.target === modModal) {
+        modModal.classList.remove('open');
+      }
+    });
+  }
+
+  if (btnMockInject) {
+    btnMockInject.addEventListener('click', () => {
+      sfx.playLevelUp();
+      const originalText = btnMockInject.innerHTML;
+      btnMockInject.innerHTML = '<span>✓ Injected into Active World!</span>';
+      btnMockInject.classList.remove('btn-flagship-green');
+      btnMockInject.classList.add('bg-white', 'text-black');
+      setTimeout(() => {
+        btnMockInject.innerHTML = originalText;
+        btnMockInject.classList.add('btn-flagship-green');
+        btnMockInject.classList.remove('bg-white', 'text-black');
+      }, 2500);
+    });
+  }
+
+  // 7. Windows Subsystem Diagnostic Scanner (5-Point Check)
+  const btnRunDiag = document.getElementById('btn-run-diagnostics');
+  const diagLogList = document.getElementById('diagnostic-log-list');
+  const diagProgressBar = document.getElementById('diag-progress-bar');
+  const diagOverallStatus = document.getElementById('diag-overall-status');
+
+  const DIAGNOSTIC_CHECKS = [
+    { id: "gamingsvc", name: "Windows Gaming Services (GamingServices.exe)", ok: true, latency: "0.4ms" },
+    { id: "appx", name: "Windows Developer Mode / AppX Sideloading", ok: true, latency: "1.1ms" },
+    { id: "uwp_perm", name: "UWP File System Isolation & Junction Bridges", ok: true, latency: "0.2ms" },
+    { id: "webview2", name: "Microsoft Edge WebView2 Embedded Runtime", ok: true, latency: "0.8ms" },
+    { id: "discord", name: "Discord RPC IPC Pipe Detection", ok: true, latency: "1.4ms" }
+  ];
+
+  if (btnRunDiag && diagLogList) {
+    btnRunDiag.addEventListener('click', () => {
+      sfx.playClick(900);
+      btnRunDiag.disabled = true;
+      btnRunDiag.classList.add('opacity-50');
+      diagLogList.innerHTML = '';
+      if (diagProgressBar) diagProgressBar.style.width = '0%';
+      if (diagOverallStatus) diagOverallStatus.textContent = 'SCANNING SUBSYSTEMS...';
+
+      DIAGNOSTIC_CHECKS.forEach((chk, idx) => {
+        setTimeout(() => {
+          sfx.playClick(700 + idx * 60);
+          const percent = ((idx + 1) / DIAGNOSTIC_CHECKS.length) * 100;
+          if (diagProgressBar) diagProgressBar.style.width = `${percent}%`;
+
+          const row = document.createElement('div');
+          row.className = 'p-3 rounded-lg border border-white/5 bg-[#090b10] flex items-center justify-between text-xs font-mono';
+          row.innerHTML = `
+            <div class="flex items-center gap-2">
+              <span class="text-[#10b981]">✓</span>
+              <span class="text-white">${chk.name}</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-[#64748b]">
+              <span>${chk.latency}</span>
+              <span class="px-2 py-0.5 rounded bg-[#10b981]/20 text-[#34d399] border border-[#10b981]/30">ACTIVE</span>
+            </div>
+          `;
+          diagLogList.appendChild(row);
+
+          if (idx === DIAGNOSTIC_CHECKS.length - 1) {
+            sfx.playLevelUp();
+            btnRunDiag.disabled = false;
+            btnRunDiag.classList.remove('opacity-50');
+            if (diagOverallStatus) {
+              diagOverallStatus.innerHTML = '<span class="text-[#10b981]">ALL SUBSYSTEMS 100% OPERATIONAL</span>';
+            }
+          }
+        }, (idx + 1) * 380);
+      });
+    });
+  }
+
+  // 8. Real 3D Steve / Alex / BUG Guy Wardrobe Canvas Turntable
   const skinCanvas = document.getElementById('skin-preview-canvas');
   const skinSelectBtns = document.querySelectorAll('.skin-model-select-btn');
-  let activeSkinModel = 'steve';
 
   if (skinCanvas) {
-    const ctx = skinCanvas.getContext('2d');
-    let angle = 0;
+    const skinEngine = new MinecraftModel3D(skinCanvas);
 
     skinSelectBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         sfx.playClick(850);
         skinSelectBtns.forEach(b => {
-          b.classList.remove('btn-flagship-magenta', 'text-white');
-          b.classList.add('bg-[#12141c]', 'text-[#94a3b8]');
+          b.classList.remove('btn-flagship-green', 'text-white');
+          b.classList.add('btn-flagship-ghost', 'text-[#94a3b8]');
         });
-        btn.classList.add('btn-flagship-magenta', 'text-white');
-        btn.classList.remove('bg-[#12141c]', 'text-[#94a3b8]');
-        activeSkinModel = btn.getAttribute('data-skin');
+        btn.classList.add('btn-flagship-green', 'text-white');
+        btn.classList.remove('btn-flagship-ghost', 'text-[#94a3b8]');
+        const model = btn.getAttribute('data-skin');
+        skinEngine.setModel(model);
       });
     });
-
-    function drawPixelModel() {
-      ctx.clearRect(0, 0, skinCanvas.width, skinCanvas.height);
-      const cx = skinCanvas.width / 2;
-      const cy = skinCanvas.height / 2;
-
-      ctx.save();
-      ctx.translate(cx, cy);
-
-      const cosA = Math.cos(angle);
-
-      // Colors based on skin model
-      let skinColor = '#b77953';
-      let hairColor = '#4a2e18';
-      let shirtColor = '#008b8b';
-      let pantsColor = '#22388e';
-
-      if (activeSkinModel === 'alex') {
-        skinColor = '#d99d79';
-        hairColor = '#c85623'; // Orange hair
-        shirtColor = '#5b8731'; // Green tunic
-        pantsColor = '#6c593a'; // Brown pants
-      } else if (activeSkinModel === 'bugrock') {
-        skinColor = '#3b124a';
-        hairColor = '#d946ef'; // Magenta glowing hair
-        shirtColor = '#18181b'; // Dark Bedrock suit
-        pantsColor = '#a21caf'; // Neon magenta
-      }
-
-      // Head (Cube)
-      ctx.fillStyle = skinColor;
-      ctx.fillRect(-28 * cosA - 14, -70, 48 * Math.abs(cosA) + 8, 48);
-
-      // Hair
-      ctx.fillStyle = hairColor;
-      ctx.fillRect(-28 * cosA - 14, -70, 48 * Math.abs(cosA) + 8, 14);
-
-      // Eyes
-      if (cosA > 0.1) {
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(-18 * cosA, -50, 10 * cosA, 8);
-        ctx.fillRect(8 * cosA, -50, 10 * cosA, 8);
-        ctx.fillStyle = activeSkinModel === 'alex' ? '#2e8b57' : (activeSkinModel === 'bugrock' ? '#d946ef' : '#2b58bf');
-        ctx.fillRect(-14 * cosA, -50, 6 * cosA, 8);
-        ctx.fillRect(12 * cosA, -50, 6 * cosA, 8);
-      }
-
-      // Shirt (Torso)
-      ctx.fillStyle = shirtColor;
-      ctx.fillRect(-36 * cosA - 10, -20, 68 * Math.abs(cosA) + 12, 60);
-
-      // Pants (Legs)
-      ctx.fillStyle = pantsColor;
-      ctx.fillRect(-26 * cosA - 6, 42, 28 * Math.abs(cosA) + 6, 52);
-      ctx.fillRect(4 * cosA - 4, 42, 28 * Math.abs(cosA) + 6, 52);
-
-      // Shoes
-      ctx.fillStyle = '#262626';
-      ctx.fillRect(-26 * cosA - 6, 90, 28 * Math.abs(cosA) + 6, 12);
-      ctx.fillRect(4 * cosA - 4, 90, 28 * Math.abs(cosA) + 6, 12);
-
-      ctx.restore();
-
-      angle += 0.024;
-      requestAnimationFrame(drawPixelModel);
-    }
-
-    drawPixelModel();
   }
 
   // 9. Interactive FAQ Accordion
@@ -802,29 +1236,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 10. Copy Trigger Buttons
-  document.querySelectorAll('[data-copy-trigger]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      sfx.playClick(900);
-      const text = btn.getAttribute('data-copy-trigger');
-      navigator.clipboard.writeText(text).then(() => {
-        showToast(`Copied to clipboard: ${text}`);
-      });
-    });
-  });
-
-  // 11. Easter Egg: 5 Clicks on Voxel Cube Logo
+  // 10. Easter Egg: 5 Clicks on Voxel Cube Logo
   const easterCube = document.getElementById('easter-voxel-cube');
   let clickCount = 0;
   if (easterCube) {
-    easterCube.addEventListener('click', () => {
+    easterCube.addEventListener('click', (e) => {
+      e.preventDefault();
       clickCount++;
-      sfx.playPop();
+      sfx.playClick(500 + clickCount * 120);
       if (clickCount >= 5) {
         sfx.playLevelUp();
-        showToast('🎉 EASTER EGG UNLOCKED: You found the Secret BUGrock Developer Mode!');
+        alert("🎉 BUGrock Launcher Secret Unlocked! You're running the premier high-performance Bedrock platform for Windows.");
         clickCount = 0;
       }
+    });
+  }
+
+  // 11. Hero Launch Button Feedback
+  const heroLaunchBtn = document.getElementById('btn-hero-launch');
+  if (heroLaunchBtn) {
+    heroLaunchBtn.addEventListener('click', () => {
+      sfx.playLevelUp();
+      const orig = heroLaunchBtn.innerHTML;
+      heroLaunchBtn.innerHTML = '<span>⚡ INITIALIZING INSTANCE 1.21.50...</span>';
+      setTimeout(() => {
+        heroLaunchBtn.innerHTML = orig;
+      }, 2000);
     });
   }
 });

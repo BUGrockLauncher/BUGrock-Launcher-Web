@@ -1,23 +1,15 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   BUGrock Launcher — Flagship 100x Edition
-   The Ultimate Minecraft Bedrock Experience on the Web
+   BUGrock Launcher — Anti-AI Slop Handcrafted Edition
+   Editorial Typography, Non-Neon Palette, Tactile Tactility & Authentic 3D
    ========================================================================== */
 
-/* Authentic Minecraft Fonts */
+/* Authentic Minecraft Display Fonts (Reserved strictly for vintage badges & authentic branding) */
 @font-face {
   font-family: "MinecraftTen";
   src: url("/fonts/MinecraftTen.ttf") format("truetype");
   font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "MinecraftFiveBold";
-  src: url("/fonts/MinecraftFiveBold.ttf") format("truetype");
-  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -31,26 +23,29 @@
 }
 
 :root {
-  --bg-void: #07080c;
-  --bg-obsidian: #0c0e15;
-  --bg-panel: rgba(18, 21, 32, 0.78);
-  --bg-panel-hover: rgba(26, 31, 48, 0.9);
-  --bg-inner: #0f121a;
+  /* Bespoke Anti-Neon Dark Monolithic Tokens */
+  --bg-void: #07080b;
+  --bg-obsidian: #0c0e14;
+  --bg-panel: rgba(14, 17, 24, 0.82);
+  --bg-panel-hover: rgba(20, 24, 35, 0.94);
+  --bg-inner: #090b10;
 
+  /* Fine Hairline Strokes (Anti-Neon Brutalist Discipline) */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(217, 70, 239, 0.45);
-  --border-green: rgba(43, 189, 40, 0.45);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-emerald: rgba(16, 185, 129, 0.35);
 
-  --accent-green: #2bbd28;
-  --accent-magenta: #d946ef;
-  --accent-cyan: #38bdf8;
-  --accent-gold: #f59e0b;
+  /* Single Focused Accents (Ban Cliché Glowing Neon) */
+  --accent-emerald: #10b981;
+  --accent-emerald-dark: #059669;
+  --accent-amber: #d97706;
+  --accent-slate: #94a3b8;
 
-  --font-display: "Wix Madefor Display", "MinecraftTen", sans-serif;
-  --font-mc-ten: "MinecraftTen", sans-serif;
-  --font-mc-pixel: "Minecraft", monospace;
-  --font-body: "Figtree", "Noto Sans", sans-serif;
+  /* Typographic Hierarchy: Editorial Serif + Swiss Geometric Sans */
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-mc-brand: "MinecraftTen", sans-serif;
 }
 
 html, body {
@@ -62,21 +57,49 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Subtle Organic Grid & Monolithic Texture (No Neon Flares) */
+.bg-monolith-canvas {
+  background-color: var(--bg-void);
+  background-image: 
+    radial-gradient(ellipse 70% 45% at 50% -5%, rgba(16, 185, 129, 0.06), transparent 75%),
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.015), transparent 35%),
+    radial-gradient(circle at 90% 70%, rgba(16, 185, 129, 0.03), transparent 45%);
+}
+
+.bg-architect-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Editorial Serif Utility */
+.font-editorial {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.font-brand-mc {
+  font-family: var(--font-mc-brand);
+  letter-spacing: 0.05em;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: #07080c;
+  width: 7px;
+  height: 7px;
+  background: #07080b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252a3d;
+  background: #1e2230;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3c4463;
+  background: #333a50;
 }
 
-/* Floating Particles Canvas */
+/* Canvas Background */
 #particles-canvas {
   position: absolute;
   top: 0;
@@ -87,131 +110,152 @@ html, body {
   z-index: 1;
 }
 
-/* Ambient Radial Flares */
-.bg-ambient-flares {
-  background-color: var(--bg-void);
-  background-image: 
-    radial-gradient(ellipse 85% 60% at 50% -15%, rgba(217, 70, 239, 0.16), transparent),
-    radial-gradient(circle at 15% 25%, rgba(56, 189, 248, 0.08), transparent 45%),
-    radial-gradient(circle at 85% 65%, rgba(43, 189, 40, 0.08), transparent 45%);
-}
-
-.bg-blueprint-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-}
-
-.font-mc-ten {
-  font-family: var(--font-mc-ten);
-  letter-spacing: 0.04em;
-}
-
-.font-mc-pixel {
-  font-family: var(--font-mc-pixel);
-}
-
-/* Flagship Obsidian Glass Panels */
+/* ==========================================================================
+   Editorial Asymmetric Glass Panels
+   ========================================================================== */
 .glass-panel {
   background: var(--bg-panel);
-  backdrop-filter: blur(28px) saturate(1.25);
-  -webkit-backdrop-filter: blur(28px) saturate(1.25);
+  backdrop-filter: blur(24px) saturate(1.15);
+  -webkit-backdrop-filter: blur(24px) saturate(1.15);
   border: 1px solid var(--border-subtle);
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-    0 24px 48px -12px rgba(0, 0, 0, 0.75);
-  border-radius: 18px;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+    0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .glass-panel:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--border-medium);
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    0 32px 64px -16px rgba(0, 0, 0, 0.85);
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 28px 56px -16px rgba(0, 0, 0, 0.85);
 }
 
 .glass-inner {
   background: var(--bg-inner);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 /* ==========================================================================
-   Flagship 3D Bevel Buttons
+   Bespoke Tactile Buttons (Fixed Typography & Anti-Slop Finish)
    ========================================================================== */
-
 .btn-flagship {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mc-ten);
-  color: #ffffff;
-  border: 2px solid #000000;
-  box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 0px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4);
-  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 14.5px;
+  line-height: 1.25;
+  padding: 11px 22px;
+  border-radius: 10px;
   cursor: pointer;
   user-select: none;
-  transition: all 0.12s ease;
   text-decoration: none;
-  font-size: 15px;
-  letter-spacing: 0.04em;
-  border-radius: 6px;
-  text-shadow: 0 2px 0 #121212;
+  transition: all 0.24s cubic-bezier(0.25, 1, 0.5, 1);
+  box-sizing: border-box;
 }
 
-.btn-flagship:hover {
-  filter: brightness(115%);
-  transform: translateY(-2px);
-  box-shadow: inset 2px 2px 0px rgba(255, 255, 255, 0.35), inset -2px -2px 0px rgba(0, 0, 0, 0.5), 0 12px 24px rgba(0, 0, 0, 0.5);
-}
-
-.btn-flagship:active {
-  box-shadow: inset -2px -2px 0px rgba(255, 255, 255, 0.25), inset 2px 2px 0px rgba(0, 0, 0, 0.5);
-  transform: translateY(1px);
-}
-
+/* Refined Emerald CTA (No chunky over-bold font, no muddy text-shadow) */
 .btn-flagship-green {
-  background: linear-gradient(180deg, #388e3c 0%, #2e7d32 100%);
-  border-color: #0d280e;
-  box-shadow: inset 2px 2px 0px #81c784, inset -2px -2px 0px #1b5e20, 0 8px 24px rgba(43, 189, 40, 0.35);
+  background: #10b981;
+  color: #022013;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 6px 20px -2px rgba(16, 185, 129, 0.35);
+  font-weight: 600;
 }
 
-.btn-flagship-magenta {
-  background: linear-gradient(180deg, #c026d3 0%, #9333ea 100%);
-  border-color: #3b0764;
-  box-shadow: inset 2px 2px 0px #f0abfc, inset -2px -2px 0px #581c87, 0 8px 24px rgba(217, 70, 239, 0.35);
+.btn-flagship-green:hover {
+  background: #059669;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 8px 26px -3px rgba(16, 185, 129, 0.45);
 }
 
+.btn-flagship-green:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+/* Muted Obsidian Ghost Button */
 .btn-flagship-ghost {
-  background: #1e2230;
-  border-color: #0b0d14;
-  box-shadow: inset 2px 2px 0px #3d4663, inset -2px -2px 0px #0e111a;
+  background: rgba(255, 255, 255, 0.035);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(12px);
+}
+
+.btn-flagship-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1.5px);
+}
+
+.btn-flagship-ghost:active {
+  transform: translateY(0);
+}
+
+/* Slate Outline Button */
+.btn-flagship-outline {
+  background: transparent;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-flagship-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1.5px);
+}
+
+/* Secondary Emerald Subtle Button */
+.btn-flagship-emerald-subtle {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+.btn-flagship-emerald-subtle:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.45);
+  color: #6ee7b7;
+  transform: translateY(-1.5px);
 }
 
 /* 3D Parallax Tilt */
 .tilt-stage {
-  perspective: 1200px;
+  perspective: 1400px;
   transform-style: preserve-3d;
 }
 
 .tilt-element {
   transform-style: preserve-3d;
-  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.4, 1);
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Modal Dialog */
 .modal-overlay {
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(4, 5, 8, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.28s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .modal-overlay.open {
@@ -219,7 +263,7 @@ html, body {
   pointer-events: auto;
 }
 
-/* Live Pulse Ring */
+/* Live Pulse Indicator */
 .live-pulse {
   position: relative;
 }
@@ -230,28 +274,24 @@ html, body {
   border-radius: 50%;
   background: inherit;
   opacity: 0.4;
-  animation: live-pulse-anim 2.4s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  animation: live-pulse-anim 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
 @keyframes live-pulse-anim {
   0% { transform: scale(0.9); opacity: 0.6; }
-  50% { transform: scale(1.8); opacity: 0; }
+  50% { transform: scale(1.7); opacity: 0; }
   100% { transform: scale(0.9); opacity: 0; }
 }
 
-/* Glowing Rim */
-.shimmer-border {
+/* Fine Hairline Rim (No loud neon glow) */
+.hairline-border {
   position: relative;
 }
-.shimmer-border::before {
+.hairline-border::before {
   content: "";
   position: absolute;
-  inset: -1px;
+  inset: 0;
   border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(90deg, transparent, rgba(217, 70, 239, 0.7), transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   pointer-events: none;
 }
