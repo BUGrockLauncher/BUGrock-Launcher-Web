@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   BUGrock Launcher — Anti-AI Slop Handcrafted Edition
-   Editorial Typography, Non-Neon Palette, Tactile Tactility & Authentic 3D
+   BUGrock Launcher — Glitch Block Signature Edition
+   Colors: #86FF00 (Acid Lime), #FF00E5 (Glitch Magenta), #090A0F (Obsidian Void)
+   STRICT ANTI-GRADIENT PROTOCOL: Zero color gradients everywhere.
+   Bespoke Editorial & Reference Card Design System
    ========================================================================== */
 
-/* Authentic Minecraft Display Fonts (Reserved strictly for vintage badges & authentic branding) */
+/* Authentic Minecraft Display Font (Reserved strictly for brand mark) */
 @font-face {
   font-family: "MinecraftTen";
   src: url("/fonts/MinecraftTen.ttf") format("truetype");
@@ -14,42 +16,33 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Minecraft";
-  src: url("/fonts/Minecraft.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  /* Bespoke Anti-Neon Dark Monolithic Tokens */
-  --bg-void: #07080b;
-  --bg-obsidian: #0c0e14;
-  --bg-panel: rgba(14, 17, 24, 0.82);
-  --bg-panel-hover: rgba(20, 24, 35, 0.94);
-  --bg-inner: #090b10;
+  /* Exact User-Defined Palette (Solid - Zero Color Gradients) */
+  --c-lime: #86FF00;
+  --c-magenta: #FF00E5;
+  --c-void: #090A0F;
 
-  /* Fine Hairline Strokes (Anti-Neon Brutalist Discipline) */
+  /* Solid Surface Tiers */
+  --c-surface-1: #0f121a;
+  --c-surface-2: #151924;
+  --c-surface-3: #1c2130;
+  --c-card-bg: #11141e;
+
+  /* Solid Hairline Borders */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-emerald: rgba(16, 185, 129, 0.35);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-lime: #86FF00;
+  --border-magenta: #FF00E5;
 
-  /* Single Focused Accents (Ban Cliché Glowing Neon) */
-  --accent-emerald: #10b981;
-  --accent-emerald-dark: #059669;
-  --accent-amber: #d97706;
-  --accent-slate: #94a3b8;
-
-  /* Typographic Hierarchy: Editorial Serif + Swiss Geometric Sans */
+  /* Typography */
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --font-mc-brand: "MinecraftTen", sans-serif;
+  --font-brand-mc: "MinecraftTen", sans-serif;
 }
 
 html, body {
-  background-color: var(--bg-void);
+  background-color: var(--c-void);
   color: #f1f5f9;
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -57,31 +50,20 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle Organic Grid & Monolithic Texture (No Neon Flares) */
-.bg-monolith-canvas {
-  background-color: var(--bg-void);
-  background-image: 
-    radial-gradient(ellipse 70% 45% at 50% -5%, rgba(16, 185, 129, 0.06), transparent 75%),
-    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.015), transparent 35%),
-    radial-gradient(circle at 90% 70%, rgba(16, 185, 129, 0.03), transparent 45%);
-}
-
-.bg-architect-grid {
-  background-size: 48px 48px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+/* Monolithic Solid Background (Zero Gradients) */
+.bg-monolith-solid {
+  background-color: var(--c-void);
 }
 
 /* Editorial Serif Utility */
 .font-editorial {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 
 .font-brand-mc {
-  font-family: var(--font-mc-brand);
+  font-family: var(--font-brand-mc);
   letter-spacing: 0.05em;
 }
 
@@ -89,17 +71,17 @@ html, body {
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
-  background: #07080b;
+  background: var(--c-void);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2230;
+  background: var(--c-surface-2);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333a50;
+  background: var(--c-lime);
 }
 
-/* Canvas Background */
+/* Background Canvas */
 #particles-canvas {
   position: absolute;
   top: 0;
@@ -111,37 +93,56 @@ html, body {
 }
 
 /* ==========================================================================
-   Editorial Asymmetric Glass Panels
+   Reference Card Architecture (Solid Glitch Block Panels)
    ========================================================================== */
-.glass-panel {
-  background: var(--bg-panel);
-  backdrop-filter: blur(24px) saturate(1.15);
-  -webkit-backdrop-filter: blur(24px) saturate(1.15);
+.glitch-card {
+  background-color: var(--c-card-bg);
   border: 1px solid var(--border-subtle);
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-    0 20px 40px -15px rgba(0, 0, 0, 0.7);
-  border-radius: 16px;
-  transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 20px;
+  transition: transform 0.22s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.glass-panel:hover {
+.glitch-card:hover {
   border-color: var(--border-medium);
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    0 28px 56px -16px rgba(0, 0, 0, 0.85);
+  transform: translateY(-2px);
 }
 
-.glass-inner {
-  background: var(--bg-inner);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
+.glitch-card-lime-accent {
+  border-color: rgba(134, 255, 0, 0.4);
+}
+.glitch-card-lime-accent:hover {
+  border-color: var(--c-lime);
+  box-shadow: 0 12px 32px -8px rgba(134, 255, 0, 0.15);
+}
+
+.glitch-card-magenta-accent {
+  border-color: rgba(255, 0, 229, 0.4);
+}
+.glitch-card-magenta-accent:hover {
+  border-color: var(--c-magenta);
+  box-shadow: 0 12px 32px -8px rgba(255, 0, 229, 0.15);
+}
+
+.glitch-inner {
+  background-color: var(--c-surface-1);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+/* Icon Diamond Badge (From Reference Image) */
+.icon-diamond-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
-   Bespoke Tactile Buttons (Fixed Typography & Anti-Slop Finish)
+   Solid Buttons (Strict Anti-Gradient, Clean Plus Jakarta Typography)
    ========================================================================== */
 .btn-flagship {
   position: relative;
@@ -153,91 +154,80 @@ html, body {
   letter-spacing: -0.01em;
   font-size: 14.5px;
   line-height: 1.25;
-  padding: 11px 22px;
-  border-radius: 10px;
+  padding: 12px 24px;
+  border-radius: 12px;
   cursor: pointer;
   user-select: none;
   text-decoration: none;
-  transition: all 0.24s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
   box-sizing: border-box;
 }
 
-/* Refined Emerald CTA (No chunky over-bold font, no muddy text-shadow) */
-.btn-flagship-green {
-  background: #10b981;
-  color: #022013;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    0 2px 4px rgba(0, 0, 0, 0.15),
-    0 6px 20px -2px rgba(16, 185, 129, 0.35);
-  font-weight: 600;
+/* Solid Acid Lime Button (#86FF00) */
+.btn-glitch-lime {
+  background-color: var(--c-lime);
+  color: var(--c-void);
+  border: 1px solid var(--c-lime);
+  font-weight: 700;
 }
 
-.btn-flagship-green:hover {
-  background: #059669;
-  color: #ffffff;
+.btn-glitch-lime:hover {
+  background-color: #9aff2b;
   transform: translateY(-2px);
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 8px 26px -3px rgba(16, 185, 129, 0.45);
+  box-shadow: 0 6px 20px -2px rgba(134, 255, 0, 0.35);
 }
 
-.btn-flagship-green:active {
+.btn-glitch-lime:active {
   transform: translateY(0);
-  box-shadow: 
-    inset 0 2px 4px rgba(0, 0, 0, 0.3),
-    0 2px 8px rgba(16, 185, 129, 0.2);
 }
 
-/* Muted Obsidian Ghost Button */
-.btn-flagship-ghost {
-  background: rgba(255, 255, 255, 0.035);
+/* Solid Glitch Magenta Button (#FF00E5) */
+.btn-glitch-magenta {
+  background-color: var(--c-magenta);
+  color: #FFFFFF;
+  border: 1px solid var(--c-magenta);
+  font-weight: 700;
+}
+
+.btn-glitch-magenta:hover {
+  background-color: #ff38eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -2px rgba(255, 0, 229, 0.35);
+}
+
+.btn-glitch-magenta:active {
+  transform: translateY(0);
+}
+
+/* Dark Obsidian Ghost Button */
+.btn-glitch-dark {
+  background-color: var(--c-surface-1);
   color: #cbd5e1;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.btn-flagship-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.2);
+.btn-glitch-dark:hover {
+  background-color: var(--c-surface-2);
+  border-color: var(--c-lime);
+  color: var(--c-lime);
   transform: translateY(-1.5px);
 }
 
-.btn-flagship-ghost:active {
-  transform: translateY(0);
-}
-
-/* Slate Outline Button */
-.btn-flagship-outline {
-  background: transparent;
+/* Outline Button */
+.btn-glitch-outline {
+  background-color: transparent;
   color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.btn-flagship-outline:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #ffffff;
+.btn-glitch-outline:hover {
+  background-color: var(--c-surface-1);
+  border-color: var(--c-magenta);
+  color: var(--c-magenta);
   transform: translateY(-1.5px);
 }
 
-/* Secondary Emerald Subtle Button */
-.btn-flagship-emerald-subtle {
-  background: rgba(16, 185, 129, 0.12);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.28);
-}
-
-.btn-flagship-emerald-subtle:hover {
-  background: rgba(16, 185, 129, 0.2);
-  border-color: rgba(16, 185, 129, 0.45);
-  color: #6ee7b7;
-  transform: translateY(-1.5px);
-}
-
-/* 3D Parallax Tilt */
+/* 3D Parallax Tilt Stage */
 .tilt-stage {
   perspective: 1400px;
   transform-style: preserve-3d;
@@ -250,12 +240,12 @@ html, body {
 
 /* Modal Dialog */
 .modal-overlay {
-  background: rgba(4, 5, 8, 0.88);
+  background-color: rgba(9, 10, 15, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .modal-overlay.open {
@@ -263,7 +253,7 @@ html, body {
   pointer-events: auto;
 }
 
-/* Live Pulse Indicator */
+/* Solid Pulse Indicator (Zero Gradients) */
 .live-pulse {
   position: relative;
 }
@@ -272,26 +262,26 @@ html, body {
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background: inherit;
-  opacity: 0.4;
-  animation: live-pulse-anim 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  background-color: inherit;
+  opacity: 0.45;
+  animation: live-pulse-anim 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
 @keyframes live-pulse-anim {
   0% { transform: scale(0.9); opacity: 0.6; }
-  50% { transform: scale(1.7); opacity: 0; }
+  50% { transform: scale(1.6); opacity: 0; }
   100% { transform: scale(0.9); opacity: 0; }
 }
 
-/* Fine Hairline Rim (No loud neon glow) */
-.hairline-border {
-  position: relative;
+/* Glitch Accent Tags */
+.tag-glitch-magenta {
+  background-color: rgba(255, 0, 229, 0.12);
+  color: var(--c-magenta);
+  border: 1px solid rgba(255, 0, 229, 0.35);
 }
-.hairline-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  pointer-events: none;
+
+.tag-glitch-lime {
+  background-color: rgba(134, 255, 0, 0.12);
+  color: var(--c-lime);
+  border: 1px solid rgba(134, 255, 0, 0.35);
 }
