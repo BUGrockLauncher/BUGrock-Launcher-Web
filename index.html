@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUGrock Launcher — لانشر ماينكرافت بدروك الرسمي لويندوز</title>
-  <meta name="description" content="لانشر BUGrock الاحترافي لماينكرافت بدروك لويندوز 10 و 11. تنزيل أي إصدار من 0.14.0.1 إلى 26.70.22 مع تعديل وتنزيل المودات والشيدرز تلقائياً." />
+  <title>BUGrock Launcher — The Definitive Minecraft Bedrock Edition Launcher for Windows</title>
+  <meta name="description" content="Official BUGrock Launcher for Minecraft Bedrock Edition on Windows 10 & 11. Play any version from 0.14.0.1 to 26.70.22 with automatic in-game mod & shader injection." />
   <link rel="icon" type="image/x-icon" href="./assets/app_icon.ico" />
 
-  <!-- Authentic Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     @font-face {
@@ -66,7 +66,7 @@
     body {
       background-color: var(--bg-dark);
       color: var(--text-white);
-      font-family: 'Noto Sans Arabic', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -85,7 +85,7 @@
     }
 
     /* ==========================================================================
-       TOP NAVBAR (Faithful to BedrockLauncher 50px Style)
+       TOP NAVBAR (BedrockLauncher 50px Style)
        ========================================================================== */
     .navbar {
       background: #262626;
@@ -125,6 +125,7 @@
       font-size: 1.3rem;
       color: #fff;
       text-shadow: 0 2px 0 #000;
+      letter-spacing: 0.5px;
     }
     .nav-brand-title span {
       color: var(--mc-glitch);
@@ -163,7 +164,7 @@
     }
 
     /* ==========================================================================
-       HERO SECTION (Centered Huge Logo + Minecraft Panorama)
+       HERO SECTION (Centered Huge 3D Logo + Panorama Background)
        ========================================================================== */
     .main-section {
       position: relative;
@@ -182,7 +183,7 @@
       padding: 80px 20px 40px 20px;
     }
 
-    /* The Centerpiece: Big 3D Voxel Logo */
+    /* 3D Voxel Logo */
     .hero-logo-wrapper {
       max-width: 720px;
       width: 90%;
@@ -194,7 +195,6 @@
       width: 100%;
       height: auto;
       display: block;
-      image-rendering: auto;
     }
     @keyframes logoFloat {
       0%, 100% { transform: translateY(0); }
@@ -205,7 +205,7 @@
     .hero-flagship-badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: rgba(18, 20, 26, 0.92);
       border: 2px solid #3E4354;
       box-shadow: inset 1px 1px 0 #5E657D, 0 4px 12px rgba(0,0,0,0.5);
@@ -219,6 +219,7 @@
       background-color: var(--mc-lime);
       box-shadow: 0 0 10px var(--mc-lime);
       display: inline-block;
+      flex-shrink: 0;
     }
     .hero-flagship-text {
       font-family: 'Minecraft', monospace;
@@ -347,7 +348,7 @@
     }
 
     /* ==========================================================================
-       FEATURES SECTION (Faithful BedrockLauncher Alternating 3D Cards)
+       FEATURES SECTION (BedrockLauncher Alternating 3D Cards)
        ========================================================================== */
     .home-show-sections {
       background: var(--bg-sections);
@@ -410,7 +411,7 @@
 
     .home-show-section .cont {
       width: 50%;
-      text-align: right;
+      text-align: left;
     }
     .home-show-section .cont .feature-num {
       font-family: 'Minecraft', monospace;
@@ -431,9 +432,9 @@
       line-height: 1.25;
     }
     .home-show-section .cont p {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: #D6D9E0;
-      line-height: 1.8;
+      line-height: 1.75;
       margin-bottom: 16px;
     }
     .home-show-section .cont ul {
@@ -466,12 +467,12 @@
       border: 3px solid #14151A;
       box-shadow: inset 2px 2px 0 #3A3F50, 0 16px 36px rgba(0,0,0,0.7);
       padding: 24px;
-      transform: rotateY(-4deg) rotateX(2deg);
+      transform: rotateY(4deg) rotateX(2deg);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
     }
     .home-show-section.inverted .feature-card-frame {
-      transform: rotateY(4deg) rotateX(2deg);
+      transform: rotateY(-4deg) rotateX(2deg);
     }
     .feature-card-frame:hover {
       transform: rotateY(0deg) rotateX(0deg) scale(1.03);
@@ -608,7 +609,7 @@
     }
 
     /* ==========================================================================
-       FOOTER (BedrockLauncher Dark Stone Style)
+       FOOTER
        ========================================================================== */
     .footer {
       background: #1B1B1B;
@@ -679,10 +680,10 @@
       </a>
 
       <ul class="nav-menu">
-        <li><a href="#features">المميزات</a></li>
-        <li><a href="#versions-vault">خزينة الإصدارات (0.14 - 26.70)</a></li>
-        <li><a href="#mod-engine">تعديل المودات</a></li>
-        <li><a href="#downloads" class="nav-btn-mini">تحميل اللانشر</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#versions-vault">Version Vault (0.14 - 26.70)</a></li>
+        <li><a href="#mod-engine">Mod Injector</a></li>
+        <li><a href="#downloads" class="nav-btn-mini">Download Launcher</a></li>
       </ul>
     </div>
   </nav>
@@ -701,29 +702,29 @@
     <div class="hero-flagship-badge">
       <span class="badge-dot"></span>
       <div class="hero-flagship-text">
-        الوصول لأي إصدار من <strong>0.14.0.1 إلى 26.70.22</strong> مع تعديل وتنزيل المودات تلقائياً داخل النسخ!
+        Play any version from <strong>0.14.0.1 to 26.70.22</strong> with automatic in-game mod & shader injection!
       </div>
     </div>
 
     <!-- Minecraft Green Action Buttons -->
     <div class="buttons-group" id="downloads">
       <a href="https://github.com/BUGrockLauncher/bugrocklauncher.github.io/releases/latest" class="btn-mc-green" id="main-download-btn">
-        <span>⬇ تحميل لنظام ويندوز 10 / 11 (x64)</span>
+        <span>⬇ DOWNLOAD FOR WINDOWS 10 / 11 (x64)</span>
       </a>
       <a href="#versions-vault" class="btn-mc-stone">
-        <span>📦 استعراض الإصدارات المتاحة</span>
+        <span>📦 EXPLORE ALL VERSIONS</span>
       </a>
     </div>
 
     <!-- Metadata strip -->
     <div class="hero-meta-strip">
-      <span>● الإصدار المستقر: <strong>v2.4.1</strong></span>
-      <span>● عزل ملفات كامل: <strong>100% Isolated</strong></span>
-      <span>● تخطي متجر ويندوز: <strong>Zero Store Dependency</strong></span>
-      <span>● استهلاك الرام: <strong>18.4 MB فقط</strong></span>
+      <span>● Current Stable: <strong>v2.4.1</strong></span>
+      <span>● Sandbox Isolation: <strong>100% Isolated</strong></span>
+      <span>● Store Dependency: <strong>Zero Store Locks</strong></span>
+      <span>● Idle Memory: <strong>Only 18.4 MB</strong></span>
     </div>
 
-    <a href="#features" class="arrow-down-btn" title="انتقل للمميزات">
+    <a href="#features" class="arrow-down-btn" title="Scroll down to features">
       ▼
     </a>
   </main>
@@ -735,22 +736,22 @@
     <div class="container">
       
       <div class="section-intro-head">
-        <h2>مميزات BUGrock Launcher</h2>
-        <p>مصمم خصيصاً لمجتمع ماينكرافت بدروك ليوفر لك الحرية الكاملة والتحكم المطلق بدون قيود متجر ويندوز.</p>
+        <h2>BUGrock Launcher Features</h2>
+        <p>Built for the Minecraft Bedrock community to deliver complete freedom, sandbox isolation, and zero Microsoft Store restrictions.</p>
       </div>
 
       <!-- FEATURE 1: All Versions 0.14.0.1 to 26.70.22 -->
       <div class="home-show-section">
         <div class="cont">
-          <span class="feature-num">الميزة #01 // خزينة الإصدارات</span>
-          <h3>جميع إصدارات Bedrock من 0.14.0.1 إلى 26.70.22</h3>
+          <span class="feature-num">FEATURE #01 // VERSION ARCHIVE</span>
+          <h3>Every Bedrock Version from 0.14.0.1 to 26.70.22</h3>
           <p>
-            تنزيل واللعب بأي إصدار في تاريخ اللعبة بنقرة واحدة! من أقدم نسخ الألفا التاريخية (Pocket Edition 0.14.0.1) وحتى أحدث نسخ المعاينة والتحديثات الرسمية (Tricky Trials 26.70.22).
+            Download and run any release in Minecraft Bedrock history with one click. From the earliest Pocket Edition alphas (0.14.0.1) all the way to modern Tricky Trials previews (26.70.22).
           </p>
           <ul>
-            <li>تشغيل إصدارات متعددة في نفس الوقت جنباً إلى جنب.</li>
-            <li>عدم استبدال أو مسح أي نسخة سابقة عند تحميل نسخة جديدة.</li>
-            <li>تحديث تلقائي وفوري فور نزول أي Release أو Preview رسمي.</li>
+            <li>Run multiple different versions concurrently side-by-side.</li>
+            <li>Installing new versions never overwrites or deletes existing builds.</li>
+            <li>Automatic notifications when new official releases or previews drop.</li>
           </ul>
         </div>
 
@@ -763,19 +764,19 @@
             <div class="card-content-preview">
               <div class="preview-pill active">
                 <span>[LATEST] 26.70.22 Preview (Tricky Trials)</span>
-                <span style="color: var(--mc-lime);">جاهز للتشغيل</span>
+                <span style="color: var(--mc-lime);">READY TO PLAY</span>
               </div>
               <div class="preview-pill">
                 <span>[RELEASE] 1.21.40 Stable Channel</span>
-                <span style="color: #60A5FA;">مثبت (480MB)</span>
+                <span style="color: #60A5FA;">INSTALLED (480MB)</span>
               </div>
               <div class="preview-pill">
                 <span>[CLASSIC] 1.16.201 Nether Update</span>
-                <span style="color: #94A3B8;">متاح للتحميل</span>
+                <span style="color: #94A3B8;">AVAILABLE</span>
               </div>
               <div class="preview-pill">
                 <span>[ALPHA] 0.14.0.1 Pocket Edition Legacy</span>
-                <span style="color: #F59E0B;">نسخة نادرة</span>
+                <span style="color: #F59E0B;">LEGACY BUILD</span>
               </div>
             </div>
           </div>
@@ -785,15 +786,15 @@
       <!-- FEATURE 2: Auto Mod & Shader Injector -->
       <div class="home-show-section inverted" id="mod-engine">
         <div class="cont">
-          <span class="feature-num">الميزة #02 // مدير المودات الذكي</span>
-          <h3>التعديل والتنزيل التلقائي للمودات والشيدرز</h3>
+          <span class="feature-num">FEATURE #02 // SMART MOD INJECTOR</span>
+          <h3>Automatic Mod & Shader Injection</h3>
           <p>
-            وداعاً لفتح مجلدات AppData المعقدة أو نقل الملفات يدوياً! اللانشر يقوم بتحميل وتثبيت وتعديل حزم الموارد (Resource Packs) والمودات وحزم السلوك (Behavior Packs) تلقائياً داخل النسخة المحددة.
+            No more digging through cryptic AppData directories or manually renaming `.mcpack` files. BUGrock Launcher automatically downloads, unpacks, and integrates Resource Packs, Behavior Packs, and RenderDragon shaders straight into your chosen instance.
           </p>
           <ul>
-            <li>تنزيل مباشر للمودات من مصادر موثوقة بنقرة زر واحدة.</li>
-            <li>تخصيص مودات وشيدرز خاصة بكل إصدار بمعزل عن الإصدارات الأخرى.</li>
-            <li>دعم تفعيل وتعطيل المودات بضغطة زر دون الحاجة لإعادة تشغيل اللعبة.</li>
+            <li>One-click installation of verified community packs and mods.</li>
+            <li>Assign separate mods and texture packs to individual versions.</li>
+            <li>Toggle packs on and off without restarting or corrupting game files.</li>
           </ul>
         </div>
 
@@ -806,15 +807,15 @@
             <div class="card-content-preview">
               <div class="preview-pill active">
                 <span>⚡ YSS PBR Deferred Shaders</span>
-                <span style="color: var(--mc-lime);">مفعل تلقائياً</span>
+                <span style="color: var(--mc-lime);">INJECTED</span>
               </div>
               <div class="preview-pill active">
                 <span>🎨 Faithful 32x Bedrock Texture Pack</span>
-                <span style="color: var(--mc-lime);">مفعل تلقائياً</span>
+                <span style="color: var(--mc-lime);">INJECTED</span>
               </div>
               <div class="preview-pill">
                 <span>🧩 Action Optimization Behavior Mod</span>
-                <span style="color: #94A3B8;">جاهز للحقن</span>
+                <span style="color: #94A3B8;">STANDBY</span>
               </div>
             </div>
           </div>
@@ -824,15 +825,15 @@
       <!-- FEATURE 3: Isolated World Saves & Zero Corruption -->
       <div class="home-show-section">
         <div class="cont">
-          <span class="feature-num">الميزة #03 // عزل العوالم التام</span>
-          <h3>حماية عوالمك وملفات الحفظ من التلف</h3>
+          <span class="feature-num">FEATURE #03 // TOTAL SAVE ISOLATION</span>
+          <h3>Isolated Worlds & Zero Save File Corruption</h3>
           <p>
-            كل إصدار يعمل في بيئة تخزين معزولة 100% خاصة به (`%localappdata%/BUGrock/instances`). هذا يضمن عدم تعرض عوالمك القديمة لأخطاء الـ World Corruption التي تحدث عندما يفتح المتجر عالماً قديماً في نسخة حديثة.
+            Each version runs within its own strictly isolated environment (`%localappdata%/BUGrock/instances`). Your older worlds are completely safeguarded against accidental world corruption caused by opening them in newer builds.
           </p>
           <ul>
-            <li>نسخ احتياطي فوري لعوالمك بنقرة زر قبل تجربة أي نسخة أو مود جديد.</li>
-            <li>نقل العوالم بسهولة تامة بين الإصدارات دون مخاطر.</li>
-            <li>إمكانية تشغيل اللانشر بالكامل من فلاشة USB (Portable Mode).</li>
+            <li>Instant one-click world backups before testing new versions.</li>
+            <li>Migrate worlds safely between instances with zero collisions.</li>
+            <li>Full Portable USB Mode: take your entire game library anywhere.</li>
           </ul>
         </div>
 
@@ -857,15 +858,15 @@
       <!-- FEATURE 4: Bypass Windows Store Errors & Offline Play -->
       <div class="home-show-section inverted">
         <div class="cont">
-          <span class="feature-num">الميزة #04 // تخطي قيود المتجر</span>
-          <h3>تشغيل بدون متجر مايكروسوفت وبدون إنترنت</h3>
+          <span class="feature-num">FEATURE #04 // STORE ERROR BYPASS</span>
+          <h3>Zero Store Errors & 100% Offline Gameplay</h3>
           <p>
-            تخلص نهائياً من رسائل الخطأ الشهيرة 0x80073CF9 و 0x803F8001 والتحديثات الإجبارية المفاجئة التي تفسد عليك اللعب. BUGrock يسجل حزم التطبيق محلياً ليعمل بكفاءة حتى عند انقطاع الإنترنت بالكامل.
+            Permanently eliminate infamous error codes like 0x80073CF9, 0x803F8001, and unexpected forced updates. BUGrock Launcher registers application packages cleanly on your local machine, allowing you to play anywhere—even without an active internet connection.
           </p>
           <ul>
-            <li>تشغيل اللعبة في وضع أوفلاين كامل بدون الحاجة للاتصال بخوادم المتجر.</li>
-            <li>منع المتجر من إجبارك على تحديث نسختك الحالية رغماً عنك.</li>
-            <li>حظر كامل لحزم التجسس وتجميع البيانات (Zero Telemetry).</li>
+            <li>Full offline gameplay support with cached player profiles.</li>
+            <li>Prevent Windows Store from forcefully overwriting your current game.</li>
+            <li>All telemetry sinks and background analytics are 100% blocked.</li>
           </ul>
         </div>
 
@@ -896,15 +897,15 @@
       <!-- FEATURE 5: RenderDragon Deferred Lighting & PBR Support -->
       <div class="home-show-section">
         <div class="cont">
-          <span class="feature-num">الميزة #05 // الجرافيكس المتقدم</span>
-          <h3>دعم RenderDragon وإضاءة Deferred Lighting</h3>
+          <span class="feature-num">FEATURE #05 // ADVANCED GRAPHICS</span>
+          <h3>RenderDragon & Deferred Lighting PBR</h3>
           <p>
-            استمتع برسوميات فائقة الواقعية مع دعم محرك RenderDragon المتقدم وحزم الإضاءة المؤجلة (Deferred Lighting)، مع ظلال الشمس الديناميكية وانعكاسات الكتل المائية بدقة PBR.
+            Experience next-generation Bedrock graphics with native Deferred Lighting support, directional sun casting, volumetric fog, and physically based rendering (PBR) on compatible preview builds.
           </p>
           <ul>
-            <li>حقن مباشر لملفات المواد والشيدرز بدون تعديل ملفات النظام الأصلية.</li>
-            <li>فتح معدل الإطارات (Unlock FPS) وتخطي قيود الـ V-Sync.</li>
-            <li>تخصيص الذاكرة العشوائية المخصصة (RAM Allocation) لرفع سلاسة اللعب.</li>
+            <li>Hot-load materials and shaders without altering root system files.</li>
+            <li>Unlock frame rates beyond 60 FPS and bypass V-Sync restrictions.</li>
+            <li>Custom RAM allocation for smooth high chunk-distance rendering.</li>
           </ul>
         </div>
 
@@ -941,8 +942,8 @@
   <section id="versions-vault" class="version-vault-section">
     <div class="container">
       <div class="section-intro-head">
-        <h2>خزينة الإصدارات المتاحة</h2>
-        <p>استعرض عينة من إصدارات Bedrock المدعومة بالكامل، مع إمكانية التثبيت والإقلاع بضغطة زر واحدة داخل اللانشر.</p>
+        <h2>Supported Version Vault</h2>
+        <p>A sample of popular Minecraft Bedrock versions available for instant installation and play inside BUGrock Launcher.</p>
       </div>
 
       <div class="vault-grid">
@@ -950,63 +951,63 @@
           <div>
             <div class="ver-tag">LATEST PREVIEW</div>
             <div class="ver-name">26.70.22</div>
-            <div class="ver-desc">أحدث نسخة تجريبية مع تحسينات نظام القتال والوحوش الجديدة وميزات Tricky Trials التجريبية.</div>
+            <div class="ver-desc">Latest preview release with new combat changes, trial chambers, and experimental features.</div>
           </div>
-          <a href="#downloads" class="ver-btn">تثبيت عبر اللانشر</a>
+          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
         </div>
 
         <div class="version-card-item">
           <div>
             <div class="ver-tag">STABLE RELEASE</div>
             <div class="ver-name">1.21.40</div>
-            <div class="ver-desc">الإصدار الرسمي المستقر الأحدث، متوافق مع سيرفرات The Hive و CubeCraft وحزم PBR.</div>
+            <div class="ver-desc">Official current stable build, fully compatible with The Hive, CubeCraft, and PBR packs.</div>
           </div>
-          <a href="#downloads" class="ver-btn">تثبيت عبر اللانشر</a>
+          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
         </div>
 
         <div class="version-card-item">
           <div>
             <div class="ver-tag">TRAILS & TALES</div>
             <div class="ver-name">1.20.80</div>
-            <div class="ver-desc">تحديث الآثار والجمال مع حيوان الأرماديلو ودروع الذئاب ومستودعات الآثار القديمة.</div>
+            <div class="ver-desc">The archaeology update featuring camels, armadillos, wolf armor, and trail ruins.</div>
           </div>
-          <a href="#downloads" class="ver-btn">تثبيت عبر اللانشر</a>
+          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
         </div>
 
         <div class="version-card-item">
           <div>
             <div class="ver-tag">WILD UPDATE</div>
             <div class="ver-name">1.19.80</div>
-            <div class="ver-desc">تحديث البرية والغابات الطينية مع وحش الواردن (Warden) ومدن الأعماق المظلمة.</div>
+            <div class="ver-desc">The Deep Dark update with the Warden, Ancient Cities, and Mangrove Swamps.</div>
           </div>
-          <a href="#downloads" class="ver-btn">تثبيت عبر اللانشر</a>
+          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
         </div>
 
         <div class="version-card-item">
           <div>
             <div class="ver-tag">NETHER UPDATE</div>
             <div class="ver-name">1.16.201</div>
-            <div class="ver-desc">الإصدار الذهبي لسبيد رنرز البيدروك؛ عالم النذر الجديد بمعادن النذرايت وغابات البج الفطرية.</div>
+            <div class="ver-desc">The golden standard for Bedrock speedrunning; the complete Nether overhaul.</div>
           </div>
-          <a href="#downloads" class="ver-btn">تثبيت عبر اللانشر</a>
+          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
         </div>
 
         <div class="version-card-item">
           <div>
             <div class="ver-tag">LEGACY ALPHA</div>
             <div class="ver-name">0.14.0.1</div>
-            <div class="ver-desc">النسخة الكلاسيكية النادرة لأجهزة Pocket Edition مع إضافة الريدستون ووحوش السلايم الأصلية.</div>
+            <div class="ver-desc">The iconic nostalgic Pocket Edition build that introduced repeaters, dispensers, and witches.</div>
           </div>
-          <a href="#downloads" class="ver-btn">تثبيت عبر اللانشر</a>
+          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
         </div>
       </div>
 
       <!-- CTA Box -->
       <div class="cta-download-box">
-        <h3>جاهز لتجربة اللانشر الأقوى لماينكرافت بدروك؟</h3>
-        <p>حمل BUGrock Launcher الآن واستمتع باللعب بأي إصدار تريده مع المودات والشيدرز في ثوانٍ معدودة.</p>
+        <h3>Ready to experience the ultimate Bedrock launcher?</h3>
+        <p>Download BUGrock Launcher today and enjoy running any version with shaders and mods in seconds.</p>
         <a href="https://github.com/BUGrockLauncher/bugrocklauncher.github.io/releases/latest" class="btn-mc-green">
-          <span>⬇ تحميل BUGrock Launcher مجاناً (v2.4.1)</span>
+          <span>⬇ DOWNLOAD BUGROCK LAUNCHER (v2.4.1)</span>
         </a>
       </div>
 
@@ -1019,22 +1020,22 @@
   <footer class="footer">
     <div class="container">
       <ul class="footer-links">
-        <li><a href="#features">المميزات</a></li>
-        <li><a href="#versions-vault">قائمة الإصدارات</a></li>
-        <li><a href="#mod-engine">المودات والشيدرز</a></li>
-        <li><a href="https://github.com/BUGrockLauncher/bugrocklauncher.github.io" target="_blank">المستودع على GitHub</a></li>
-        <li><a href="https://discord.gg/bugrock" target="_blank">سيرفر ديسكورد</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#versions-vault">Version Vault</a></li>
+        <li><a href="#mod-engine">Mod Injector</a></li>
+        <li><a href="https://github.com/BUGrockLauncher/bugrocklauncher.github.io" target="_blank">GitHub Repository</a></li>
+        <li><a href="https://discord.gg/bugrock" target="_blank">Discord Server</a></li>
       </ul>
 
       <p class="disclaimer">
-        BUGrock Launcher هو مشروع مجتمعي حر ومفتوح المصدر (Open Source) تحت رخصة MIT.<br />
-        هذا المشروع غير تابع لشركة Mojang Studios أو Microsoft بأي شكل من الأشكال. جميع حقوق ماينكرافت وبدروك محفوظة لأصحابها.
+        BUGrock Launcher is a free and open-source community project licensed under the MIT License.<br />
+        Not an official Minecraft product. Not approved by or associated with Mojang Studios or Microsoft.
       </p>
 
       <hr />
 
       <p style="color: #666; font-size: 0.85rem;">
-        &copy; 2026 BUGrock Launcher Project. تم التطوير بحب لمجتمع ماينكرافت بدروك.
+        &copy; 2026 BUGrock Launcher Project. Handcrafted with care for the Minecraft Bedrock community.
       </p>
     </div>
   </footer>
