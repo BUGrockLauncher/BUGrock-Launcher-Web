@@ -185,20 +185,44 @@
 
     /* 3D Voxel Logo */
     .hero-logo-wrapper {
+      position: relative;
       max-width: 720px;
       width: 90%;
       margin: 0 auto 1.5rem auto;
-      filter: drop-shadow(0 14px 28px rgba(0,0,0,0.85));
       animation: logoFloat 4s ease-in-out infinite;
     }
     .hero-logo-wrapper img {
       width: 100%;
       height: auto;
       display: block;
+      filter: drop-shadow(0 14px 28px rgba(0,0,0,0.85));
+    }
+    .mc-splash-text {
+      position: absolute;
+      right: -2%;
+      bottom: 4%;
+      font-family: 'Minecraft', monospace;
+      font-size: clamp(0.7rem, 1.55vw, 1.1rem);
+      color: #FFFF00;
+      text-shadow: 2px 2px 0 #3F3F00;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 5;
+      transform-origin: center center;
+      animation: splashPop 2s ease-in-out infinite;
     }
     @keyframes logoFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
+    }
+    @keyframes splashPop {
+      0%, 100% {
+        transform: rotate(-18deg) scale(1);
+      }
+      50% {
+        transform: rotate(-18deg) scale(1.12);
+      }
     }
 
     /* Flagship Feature Announcement Banner */
@@ -696,6 +720,7 @@
     <!-- 3D Voxel Official Logo (Centered & Big) -->
     <div class="hero-logo-wrapper">
       <img src="./assets/bugrock_official_logo.png" alt="BUGrock Launcher Logo" />
+      <span class="mc-splash-text">Unofficial! Not approved by Mojang!</span>
     </div>
 
     <!-- The Flagship Feature Announcement Banner -->
