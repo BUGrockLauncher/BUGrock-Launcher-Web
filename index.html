@@ -844,21 +844,21 @@
         <!-- CARD 1: Dual-Architecture Manager (7 cols) -->
         <article class="bento-card accent-glitch bento-span-7">
           <div>
-            <span class="bento-kicker">01 // DUAL-ARCHITECTURE MANAGER</span>
+            <span class="bento-kicker">01 // VERSION MANAGER</span>
             <h3>GDK (.msixvc) &amp; Legacy UWP (.appx) Support</h3>
             <p>
-              Install and launch official Minecraft Bedrock Release, Preview, and Beta builds across both modern GDK packages and classic UWP builds, or import local packages straight from disk.
+              Install and launch official Minecraft Bedrock Release, Preview, and Beta builds across modern GDK packages and classic UWP builds, or import local packages from disk.
             </p>
             <ul class="bento-list">
-              <li>Automatic decryption key resolution and native launch shim execution for modern <code>.msixvc</code> builds.</li>
-              <li>Direct package registration for legacy <code>.appx</code> builds via Windows AppX deployment services.</li>
+              <li>Supports modern <code>.msixvc</code> (GDK) builds with launch shim support.</li>
+              <li>Registers legacy <code>.appx</code> builds directly via Windows AppX deployment services.</li>
               <li>Built-in <strong>+ Import .appx / .msixvc</strong> sideloading via file picker or drag-and-drop.</li>
             </ul>
           </div>
           <div class="bento-panel">
             <div class="bento-panel-row highlight">
               <span>.msixvc (Modern GDK Package)</span>
-              <span class="bento-tag ok">KEY + LAUNCH SHIM</span>
+              <span class="bento-tag ok">GDK SUPPORT</span>
             </div>
             <div class="bento-panel-row">
               <span>.appx (Legacy UWP Package)</span>
@@ -877,12 +877,12 @@
             <span class="bento-kicker">02 // EDIT INSTANCES</span>
             <h3>Multi-Instance Data Isolation</h3>
             <p>
-              Create, clone, rename, and manage independent profiles inside the <strong>Edit Instances</strong> tab so versions never clash.
+              Create, clone, rename, and manage separate profiles inside the <strong>Edit Instances</strong> tab so versions stay separated.
             </p>
             <ul class="bento-list">
-              <li>Each instance runs inside its own isolated <code>com.mojang</code> directory via safe junctions.</li>
+              <li>Each instance uses its own isolated <code>com.mojang</code> directory via folder junctions.</li>
               <li>Prevents world corruption caused by opening older saves in newer game builds.</li>
-              <li>Automatic safety backup of un-isolated directories before creating instance links.</li>
+              <li>Backs up existing un-isolated directories before linking new instances.</li>
             </ul>
           </div>
           <div class="bento-panel">
@@ -899,16 +899,16 @@
             <span class="bento-kicker">03 // WORLD PROTECTION</span>
             <h3>Pre-Launch World Auto-Backup</h3>
             <p>
-              Optional background archive engine streams your world folders directly to disk as timestamped <code>.zip</code> backups before launching Minecraft.
+              Optional pre-launch backup routine that compresses your world folders into timestamped <code>.zip</code> archives before starting the game.
             </p>
             <ul class="bento-list">
-              <li>Direct streaming ZIP engine with live progress feedback avoids UI freezes on large worlds.</li>
-              <li>Includes a 1-click <strong>Local Data Directory</strong> shortcut in the sidebar to jump right into your saves.</li>
+              <li>Creates timestamped world backups on disk with progress feedback before launch.</li>
+              <li>Includes a 1-click <strong>Local Data Directory</strong> shortcut in the sidebar to open your saves folder.</li>
             </ul>
           </div>
           <div class="bento-panel">
             <div class="bento-panel-row">
-              <span>Auto-Backup Stream</span>
+              <span>Auto-Backup Archive</span>
               <span class="bento-tag ok">TIMESTAMPED .ZIP</span>
             </div>
           </div>
@@ -920,12 +920,12 @@
             <span class="bento-kicker">04 // BUILT-IN CONTENT HUB</span>
             <h3>MCPEDL, CurseForge &amp; Live Servers Browser</h3>
             <p>
-              Browse and download community content inside integrated WebView2 tabs without leaving the launcher, and jump into featured multiplayer servers with one click.
+              Browse and download community packs inside embedded WebView2 tabs without leaving the launcher, and join featured multiplayer servers with one click.
             </p>
             <ul class="bento-list">
               <li>Dedicated categories for <strong>Add-ons &amp; Mods</strong>, <strong>Texture Packs</strong>, <strong>Maps &amp; Worlds</strong>, and <strong>Skins &amp; Packs</strong>.</li>
-              <li>1-click import for <code>.mcpack</code>, <code>.mcaddon</code>, <code>.mcworld</code>, <code>.mctemplate</code>, and <code>.zip</code> archives.</li>
-              <li>Live Bedrock server list (<code>minecraftpocket-servers.com</code>) with <code>minecraft://</code> quick-join and off-screen WebView2 memory suspension.</li>
+              <li>1-click import for <code>.mcpack</code>, <code>.mcaddon</code>, <code>.mcworld</code>, <code>.mctemplate</code>, and <code>.zip</code> files.</li>
+              <li>Built-in Bedrock server browser (<code>minecraftpocket-servers.com</code>) with <code>minecraft://</code> quick-join.</li>
             </ul>
           </div>
           <div class="bento-panel">
@@ -935,22 +935,22 @@
             </div>
             <div class="bento-panel-row">
               <span>minecraftpocket-servers.com</span>
-              <span class="bento-tag ok">QUICK-JOIN + IDLE SUSPEND</span>
+              <span class="bento-tag ok">MINECRAFT:// JOIN</span>
             </div>
           </div>
         </article>
 
-        <!-- CARD 5: 3D Skin Manager & UI Engine (6 cols) -->
+        <!-- CARD 5: 3D Skin Manager & Interface Settings (6 cols) -->
         <article class="bento-card bento-span-6">
           <div>
-            <span class="bento-kicker">05 // SKIN MANAGER &amp; UI ENGINE</span>
-            <h3>3D Interactive Skin Viewer &amp; Low-Performance Mode</h3>
+            <span class="bento-kicker">05 // SKIN MANAGER &amp; SETTINGS</span>
+            <h3>3D Skin Preview &amp; Low-Performance Mode</h3>
             <p>
-              Preview your character skin in real-time 3D right from the sidebar and upload any custom <code>.png</code> skin with one click. Built on a hardware-accelerated dark WPF UI.
+              Preview your character skin in 3D from the sidebar and upload any custom <code>.png</code> skin with one click.
             </p>
             <ul class="bento-list">
-              <li>Master animation toggle and <strong>Low-Performance Mode</strong> in <strong>Settings &amp; Tools</strong> for lighter hardware.</li>
-              <li>Instant skin switching and live preview cube without launching the game first.</li>
+              <li><strong>Low-Performance Mode</strong> toggle in <strong>Settings &amp; Tools</strong> to disable UI animations on lower-end PCs.</li>
+              <li>Quick skin switching and preview cube inside the main launcher window.</li>
             </ul>
           </div>
         </article>
