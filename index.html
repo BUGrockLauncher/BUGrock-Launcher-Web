@@ -76,13 +76,16 @@
     .font-mc-ten,
     .nav-brand-title,
     .nav-btn-mini,
+    .nav-btn-donate,
     .btn-mc-green,
     .btn-mc-stone,
+    .btn-mc-donate,
     .section-intro-head h2,
     .bento-card h3,
     .edition-card h3,
     .req-card h4,
-    .cta-download-box h3 {
+    .cta-download-box h3,
+    .donate-title {
       font-family: 'MinecraftTen', sans-serif;
       font-weight: normal;
       font-synthesis: none;
@@ -172,6 +175,22 @@
     }
     .nav-btn-mini:hover {
       background: var(--mc-green-hover);
+    }
+    .nav-btn-donate {
+      background: #7E22CE;
+      color: #fff;
+      font-size: 0.9rem;
+      padding: 6px 14px;
+      border-top: 2px solid #C084FC;
+      border-left: 2px solid #C084FC;
+      border-bottom: 2px solid #3B0764;
+      border-right: 2px solid #3B0764;
+      text-shadow: 0 1px 0 #000;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .nav-btn-donate:hover {
+      background: #9333EA;
     }
 
     /* ==========================================================================
@@ -741,6 +760,164 @@
       line-height: 1.6;
     }
 
+    /* ==========================================================================
+       HERO DONATE BUTTON & CRYPTO DONATION MODAL
+       ========================================================================== */
+    .btn-mc-donate {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      background: #6B21A8;
+      color: #fff;
+      font-size: 1.15rem;
+      padding: 0.85rem 2rem;
+      border-top: 4px solid #A855F7;
+      border-left: 4px solid #A855F7;
+      border-bottom: 4px solid #3B0764;
+      border-right: 4px solid #3B0764;
+      text-shadow: 0 2.5px 0 #000;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+      transition: all 0.1s ease;
+    }
+    .btn-mc-donate:hover {
+      background: #7E22CE;
+      border-top-color: #C084FC;
+      border-left-color: #C084FC;
+      transform: translateY(-2px);
+    }
+    .btn-mc-donate:active {
+      border-top: 4px solid #3B0764;
+      border-left: 4px solid #3B0764;
+      border-bottom: 4px solid #A855F7;
+      border-right: 4px solid #A855F7;
+      transform: translateY(2px);
+    }
+
+    .donate-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(8, 9, 13, 0.84);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .donate-modal.open {
+      display: flex;
+    }
+    .donate-dialog {
+      background: #16181F;
+      border: 3px solid #2E3346;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.08), 0 24px 60px rgba(0,0,0,0.85);
+      max-width: 460px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .donate-dialog::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #9945FF, #14F195, #FF00E5);
+    }
+    .donate-topbar {
+      background: #101218;
+      border-bottom: 2px solid #252938;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .donate-topbar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #CBD5E1;
+      letter-spacing: 0.05em;
+    }
+    .donate-close-btn {
+      background: #232736;
+      border: 1px solid #3A4056;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .donate-close-btn:hover {
+      background: #DC2626;
+      border-color: #EF4444;
+    }
+    .donate-body {
+      padding: 24px 24px 26px 24px;
+      text-align: center;
+    }
+    .donate-network-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #14F195;
+      background: #11221D;
+      border: 1px solid #1E5C45;
+      padding: 4px 12px;
+      margin-bottom: 10px;
+    }
+    .donate-title {
+      font-size: 1.45rem;
+      color: #fff;
+      text-shadow: 0 3px 0 #000;
+      margin-bottom: 8px;
+    }
+    .donate-sub {
+      font-size: 0.92rem;
+      color: #94A3B8;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .donate-qr-img {
+      width: 220px;
+      height: 220px;
+      border: 4px solid #fff;
+      display: block;
+      margin: 0 auto 18px auto;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.6);
+    }
+    .donate-addr-box {
+      background: #0D0F14;
+      border: 1px solid #2A3040;
+      padding: 10px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #E2E8F0;
+      word-break: break-all;
+      margin-bottom: 14px;
+      text-align: center;
+      user-select: all;
+    }
+    .donate-warning {
+      margin-top: 14px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #FCD34D;
+      font-size: 0.82rem;
+      padding: 9px 12px;
+      line-height: 1.45;
+    }
+
     @media (max-width: 1024px) {
       .bento-span-3 {
         grid-column: span 6;
@@ -754,7 +931,7 @@
       .nav-menu {
         display: none;
       }
-      .btn-mc-green, .btn-mc-stone {
+      .btn-mc-green, .btn-mc-stone, .btn-mc-donate {
         width: 100%;
       }
     }
@@ -774,6 +951,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#editions">Editions (Full vs Lite)</a></li>
         <li><a href="#requirements">System Requirements</a></li>
+        <li><button type="button" class="nav-btn-donate" data-open-donate>💜 Donate</button></li>
         <li><a href="#downloads" class="nav-btn-mini">Download v1.1.10</a></li>
       </ul>
     </div>
@@ -806,6 +984,9 @@
       <a href="#editions" class="btn-mc-stone">
         <span>📦 COMPARE FULL VS LITE</span>
       </a>
+      <button type="button" class="btn-mc-donate" data-open-donate>
+        <span>💜 SUPPORT (CRYPTO)</span>
+      </button>
     </div>
 
     <!-- Metadata strip -->
@@ -1083,6 +1264,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#editions">Editions (Full vs Lite)</a></li>
         <li><a href="#requirements">System Requirements</a></li>
+        <li><a href="#donate" data-open-donate>💜 Donate (Crypto)</a></li>
         <li><a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank">GitHub Repository</a></li>
         <li><a href="https://discord.gg/bugrock" target="_blank">Discord Server</a></li>
       </ul>
@@ -1099,6 +1281,29 @@
       </p>
     </div>
   </footer>
+
+  <!-- Crypto Donation Modal -->
+  <div id="donate-modal" class="donate-modal" role="dialog" aria-modal="true" aria-labelledby="donate-modal-title">
+    <div class="donate-dialog">
+      <div class="donate-topbar">
+        <span class="donate-topbar-label">SUPPORT BUGROCK // CRYPTO DONATION</span>
+        <button type="button" id="close-donate-btn" class="donate-close-btn" aria-label="Close donation dialog">✕</button>
+      </div>
+      <div class="donate-body">
+        <span class="donate-network-badge">SOLANA NETWORK (SOL / SPL)</span>
+        <h3 id="donate-modal-title" class="donate-title">Support Development</h3>
+        <p class="donate-sub">Scan the QR code with your Solana wallet or copy the address below.</p>
+        <img src="./assets/solana_qr.png" alt="Solana Donation QR Code" class="donate-qr-img" />
+        <div class="donate-addr-box" id="sol-address-text">FGbATSqRfoLKCXN5uPgqDbbaUC4cbqFDBJFs9GEMwnjy</div>
+        <button type="button" id="copy-sol-btn" class="btn-mc-green" style="width: 100%; font-size: 1rem; padding: 0.75rem 1.2rem;">
+          <span>📋 COPY ADDRESS</span>
+        </button>
+        <div class="donate-warning">
+          ⚠ Only send Solana (SOL / SPL) assets to this address. Other networks will be lost.
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Web Audio Minecraft Click Sound Engine -->
   <script>
@@ -1122,6 +1327,60 @@
     document.querySelectorAll('a, button').forEach(el => {
       el.addEventListener('click', playMinecraftClick);
     });
+
+    (function() {
+      const modal = document.getElementById('donate-modal');
+      const closeBtn = document.getElementById('close-donate-btn');
+      const copyBtn = document.getElementById('copy-sol-btn');
+      const solAddress = 'FGbATSqRfoLKCXN5uPgqDbbaUC4cbqFDBJFs9GEMwnjy';
+
+      if (!modal) return;
+
+      document.querySelectorAll('[data-open-donate]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          modal.classList.add('open');
+        });
+      });
+
+      function closeModal() {
+        modal.classList.remove('open');
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      if (copyBtn) {
+        let copyTimer = null;
+        copyBtn.addEventListener('click', async () => {
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(solAddress);
+            } else {
+              const ta = document.createElement('textarea');
+              ta.value = solAddress;
+              ta.style.position = 'fixed';
+              ta.style.opacity = '0';
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand('copy');
+              document.body.removeChild(ta);
+            }
+            const label = copyBtn.querySelector('span');
+            if (label) label.textContent = '✓ ADDRESS COPIED!';
+            clearTimeout(copyTimer);
+            copyTimer = setTimeout(() => {
+              if (label) label.textContent = '📋 COPY ADDRESS';
+            }, 2000);
+          } catch (err) {}
+        });
+      }
+    })();
   </script>
 
 </body>
