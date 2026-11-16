@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUGrock Launcher — The Definitive Minecraft Bedrock Edition Launcher for Windows</title>
-  <meta name="description" content="Official BUGrock Launcher for Minecraft Bedrock Edition on Windows 10 & 11. Play any version from 0.14.0.1 to 26.70.22 with automatic in-game mod & shader injection." />
+  <title>BUGrock Launcher — Minecraft Bedrock Edition Launcher for Windows</title>
+  <meta name="description" content="Lightweight, modular Minecraft Bedrock Edition launcher for Windows 10 & 11 (x64). Manage GDK (.msixvc) & UWP (.appx) versions, isolated instances, world auto-backups, and built-in add-ons browser." />
   <link rel="icon" type="image/x-icon" href="./assets/app_icon.ico" />
 
   <!-- Fonts -->
@@ -374,11 +374,11 @@
     }
 
     /* ==========================================================================
-       FEATURES SECTION (BedrockLauncher Alternating 3D Cards)
+       FEATURES BENTO GRID (Asymmetric 12-Column BUGrock Architecture)
        ========================================================================== */
     .home-show-sections {
-      background: var(--bg-sections);
-      padding: 80px 0;
+      background: #14151A;
+      padding: 84px 0;
       position: relative;
     }
     .home-show-sections::before {
@@ -388,222 +388,272 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: #1F1F1F;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      background: linear-gradient(90deg, var(--mc-glitch), var(--mc-green-light), var(--mc-glitch));
+      opacity: 0.75;
     }
 
     .container {
-      max-width: 1060px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     .section-intro-head {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 48px;
     }
     .section-intro-head h2 {
       font-family: 'MinecraftTen', sans-serif;
-      font-size: 2.4rem;
+      font-size: 2.35rem;
       color: #fff;
       text-shadow: 0 4px 0 #000;
       margin-bottom: 12px;
     }
     .section-intro-head p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--text-gray);
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto;
+      line-height: 1.65;
     }
 
-    /* Alternating feature rows */
-    .home-show-section {
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+    .bento-span-7 { grid-column: span 7; }
+    .bento-span-5 { grid-column: span 5; }
+    .bento-span-6 { grid-column: span 6; }
+    .bento-span-3 { grid-column: span 3; }
+
+    .bento-card {
+      background: #181A20;
+      border: 2px solid #2A2E3D;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.06), 0 12px 28px rgba(0,0,0,0.55);
+      padding: 28px;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
-      gap: 48px;
-      padding: 48px 0;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .home-show-section:last-child {
-      border-bottom: none;
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--mc-green-light);
+    }
+    .bento-card.accent-glitch::before {
+      background: var(--mc-glitch);
+    }
+    .bento-card:hover {
+      transform: translateY(-3px);
+      border-color: #464C64;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.1), 0 16px 36px rgba(0,0,0,0.7);
     }
 
-    /* Inverted row for alternating rhythm */
-    .home-show-section.inverted {
-      flex-direction: row-reverse;
-    }
-
-    .home-show-section .cont {
-      width: 50%;
-      text-align: left;
-    }
-    .home-show-section .cont .feature-num {
-      font-family: 'Minecraft', monospace;
-      font-size: 0.95rem;
+    .bento-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       color: var(--mc-lime);
-      margin-bottom: 8px;
+      background: #131B12;
+      border: 1px solid #2A4525;
+      padding: 4px 10px;
       display: inline-block;
-      background: #181C16;
-      border: 1px solid #283C25;
-      padding: 4px 12px;
+      margin-bottom: 12px;
+      width: fit-content;
     }
-    .home-show-section .cont h3 {
+    .bento-card.accent-glitch .bento-kicker {
+      color: #F472B6;
+      background: #231426;
+      border-color: #5E2263;
+    }
+
+    .bento-card h3 {
       font-family: 'MinecraftTen', sans-serif;
-      font-size: 2rem;
+      font-size: 1.6rem;
       color: #fff;
       text-shadow: 0 3px 0 #000;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       line-height: 1.25;
     }
-    .home-show-section .cont p {
-      font-size: 1.12rem;
-      color: #D6D9E0;
-      line-height: 1.75;
-      margin-bottom: 16px;
+    .bento-card p {
+      font-size: 1rem;
+      color: #CBD5E1;
+      line-height: 1.7;
+      margin-bottom: 14px;
     }
-    .home-show-section .cont ul {
+    .bento-list {
       list-style: none;
       padding: 0;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-    .home-show-section .cont li {
-      font-size: 1rem;
+    .bento-list li {
+      font-size: 0.94rem;
       color: #E2E8F0;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 9px;
+      line-height: 1.5;
     }
-    .home-show-section .cont li::before {
+    .bento-list li::before {
       content: '■';
       color: var(--mc-lime);
-      font-size: 0.8rem;
+      font-size: 0.72rem;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .bento-card.accent-glitch .bento-list li::before {
+      color: var(--mc-glitch);
     }
 
-    /* 3D Tilted Card Preview */
-    .home-show-section .img-wrap {
-      width: 48%;
-      perspective: 700px;
-    }
-    .feature-card-frame {
-      background: #1B1D24;
-      border: 3px solid #14151A;
-      box-shadow: inset 2px 2px 0 #3A3F50, 0 16px 36px rgba(0,0,0,0.7);
-      padding: 24px;
-      transform: rotateY(4deg) rotateX(2deg);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-    .home-show-section.inverted .feature-card-frame {
-      transform: rotateY(-4deg) rotateX(2deg);
-    }
-    .feature-card-frame:hover {
-      transform: rotateY(0deg) rotateX(0deg) scale(1.03);
-      box-shadow: inset 2px 2px 0 #525970, 0 20px 48px rgba(0,0,0,0.85);
-    }
-
-    /* Inside Card Visuals */
-    .card-terminal-bar {
-      background: #101116;
-      border-bottom: 2px solid #20232E;
-      padding: 8px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Minecraft', monospace;
-      font-size: 0.85rem;
-      color: var(--text-gray);
-      margin-bottom: 16px;
-    }
-    .card-content-preview {
+    /* Inside Card Telemetry & Status Panel */
+    .bento-panel {
+      background: #101217;
+      border: 1px solid #252936;
+      padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 9px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
-    .preview-pill {
-      background: #111319;
-      border: 1px solid #2B3040;
-      padding: 10px 14px;
+    .bento-panel-row {
+      background: #151821;
+      border: 1px solid #262B38;
+      padding: 9px 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .preview-pill.active {
+    .bento-panel-row.highlight {
       border-color: var(--mc-green-light);
-      background: #141E13;
+      background: #131E14;
+    }
+    .bento-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      background: #1F2430;
+      color: #93C5FD;
+    }
+    .bento-tag.ok {
+      background: #152D17;
+      color: var(--mc-lime);
+    }
+    .bento-tag.glitch {
+      background: #2D1530;
+      color: #F472B6;
     }
 
     /* ==========================================================================
-       VERSION EXPLORER INTERACTIVE VAULT (0.14.0.1 TO 26.70.22)
+       EDITIONS COMPARISON (FULL STANDALONE VS LITE)
        ========================================================================== */
-    .version-vault-section {
-      background: #262626;
+    .editions-section {
+      background: #1B1D24;
       padding: 80px 0;
-      border-top: 2px solid #1A1A1A;
+      border-top: 2px solid #101116;
     }
-    .vault-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .version-card-item {
-      background: #1F1F1F;
-      border: 2px solid #141414;
-      box-shadow: inset 1px 1px 0 #383838;
-      padding: 18px;
+    .edition-card {
+      background: #14161C;
+      border: 2px solid #2B3040;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05), 0 12px 30px rgba(0,0,0,0.6);
+      padding: 32px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.15s;
+      gap: 22px;
+      position: relative;
     }
-    .version-card-item:hover {
-      background: #272727;
+    .edition-card.recommended {
       border-color: var(--mc-green-light);
-      transform: translateY(-2px);
+      background: linear-gradient(180deg, #161F18 0%, #14161C 100%);
     }
-    .ver-tag {
-      font-family: 'Minecraft', monospace;
-      font-size: 0.8rem;
-      padding: 2px 8px;
-      background: #132412;
-      border: 1px solid #2C5E25;
+    .edition-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .edition-size {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--mc-lime);
-      width: fit-content;
+      background: #122214;
+      border: 1px solid #2D5B2B;
+      padding: 5px 12px;
+    }
+    .edition-size.lite {
+      color: #93C5FD;
+      background: #131B2A;
+      border-color: #29416B;
+    }
+    .edition-card h3 {
+      font-family: 'MinecraftTen', sans-serif;
+      font-size: 1.75rem;
+      color: #fff;
+      text-shadow: 0 3px 0 #000;
       margin-bottom: 8px;
     }
-    .ver-name {
+
+    /* ==========================================================================
+       SYSTEM REQUIREMENTS & QUICK SETUP
+       ========================================================================== */
+    .requirements-section {
+      background: #121318;
+      padding: 76px 0;
+      border-top: 2px solid #0C0D10;
+    }
+    .req-card {
+      background: #181A20;
+      border: 2px solid #272B38;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .req-step {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--mc-lime);
+      font-weight: 700;
+    }
+    .req-card h4 {
       font-family: 'MinecraftTen', sans-serif;
-      font-size: 1.35rem;
+      font-size: 1.2rem;
       color: #fff;
-      margin-bottom: 4px;
+      text-shadow: 0 2px 0 #000;
     }
-    .ver-desc {
-      font-size: 0.9rem;
-      color: var(--text-gray);
-      margin-bottom: 14px;
+    .req-card p {
+      font-size: 0.94rem;
+      color: #CBD5E1;
+      line-height: 1.6;
     }
-    .ver-btn {
-      background: var(--mc-stone);
-      color: #fff;
-      font-family: 'MinecraftTen', sans-serif;
-      font-size: 0.95rem;
-      padding: 6px 14px;
-      border: 2px solid #505050;
-      border-bottom-color: #1A1A1A;
-      border-right-color: #1A1A1A;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .ver-btn:hover {
-      background: var(--mc-green);
-      border-color: var(--mc-green-light);
+    .req-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      background: #0E1015;
+      border: 1px solid #2A3040;
+      padding: 4px 8px;
+      color: #FDE047;
+      display: inline-block;
+      margin-top: 4px;
+      word-break: break-word;
     }
 
     /* ==========================================================================
@@ -611,27 +661,30 @@
        ========================================================================== */
     .cta-download-box {
       background: #191B22 url('./assets/minecraft_panorama.jpg');
+      background-color: rgba(12, 13, 18, 0.72);
       background-blend-mode: multiply;
       background-size: cover;
-      border: 3px solid #14151A;
+      background-position: center;
+      border: 3px solid #2A2E3D;
       box-shadow: inset 2px 2px 0 #3E4355, 0 16px 40px rgba(0,0,0,0.8);
-      padding: 60px 32px;
+      padding: 54px 32px;
       text-align: center;
-      margin: 60px auto 0 auto;
-      max-width: 900px;
+      margin: 56px auto 0 auto;
+      max-width: 960px;
     }
     .cta-download-box h3 {
       font-family: 'MinecraftTen', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       color: #fff;
       text-shadow: 0 4px 0 #000;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .cta-download-box p {
-      font-size: 1.2rem;
+      font-size: 1.12rem;
       color: #D6D9E0;
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 auto 28px auto;
+      line-height: 1.6;
     }
 
     /* ==========================================================================
@@ -669,28 +722,35 @@
     }
     .disclaimer {
       font-size: 0.85rem;
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
+    @media (max-width: 1024px) {
+      .bento-span-3 {
+        grid-column: span 6;
+      }
+    }
+
     @media (max-width: 860px) {
-      .home-show-section, .home-show-section.inverted {
-        flex-direction: column;
-        text-align: center;
-      }
-      .home-show-section .cont, .home-show-section .img-wrap {
-        width: 100%;
-        text-align: center;
-      }
-      .home-show-section .cont ul {
-        align-items: center;
+      .bento-span-7, .bento-span-5, .bento-span-6, .bento-span-3 {
+        grid-column: span 12;
       }
       .nav-menu {
         display: none;
       }
       .btn-mc-green, .btn-mc-stone {
         width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-logo-wrapper, .mc-splash-text, .arrow-down-btn {
+        animation: none !important;
+      }
+      .bento-card {
+        transition: none;
       }
     }
   </style>
@@ -707,9 +767,9 @@
 
       <ul class="nav-menu">
         <li><a href="#features">Features</a></li>
-        <li><a href="#versions-vault">Version Vault (0.14 - 26.70)</a></li>
-        <li><a href="#mod-engine">Mod Injector</a></li>
-        <li><a href="#downloads" class="nav-btn-mini">Download Launcher</a></li>
+        <li><a href="#editions">Editions (Full vs Lite)</a></li>
+        <li><a href="#requirements">System Requirements</a></li>
+        <li><a href="#downloads" class="nav-btn-mini">Download v1.1.10</a></li>
       </ul>
     </div>
   </nav>
@@ -729,26 +789,26 @@
     <div class="hero-flagship-badge">
       <span class="badge-dot"></span>
       <div class="hero-flagship-text">
-        Play any version from <strong>0.14.0.1 to 26.70.22</strong> with automatic in-game mod & shader injection!
+        Manage <strong>GDK (.msixvc) &amp; UWP (.appx)</strong> Bedrock versions with isolated instances, pre-launch world auto-backups, and a built-in add-ons &amp; servers hub.
       </div>
     </div>
 
     <!-- Minecraft Green Action Buttons -->
     <div class="buttons-group" id="downloads">
       <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-mc-green" id="main-download-btn">
-        <span>⬇ DOWNLOAD FOR WINDOWS 10 / 11 (x64)</span>
+        <span>⬇ DOWNLOAD v1.1.10 (WINDOWS x64)</span>
       </a>
-      <a href="#versions-vault" class="btn-mc-stone">
-        <span>📦 EXPLORE ALL VERSIONS</span>
+      <a href="#editions" class="btn-mc-stone">
+        <span>📦 COMPARE FULL VS LITE</span>
       </a>
     </div>
 
     <!-- Metadata strip -->
     <div class="hero-meta-strip">
       <span>● Current Stable: <strong>v1.1.10</strong></span>
-      <span>● Sandbox Isolation: <strong>100% Isolated</strong></span>
-      <span>● Store Dependency: <strong>Zero Store Locks</strong></span>
-      <span>● Idle Memory: <strong>Only 18.4 MB</strong></span>
+      <span>● Packages: <strong>GDK (.msixvc) &amp; UWP (.appx)</strong></span>
+      <span>● Editions: <strong>Full (76 MB) &amp; Lite (10 MB)</strong></span>
+      <span>● License: <strong>GPL-3.0 Open Source</strong></span>
     </div>
 
     <a href="#features" class="arrow-down-btn" title="Scroll down to features">
@@ -757,287 +817,255 @@
   </main>
 
   <!-- ========================================================================
-       FEATURES SHOWCASE (Alternating Minecraft 3D Sections)
+       FEATURES SHOWCASE (Asymmetric 12-Column BUGrock Bento Grid)
        ======================================================================== -->
   <section id="features" class="home-show-sections">
     <div class="container">
-      
+
       <div class="section-intro-head">
-        <h2>BUGrock Launcher Features</h2>
-        <p>Built for the Minecraft Bedrock community to deliver complete freedom, sandbox isolation, and zero Microsoft Store restrictions.</p>
+        <h2>Core Features in BUGrock Launcher</h2>
+        <p>A lightweight, modular Minecraft Bedrock Edition launcher for Windows 10 &amp; 11 (x64) built around real instance isolation, dual package support, and zero bloat.</p>
       </div>
 
-      <!-- FEATURE 1: All Versions 0.14.0.1 to 26.70.22 -->
-      <div class="home-show-section">
-        <div class="cont">
-          <span class="feature-num">FEATURE #01 // VERSION ARCHIVE</span>
-          <h3>Every Bedrock Version from 0.14.0.1 to 26.70.22</h3>
-          <p>
-            Download and run any release in Minecraft Bedrock history with one click. From the earliest Pocket Edition alphas (0.14.0.1) all the way to modern Tricky Trials previews (26.70.22).
-          </p>
-          <ul>
-            <li>Run multiple different versions concurrently side-by-side.</li>
-            <li>Installing new versions never overwrites or deletes existing builds.</li>
-            <li>Automatic notifications when new official releases or previews drop.</li>
-          </ul>
-        </div>
+      <div class="bento-grid">
 
-        <div class="img-wrap">
-          <div class="feature-card-frame">
-            <div class="card-terminal-bar">
-              <span>● BEDROCK VERSION REPOSITORY</span>
-              <span style="color: var(--mc-lime);">SYNCED</span>
+        <!-- CARD 1: Dual-Architecture Manager (7 cols) -->
+        <article class="bento-card accent-glitch bento-span-7">
+          <div>
+            <span class="bento-kicker">01 // DUAL-ARCHITECTURE MANAGER</span>
+            <h3>GDK (.msixvc) &amp; Legacy UWP (.appx) Support</h3>
+            <p>
+              Install and launch official Minecraft Bedrock Release, Preview, and Beta builds across both modern GDK packages and classic UWP builds, or import local packages straight from disk.
+            </p>
+            <ul class="bento-list">
+              <li>Automatic decryption key resolution and native launch shim execution for modern <code>.msixvc</code> builds.</li>
+              <li>Direct package registration for legacy <code>.appx</code> builds via Windows AppX deployment services.</li>
+              <li>Built-in <strong>+ Import .appx / .msixvc</strong> sideloading via file picker or drag-and-drop.</li>
+            </ul>
+          </div>
+          <div class="bento-panel">
+            <div class="bento-panel-row highlight">
+              <span>.msixvc (Modern GDK Package)</span>
+              <span class="bento-tag ok">KEY + LAUNCH SHIM</span>
             </div>
-            <div class="card-content-preview">
-              <div class="preview-pill active">
-                <span>[LATEST] 26.70.22 Preview (Tricky Trials)</span>
-                <span style="color: var(--mc-lime);">READY TO PLAY</span>
-              </div>
-              <div class="preview-pill">
-                <span>[RELEASE] 1.21.40 Stable Channel</span>
-                <span style="color: #60A5FA;">INSTALLED (480MB)</span>
-              </div>
-              <div class="preview-pill">
-                <span>[CLASSIC] 1.16.201 Nether Update</span>
-                <span style="color: #94A3B8;">AVAILABLE</span>
-              </div>
-              <div class="preview-pill">
-                <span>[ALPHA] 0.14.0.1 Pocket Edition Legacy</span>
-                <span style="color: #F59E0B;">LEGACY BUILD</span>
-              </div>
+            <div class="bento-panel-row">
+              <span>.appx (Legacy UWP Package)</span>
+              <span class="bento-tag">APPX REGISTRATION</span>
+            </div>
+            <div class="bento-panel-row">
+              <span>Local Package Sideloader</span>
+              <span class="bento-tag glitch">DRAG &amp; DROP / PICKER</span>
             </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- FEATURE 2: Auto Mod & Shader Injector -->
-      <div class="home-show-section inverted" id="mod-engine">
-        <div class="cont">
-          <span class="feature-num">FEATURE #02 // SMART MOD INJECTOR</span>
-          <h3>Automatic Mod & Shader Injection</h3>
-          <p>
-            No more digging through cryptic AppData directories or manually renaming `.mcpack` files. BUGrock Launcher automatically downloads, unpacks, and integrates Resource Packs, Behavior Packs, and RenderDragon shaders straight into your chosen instance.
-          </p>
-          <ul>
-            <li>One-click installation of verified community packs and mods.</li>
-            <li>Assign separate mods and texture packs to individual versions.</li>
-            <li>Toggle packs on and off without restarting or corrupting game files.</li>
-          </ul>
-        </div>
-
-        <div class="img-wrap">
-          <div class="feature-card-frame">
-            <div class="card-terminal-bar">
-              <span>● AUTO MOD & SHADER INJECTOR</span>
-              <span style="color: var(--mc-lime);">AUTO-INJECT</span>
-            </div>
-            <div class="card-content-preview">
-              <div class="preview-pill active">
-                <span>⚡ YSS PBR Deferred Shaders</span>
-                <span style="color: var(--mc-lime);">INJECTED</span>
-              </div>
-              <div class="preview-pill active">
-                <span>🎨 Faithful 32x Bedrock Texture Pack</span>
-                <span style="color: var(--mc-lime);">INJECTED</span>
-              </div>
-              <div class="preview-pill">
-                <span>🧩 Action Optimization Behavior Mod</span>
-                <span style="color: #94A3B8;">STANDBY</span>
-              </div>
+        <!-- CARD 2: Edit Instances (5 cols) -->
+        <article class="bento-card bento-span-5">
+          <div>
+            <span class="bento-kicker">02 // EDIT INSTANCES</span>
+            <h3>Multi-Instance Data Isolation</h3>
+            <p>
+              Create, clone, rename, and manage independent profiles inside the <strong>Edit Instances</strong> tab so versions never clash.
+            </p>
+            <ul class="bento-list">
+              <li>Each instance runs inside its own isolated <code>com.mojang</code> directory via safe junctions.</li>
+              <li>Prevents world corruption caused by opening older saves in newer game builds.</li>
+              <li>Automatic safety backup of un-isolated directories before creating instance links.</li>
+            </ul>
+          </div>
+          <div class="bento-panel">
+            <div class="bento-panel-row highlight">
+              <span>Instance Junctions</span>
+              <span class="bento-tag ok">ISOLATED SAVES</span>
             </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- FEATURE 3: Isolated World Saves & Zero Corruption -->
-      <div class="home-show-section">
-        <div class="cont">
-          <span class="feature-num">FEATURE #03 // TOTAL SAVE ISOLATION</span>
-          <h3>Isolated Worlds & Zero Save File Corruption</h3>
-          <p>
-            Each version runs within its own strictly isolated environment (`%localappdata%/BUGrock/instances`). Your older worlds are completely safeguarded against accidental world corruption caused by opening them in newer builds.
-          </p>
-          <ul>
-            <li>Instant one-click world backups before testing new versions.</li>
-            <li>Migrate worlds safely between instances with zero collisions.</li>
-            <li>Full Portable USB Mode: take your entire game library anywhere.</li>
-          </ul>
-        </div>
-
-        <div class="img-wrap">
-          <div class="feature-card-frame">
-            <div class="card-terminal-bar">
-              <span>● ISOLATED STORAGE SANDBOX</span>
-              <span style="color: var(--mc-lime);">ENFORCED</span>
-            </div>
-            <div class="card-content-preview" style="font-size: 0.8rem; line-height: 1.7;">
-              <div style="background: #000; padding: 12px; border: 1px solid #2B3040;">
-                <span style="color: var(--mc-lime);">Instance_Directory:</span><br />
-                C:\Users\%USER%\AppData\Local\BUGrock\instances\1.21.40\<br /><br />
-                <span style="color: #60A5FA;">Status:</span> Isolated & Protected<br />
-                <span style="color: #F59E0B;">Corruption Guard:</span> ACTIVE (Zero Collisions)
-              </div>
+        <!-- CARD 3: Pre-Launch World Auto-Backup (5 cols) -->
+        <article class="bento-card bento-span-5">
+          <div>
+            <span class="bento-kicker">03 // WORLD PROTECTION</span>
+            <h3>Pre-Launch World Auto-Backup</h3>
+            <p>
+              Optional background archive engine streams your world folders directly to disk as timestamped <code>.zip</code> backups before launching Minecraft.
+            </p>
+            <ul class="bento-list">
+              <li>Direct streaming ZIP engine with live progress feedback avoids UI freezes on large worlds.</li>
+              <li>Includes a 1-click <strong>Local Data Directory</strong> shortcut in the sidebar to jump right into your saves.</li>
+            </ul>
+          </div>
+          <div class="bento-panel">
+            <div class="bento-panel-row">
+              <span>Auto-Backup Stream</span>
+              <span class="bento-tag ok">TIMESTAMPED .ZIP</span>
             </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- FEATURE 4: Bypass Windows Store Errors & Offline Play -->
-      <div class="home-show-section inverted">
-        <div class="cont">
-          <span class="feature-num">FEATURE #04 // STORE ERROR BYPASS</span>
-          <h3>Zero Store Errors & 100% Offline Gameplay</h3>
-          <p>
-            Permanently eliminate infamous error codes like 0x80073CF9, 0x803F8001, and unexpected forced updates. BUGrock Launcher registers application packages cleanly on your local machine, allowing you to play anywhere—even without an active internet connection.
-          </p>
-          <ul>
-            <li>Full offline gameplay support with cached player profiles.</li>
-            <li>Prevent Windows Store from forcefully overwriting your current game.</li>
-            <li>All telemetry sinks and background analytics are 100% blocked.</li>
-          </ul>
-        </div>
-
-        <div class="img-wrap">
-          <div class="feature-card-frame">
-            <div class="card-terminal-bar">
-              <span>● STORE BYPASS TELEMETRY</span>
-              <span style="color: var(--mc-lime);">100% OFFLINE</span>
+        <!-- CARD 4: Built-in Content Hub (7 cols) -->
+        <article class="bento-card accent-glitch bento-span-7">
+          <div>
+            <span class="bento-kicker">04 // BUILT-IN CONTENT HUB</span>
+            <h3>MCPEDL, CurseForge &amp; Live Servers Browser</h3>
+            <p>
+              Browse and download community content inside integrated WebView2 tabs without leaving the launcher, and jump into featured multiplayer servers with one click.
+            </p>
+            <ul class="bento-list">
+              <li>Dedicated categories for <strong>Add-ons &amp; Mods</strong>, <strong>Texture Packs</strong>, <strong>Maps &amp; Worlds</strong>, and <strong>Skins &amp; Packs</strong>.</li>
+              <li>1-click import for <code>.mcpack</code>, <code>.mcaddon</code>, <code>.mcworld</code>, <code>.mctemplate</code>, and <code>.zip</code> archives.</li>
+              <li>Live Bedrock server list (<code>minecraftpocket-servers.com</code>) with <code>minecraft://</code> quick-join and off-screen WebView2 memory suspension.</li>
+            </ul>
+          </div>
+          <div class="bento-panel">
+            <div class="bento-panel-row highlight">
+              <span>MCPEDL &amp; CurseForge Tabs</span>
+              <span class="bento-tag glitch">1-CLICK IMPORT</span>
             </div>
-            <div class="card-content-preview">
-              <div class="preview-pill" style="border-color: #22C55E;">
-                <span>✓ Windows Store Lock:</span>
-                <span style="color: #22C55E;">BYPASSED</span>
-              </div>
-              <div class="preview-pill" style="border-color: #22C55E;">
-                <span>✓ MS Telemetry Packets:</span>
-                <span style="color: #22C55E;">0 SENT (BLOCKED)</span>
-              </div>
-              <div class="preview-pill" style="border-color: #22C55E;">
-                <span>✓ RAM Usage:</span>
-                <span style="color: var(--mc-lime);">18.4 MB (Lightweight)</span>
-              </div>
+            <div class="bento-panel-row">
+              <span>minecraftpocket-servers.com</span>
+              <span class="bento-tag ok">QUICK-JOIN + IDLE SUSPEND</span>
             </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- FEATURE 5: RenderDragon Deferred Lighting & PBR Support -->
-      <div class="home-show-section">
-        <div class="cont">
-          <span class="feature-num">FEATURE #05 // ADVANCED GRAPHICS</span>
-          <h3>RenderDragon & Deferred Lighting PBR</h3>
-          <p>
-            Experience next-generation Bedrock graphics with native Deferred Lighting support, directional sun casting, volumetric fog, and physically based rendering (PBR) on compatible preview builds.
-          </p>
-          <ul>
-            <li>Hot-load materials and shaders without altering root system files.</li>
-            <li>Unlock frame rates beyond 60 FPS and bypass V-Sync restrictions.</li>
-            <li>Custom RAM allocation for smooth high chunk-distance rendering.</li>
-          </ul>
-        </div>
-
-        <div class="img-wrap">
-          <div class="feature-card-frame">
-            <div class="card-terminal-bar">
-              <span>● GRAPHICS PIPELINE DISPATCHER</span>
-              <span style="color: var(--mc-lime);">RENDERDRAGON</span>
-            </div>
-            <div class="card-content-preview">
-              <div class="preview-pill active">
-                <span>Deferred Technical Shaders:</span>
-                <span style="color: var(--mc-lime);">ACTIVE</span>
-              </div>
-              <div class="preview-pill">
-                <span>FPS Limiter:</span>
-                <span style="color: #60A5FA;">UNLIMITED (Bypassed)</span>
-              </div>
-              <div class="preview-pill">
-                <span>Ray-Query Acceleration:</span>
-                <span style="color: #F59E0B;">SUPPORTED</span>
-              </div>
-            </div>
+        <!-- CARD 5: 3D Skin Manager & UI Engine (6 cols) -->
+        <article class="bento-card bento-span-6">
+          <div>
+            <span class="bento-kicker">05 // SKIN MANAGER &amp; UI ENGINE</span>
+            <h3>3D Interactive Skin Viewer &amp; Low-Performance Mode</h3>
+            <p>
+              Preview your character skin in real-time 3D right from the sidebar and upload any custom <code>.png</code> skin with one click. Built on a hardware-accelerated dark WPF UI.
+            </p>
+            <ul class="bento-list">
+              <li>Master animation toggle and <strong>Low-Performance Mode</strong> in <strong>Settings &amp; Tools</strong> for lighter hardware.</li>
+              <li>Instant skin switching and live preview cube without launching the game first.</li>
+            </ul>
           </div>
-        </div>
+        </article>
+
+        <!-- CARD 6: System Diagnostics BUGrock_Check (6 cols) -->
+        <article class="bento-card bento-span-6">
+          <div>
+            <span class="bento-kicker">06 // SYSTEM DIAGNOSTICS</span>
+            <h3>Bundled BUGrock_Check Repair Utility</h3>
+            <p>
+              Diagnose package installation or Windows Store service issues automatically with the bundled <code>BUGrock_Check</code> helper tool.
+            </p>
+            <ul class="bento-list">
+              <li>Inspects core Windows deployment &amp; gaming services: <code>AppXSvc</code>, <code>ClipSvc</code>, <code>GamingServices</code>, and <code>wuauserv</code>.</li>
+              <li>Performs 1-click startup repair if any required system service is stopped or disabled.</li>
+            </ul>
+          </div>
+        </article>
+
       </div>
 
     </div>
   </section>
 
   <!-- ========================================================================
-       VERSION VAULT BROWSER (0.14.0.1 TO 26.70.22)
+       EDITIONS COMPARISON (FULL STANDALONE VS LITE)
        ======================================================================== -->
-  <section id="versions-vault" class="version-vault-section">
+  <section id="editions" class="editions-section">
     <div class="container">
       <div class="section-intro-head">
-        <h2>Supported Version Vault</h2>
-        <p>A sample of popular Minecraft Bedrock versions available for instant installation and play inside BUGrock Launcher.</p>
+        <h2>Choose Your v1.1.10 Edition</h2>
+        <p>Every GitHub release ships in two clean ZIP distributions so you can pick zero-prerequisite convenience or minimal download size.</p>
       </div>
 
-      <div class="vault-grid">
-        <div class="version-card-item">
+      <div class="bento-grid">
+        <!-- Full Standalone Edition (7 cols) -->
+        <div class="edition-card recommended bento-span-7">
           <div>
-            <div class="ver-tag">LATEST PREVIEW</div>
-            <div class="ver-name">26.70.22</div>
-            <div class="ver-desc">Latest preview release with new combat changes, trial chambers, and experimental features.</div>
+            <div class="edition-header">
+              <span class="bento-kicker" style="margin-bottom: 0;">RECOMMENDED // IMMEDIATE PLAY</span>
+              <span class="edition-size">~76 MB ZIP</span>
+            </div>
+            <h3>Full Standalone Edition</h3>
+            <p>
+              Self-contained release with all required runtimes bundled inside. Runs out of the box on any clean Windows 10 or Windows 11 x64 system without manual framework installs.
+            </p>
+            <ul class="bento-list">
+              <li>Includes <strong>.NET 8.0 Desktop Runtime</strong> + <strong>VC++ 2015–2022</strong> + native launch shims.</li>
+              <li>Includes <code>BUGrock_Launcher.exe</code> and the <code>BUGrock_Check</code> service diagnostic utility.</li>
+              <li>Ideal for first-time users who want everything working in one extraction.</li>
+            </ul>
           </div>
-          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
+          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/download/v1.1.10/BUGrock-Launcher-v1.1.10-Full-Standalone-win-x64.zip" class="btn-mc-green" style="width: 100%; font-size: 1.1rem; padding: 0.85rem 1.5rem;">
+            <span>⬇ DOWNLOAD FULL STANDALONE (v1.1.10)</span>
+          </a>
         </div>
 
-        <div class="version-card-item">
+        <!-- Lite Edition (5 cols) -->
+        <div class="edition-card bento-span-5">
           <div>
-            <div class="ver-tag">STABLE RELEASE</div>
-            <div class="ver-name">1.21.40</div>
-            <div class="ver-desc">Official current stable build, fully compatible with The Hive, CubeCraft, and PBR packs.</div>
+            <div class="edition-header">
+              <span class="bento-kicker" style="margin-bottom: 0; color: #93C5FD; background: #131B2A; border-color: #29416B;">MINIMAL // SYSTEM RUNTIMES</span>
+              <span class="edition-size lite">~10 MB ZIP</span>
+            </div>
+            <h3>Lite Edition</h3>
+            <p>
+              Compact archive for systems that already have <strong>.NET 8.0 Desktop Runtime (x64)</strong> and <strong>VC++ 2015–2022 Redistributable</strong> installed.
+            </p>
+            <ul class="bento-list">
+              <li>Identical launcher features, isolated instances, and <code>BUGrock_Check</code> utility.</li>
+              <li>Fastest download and smallest disk footprint for repeat updates.</li>
+            </ul>
           </div>
-          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
+          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/download/v1.1.10/BUGrock-Launcher-v1.1.10-Lite-win-x64.zip" class="btn-mc-stone" style="width: 100%; font-size: 1.05rem; padding: 0.85rem 1.5rem;">
+            <span>⬇ DOWNLOAD LITE EDITION (v1.1.10)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SYSTEM REQUIREMENTS & QUICK SETUP
+       ======================================================================== -->
+  <section id="requirements" class="requirements-section">
+    <div class="container">
+      <div class="section-intro-head">
+        <h2>System Requirements &amp; Quick Setup</h2>
+        <p>Honest prerequisites and a quick checklist so packages install cleanly on the first run.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="req-card bento-span-3">
+          <span class="req-step">01 // OPERATING SYSTEM</span>
+          <h4>Windows 10 / 11 (x64)</h4>
+          <p>Windows 10 (Build 17763 or newer) or Windows 11 on 64-bit x64 architecture.</p>
         </div>
 
-        <div class="version-card-item">
-          <div>
-            <div class="ver-tag">TRAILS & TALES</div>
-            <div class="ver-name">1.20.80</div>
-            <div class="ver-desc">The archaeology update featuring camels, armadillos, wolf armor, and trail ruins.</div>
-          </div>
-          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
+        <div class="req-card bento-span-3">
+          <span class="req-step">02 // UWP PACKAGES</span>
+          <h4>Developer Mode ON</h4>
+          <p>Required by Windows to sideload <code>.appx</code> packages cleanly.</p>
+          <span class="req-code">Settings &gt; System &gt; For developers</span>
         </div>
 
-        <div class="version-card-item">
-          <div>
-            <div class="ver-tag">WILD UPDATE</div>
-            <div class="ver-name">1.19.80</div>
-            <div class="ver-desc">The Deep Dark update with the Warden, Ancient Cities, and Mangrove Swamps.</div>
-          </div>
-          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
+        <div class="req-card bento-span-3">
+          <span class="req-step">03 // EXTRACTION PATH</span>
+          <h4>Short Folder Path</h4>
+          <p>Extract the ZIP to a short path to avoid Windows <code>MAX_PATH</code> errors.</p>
+          <span class="req-code">C:\Games\BUGrock</span>
         </div>
 
-        <div class="version-card-item">
-          <div>
-            <div class="ver-tag">NETHER UPDATE</div>
-            <div class="ver-name">1.16.201</div>
-            <div class="ver-desc">The golden standard for Bedrock speedrunning; the complete Nether overhaul.</div>
-          </div>
-          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
-        </div>
-
-        <div class="version-card-item">
-          <div>
-            <div class="ver-tag">LEGACY ALPHA</div>
-            <div class="ver-name">0.14.0.1</div>
-            <div class="ver-desc">The iconic nostalgic Pocket Edition build that introduced repeaters, dispensers, and witches.</div>
-          </div>
-          <a href="#downloads" class="ver-btn">INSTALL IN LAUNCHER</a>
+        <div class="req-card bento-span-3">
+          <span class="req-step">04 // RUNTIMES</span>
+          <h4>WebView2 &amp; .NET 8</h4>
+          <p>Edge WebView2 is pre-installed on Win 10/11. Full Standalone bundles .NET 8 &amp; VC++.</p>
         </div>
       </div>
 
       <!-- CTA Box -->
       <div class="cta-download-box">
-        <h3>Ready to experience the ultimate Bedrock launcher?</h3>
-        <p>Download BUGrock Launcher today and enjoy running any version with shaders and mods in seconds.</p>
+        <h3>Ready to manage your Bedrock instances cleanly?</h3>
+        <p>Download Full Standalone (~76 MB) for zero-setup launch or Lite (~10 MB) if you already have .NET 8 installed.</p>
         <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-mc-green">
-          <span>⬇ DOWNLOAD BUGROCK LAUNCHER (v1.1.10)</span>
+          <span>⬇ VIEW ALL v1.1.10 RELEASES ON GITHUB</span>
         </a>
       </div>
-
     </div>
   </section>
 
@@ -1048,14 +1076,14 @@
     <div class="container">
       <ul class="footer-links">
         <li><a href="#features">Features</a></li>
-        <li><a href="#versions-vault">Version Vault</a></li>
-        <li><a href="#mod-engine">Mod Injector</a></li>
+        <li><a href="#editions">Editions (Full vs Lite)</a></li>
+        <li><a href="#requirements">System Requirements</a></li>
         <li><a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank">GitHub Repository</a></li>
         <li><a href="https://discord.gg/bugrock" target="_blank">Discord Server</a></li>
       </ul>
 
       <p class="disclaimer">
-        BUGrock Launcher is a free and open-source community project licensed under the MIT License.<br />
+        BUGrock Launcher is free and open-source software licensed under the GNU General Public License v3.0 (GPL-3.0).<br />
         Not an official Minecraft product. Not approved by or associated with Mojang Studios or Microsoft.
       </p>
 
