@@ -203,6 +203,8 @@
       bottom: 4%;
       font-family: 'Minecraft', monospace;
       font-size: clamp(0.7rem, 1.55vw, 1.1rem);
+      line-height: 1.2;
+      text-align: center;
       color: #FFFF00;
       text-shadow: 2px 2px 0 #3F3F00;
       white-space: nowrap;
@@ -210,18 +212,18 @@
       user-select: none;
       z-index: 5;
       transform-origin: center center;
-      animation: splashPop 2s ease-in-out infinite;
+      animation: splashPop 2.3s ease-in-out infinite;
     }
     @keyframes logoFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
     @keyframes splashPop {
-      0%, 100% {
+      0%, 86%, 100% {
         transform: rotate(-18deg) scale(1);
       }
-      50% {
-        transform: rotate(-18deg) scale(1.12);
+      93% {
+        transform: rotate(-18deg) scale(1.18);
       }
     }
 
@@ -720,7 +722,7 @@
     <!-- 3D Voxel Official Logo (Centered & Big) -->
     <div class="hero-logo-wrapper">
       <img src="./assets/bugrock_official_logo.png" alt="BUGrock Launcher Logo" />
-      <span class="mc-splash-text">Unofficial! Not approved by Mojang!</span>
+      <span class="mc-splash-text">Unofficial !<br />NOT approved by MoJang</span>
     </div>
 
     <!-- The Flagship Feature Announcement Banner -->
