@@ -73,9 +73,21 @@
     }
 
     /* Minecraft Typography Utility Classes */
-    .font-mc-ten {
+    .font-mc-ten,
+    .nav-brand-title,
+    .nav-btn-mini,
+    .btn-mc-green,
+    .btn-mc-stone,
+    .section-intro-head h2,
+    .bento-card h3,
+    .edition-card h3,
+    .req-card h4,
+    .cta-download-box h3 {
       font-family: 'MinecraftTen', sans-serif;
-      letter-spacing: 0.5px;
+      font-weight: normal;
+      font-synthesis: none;
+      letter-spacing: 0.065em;
+      word-spacing: 0.12em;
     }
     .font-mc {
       font-family: 'Minecraft', monospace;
@@ -125,7 +137,6 @@
       font-size: 1.3rem;
       color: #fff;
       text-shadow: 0 2px 0 #000;
-      letter-spacing: 0.5px;
     }
     .nav-brand-title span {
       color: var(--mc-glitch);
@@ -501,17 +512,18 @@
     .bento-list li {
       font-size: 0.94rem;
       color: #E2E8F0;
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      line-height: 1.5;
+      display: block;
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.55;
     }
     .bento-list li::before {
       content: '■';
       color: var(--mc-lime);
       font-size: 0.72rem;
-      margin-top: 4px;
-      flex-shrink: 0;
+      position: absolute;
+      left: 0;
+      top: 0.2em;
     }
     .bento-card.accent-glitch .bento-list li::before {
       color: var(--mc-glitch);
