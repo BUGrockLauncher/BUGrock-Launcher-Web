@@ -212,6 +212,7 @@
       position: absolute;
       right: -2%;
       bottom: 4%;
+      display: inline-block;
       font-family: 'Minecraft', monospace;
       font-size: clamp(0.7rem, 1.55vw, 1.1rem);
       line-height: 1.2;
@@ -223,6 +224,7 @@
       user-select: none;
       z-index: 5;
       transform-origin: center center;
+      transform: rotate(-18deg) scale(1);
       animation: splashPop 2.3s ease-in-out infinite;
     }
     @keyframes logoFloat {
@@ -230,11 +232,11 @@
       50% { transform: translateY(-8px); }
     }
     @keyframes splashPop {
-      0%, 86%, 100% {
+      0%, 85%, 100% {
         transform: rotate(-18deg) scale(1);
       }
-      93% {
-        transform: rotate(-18deg) scale(1.18);
+      92.5% {
+        transform: rotate(-18deg) scale(1.22);
       }
     }
 
@@ -754,15 +756,6 @@
       }
       .btn-mc-green, .btn-mc-stone {
         width: 100%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-logo-wrapper, .mc-splash-text, .arrow-down-btn {
-        animation: none !important;
-      }
-      .bento-card {
-        transition: none;
       }
     }
   </style>
