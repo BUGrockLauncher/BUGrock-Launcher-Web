@@ -1333,6 +1333,14 @@
         });
       });
 
+      function checkDonateTrigger() {
+        if (window.location.hash === '#donate' || new URLSearchParams(window.location.search).has('donate')) {
+          modal.classList.add('open');
+        }
+      }
+      checkDonateTrigger();
+      window.addEventListener('hashchange', checkDonateTrigger);
+
       function closeModal() {
         modal.classList.remove('open');
       }
